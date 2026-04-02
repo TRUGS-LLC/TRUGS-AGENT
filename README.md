@@ -29,6 +29,8 @@ NO AGENT SHALL COMMIT TO BRANCH main.
 
 **AAA** — A 9-phase development protocol. Your LLM plans before it codes, defines audit criteria before it builds, and never ships without your approval.
 
+**EPIC** — A portfolio tracker as a TRUG graph. Your LLM navigates your projects, knows what's in progress, what's blocked, and what depends on what — all as a traversable graph.
+
 **Memory** — Persistent context across sessions. Your LLM remembers decisions, preferences, and project state.
 
 ## Why This Over Writing Good Prompts
