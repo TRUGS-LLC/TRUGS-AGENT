@@ -1,0 +1,377 @@
+{
+  "name": "Mutual Non-Disclosure Agreement",
+  "version": "1.0.0",
+  "type": "AGREEMENT",
+  "description": "Mutual NDA for TRUGS LLC — Washington State, RCW 19.108, plain English, 12 clauses",
+  "dimensions": {
+    "legal": {
+      "description": "Legal structure — clauses, obligations, definitions, remedies",
+      "base_level": "BASE"
+    }
+  },
+  "capabilities": {
+    "extensions": [],
+    "vocabularies": ["core_v1.0.0"],
+    "profiles": []
+  },
+  "nodes": [
+    {
+      "id": "nda",
+      "type": "NAMESPACE",
+      "properties": {
+        "name": "Mutual Non-Disclosure Agreement",
+        "type": "mutual",
+        "governing_law": "Washington State",
+        "statute": "RCW 19.108",
+        "jurisdiction": "King County, WA",
+        "term_years": 2,
+        "survival_years": 3,
+        "effective_date": null,
+        "parties": ["TRUGS LLC", "Counterparty"]
+      },
+      "parent_id": null,
+      "contains": ["clause_parties", "clause_purpose", "clause_definition", "clause_exclusions", "clause_obligations", "clause_permitted", "clause_term", "clause_return", "clause_remedies", "clause_whistleblower", "clause_general", "clause_signatures", "ref_rcw_19_108", "ref_dtsa", "ref_utsa", "ref_aba", "ref_8_provisions", "ref_11_mistakes", "ref_acc_enforcement", "ref_bonterms", "ref_unda", "ref_plain_language", "ref_cornell"],
+      "metric_level": "KILO_NAMESPACE",
+      "dimension": "legal"
+    },
+
+    {
+      "id": "clause_parties",
+      "type": "RECORD",
+      "properties": {
+        "name": "Section 1 — Parties",
+        "section": 1,
+        "purpose": "Identifies both parties and establishes mutual nature — each is both Disclosing and Receiving Party",
+        "defines": ["Disclosing Party", "Receiving Party", "Party", "Parties"]
+      },
+      "parent_id": "nda",
+      "contains": [],
+      "metric_level": "BASE_RECORD",
+      "dimension": "legal"
+    },
+    {
+      "id": "clause_purpose",
+      "type": "RECORD",
+      "properties": {
+        "name": "Section 2 — Purpose",
+        "section": 2,
+        "purpose": "Defines the business purpose for sharing confidential information — limits use to this purpose only",
+        "defines": ["Purpose"]
+      },
+      "parent_id": "nda",
+      "contains": [],
+      "metric_level": "BASE_RECORD",
+      "dimension": "legal"
+    },
+    {
+      "id": "clause_definition",
+      "type": "RECORD",
+      "properties": {
+        "name": "Section 3 — Definition of Confidential Information",
+        "section": 3,
+        "purpose": "Defines what information is protected — technical, business, financial data, marked or orally identified within 10 days",
+        "defines": ["Confidential Information"],
+        "includes": ["source code", "specifications", "algorithms", "business plans", "customer lists", "financial data", "marked materials", "oral disclosures identified in writing"]
+      },
+      "parent_id": "nda",
+      "contains": [],
+      "metric_level": "BASE_RECORD",
+      "dimension": "legal"
+    },
+    {
+      "id": "clause_exclusions",
+      "type": "RECORD",
+      "properties": {
+        "name": "Section 4 — Exclusions",
+        "section": 4,
+        "purpose": "Carves out information that is NOT confidential — 4 standard exclusions required for enforceability",
+        "exclusions": ["publicly available", "prior possession", "independently developed", "third party disclosure without restriction"]
+      },
+      "parent_id": "nda",
+      "contains": [],
+      "metric_level": "BASE_RECORD",
+      "dimension": "legal"
+    },
+    {
+      "id": "clause_obligations",
+      "type": "RECORD",
+      "properties": {
+        "name": "Section 5 — Obligations of the Receiving Party",
+        "section": 5,
+        "purpose": "Core duties — protect with reasonable care, use only for Purpose, disclose only to authorized Representatives, responsible for Representative breaches",
+        "obligations": ["protect with reasonable care", "use only for Purpose", "limit disclosure to Representatives", "responsible for Representative breaches"]
+      },
+      "parent_id": "nda",
+      "contains": [],
+      "metric_level": "BASE_RECORD",
+      "dimension": "legal"
+    },
+    {
+      "id": "clause_permitted",
+      "type": "RECORD",
+      "properties": {
+        "name": "Section 6 — Permitted Disclosures",
+        "section": 6,
+        "purpose": "Allows disclosure when compelled by law — requires notice to Disclosing Party, cooperation on protective order, minimum disclosure",
+        "conditions": ["required by law/regulation/court order", "must notify Disclosing Party", "cooperate on protective order", "disclose minimum required"]
+      },
+      "parent_id": "nda",
+      "contains": [],
+      "metric_level": "BASE_RECORD",
+      "dimension": "legal"
+    },
+    {
+      "id": "clause_term",
+      "type": "RECORD",
+      "properties": {
+        "name": "Section 7 — Term and Termination",
+        "section": 7,
+        "purpose": "2-year term, 30-day termination notice, 3-year survival for confidentiality obligations, indefinite for trade secrets",
+        "term_years": 2,
+        "termination_notice_days": 30,
+        "survival_years": 3,
+        "trade_secret_survival": "indefinite"
+      },
+      "parent_id": "nda",
+      "contains": [],
+      "metric_level": "BASE_RECORD",
+      "dimension": "legal"
+    },
+    {
+      "id": "clause_return",
+      "type": "RECORD",
+      "properties": {
+        "name": "Section 8 — Return of Materials",
+        "section": 8,
+        "purpose": "Return or destroy all Confidential Information within 10 days of termination or request — certify destruction, retain only legal/backup copies",
+        "return_period_days": 10
+      },
+      "parent_id": "nda",
+      "contains": [],
+      "metric_level": "BASE_RECORD",
+      "dimension": "legal"
+    },
+    {
+      "id": "clause_remedies",
+      "type": "RECORD",
+      "properties": {
+        "name": "Section 9 — Remedies",
+        "section": 9,
+        "purpose": "Acknowledges irreparable harm, allows injunctive relief without bond under RCW 19.108, preserves all other remedies",
+        "remedies": ["injunctive relief", "no bond required", "all other remedies at law or equity"],
+        "statute": "RCW 19.108"
+      },
+      "parent_id": "nda",
+      "contains": [],
+      "metric_level": "BASE_RECORD",
+      "dimension": "legal"
+    },
+    {
+      "id": "clause_whistleblower",
+      "type": "RECORD",
+      "properties": {
+        "name": "Section 10 — Whistleblower Immunity Notice",
+        "section": 10,
+        "purpose": "Required DTSA notice — immunity for disclosures to government/attorneys for reporting suspected law violations",
+        "statute": "18 U.S.C. § 1833(b)",
+        "required_since": "2016"
+      },
+      "parent_id": "nda",
+      "contains": [],
+      "metric_level": "BASE_RECORD",
+      "dimension": "legal"
+    },
+    {
+      "id": "clause_general",
+      "type": "RECORD",
+      "properties": {
+        "name": "Section 11 — General Provisions",
+        "section": 11,
+        "purpose": "Boilerplate — governing law (WA), jurisdiction (King County), entire agreement, no assignment, amendment requires writing, waiver, severability",
+        "governing_law": "Washington State",
+        "jurisdiction": "King County, WA",
+        "provisions": ["governing law", "jurisdiction", "entire agreement", "assignment", "amendment", "waiver", "severability"]
+      },
+      "parent_id": "nda",
+      "contains": [],
+      "metric_level": "BASE_RECORD",
+      "dimension": "legal"
+    },
+    {
+      "id": "clause_signatures",
+      "type": "RECORD",
+      "properties": {
+        "name": "Section 12 — Signatures",
+        "section": 12,
+        "purpose": "Signature block for both parties — name, title, date"
+      },
+      "parent_id": "nda",
+      "contains": [],
+      "metric_level": "BASE_RECORD",
+      "dimension": "legal"
+    },
+    {
+      "id": "ref_rcw_19_108",
+      "type": "RESOURCE",
+      "properties": {"name": "RCW 19.108 — Washington Uniform Trade Secrets Act", "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=19.108", "category": "STATUTE"},
+      "parent_id": "nda", "contains": [], "metric_level": "CENTI_RESOURCE", "dimension": "legal"
+    },
+    {
+      "id": "ref_dtsa",
+      "type": "RESOURCE",
+      "properties": {"name": "Defend Trade Secrets Act of 2016, 18 U.S.C. § 1836 et seq.", "url": "https://www.congress.gov/bill/114th-congress/senate-bill/1890", "category": "STATUTE"},
+      "parent_id": "nda", "contains": [], "metric_level": "CENTI_RESOURCE", "dimension": "legal"
+    },
+    {
+      "id": "ref_utsa",
+      "type": "RESOURCE",
+      "properties": {"name": "Uniform Trade Secrets Act (1979, amended 1985)", "url": "https://www.uniformlaws.org/committees/community-home?CommunityKey=3a2538fb-e030-4e2d-a9e2-90373dc05792", "category": "STATUTE"},
+      "parent_id": "nda", "contains": [], "metric_level": "CENTI_RESOURCE", "dimension": "legal"
+    },
+    {
+      "id": "ref_aba",
+      "type": "RESOURCE",
+      "properties": {"name": "ABA — Best Practices for Negotiating NDAs", "url": "https://www.americanbar.org/groups/litigation/resources/newsletters/business-torts-unfair-competition/best-practices-negotiating-entering-nondisclosure-agreements/", "category": "GUIDE"},
+      "parent_id": "nda", "contains": [], "metric_level": "CENTI_RESOURCE", "dimension": "legal"
+    },
+    {
+      "id": "ref_8_provisions",
+      "type": "RESOURCE",
+      "properties": {"name": "8 Essential NDA Provisions", "url": "https://contractnerds.com/stick-to-the-core-8-essential-provisions-of-non-disclosure-agreements/", "category": "GUIDE"},
+      "parent_id": "nda", "contains": [], "metric_level": "CENTI_RESOURCE", "dimension": "legal"
+    },
+    {
+      "id": "ref_11_mistakes",
+      "type": "RESOURCE",
+      "properties": {"name": "11 Mistakes That Could Invalidate Your NDA", "url": "https://www.everynda.com/blog/11-ways-invalidate-nda/", "category": "GUIDE"},
+      "parent_id": "nda", "contains": [], "metric_level": "CENTI_RESOURCE", "dimension": "legal"
+    },
+    {
+      "id": "ref_acc_enforcement",
+      "type": "RESOURCE",
+      "properties": {"name": "ACC — Issues Enforcing NDAs (United States)", "url": "https://www.acc.com/resource-library/issues-enforcing-nondisclosure-agreements-united-states", "category": "GUIDE"},
+      "parent_id": "nda", "contains": [], "metric_level": "CENTI_RESOURCE", "dimension": "legal"
+    },
+    {
+      "id": "ref_bonterms",
+      "type": "RESOURCE",
+      "properties": {"name": "Bonterms Mutual NDA, CC BY 4.0", "url": "https://github.com/Bonterms/Mutual-NDA", "category": "TEMPLATE"},
+      "parent_id": "nda", "contains": [], "metric_level": "CENTI_RESOURCE", "dimension": "legal"
+    },
+    {
+      "id": "ref_unda",
+      "type": "RESOURCE",
+      "properties": {"name": "Universal NDA (uNDA)", "url": "https://github.com/bitmovin/unda", "category": "TEMPLATE"},
+      "parent_id": "nda", "contains": [], "metric_level": "CENTI_RESOURCE", "dimension": "legal"
+    },
+    {
+      "id": "ref_plain_language",
+      "type": "RESOURCE",
+      "properties": {"name": "Ten Tips for Writing Clear Contracts", "url": "https://contractnerds.com/ten-tips-for-writing-clear-contracts/", "category": "GUIDE"},
+      "parent_id": "nda", "contains": [], "metric_level": "CENTI_RESOURCE", "dimension": "legal"
+    },
+    {
+      "id": "ref_cornell",
+      "type": "RESOURCE",
+      "properties": {"name": "Cornell LII — Trade Secret", "url": "https://www.law.cornell.edu/wex/trade_secret", "category": "REFERENCE"},
+      "parent_id": "nda", "contains": [], "metric_level": "CENTI_RESOURCE", "dimension": "legal"
+    }
+  ],
+  "edges": [
+    {"from_id": "clause_purpose", "to_id": "clause_parties", "relation": "DEPENDS_ON", "properties": {"reason": "Purpose references the Parties defined in Section 1"}},
+    {"from_id": "clause_definition", "to_id": "clause_parties", "relation": "DEPENDS_ON", "properties": {"reason": "Definition references Disclosing Party and Receiving Party"}},
+    {"from_id": "clause_definition", "to_id": "clause_purpose", "relation": "DEPENDS_ON", "properties": {"reason": "Confidential Information is scoped to the Purpose"}},
+    {"from_id": "clause_exclusions", "to_id": "clause_definition", "relation": "DEPENDS_ON", "properties": {"reason": "Exclusions carve out from the definition of Confidential Information"}},
+    {"from_id": "clause_obligations", "to_id": "clause_definition", "relation": "DEPENDS_ON", "properties": {"reason": "Obligations reference Confidential Information as defined"}},
+    {"from_id": "clause_obligations", "to_id": "clause_purpose", "relation": "DEPENDS_ON", "properties": {"reason": "Use limited to the Purpose"}},
+    {"from_id": "clause_permitted", "to_id": "clause_obligations", "relation": "DEPENDS_ON", "properties": {"reason": "Permitted disclosures are exceptions to the obligations"}},
+    {"from_id": "clause_term", "to_id": "clause_obligations", "relation": "GOVERNS", "properties": {"reason": "Term governs how long obligations last"}},
+    {"from_id": "clause_return", "to_id": "clause_definition", "relation": "DEPENDS_ON", "properties": {"reason": "Return applies to all Confidential Information as defined"}},
+    {"from_id": "clause_return", "to_id": "clause_term", "relation": "DEPENDS_ON", "properties": {"reason": "Return triggered by termination"}},
+    {"from_id": "clause_remedies", "to_id": "clause_obligations", "relation": "DEPENDS_ON", "properties": {"reason": "Remedies are for breach of obligations"}},
+    {"from_id": "clause_whistleblower", "to_id": "clause_obligations", "relation": "DEPENDS_ON", "properties": {"reason": "Whistleblower notice creates a statutory exception to obligations"}},
+    {"from_id": "clause_general", "to_id": "clause_term", "relation": "DEPENDS_ON", "properties": {"reason": "General provisions reference term and termination"}},
+    {"from_id": "clause_general", "to_id": "clause_remedies", "relation": "DEPENDS_ON", "properties": {"reason": "Governing law clause determines which remedies statute applies"}},
+    {"from_id": "clause_signatures", "to_id": "clause_parties", "relation": "DEPENDS_ON", "properties": {"reason": "Signature block lists the parties"}},
+
+    {"from_id": "clause_definition", "to_id": "ref_aba", "relation": "REFERENCES", "properties": {"reason": "ABA best practices for definition scope"}},
+    {"from_id": "clause_exclusions", "to_id": "ref_aba", "relation": "REFERENCES", "properties": {"reason": "ABA standard exclusions checklist"}},
+    {"from_id": "clause_obligations", "to_id": "ref_8_provisions", "relation": "REFERENCES", "properties": {"reason": "8 essential provisions guide"}},
+    {"from_id": "clause_remedies", "to_id": "ref_rcw_19_108", "relation": "REFERENCES", "properties": {"reason": "WA Uniform Trade Secrets Act — injunctive relief"}},
+    {"from_id": "clause_whistleblower", "to_id": "ref_dtsa", "relation": "REFERENCES", "properties": {"reason": "DTSA § 1833(b) whistleblower immunity"}},
+    {"from_id": "clause_general", "to_id": "ref_rcw_19_108", "relation": "REFERENCES", "properties": {"reason": "Governing law — WA state"}},
+    {"from_id": "nda", "to_id": "ref_bonterms", "relation": "REFERENCES", "properties": {"reason": "Template baseline — Bonterms Mutual NDA"}},
+    {"from_id": "nda", "to_id": "ref_unda", "relation": "REFERENCES", "properties": {"reason": "Template reference — Universal NDA"}},
+    {"from_id": "nda", "to_id": "ref_plain_language", "relation": "REFERENCES", "properties": {"reason": "Drafting style — plain English contract writing"}},
+    {"from_id": "clause_exclusions", "to_id": "ref_11_mistakes", "relation": "REFERENCES", "properties": {"reason": "Pitfalls to avoid — overbroad definitions, missing exclusions"}},
+    {"from_id": "clause_term", "to_id": "ref_acc_enforcement", "relation": "REFERENCES", "properties": {"reason": "Enforceability — reasonable term duration"}}
+  ],
+  "bibliography": [
+    {
+      "id": "ref_rcw_19_108",
+      "citation": "RCW 19.108 — Washington Uniform Trade Secrets Act",
+      "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=19.108",
+      "relevance": "Governing statute — defines trade secret, misappropriation, and remedies in WA"
+    },
+    {
+      "id": "ref_dtsa",
+      "citation": "Defend Trade Secrets Act of 2016, 18 U.S.C. § 1836 et seq.",
+      "url": "https://www.congress.gov/bill/114th-congress/senate-bill/1890",
+      "relevance": "Federal civil cause of action for trade secret misappropriation; § 1833(b) whistleblower immunity notice is mandatory"
+    },
+    {
+      "id": "ref_utsa",
+      "citation": "Uniform Trade Secrets Act (1979, amended 1985)",
+      "url": "https://www.uniformlaws.org/committees/community-home?CommunityKey=3a2538fb-e030-4e2d-a9e2-90373dc05792",
+      "relevance": "Model act adopted by 48 states including WA — foundation for trade secret law"
+    },
+    {
+      "id": "ref_aba",
+      "citation": "American Bar Association, 'Best Practices for Negotiating and Entering into Nondisclosure Agreements'",
+      "url": "https://www.americanbar.org/groups/litigation/resources/newsletters/business-torts-unfair-competition/best-practices-negotiating-entering-nondisclosure-agreements/",
+      "relevance": "Authoritative guidance on definition scope, standard exclusions, marking, and duration"
+    },
+    {
+      "id": "ref_8_provisions",
+      "citation": "Contract Nerds, 'Stick to the Core: 8 Essential Provisions of Non-Disclosure Agreements'",
+      "url": "https://contractnerds.com/stick-to-the-core-8-essential-provisions-of-non-disclosure-agreements/",
+      "relevance": "Practical drafting checklist — 8 core clauses every NDA needs"
+    },
+    {
+      "id": "ref_11_mistakes",
+      "citation": "EveryNDA, '11 Mistakes That Could Invalidate Your NDA'",
+      "url": "https://www.everynda.com/blog/11-ways-invalidate-nda/",
+      "relevance": "Pitfalls — overbroad definitions, missing consideration, excessive duration"
+    },
+    {
+      "id": "ref_acc_enforcement",
+      "citation": "Association of Corporate Counsel, 'Issues Enforcing Nondisclosure Agreements (United States)'",
+      "url": "https://www.acc.com/resource-library/issues-enforcing-nondisclosure-agreements-united-states",
+      "relevance": "State-specific enforceability, judicial reasonableness tests, public policy limitations"
+    },
+    {
+      "id": "ref_bonterms",
+      "citation": "Bonterms Mutual NDA, CC BY 4.0",
+      "url": "https://github.com/Bonterms/Mutual-NDA",
+      "relevance": "Open-source mutual NDA template — balanced starting point for commercial relationships"
+    },
+    {
+      "id": "ref_unda",
+      "citation": "Universal NDA (uNDA), Bitmovin / UC Hastings Startup Legal Garage",
+      "url": "https://github.com/bitmovin/unda",
+      "relevance": "Standardized NDA for routine commercial transactions — eliminates negotiation overhead"
+    },
+    {
+      "id": "ref_plain_language",
+      "citation": "Contract Nerds, 'Ten Tips for Writing Clear Contracts'",
+      "url": "https://contractnerds.com/ten-tips-for-writing-clear-contracts/",
+      "relevance": "Plain-language drafting guide — active voice, defined terms, eliminating legalese"
+    },
+    {
+      "id": "ref_cornell",
+      "citation": "Cornell Legal Information Institute, 'Trade Secret'",
+      "url": "https://www.law.cornell.edu/wex/trade_secret",
+      "relevance": "Encyclopedia entry — federal and state trade secret law with links to UTSA and DTSA"
+    }
+  ]
+}

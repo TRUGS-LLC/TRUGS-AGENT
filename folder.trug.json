@@ -1,0 +1,477 @@
+{
+  "name": "TRUGS-AGENT",
+  "version": "1.0.0",
+  "type": "PROJECT",
+  "description": "Agent system for LLMs — TRL language, 5 component modules, validator tooling",
+  "dimensions": {
+    "folder_structure": {
+      "description": "Top-level repo structure — 5 component folders + tools",
+      "base_level": "BASE"
+    }
+  },
+  "capabilities": {
+    "extensions": [],
+    "vocabularies": ["project_v1"],
+    "profiles": []
+  },
+  "nodes": [
+    {
+      "id": "root",
+      "type": "FOLDER",
+      "properties": {
+        "name": "TRUGS-AGENT",
+        "purpose": "Agent system teaching LLMs to speak TRL, follow AAA, track EPICs, maintain memory, index folders, and describe codebases",
+        "verified": false,
+        "stale": false
+      },
+      "parent_id": null,
+      "contains": ["doc_agent", "doc_readme", "doc_license", "folder_aaa", "folder_epic", "folder_memory", "folder_folder", "folder_trugging", "folder_tools"],
+      "metric_level": "KILO_FOLDER",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "doc_agent",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "AGENT.md",
+        "purpose": "Root system prompt — TRL vocabulary (190 words), grammar, parsing rules, validator reference, usage patterns",
+        "format": "markdown",
+        "lines": 305
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "BASE_SPECIFICATION",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "doc_readme",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "README.md",
+        "purpose": "Human-facing overview — install instructions, component table, adopt-one-or-all guidance",
+        "format": "markdown",
+        "lines": 66
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "doc_license",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "LICENSE",
+        "purpose": "Apache 2.0 license — TRUGS LLC",
+        "format": "text"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "folder_aaa",
+      "type": "COMPONENT",
+      "properties": {
+        "name": "AAA",
+        "purpose": "9-phase development protocol — plan before code, audit before ship, human approves at 3 gates",
+        "file_count": 3
+      },
+      "parent_id": "root",
+      "contains": ["aaa_agent", "aaa_readme", "aaa_example"],
+      "metric_level": "DEKA_COMPONENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "aaa_agent",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "AAA/AGENT.md",
+        "purpose": "Agent instructions for AAA — all 9 phases, HITM gates, hard rules, chore vs issue paths",
+        "format": "markdown",
+        "lines": 211
+      },
+      "parent_id": "folder_aaa",
+      "contains": [],
+      "metric_level": "BASE_SPECIFICATION",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "aaa_readme",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "AAA/README.md",
+        "purpose": "Human overview of AAA — two cycles, three touchpoints, when to use it",
+        "format": "markdown",
+        "lines": 34
+      },
+      "parent_id": "folder_aaa",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "aaa_example",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "AAA/EXAMPLE_email_mcp.md",
+        "purpose": "Real production AAA — email MCP server, all 9 phases with TRL specs and audit criteria",
+        "format": "markdown",
+        "lines": 184
+      },
+      "parent_id": "folder_aaa",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "folder_epic",
+      "type": "COMPONENT",
+      "properties": {
+        "name": "EPIC",
+        "purpose": "Portfolio tracker as a traversable TRUG graph — epics, tasks, dependency edges",
+        "file_count": 3
+      },
+      "parent_id": "root",
+      "contains": ["epic_agent", "epic_readme", "epic_example"],
+      "metric_level": "DEKA_COMPONENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "epic_agent",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "EPIC/AGENT.md",
+        "purpose": "Agent instructions for EPIC — node types, edge relations, read/update/create lifecycle",
+        "format": "markdown",
+        "lines": 139
+      },
+      "parent_id": "folder_epic",
+      "contains": [],
+      "metric_level": "BASE_SPECIFICATION",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "epic_readme",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "EPIC/README.md",
+        "purpose": "Human overview of EPIC — tracker > epic > task hierarchy, when to use it",
+        "format": "markdown",
+        "lines": 33
+      },
+      "parent_id": "folder_epic",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "epic_example",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "EPIC/EXAMPLE_project.trug.json",
+        "purpose": "Starter tracker template — 2 epics, 2 tasks, BLOCKS dependency edge",
+        "format": "json",
+        "lines": 89
+      },
+      "parent_id": "folder_epic",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "folder_memory",
+      "type": "COMPONENT",
+      "properties": {
+        "name": "MEMORY",
+        "purpose": "Persistent context across sessions — 4 memory types, session lifecycle, hygiene rules",
+        "file_count": 3
+      },
+      "parent_id": "root",
+      "contains": ["memory_agent", "memory_readme", "memory_example"],
+      "metric_level": "DEKA_COMPONENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "memory_agent",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "MEMORY/AGENT.md",
+        "purpose": "Agent instructions for Memory — types, file format, session lifecycle, what not to save",
+        "format": "markdown",
+        "lines": 179
+      },
+      "parent_id": "folder_memory",
+      "contains": [],
+      "metric_level": "BASE_SPECIFICATION",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "memory_readme",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "MEMORY/README.md",
+        "purpose": "Human overview of Memory — 4 types, save/skip rules, when to use it",
+        "format": "markdown",
+        "lines": 39
+      },
+      "parent_id": "folder_memory",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "memory_example",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "MEMORY/EXAMPLE_MEMORY.md",
+        "purpose": "Starter memory index — 4 example entries across all memory types",
+        "format": "markdown",
+        "lines": 14
+      },
+      "parent_id": "folder_memory",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "folder_folder",
+      "type": "COMPONENT",
+      "properties": {
+        "name": "FOLDER",
+        "purpose": "Machine-readable filesystem index — four-file pattern, node types, edge relations, CLI tools",
+        "file_count": 3
+      },
+      "parent_id": "root",
+      "contains": ["folder_agent", "folder_readme", "folder_example"],
+      "metric_level": "DEKA_COMPONENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "folder_agent",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "FOLDER/AGENT.md",
+        "purpose": "Agent instructions for Folder — build rules, lifecycle properties, naming convention, zzz_ archive, CLI",
+        "format": "markdown",
+        "lines": 311
+      },
+      "parent_id": "folder_folder",
+      "contains": [],
+      "metric_level": "BASE_SPECIFICATION",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "folder_readme",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "FOLDER/README.md",
+        "purpose": "Human overview of Folder — four-file pattern, node types, edge relations, CLI tools",
+        "format": "markdown",
+        "lines": 74
+      },
+      "parent_id": "folder_folder",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "folder_example",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "FOLDER/EXAMPLE_folder.trug.json",
+        "purpose": "Example folder.trug.json for an auth module — 7 nodes, 9 edges, cross-folder reference",
+        "format": "json",
+        "lines": 167
+      },
+      "parent_id": "folder_folder",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "folder_trugging",
+      "type": "COMPONENT",
+      "properties": {
+        "name": "TRUGGING",
+        "purpose": "Methodology for describing a codebase — 4 levels from system graph to inline TRL",
+        "file_count": 2
+      },
+      "parent_id": "root",
+      "contains": ["trugging_agent", "trugging_readme"],
+      "metric_level": "DEKA_COMPONENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "trugging_agent",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "TRUGGING/AGENT.md",
+        "purpose": "Agent instructions for Trugging — system/component/header/inline levels, boundary rule, step-by-step",
+        "format": "markdown",
+        "lines": 312
+      },
+      "parent_id": "folder_trugging",
+      "contains": [],
+      "metric_level": "BASE_SPECIFICATION",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "trugging_readme",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "TRUGGING/README.md",
+        "purpose": "Human overview of Trugging — 4 levels, boundary rule, agent walkthrough",
+        "format": "markdown",
+        "lines": 52
+      },
+      "parent_id": "folder_trugging",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "folder_tools",
+      "type": "COMPONENT",
+      "properties": {
+        "name": "tools",
+        "purpose": "TRUGS validator — 16 rules (9 structural, 7 compositional), 47 tests, zero dependencies",
+        "file_count": 3
+      },
+      "parent_id": "root",
+      "contains": ["tools_validate", "tools_test", "tools_init"],
+      "metric_level": "DEKA_COMPONENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "tools_validate",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "tools/validate.py",
+        "purpose": "TRUGS validator — 16 CORE rules enforcing graph correctness, CLI interface",
+        "language": "python",
+        "lines": 526
+      },
+      "parent_id": "folder_tools",
+      "contains": [],
+      "metric_level": "BASE_SPECIFICATION",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "tools_test",
+      "type": "TEST_SUITE",
+      "properties": {
+        "name": "tools/test_validate.py",
+        "purpose": "Validator test suite — 47 tests covering all 16 rules plus integration",
+        "language": "python",
+        "test_count": 47,
+        "lines": 541
+      },
+      "parent_id": "folder_tools",
+      "contains": [],
+      "metric_level": "BASE_TEST_SUITE",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "tools_init",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "tools/__init__.py",
+        "purpose": "Python package marker",
+        "language": "python",
+        "lines": 1
+      },
+      "parent_id": "folder_tools",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    }
+  ],
+  "edges": [
+    {
+      "from_id": "doc_readme",
+      "to_id": "root",
+      "relation": "describes",
+      "properties": {}
+    },
+    {
+      "from_id": "doc_agent",
+      "to_id": "root",
+      "relation": "governs",
+      "properties": {"scope": "TRL language foundation — all components depend on this"}
+    },
+    {
+      "from_id": "aaa_agent",
+      "to_id": "doc_agent",
+      "relation": "uses",
+      "properties": {"reason": "AAA phases use TRL for specifications and audit criteria"}
+    },
+    {
+      "from_id": "epic_agent",
+      "to_id": "doc_agent",
+      "relation": "uses",
+      "properties": {"reason": "EPIC instructions written in TRL"}
+    },
+    {
+      "from_id": "memory_agent",
+      "to_id": "doc_agent",
+      "relation": "uses",
+      "properties": {"reason": "Memory instructions written in TRL"}
+    },
+    {
+      "from_id": "folder_agent",
+      "to_id": "doc_agent",
+      "relation": "uses",
+      "properties": {"reason": "Folder instructions written in TRL"}
+    },
+    {
+      "from_id": "trugging_agent",
+      "to_id": "doc_agent",
+      "relation": "uses",
+      "properties": {"reason": "Trugging methodology uses both TRL and TRUG graphs"}
+    },
+    {
+      "from_id": "trugging_agent",
+      "to_id": "folder_agent",
+      "relation": "uses",
+      "properties": {"reason": "Trugging levels 1-2 produce folder.trug.json files"}
+    },
+    {
+      "from_id": "aaa_example",
+      "to_id": "aaa_agent",
+      "relation": "describes",
+      "properties": {"scope": "Real production example of all 9 AAA phases"}
+    },
+    {
+      "from_id": "epic_example",
+      "to_id": "epic_agent",
+      "relation": "describes",
+      "properties": {"scope": "Starter template for EPIC tracker"}
+    },
+    {
+      "from_id": "memory_example",
+      "to_id": "memory_agent",
+      "relation": "describes",
+      "properties": {"scope": "Starter memory index with example entries"}
+    },
+    {
+      "from_id": "folder_example",
+      "to_id": "folder_agent",
+      "relation": "describes",
+      "properties": {"scope": "Example folder.trug.json for an auth module"}
+    },
+    {
+      "from_id": "tools_test",
+      "to_id": "tools_validate",
+      "relation": "tests",
+      "properties": {}
+    },
+    {
+      "from_id": "tools_validate",
+      "to_id": "doc_agent",
+      "relation": "implements",
+      "properties": {"scope": "Enforces TRUGS CORE rules referenced in root AGENT.md"}
+    }
+  ]
+}

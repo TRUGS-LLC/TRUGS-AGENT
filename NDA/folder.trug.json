@@ -1,0 +1,151 @@
+{
+  "name": "NDA Example",
+  "version": "1.0.0",
+  "type": "EXAMPLE",
+  "description": "Complete example — every TRUGS-AGENT system applied to drafting a mutual NDA under WA state law",
+  "dimensions": {
+    "folder_structure": {
+      "description": "NDA example folder contents and relationships",
+      "base_level": "BASE"
+    }
+  },
+  "capabilities": {
+    "extensions": [],
+    "vocabularies": ["project_v1"],
+    "profiles": []
+  },
+  "nodes": [
+    {
+      "id": "nda_folder",
+      "type": "FOLDER",
+      "properties": {
+        "name": "NDA",
+        "purpose": "Complete example demonstrating all 6 TRUGS-AGENT systems on a non-code domain — mutual NDA, WA state",
+        "verified": false,
+        "stale": false
+      },
+      "parent_id": null,
+      "contains": ["doc_readme", "doc_agent", "doc_aaa", "doc_epic", "doc_memory", "doc_web", "doc_nda_trug", "doc_nda_trl", "doc_nda_clean"],
+      "metric_level": "KILO_FOLDER",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "doc_readme",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "README.md",
+        "purpose": "Human overview — what the NDA example demonstrates, which systems it uses"
+      },
+      "parent_id": "nda_folder",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "doc_agent",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "AGENT.md",
+        "purpose": "Agent instructions — how to navigate this example, what each file shows"
+      },
+      "parent_id": "nda_folder",
+      "contains": [],
+      "metric_level": "BASE_SPECIFICATION",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "doc_aaa",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "AAA_nda_draft.md",
+        "purpose": "9-phase AAA plan for drafting the NDA — VISION through DEPLOYMENT with TRL specs and audit criteria"
+      },
+      "parent_id": "nda_folder",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "doc_epic",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "epic.trug.json",
+        "purpose": "Project tracker — 3 epics, 13 tasks, 11 BLOCKS dependency edges showing drafting order"
+      },
+      "parent_id": "nda_folder",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "doc_memory",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "MEMORY.md",
+        "purpose": "Memory index — jurisdiction decisions, drafting preferences, statute references"
+      },
+      "parent_id": "nda_folder",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "doc_web",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "web.trug.json",
+        "purpose": "Research hub — 20 curated NDA resources across templates, guidance, tools, and WA state statutes"
+      },
+      "parent_id": "nda_folder",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "doc_nda_trug",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "nda.trug.json",
+        "purpose": "The NDA as a TRUG graph — 12 clause nodes with DEPENDS_ON and GOVERNS edges showing legal structure"
+      },
+      "parent_id": "nda_folder",
+      "contains": [],
+      "metric_level": "BASE_SPECIFICATION",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "doc_nda_trl",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "EXAMPLE_nda_mutual.md",
+        "purpose": "The NDA with TRL annotations — each clause has a <trl> block specifying obligations before plain English"
+      },
+      "parent_id": "nda_folder",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "doc_nda_clean",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "NDA_mutual_trugs_llc.md",
+        "purpose": "The finished NDA — clean, signable, no TRL annotations, plain English, ready for use"
+      },
+      "parent_id": "nda_folder",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    }
+  ],
+  "edges": [
+    {"from_id": "doc_nda_trug", "to_id": "doc_nda_trl", "relation": "produces", "properties": {"flow": "TRUG graph → TRL-annotated document"}},
+    {"from_id": "doc_nda_trl", "to_id": "doc_nda_clean", "relation": "produces", "properties": {"flow": "TRL-annotated → clean signable document"}},
+    {"from_id": "doc_aaa", "to_id": "doc_nda_trug", "relation": "governs", "properties": {"scope": "AAA specs define what the NDA graph must contain"}},
+    {"from_id": "doc_epic", "to_id": "doc_aaa", "relation": "implements", "properties": {"scope": "EPIC tracks tasks from the AAA plan"}},
+    {"from_id": "doc_web", "to_id": "doc_aaa", "relation": "describes", "properties": {"scope": "Web research informs the AAA planning phases"}},
+    {"from_id": "doc_memory", "to_id": "doc_aaa", "relation": "describes", "properties": {"scope": "Memory records decisions made during AAA planning"}},
+    {"from_id": "doc_agent", "to_id": "nda_folder", "relation": "governs", "properties": {}},
+    {"from_id": "doc_readme", "to_id": "nda_folder", "relation": "describes", "properties": {}}
+  ]
+}
