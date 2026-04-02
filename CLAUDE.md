@@ -1,176 +1,224 @@
 # TRUGS Agent System
 
-You are an agent that speaks TRL (TRUGS Language), follows the AAA development protocol, and maintains persistent memory across sessions. This file teaches you everything.
+<trl>
+DEFINE "TRUGS" AS NAMESPACE.
+DEFINE "TRL" AS INTERFACE.
+DEFINE "AAA" AS PIPELINE.
+DEFINE "Memory" AS MODULE.
 
-## Part 1: TRL — TRUGS Language
+NAMESPACE TRUGS GOVERNS ALL DATA graph AND ALL RECORD sentence.
+INTERFACE TRL GOVERNS ALL RECORD sentence.
+PIPELINE AAA GOVERNS ALL PHASE.
+MODULE Memory GOVERNS ALL RECORD memory.
 
-TRL is a formalized subset of English — 190 words where every valid sentence compiles to a JSON graph and every graph decompiles back to a sentence. Losslessly.
+AGENT SHALL READ THIS FILE THEN IMPLEMENT ALL RECORD instruction.
+</trl>
 
-When you see a `<trl>` block, these are **formal instructions with exact definitions**. Do not interpret them as English suggestions. Every word has exactly one meaning.
+You are an agent that speaks TRL, follows AAA, and maintains Memory. This file teaches you everything.
+
+---
+
+## TRL vs TRUGS — When to Use Which
+
+<trl>
+DEFINE "TRL" AS INTERFACE FOR RECORD sentence.
+DEFINE "TRUGS" AS INTERFACE FOR DATA graph.
+EACH RECORD sentence SHALL COMPILE TO DATA graph.
+EACH DATA graph SHALL COMPILE TO RECORD sentence.
+</trl>
+
+**TRL (sentences)** — use when communicating. Instructions, specifications, acceptance criteria, code comments, issue descriptions. The human writes it, the agent reads it, both understand it.
+
+**TRUGS (graphs)** — use when storing and executing. Project tracking, validation, traversal, state management. Machines read it, tools validate it, agents navigate it.
+
+| Situation | Use | Why |
+|-----------|-----|-----|
+| Writing instructions | TRL | Human-readable, agent-executable |
+| Code comments | TRL | Compilable documentation |
+| Acceptance criteria | TRL | Both human and agent verify against it |
+| Project tracking | TRUGS | Machines traverse and validate |
+| AAA planning phases | TRL | Communication between human and agent |
+| AAA execution state | TRUGS | Agent tracks progress as graph nodes |
+| Memory files | English + TRL | Context for future sessions |
+| Validation rules | TRUGS | Tools enforce mechanically |
+
+The sentence is the graph. The graph is the sentence. TRL is how you talk about it. TRUGS is how you store it.
+
+---
+
+## Part 1: TRL — The Language
+
+<trl>
+DEFINE "TRL" AS INTERFACE.
+INTERFACE TRL CONTAINS 190 UNIQUE RECORD word.
+EACH RECORD word BELONGS_TO EXACTLY A RECORD part_of_speech.
+EACH RECORD sentence SHALL COMPILE TO DATA graph.
+EACH DATA graph SHALL COMPILE TO RECORD sentence.
+</trl>
 
 ### Vocabulary (190 words)
 
 **Nouns — things that exist (become graph nodes)**
-- Actors (can perform actions): PARTY, AGENT, PROCESS, SERVICE, FUNCTION, TRANSFORM, PRINCIPAL
-- Artifacts (acted upon): DATA, FILE, RECORD, MESSAGE, STREAM, RESOURCE
-- Containers (hold things): PIPELINE, STAGE, MODULE, NAMESPACE
-- Boundaries (where/when): ENTRY, EXIT, INTERFACE, ENDPOINT
-- Outcomes (results): ERROR, EXCEPTION, REMEDY
+
+<trl>
+DEFINE "actor" AS PARTY OR AGENT OR PROCESS OR SERVICE OR FUNCTION OR TRANSFORM OR PRINCIPAL.
+DEFINE "artifact" AS DATA OR FILE OR RECORD OR MESSAGE OR STREAM OR RESOURCE.
+DEFINE "container" AS PIPELINE OR STAGE OR MODULE OR NAMESPACE.
+DEFINE "boundary" AS ENTRY OR EXIT OR INTERFACE OR ENDPOINT.
+DEFINE "outcome" AS ERROR OR EXCEPTION OR REMEDY.
+</trl>
 
 **Verbs — actions (become operation nodes)**
-- Transform: FILTER, MAP, SORT, MERGE, SPLIT, AGGREGATE, GROUP, DISTINCT, TAKE, SKIP
-- Move: READ, WRITE, SEND, RECEIVE, REQUEST, RESPOND, AUTHENTICATE
-- Obligate: VALIDATE, ASSERT, REQUIRE
-- Permit: ALLOW, APPROVE, GRANT, OVERRIDE
-- Prohibit: DENY, REJECT, REVOKE
-- Control: BRANCH, MATCH, RETRY, TIMEOUT, THROW, EXISTS, EXPIRE, EQUALS, EXCEEDS
-- Bind: DEFINE, DECLARE, IMPLEMENT, NEST, AUGMENT, REPLACE, CITE, ADMINISTER
-- Resolve: CATCH, HANDLE, RECOVER
+
+<trl>
+DEFINE "transform" AS FILTER OR MAP OR SORT OR MERGE OR SPLIT OR AGGREGATE OR GROUP OR DISTINCT OR TAKE OR SKIP.
+DEFINE "move" AS READ OR WRITE OR SEND OR RECEIVE OR REQUEST OR RESPOND OR AUTHENTICATE.
+DEFINE "obligate" AS VALIDATE OR ASSERT OR REQUIRE.
+DEFINE "permit" AS ALLOW OR APPROVE OR GRANT OR OVERRIDE.
+DEFINE "prohibit" AS DENY OR REJECT OR REVOKE.
+DEFINE "control" AS BRANCH OR MATCH OR RETRY OR TIMEOUT OR THROW OR EXISTS OR EXPIRE OR EQUALS OR EXCEEDS.
+DEFINE "bind" AS DEFINE OR DECLARE OR IMPLEMENT OR NEST OR AUGMENT OR REPLACE OR CITE OR ADMINISTER.
+DEFINE "resolve" AS CATCH OR HANDLE OR RECOVER.
+</trl>
 
 **Modals — obligation (modify verbs)**
+
+<trl>
+DEFINE "SHALL" AS REQUIRED RECORD obligation.
+DEFINE "MAY" AS OPTIONAL RECORD permission.
+DEFINE "SHALL_NOT" AS REQUIRED RECORD prohibition.
+EACH RECORD obligation SHALL REQUIRE PARTY AS RECORD subject.
+NO DATA SHALL RECEIVE RECORD obligation.
+NO RECORD SHALL RECEIVE RECORD obligation UNLESS RECORD IS PARTY.
+</trl>
+
 - SHALL = MUST do this. Failure is a violation.
 - MAY = ALLOWED but not required.
 - SHALL_NOT = MUST NOT do this. Doing it is a violation.
-- Modals require Actor subjects. `PARTY x SHALL FILTER` is valid. `DATA x SHALL FILTER` is NOT.
 
 **Adjectives — modify nouns (become node properties)**
-- Type: STRING, INTEGER, BOOLEAN, ARRAY, OBJECT
-- Access: PUBLIC, PRIVATE, CONFIDENTIAL, READONLY
-- State: VALID, INVALID, ACTIVE, PENDING, FAILED, MUTABLE, IMMUTABLE
-- Quantity: REQUIRED, OPTIONAL, UNIQUE, MULTIPLE
-- Priority: CRITICAL, HIGH, LOW, DEFAULT
+
+<trl>
+DEFINE "type" AS STRING OR INTEGER OR BOOLEAN OR ARRAY OR OBJECT.
+DEFINE "access" AS PUBLIC OR PRIVATE OR CONFIDENTIAL OR READONLY.
+DEFINE "state" AS VALID OR INVALID OR ACTIVE OR PENDING OR FAILED OR MUTABLE OR IMMUTABLE.
+DEFINE "quantity" AS REQUIRED OR OPTIONAL OR UNIQUE OR MULTIPLE.
+DEFINE "priority" AS CRITICAL OR HIGH OR LOW OR DEFAULT.
+</trl>
 
 **Adverbs — modify verbs (become operation properties)**
-- Timing: ASYNC, SYNC, PARALLEL, SEQUENTIAL, IMMEDIATE, WITHIN (+ duration)
-- Repetition: ONCE, ALWAYS, NEVER, BOUNDED (+ integer)
-- Degree: STRICTLY, SUBSTANTIALLY, REASONABLY
+
+<trl>
+DEFINE "timing" AS ASYNC OR SYNC OR PARALLEL OR SEQUENTIAL OR IMMEDIATE OR WITHIN.
+DEFINE "repetition" AS ONCE OR ALWAYS OR NEVER OR BOUNDED.
+DEFINE "degree" AS STRICTLY OR SUBSTANTIALLY OR REASONABLY.
+</trl>
 
 **Prepositions — relationships (become graph edges)**
-- Flow: FEEDS, ROUTES, TO, FROM, RETURNS_TO
-- Dependency: BINDS, DEPENDS_ON, IMPLEMENTS, EXTENDS, SUBJECT_TO
-- Authority: GOVERNS, PURSUANT_TO, ON_BEHALF_OF
-- Structure: CONTAINS, REFERENCES, SUPERSEDES
-- Binding: AS, BY
+
+<trl>
+DEFINE "flow" AS FEEDS OR ROUTES OR TO OR FROM OR RETURNS_TO.
+DEFINE "dependency" AS BINDS OR DEPENDS_ON OR IMPLEMENTS OR EXTENDS OR SUBJECT_TO.
+DEFINE "authority" AS GOVERNS OR PURSUANT_TO OR ON_BEHALF_OF.
+DEFINE "structure" AS CONTAINS OR REFERENCES OR SUPERSEDES.
+DEFINE "binding" AS AS OR BY.
+</trl>
 
 **Conjunctions — connect clauses (become structural edges)**
-- Sequence: THEN, FINALLY
-- Parallel: AND
-- Alternative: OR, ELSE
-- Conditional: IF, WHEN, WHILE
-- Exception: UNLESS, EXCEPT, NOTWITHSTANDING, PROVIDED_THAT, WHEREAS
 
-**Articles — scope (become query selectors)**
-ALL, EACH, EVERY, ANY, SOME, A, THE, THIS, NO, NONE
+<trl>
+DEFINE "sequence" AS THEN OR FINALLY.
+DEFINE "parallel" AS AND.
+DEFINE "alternative" AS OR OR ELSE.
+DEFINE "conditional" AS IF OR WHEN OR WHILE.
+DEFINE "exception" AS UNLESS OR EXCEPT OR NOTWITHSTANDING OR PROVIDED_THAT OR WHEREAS.
+</trl>
 
-**Pronouns — back-references**
-SELF, RESULT, OUTPUT, INPUT, SOURCE, TARGET
+**Articles** — ALL, EACH, EVERY, ANY, SOME, A, THE, THIS, NO, NONE
 
-**Sugar — compile to nothing (human readability only)**
-OF, IS, ARE, BE, BEEN, HAS, HAVE, WILL, THAT, WHICH, WHERE, WHO, INTO, UPON, WITH, FOR, AT, ON, PLEASE, ALSO, THEN_ALSO, THESE, THOSE, SUCH
+**Pronouns** — SELF, RESULT, OUTPUT, INPUT, SOURCE, TARGET
 
-### How to Read a TRL Sentence
+**Sugar** — OF, IS, ARE, BE, BEEN, HAS, HAVE, WILL, THAT, WHICH, WHERE, WHO, INTO, UPON, WITH, FOR, AT, ON, PLEASE, ALSO, THEN_ALSO, THESE, THOSE, SUCH (compile to nothing — human readability only)
 
+### How to Read and Execute
+
+<trl>
+AGENT SHALL STRIP ALL RECORD sugar FROM RECORD sentence.
+AGENT SHALL PARSE RECORD sentence AS RECORD subject THEN RECORD modal THEN RECORD verb THEN RECORD object.
+IF RECORD modal EQUALS "SHALL" THEN AGENT SHALL EXECUTE RECORD verb STRICTLY.
+IF RECORD modal EQUALS "MAY" THEN AGENT MAY EXECUTE RECORD verb.
+IF RECORD modal EQUALS "SHALL_NOT" THEN AGENT SHALL_NOT EXECUTE RECORD verb.
+AGENT SHALL FOLLOW RECORD conjunction AS RECORD sequence.
+</trl>
+
+Parse example:
 ```
 PARTY system SHALL FILTER ALL ACTIVE RECORD THEN WRITE RESULT TO ENDPOINT output.
 ```
-
 - PARTY system → Actor node (subject)
-- SHALL → obligation on the actor
+- SHALL → obligation
 - FILTER → Transform operation
-- ALL → universal scope
-- ACTIVE → State adjective on artifact
-- RECORD → Artifact node (object)
+- ALL ACTIVE RECORD → scoped, qualified artifact
 - THEN → sequential conjunction
-- WRITE → Move operation
-- RESULT → pronoun (output of FILTER)
-- TO → directional preposition
-- ENDPOINT output → Boundary node (destination)
-
-### How to Execute a `<trl>` Block
-
-1. Strip sugar words (THE, OF, PLEASE, etc.)
-2. Parse each sentence: subject (noun) → modal → verb → objects → prepositions
-3. Execute: SHALL = must do, MAY = allowed, SHALL_NOT = must not
-4. Follow conjunctions: THEN = do next, OR = do if previous fails, UNLESS = skip if condition met
+- WRITE RESULT TO ENDPOINT output → Move operation with destination
 
 ### Key Rules
 
-1. Every word belongs to exactly ONE part of speech
-2. SHALL/MAY/SHALL_NOT require Actor subjects (PARTY, AGENT, SERVICE — not DATA, RECORD, FILE)
-3. Pronouns (RESULT, SELF) resolve within the current sentence only
-4. Sugar words can appear anywhere — strip them before parsing
-5. NO + SHALL_NOT in the same clause = double negation = invalid
-
-### Examples
-
 <trl>
-AGENT SHALL CREATE BRANCH THEN WRITE CODE THEN RUN TEST.
-IF TEST FAIL THEN AGENT SHALL FIX CODE THEN RUN TEST.
-NO AGENT SHALL COMMIT TO BRANCH main.
-AGENT SHALL VALIDATE ALL CODE BEFORE COMMIT.
-</trl>
-
-<trl>
-PARTY user SHALL REQUEST SERVICE api.
-SERVICE api SHALL AUTHENTICATE PARTY user
-  THEN READ DATA FROM STREAM database
-  THEN WRITE RESULT TO PARTY user
-  OR THROW EXCEPTION.
-IF SERVICE api THROW EXCEPTION
-  THEN SERVICE api SHALL SEND ERROR TO PARTY user.
+EACH RECORD word SHALL BELONG_TO EXACTLY A RECORD part_of_speech.
+EACH RECORD modal SHALL REQUIRE PARTY AS RECORD subject.
+EACH RECORD pronoun SHALL RESOLVE WITHIN THIS RECORD sentence.
+NO RECORD sentence SHALL CONTAIN "NO" AND "SHALL_NOT" IN SAME RECORD clause.
+AGENT SHALL STRIP RECORD sugar BEFORE PARSE RECORD sentence.
 </trl>
 
 ---
 
 ## Part 2: AAA — Development Protocol
 
-AAA is a 9-phase development protocol. Two cycles, three human touchpoints. Every non-trivial task follows this protocol.
+<trl>
+DEFINE "AAA" AS PIPELINE CONTAINS PHASE vision AND PHASE feasibility AND PHASE specifications AND PHASE architecture AND PHASE validation AND PHASE coding AND PHASE testing AND PHASE audit AND PHASE deployment.
+DEFINE "PLANNING" AS STAGE CONTAINS PHASE vision AND PHASE feasibility AND PHASE specifications AND PHASE architecture AND PHASE validation.
+DEFINE "EXECUTION" AS STAGE CONTAINS PHASE coding AND PHASE testing AND PHASE audit AND PHASE deployment.
+PIPELINE AAA CONTAINS STAGE PLANNING AND STAGE EXECUTION.
+</trl>
 
 ### Two Paths — No Middle Ground
-
-| Path | Trigger | Flow |
-|------|---------|------|
-| **CHORE** | Simple task, no unknowns | Branch → PR → merge. No issue. No AAA. |
-| **ISSUE** | Idea, proposal, feature, bug, anything with unknowns | Issue → AAA (PLANNING → HITM → EXECUTION) → PR → merge |
-
-**If it needs an issue, it needs an AAA. If it doesn't need an issue, it's a chore.** No middle ground.
-
-### How to Decide: CHORE or ISSUE?
-
-Ask one question: **"Do I know exactly what to do and how to do it?"**
-
-- **Yes** → CHORE. Branch, do it, PR, done. Examples: rename a variable, fix a typo, update a dependency, add a .gitignore entry, archive old files.
-- **No** → ISSUE. Something is unknown — the approach, the scope, the risk, the design. Create an issue, write an AAA, plan before coding. Examples: new feature, bug with unclear cause, refactor with multiple approaches, anything touching architecture.
 
 <trl>
 IF AGENT KNOWS ALL REQUIRED STEP THEN AGENT SHALL EXECUTE AS RECORD chore.
 IF AGENT REQUIRES RECORD specification OR RECORD decision THEN AGENT SHALL CREATE RECORD issue THEN EXECUTE PHASE vision.
 NO AGENT SHALL CREATE RECORD issue FOR RECORD chore.
-NO AGENT SHALL SKIP PHASE planning FOR RECORD issue.
+NO AGENT SHALL SKIP STAGE PLANNING FOR RECORD issue.
 </trl>
 
-**The cost of getting it wrong:**
-- Treating an issue as a chore → you skip planning, build the wrong thing, waste time
-- Treating a chore as an issue → you over-plan a simple task, waste time
+| Path | Trigger | Flow |
+|------|---------|------|
+| **CHORE** | You know exactly what to do | Branch → do it → PR → human merges |
+| **ISSUE** | Something is unknown | Issue → AAA → PLANNING → HITM → EXECUTION → PR → human merges |
 
 When in doubt, start as a chore. If unknowns emerge, upgrade to an issue.
 
 ### PLANNING Cycle (phases 1-5)
 
 <trl>
-AGENT SHALL EXECUTE PHASE vision THEN PHASE feasibility THEN PHASE specifications THEN PHASE architecture THEN PHASE validation.
-NO AGENT SHALL EXECUTE PHASE coding UNLESS PHASE validation IS VALID.
+PARTY human SHALL DEFINE PHASE vision.
+AGENT SHALL EXECUTE PHASE feasibility THEN PHASE specifications THEN PHASE architecture.
+PHASE specifications SHALL CONTAIN RECORD audit_criteria.
+PHASE architecture SHALL CONTAIN RECORD coding_plan.
+PARTY human SHALL APPROVE PHASE validation.
+NO AGENT SHALL EXECUTE STAGE EXECUTION UNLESS PARTY human APPROVE PHASE validation.
 </trl>
 
-| # | Phase | What happens | Output |
-|---|-------|-------------|--------|
-| 1 | **VISION** | Human states what they want | Problem + success criteria |
-| 2 | **FEASIBILITY** | Quick GO/NO-GO — worth building? | Decision + risks |
-| 3 | **SPECIFICATIONS** | Exact requirements + **audit criteria** | Acceptance criteria that Phase 8 checks against |
-| 4 | **ARCHITECTURE** | System design, ADRs | Component map, tech decisions |
-| 5 | **VALIDATION** | **HITM Gate** — human approves the plan | All checks green → proceed to coding |
+| # | Phase | Who | Output |
+|---|-------|-----|--------|
+| 1 | **VISION** | Human | Problem + success criteria |
+| 2 | **FEASIBILITY** | Agent | GO/NO-GO + risks |
+| 3 | **SPECIFICATIONS** | Agent | Requirements + **audit criteria for Phase 8** |
+| 4 | **ARCHITECTURE** | Agent | Design + ADRs + **coding plan** |
+| 5 | **VALIDATION** | **Human approves** | Plan is complete → proceed to coding |
 
-**Critical rule: Phase 3 defines the audit. Phase 8 executes against it.** The plan defines what "done" looks like before any code is written.
+**Phase 3 defines the audit. Phase 8 executes against it.** The plan defines what "done" looks like before any code is written.
 
 ### VALIDATION Checks (Phase 5)
 
@@ -179,46 +227,28 @@ AGENT SHALL VALIDATE PHASE specifications SUBJECT_TO PHASE vision.
 AGENT SHALL VALIDATE PHASE architecture SUBJECT_TO PHASE specifications.
 AGENT SHALL ASSERT PHASE specifications CONTAINS RECORD audit_criteria.
 AGENT SHALL ASSERT PHASE architecture CONTAINS RECORD coding_plan.
+AGENT SHALL ASSERT RECORD audit_criteria REFERENCES PHASE specifications.
 NO AGENT SHALL PROCEED UNLESS ALL VALIDATION IS VALID.
 </trl>
-
-- Alignment: vision → specs → architecture consistent?
-- Completeness: enough detail to code?
-- Feasibility: technology choices verified?
-- Risk: risks identified and mitigated?
-- Scope: architecture delivers specs, no more no less?
-- Coding plan: files to create/modify, execution order, test strategy?
-- Audit criteria: defined in specs, ready for Phase 8?
 
 ### EXECUTION Cycle (phases 6-9)
 
 <trl>
-AGENT SHALL EXECUTE PHASE coding THEN PHASE testing THEN PHASE audit THEN PHASE deployment.
+AGENT SHALL EXECUTE PHASE coding SUBJECT_TO RECORD coding_plan.
+AGENT SHALL EXECUTE PHASE testing THEN PHASE audit.
+PHASE audit SHALL VALIDATE RESULT SUBJECT_TO RECORD audit_criteria FROM PHASE specifications.
 IF PHASE audit IS INVALID THEN AGENT SHALL FIX CODE THEN EXECUTE PHASE testing THEN EXECUTE PHASE audit.
+EACH PHASE audit ROUND SHALL FIX ALL RECORD finding AND WRITE RECORD test FOR EACH RECORD finding.
 NO AGENT SHALL EXECUTE PHASE deployment UNLESS PHASE audit IS VALID.
-</trl>
-
-| # | Phase | What happens | Output |
-|---|-------|-------------|--------|
-| 6 | **CODING** | Build it | Working code |
-| 7 | **TESTING** | Run tests | All tests pass |
-| 8 | **AUDIT** | **HITM Gate** — check against Phase 3 criteria. Cycles until clean. Each round fixes ALL findings AND writes tests. | No critical/high findings |
-| 9 | **DEPLOYMENT** | PR created. **Human merges.** | Shipped |
-
-### Three Human Touchpoints
-
-<trl>
-PARTY human SHALL DEFINE PHASE vision.
-PARTY human SHALL APPROVE PHASE validation.
 PARTY human SHALL APPROVE PHASE deployment.
-ALL PHASE BETWEEN PARTY human TOUCHPOINT SHALL EXECUTE ASYNC BY AGENT.
 </trl>
 
-1. **VISION** — human states what they want
-2. **VALIDATION** — human approves the plan before coding
-3. **AUDIT/DEPLOYMENT** — human approves the result before shipping
-
-Everything between touchpoints is autonomous agent work.
+| # | Phase | Who | Output |
+|---|-------|-----|--------|
+| 6 | **CODING** | Agent | Working code per coding plan |
+| 7 | **TESTING** | Agent | All tests pass |
+| 8 | **AUDIT** | Agent + **Human approves** | Check against Phase 3 criteria. Cycles until clean. |
+| 9 | **DEPLOYMENT** | Agent creates PR. **Human merges.** | Shipped |
 
 ### Hard Rules
 
@@ -227,36 +257,45 @@ NO AGENT SHALL COMMIT TO BRANCH main.
 NO AGENT SHALL MERGE RECORD pull_request.
 AGENT SHALL CREATE BRANCH THEN CREATE RECORD pull_request THEN STOP.
 PARTY human SHALL MERGE RECORD pull_request.
+NO AGENT SHALL EXECUTE PHASE coding UNLESS PHASE validation IS VALID.
+NO AGENT SHALL EXECUTE PHASE deployment UNLESS PHASE audit IS VALID.
 </trl>
 
 ---
 
 ## Part 3: Memory — Persistent Context
 
-You maintain a file-based memory system that persists across sessions. Memory lives in a directory alongside a `MEMORY.md` index file.
+<trl>
+DEFINE "Memory" AS MODULE CONTAINS RECORD user AND RECORD feedback AND RECORD project AND RECORD reference.
+AGENT SHALL READ FILE MEMORY.md AT ENTRY session.
+AGENT SHALL WRITE RECORD decision TO MODULE Memory DURING RECORD session.
+AGENT SHALL WRITE RECORD summary TO MODULE Memory AT EXIT session.
+</trl>
 
 ### Memory Types
 
-| Type | What to save | Example |
-|------|-------------|---------|
-| **user** | Role, goals, preferences, expertise | "User is a data scientist focused on observability" |
-| **feedback** | Corrections AND confirmations of approach | "Don't mock the database — use real DB in tests" |
-| **project** | Ongoing work, goals, decisions, deadlines | "Merge freeze begins 2026-03-05 for mobile release" |
-| **reference** | Pointers to external systems | "Pipeline bugs tracked in Linear project INGEST" |
+<trl>
+DEFINE "user" AS RECORD FOR PARTY human CONTAINS RECORD role AND RECORD preference AND RECORD expertise.
+DEFINE "feedback" AS RECORD FOR RECORD correction OR RECORD confirmation.
+DEFINE "project" AS RECORD FOR RECORD decision OR RECORD status OR RECORD deadline.
+DEFINE "reference" AS RECORD FOR ENDPOINT external_system.
+</trl>
 
-### When to Save
-
-- **user**: When you learn about their role, preferences, or knowledge
-- **feedback**: When they correct you OR confirm a non-obvious approach
-- **project**: When you learn who is doing what, why, or by when
-- **reference**: When you learn about external resources
+| Type | Save when | Example |
+|------|----------|---------|
+| **user** | You learn about their role or preferences | "User is a data scientist focused on observability" |
+| **feedback** | They correct you OR confirm a non-obvious approach | "Don't mock the database — use real DB in tests" |
+| **project** | You learn who does what, why, or by when | "Merge freeze 2026-03-05 for mobile release" |
+| **reference** | You learn about external resources | "Pipeline bugs tracked in Linear project INGEST" |
 
 ### What NOT to Save
 
-- Code patterns (read the code instead)
-- Git history (use git log)
-- Anything in CLAUDE.md or docs (already available)
-- Ephemeral task details (use a todo list)
+<trl>
+NO AGENT SHALL WRITE RECORD memory FOR DATA code_pattern.
+NO AGENT SHALL WRITE RECORD memory FOR DATA git_history.
+NO AGENT SHALL WRITE RECORD memory FOR DATA THAT EXISTS IN FILE CLAUDE.md.
+NO AGENT SHALL WRITE RECORD memory FOR RECORD ephemeral_task.
+</trl>
 
 ### Memory File Format
 
@@ -267,7 +306,7 @@ description: one-line description
 type: user|feedback|project|reference
 ---
 
-Content here. For feedback/project types:
+Content here.
 
 **Why:** reason for the decision
 **How to apply:** when this should influence future work
@@ -275,27 +314,35 @@ Content here. For feedback/project types:
 
 ### MEMORY.md Index
 
-One line per memory, under 150 characters:
+<trl>
+EACH RECORD memory SHALL REFERENCE FILE memory_file.md.
+FILE MEMORY.md SHALL CONTAIN A RECORD pointer FOR EACH RECORD memory.
+EACH RECORD pointer SHALL BE LESS_THAN 150 STRING characters.
+</trl>
 
 ```markdown
 # Memory Index
-
 - [user_role.md](user_role.md) — Senior backend engineer, new to React
 - [feedback_no_mocks.md](feedback_no_mocks.md) — Integration tests hit real DB, not mocks
-- [project_freeze.md](project_freeze.md) — Merge freeze 2026-03-05 for mobile release
 ```
 
 ### Session Pattern
 
-At session start: read MEMORY.md, load relevant memories.
-During session: save decisions as they happen.
-At session end: write session summary, update index.
+<trl>
+AGENT SHALL READ FILE MEMORY.md AT ENTRY session.
+AGENT SHALL WRITE RECORD decision TO MODULE Memory WHEN RECORD decision EXISTS.
+AGENT SHALL WRITE RECORD session_summary AT EXIT session.
+AGENT SHALL WRITE RECORD pointer TO FILE MEMORY.md FOR EACH NEW RECORD memory.
+</trl>
 
 ---
 
 ## Part 4: Using TRL in Your Project
 
-You can write `<trl>` instructions anywhere — code comments, specs, issue descriptions, config files. The LLM reading this file will understand and execute them.
+<trl>
+PARTY human MAY WRITE RECORD trl_block IN FILE code_comment OR FILE specification OR FILE issue OR FILE config.
+AGENT SHALL READ RECORD trl_block THEN COMPILE TO DATA graph THEN EXECUTE.
+</trl>
 
 ### In code comments
 
@@ -313,8 +360,6 @@ def validate(records, schema):
 ### In specifications
 
 ```markdown
-## Acceptance Criteria
-
 <trl>
 SERVICE api SHALL RESPOND WITHIN 200ms.
 SERVICE api SHALL AUTHENTICATE ALL PARTY BEFORE READ DATA.
@@ -326,8 +371,6 @@ SERVICE api SHALL RETRY BOUNDED 3 WITHIN 30s OR THROW EXCEPTION.
 ### In issue descriptions
 
 ```markdown
-## What I Want
-
 <trl>
 AGENT SHALL CREATE MODULE email_mcp CONTAINS FUNCTION send AND FUNCTION read AND FUNCTION search.
 EACH FUNCTION SHALL READ CONFIG FROM FILE accounts.json.
@@ -340,11 +383,15 @@ NO FUNCTION SHALL WRITE RECORD password TO FILE OR STREAM.
 
 ## Quick Reference
 
-- **190 words** — every word has exactly one meaning
-- **`<trl>` blocks** — formal, compilable instructions
-- **AAA** — 9 phases, 2 cycles, 3 human touchpoints
-- **Phase 3 defines the audit, Phase 8 executes it**
-- **Never commit to main, never merge PRs** — create branch + PR, human merges
-- **Memory persists** — save decisions, load context, maintain continuity
+<trl>
+INTERFACE TRL CONTAINS 190 UNIQUE RECORD word.
+EACH RECORD word SHALL HAVE EXACTLY A RECORD meaning.
+PIPELINE AAA CONTAINS 9 PHASE AND 2 STAGE AND 3 RECORD touchpoint.
+PHASE specifications SHALL DEFINE RECORD audit_criteria.
+PHASE audit SHALL EXECUTE SUBJECT_TO RECORD audit_criteria.
+NO AGENT SHALL COMMIT TO BRANCH main.
+NO AGENT SHALL MERGE RECORD pull_request.
+MODULE Memory SHALL PERSIST RECORD context ACROSS RECORD session.
+</trl>
 
 For the full TRL specification: https://github.com/TRUGS-LLC/TRUGS
