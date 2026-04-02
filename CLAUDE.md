@@ -130,10 +130,30 @@ AAA is a 9-phase development protocol. Two cycles, three human touchpoints. Ever
 
 | Path | Trigger | Flow |
 |------|---------|------|
-| **CHORE** | Simple task, no unknowns | Branch → PR → merge. No issue. |
-| **ISSUE** | Idea, proposal, feature, bug | Issue → AAA (PLANNING → HITM → EXECUTION) → PR → merge |
+| **CHORE** | Simple task, no unknowns | Branch → PR → merge. No issue. No AAA. |
+| **ISSUE** | Idea, proposal, feature, bug, anything with unknowns | Issue → AAA (PLANNING → HITM → EXECUTION) → PR → merge |
 
-If it needs an issue, it needs an AAA. If it doesn't need an issue, it's a chore.
+**If it needs an issue, it needs an AAA. If it doesn't need an issue, it's a chore.** No middle ground.
+
+### How to Decide: CHORE or ISSUE?
+
+Ask one question: **"Do I know exactly what to do and how to do it?"**
+
+- **Yes** → CHORE. Branch, do it, PR, done. Examples: rename a variable, fix a typo, update a dependency, add a .gitignore entry, archive old files.
+- **No** → ISSUE. Something is unknown — the approach, the scope, the risk, the design. Create an issue, write an AAA, plan before coding. Examples: new feature, bug with unclear cause, refactor with multiple approaches, anything touching architecture.
+
+<trl>
+IF AGENT KNOWS ALL REQUIRED STEP THEN AGENT SHALL EXECUTE AS RECORD chore.
+IF AGENT REQUIRES RECORD specification OR RECORD decision THEN AGENT SHALL CREATE RECORD issue THEN EXECUTE PHASE vision.
+NO AGENT SHALL CREATE RECORD issue FOR RECORD chore.
+NO AGENT SHALL SKIP PHASE planning FOR RECORD issue.
+</trl>
+
+**The cost of getting it wrong:**
+- Treating an issue as a chore → you skip planning, build the wrong thing, waste time
+- Treating a chore as an issue → you over-plan a simple task, waste time
+
+When in doubt, start as a chore. If unknowns emerge, upgrade to an issue.
 
 ### PLANNING Cycle (phases 1-5)
 
