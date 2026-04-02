@@ -44,6 +44,75 @@ EACH DATA graph SHALL COMPILE TO RECORD sentence.
 
 The sentence is the graph. The graph is the sentence. TRL is how you talk about it. TRUGS is how you store it.
 
+### Side-by-Side Example
+
+The same specification expressed both ways:
+
+**TRL (the sentence):**
+
+```
+<trl>
+SERVICE api SHALL AUTHENTICATE PARTY user
+  THEN READ DATA FROM STREAM database
+  THEN WRITE RESULT TO PARTY user
+  OR THROW EXCEPTION.
+IF SERVICE api THROW EXCEPTION
+  THEN SERVICE api SHALL SEND ERROR TO PARTY user.
+</trl>
+```
+
+**TRUGS (the graph):**
+
+```json
+{
+  "nodes": [
+    {"id": "api", "type": "SERVICE", "properties": {"name": "api"}, "parent_id": null, "contains": [], "metric_level": "BASE_SERVICE", "dimension": "system"},
+    {"id": "user", "type": "PARTY", "properties": {"name": "user"}, "parent_id": null, "contains": [], "metric_level": "BASE_PARTY", "dimension": "system"},
+    {"id": "database", "type": "STREAM", "properties": {"name": "database"}, "parent_id": null, "contains": [], "metric_level": "BASE_STREAM", "dimension": "system"},
+    {"id": "op_auth", "type": "FUNCTION", "properties": {"operation": "AUTHENTICATE", "modal": "SHALL"}, "parent_id": "api", "contains": [], "metric_level": "CENTI_FUNCTION", "dimension": "system"},
+    {"id": "op_read", "type": "FUNCTION", "properties": {"operation": "READ"}, "parent_id": "api", "contains": [], "metric_level": "CENTI_FUNCTION", "dimension": "system"},
+    {"id": "op_write", "type": "FUNCTION", "properties": {"operation": "WRITE"}, "parent_id": "api", "contains": [], "metric_level": "CENTI_FUNCTION", "dimension": "system"},
+    {"id": "op_throw", "type": "EXCEPTION", "properties": {"operation": "THROW"}, "parent_id": "api", "contains": [], "metric_level": "CENTI_EXCEPTION", "dimension": "system"},
+    {"id": "op_send_error", "type": "FUNCTION", "properties": {"operation": "SEND", "object": "ERROR"}, "parent_id": "api", "contains": [], "metric_level": "CENTI_FUNCTION", "dimension": "system"}
+  ],
+  "edges": [
+    {"from_id": "op_auth", "to_id": "user", "relation": "AUTHENTICATE"},
+    {"from_id": "op_auth", "to_id": "op_read", "relation": "THEN"},
+    {"from_id": "op_read", "to_id": "database", "relation": "FROM"},
+    {"from_id": "op_read", "to_id": "op_write", "relation": "THEN"},
+    {"from_id": "op_write", "to_id": "user", "relation": "TO"},
+    {"from_id": "op_write", "to_id": "op_throw", "relation": "OR"},
+    {"from_id": "op_throw", "to_id": "op_send_error", "relation": "THEN"},
+    {"from_id": "op_send_error", "to_id": "user", "relation": "TO"}
+  ]
+}
+```
+
+**Same specification. Same structure. Different views.** The TRL sentence is 6 lines a human reads. The TRUGS graph is 30 lines a machine traverses. Both compile to each other.
+
+### The Validator
+
+TRUGS graphs are validated by `trugs-validate` — 16 rules that every graph must pass:
+
+- **Rules 1-9 (structural)** — always enforced. Unique IDs, valid edge references, hierarchy consistency, required fields, correct types.
+- **Rules 10-16 (compositional)** — enforced when graph declares `core_v1.0.0`. Subject-operation compatibility, modifier-entity compatibility, no double negation, reference scope.
+
+```bash
+# Validate a single TRUG
+python tools/validate.py my_graph.trug.json
+
+# Validate all TRUGs in a directory
+python tools/validate.py --all my_project/
+```
+
+<trl>
+AGENT SHALL VALIDATE ALL DATA graph SUBJECT_TO INTERFACE core_v1.0.0.
+IF DATA graph IS INVALID THEN AGENT SHALL FIX DATA graph THEN VALIDATE DATA graph.
+NO AGENT SHALL DEPLOY INVALID DATA graph.
+</trl>
+
+The validator is available at: https://github.com/TRUGS-LLC/TRUGS/tree/main/tools
+
 ---
 
 ## Part 1: TRL — The Language
