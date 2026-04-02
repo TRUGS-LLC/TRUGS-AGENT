@@ -13,7 +13,20 @@ Inside (open):      PANEL 2 (left)  |  PANEL 3 (right)
 
 ---
 
-## TRUGS — Traceable Recursive Universal Graph Specification
+```
+TRACEABLE    RRRRRRRRRRRRRR    UU         UU    GGGGGGGGGGGGG    SSSSSSSSSSSSSSS
+TTTTTTTTTTTT RRRRRRRRRRRRRR    UU         UU   GG         GG    SSSSPECIFICATION
+   TT        RR         RR    UU         UU   GG                SS
+   TT        RR         RR    UU         UU   GG                SS
+   TT        RR        RR     UU         UU   GG                SSSSSSSSSSSSSSS
+   TT        RRRRRRRRRRRR     UU         UU   GG                SSSSSSSSSSSSSSS
+   TT        RECURSIVE        UU         UU   GG  GGGGGGGG                  SS
+   TT        RR    RR         UU         UU   GG  GGGGGGGG                  SS
+   TT        RR      RR       UU         UU   GG   GRAPH GG                 SS
+   TT        RR        RR     UU         UU   GG        GG                  SS
+   TT        RR         RR     UNIVERSAL      GG        GG      SSSSSSSSSSSSSSS
+   TT        RR          RR    UNIVERSAL       GGGGGGGGGGGGG     SSSSSSSSSSSSSSS
+```
 
 ```
 <trl>
@@ -108,14 +121,15 @@ Your agent doesn't interpret TRL. It compiles it, validates it, and executes it.
 research → plan → track → graph → specify → deliver → remember → index
 ```
 
-| Component | What It Does |
-|-----------|-------------|
-| **FOLDER** | JSON graph indexes your filesystem — agent navigates without reading every file |
-| **AAA** | 9-phase protocol — plan before code, define audit criteria before build, human approves at 3 gates |
-| **EPIC** | Portfolio tracker as a traversable graph — what's blocked, what depends on what |
-| **MEMORY** | 4-type persistence across sessions — decisions, preferences, project state, external references |
-| **TRUGGING** | 4-level codebase description — system graph, folder graph, file header TRL, inline TRL |
-| **WEB_HUB** | Curated web resources as a weighted graph — traverse research instead of searching |
+| Step | Component | What It Does |
+|------|-----------|-------------|
+| research | **WEB_HUB** | Curated web resources as a weighted graph — traverse research instead of searching |
+| plan | **AAA** | 9-phase protocol — plan before code, define audit criteria before build, human approves at 3 gates |
+| track | **EPIC** | Portfolio tracker as a traversable graph — what's blocked, what depends on what |
+| graph | **TRUGGING** | 4-level codebase description — system graph, folder graph, file header TRL, inline TRL |
+| specify | **TRL** | 190-word formalized English — every sentence compiles to a graph, every graph compiles back |
+| deliver | **FOLDER** | JSON graph indexes your filesystem — agent navigates without reading every file |
+| remember | **MEMORY** | 4-type persistence across sessions — decisions, preferences, project state, external references |
 
 Each component is one folder with a README (for you) and an AGENT.md (for your LLM). Copy what you need.
 
@@ -148,17 +162,6 @@ TRUGS is a specification, not a product. Define your domain's vocabulary. Valida
 
 ---
 
-## Start
-
-Copy one file into your project. Rename it for your IDE. Start a conversation.
-
-| IDE | File name |
-|-----|-----------|
-| Claude Code | `CLAUDE.md` |
-| Cursor | `.cursorrules` |
-| GitHub Copilot | `.github/copilot-instructions.md` |
-| Any LLM | System prompt |
-
 ## Repositories
 
 **TRUGS-AGENT** — The implementation guide
@@ -171,6 +174,7 @@ Copy one file into your project. Rename it for your IDE. Start a conversation.
 
 ## Paper
 
+`github.com/TRUGS-LLC/TRUGS/blob/main/PAPER/trugs.pdf`
 DOI: 10.5281/zenodo.19379454
 
 ## Contact
