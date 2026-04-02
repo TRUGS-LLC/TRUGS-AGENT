@@ -14,13 +14,20 @@ Inside (open):      PANEL 2 (left)  |  PANEL 3 (right)
 ---
 
 ```
-TRACEABLE    RRRRRRRRRRRRRR    UU         UU    GGGGGGGGGGGGG    SPECIFICATION
+TTTTTTTTTTTT RRRRRRRRRRRRRR    UU         UU    GGGGGGGGGGGGG    SSSSSSSSSSSSSSS
+TTTTTTTTTTTT RRRRRRRRRRRRRR    UU         UU   GG         GG    SSSSSSSSSSSSSSS
    TT        RR         RR    UU         UU   GG                SS
-   TT        RR         RR    UU         UU   GG                SSSSSSSSSSSSSSS
+   TT        RR         RR    UU         UU   GG                SS
+   TT        RR        RR     UU         UU   GG                SSSSSSSSSSSSSSS
+   TT        RRRRRRRRRRRR     UU         UU   GG                SSSSSSSSSSSSSSS
    TT        RECURSIVE        UU         UU   GG  GGGGGGGG                  SS
-   TT        RR     RR        UU         UU   GG   GRAPH GG                 SS
-   TT        RR       RR       UNIVERSAL      GG        GG      SSSSSSSSSSSSSSS
-   TT        RR         RR                     GGGGGGGGGGGGG
+   TT        RR    RR         UU         UU   GG  GGGGGGGG                  SS
+   TT        RR      RR       UU         UU   GG   GRAPH GG                 SS
+   TT        RR        RR     UU         UU   GG        GG                  SS
+   TT        RR         RR     UNIVERSAL      GG        GG      SSSSSSSSSSSSSSS
+   TT        RR          RR    UNIVERSAL       GGGGGGGGGGGGG     SSSSSSSSSSSSSSS
+
+ TRACEABLE    RECURSIVE      UNIVERSAL        GRAPH         SPECIFICATION
 ```
 
 ```
