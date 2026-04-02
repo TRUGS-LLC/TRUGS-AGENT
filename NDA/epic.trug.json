@@ -1,0 +1,258 @@
+{
+  "name": "NDA Project Tracker",
+  "version": "1.0.0",
+  "type": "TRACKER",
+  "description": "Project tracker for drafting a mutual NDA under Washington State law",
+  "dimensions": {
+    "project_tracking": {
+      "description": "NDA drafting workflow",
+      "base_level": "BASE"
+    }
+  },
+  "capabilities": {
+    "extensions": [],
+    "vocabularies": ["core_v1.0.0"],
+    "profiles": []
+  },
+  "nodes": [
+    {
+      "id": "tracker_root",
+      "type": "TRACKER",
+      "properties": {
+        "name": "NDA Draft",
+        "owner": "TRUGS LLC",
+        "total_open_issues": 0,
+        "last_updated": "2026-04-02",
+        "present_plan": {
+          "summary": "Draft mutual NDA for TRUGS LLC business conversations — WA state, plain English, TRL-specified",
+          "active_issues": []
+        }
+      },
+      "parent_id": null,
+      "contains": ["epic_research", "epic_draft", "epic_review"],
+      "metric_level": "KILO_TRACKER",
+      "dimension": "project_tracking"
+    },
+    {
+      "id": "epic_research",
+      "type": "EPIC",
+      "properties": {
+        "name": "Research & Planning",
+        "purpose": "Gather templates, understand WA law, define requirements",
+        "status": "DONE"
+      },
+      "parent_id": "tracker_root",
+      "contains": ["task_templates", "task_wa_law", "task_aaa_plan"],
+      "metric_level": "HECTO_EPIC",
+      "dimension": "project_tracking"
+    },
+    {
+      "id": "task_templates",
+      "type": "TASK",
+      "properties": {
+        "name": "Research open-source NDA templates",
+        "status": "DONE",
+        "priority": "P1"
+      },
+      "parent_id": "epic_research",
+      "contains": [],
+      "metric_level": "BASE_TASK",
+      "dimension": "project_tracking"
+    },
+    {
+      "id": "task_wa_law",
+      "type": "TASK",
+      "properties": {
+        "name": "Review WA Uniform Trade Secrets Act (RCW 19.108)",
+        "status": "DONE",
+        "priority": "P1"
+      },
+      "parent_id": "epic_research",
+      "contains": [],
+      "metric_level": "BASE_TASK",
+      "dimension": "project_tracking"
+    },
+    {
+      "id": "task_aaa_plan",
+      "type": "TASK",
+      "properties": {
+        "name": "Write AAA plan — phases 1-5",
+        "status": "DONE",
+        "priority": "P1"
+      },
+      "parent_id": "epic_research",
+      "contains": [],
+      "metric_level": "BASE_TASK",
+      "dimension": "project_tracking"
+    },
+    {
+      "id": "epic_draft",
+      "type": "EPIC",
+      "properties": {
+        "name": "Draft NDA",
+        "purpose": "Write each clause with TRL specs and plain English",
+        "status": "DONE"
+      },
+      "parent_id": "tracker_root",
+      "contains": ["task_definitions", "task_obligations", "task_exclusions", "task_term", "task_remedies", "task_general", "task_whistleblower"],
+      "metric_level": "HECTO_EPIC",
+      "dimension": "project_tracking"
+    },
+    {
+      "id": "task_definitions",
+      "type": "TASK",
+      "properties": {
+        "name": "Draft preamble and definitions",
+        "status": "DONE",
+        "priority": "P1"
+      },
+      "parent_id": "epic_draft",
+      "contains": [],
+      "metric_level": "BASE_TASK",
+      "dimension": "project_tracking"
+    },
+    {
+      "id": "task_obligations",
+      "type": "TASK",
+      "properties": {
+        "name": "Draft confidentiality obligations",
+        "status": "DONE",
+        "priority": "P1"
+      },
+      "parent_id": "epic_draft",
+      "contains": [],
+      "metric_level": "BASE_TASK",
+      "dimension": "project_tracking"
+    },
+    {
+      "id": "task_exclusions",
+      "type": "TASK",
+      "properties": {
+        "name": "Draft exclusions and permitted disclosures",
+        "status": "DONE",
+        "priority": "P1"
+      },
+      "parent_id": "epic_draft",
+      "contains": [],
+      "metric_level": "BASE_TASK",
+      "dimension": "project_tracking"
+    },
+    {
+      "id": "task_term",
+      "type": "TASK",
+      "properties": {
+        "name": "Draft term and termination",
+        "status": "DONE",
+        "priority": "P2"
+      },
+      "parent_id": "epic_draft",
+      "contains": [],
+      "metric_level": "BASE_TASK",
+      "dimension": "project_tracking"
+    },
+    {
+      "id": "task_remedies",
+      "type": "TASK",
+      "properties": {
+        "name": "Draft remedies clause",
+        "status": "DONE",
+        "priority": "P2"
+      },
+      "parent_id": "epic_draft",
+      "contains": [],
+      "metric_level": "BASE_TASK",
+      "dimension": "project_tracking"
+    },
+    {
+      "id": "task_general",
+      "type": "TASK",
+      "properties": {
+        "name": "Draft general provisions and governing law",
+        "status": "DONE",
+        "priority": "P2"
+      },
+      "parent_id": "epic_draft",
+      "contains": [],
+      "metric_level": "BASE_TASK",
+      "dimension": "project_tracking"
+    },
+    {
+      "id": "task_whistleblower",
+      "type": "TASK",
+      "properties": {
+        "name": "Add DTSA whistleblower immunity notice",
+        "status": "DONE",
+        "priority": "P1"
+      },
+      "parent_id": "epic_draft",
+      "contains": [],
+      "metric_level": "BASE_TASK",
+      "dimension": "project_tracking"
+    },
+    {
+      "id": "epic_review",
+      "type": "EPIC",
+      "properties": {
+        "name": "Review & Finalize",
+        "purpose": "Audit against specs, verify TRL compiles, human review",
+        "status": "DONE"
+      },
+      "parent_id": "tracker_root",
+      "contains": ["task_audit", "task_trl_check", "task_human_review"],
+      "metric_level": "HECTO_EPIC",
+      "dimension": "project_tracking"
+    },
+    {
+      "id": "task_audit",
+      "type": "TASK",
+      "properties": {
+        "name": "Audit against Phase 3 criteria",
+        "status": "DONE",
+        "priority": "P1"
+      },
+      "parent_id": "epic_review",
+      "contains": [],
+      "metric_level": "BASE_TASK",
+      "dimension": "project_tracking"
+    },
+    {
+      "id": "task_trl_check",
+      "type": "TASK",
+      "properties": {
+        "name": "Verify all TRL blocks compile",
+        "status": "DONE",
+        "priority": "P1"
+      },
+      "parent_id": "epic_review",
+      "contains": [],
+      "metric_level": "BASE_TASK",
+      "dimension": "project_tracking"
+    },
+    {
+      "id": "task_human_review",
+      "type": "TASK",
+      "properties": {
+        "name": "Human reviews final NDA — HITM gate",
+        "status": "DONE",
+        "priority": "P0"
+      },
+      "parent_id": "epic_review",
+      "contains": [],
+      "metric_level": "BASE_TASK",
+      "dimension": "project_tracking"
+    }
+  ],
+  "edges": [
+    {"from_id": "task_aaa_plan", "to_id": "task_templates", "relation": "BLOCKS", "properties": {"description": "Need templates before writing the plan"}},
+    {"from_id": "task_aaa_plan", "to_id": "task_wa_law", "relation": "BLOCKS", "properties": {"description": "Need WA law review before writing specs"}},
+    {"from_id": "task_obligations", "to_id": "task_definitions", "relation": "BLOCKS", "properties": {"description": "Must define terms before stating obligations"}},
+    {"from_id": "task_exclusions", "to_id": "task_definitions", "relation": "BLOCKS", "properties": {"description": "Exclusions reference the definition of Confidential Information"}},
+    {"from_id": "task_remedies", "to_id": "task_obligations", "relation": "BLOCKS", "properties": {"description": "Remedies are for breach of obligations"}},
+    {"from_id": "task_term", "to_id": "task_obligations", "relation": "BLOCKS", "properties": {"description": "Term governs how long obligations last"}},
+    {"from_id": "task_general", "to_id": "task_term", "relation": "BLOCKS", "properties": {"description": "General provisions reference term and termination"}},
+    {"from_id": "task_audit", "to_id": "task_general", "relation": "BLOCKS", "properties": {"description": "Audit after all clauses are drafted"}},
+    {"from_id": "task_audit", "to_id": "task_whistleblower", "relation": "BLOCKS", "properties": {"description": "Audit after whistleblower notice added"}},
+    {"from_id": "task_trl_check", "to_id": "task_audit", "relation": "BLOCKS", "properties": {"description": "TRL check after audit pass"}},
+    {"from_id": "task_human_review", "to_id": "task_trl_check", "relation": "BLOCKS", "properties": {"description": "Human reviews only after all checks pass"}}
+  ]
+}

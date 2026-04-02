@@ -3,18 +3,23 @@
 <trl>
 DEFINE "TRUGS" AS NAMESPACE.
 DEFINE "TRL" AS INTERFACE.
-DEFINE "AAA" AS PIPELINE.
-DEFINE "Memory" AS MODULE.
-
 NAMESPACE TRUGS GOVERNS ALL DATA graph AND ALL RECORD sentence.
 INTERFACE TRL GOVERNS ALL RECORD sentence.
-PIPELINE AAA GOVERNS ALL PHASE.
-MODULE Memory GOVERNS ALL RECORD memory.
-
 AGENT SHALL READ THIS FILE THEN IMPLEMENT ALL RECORD instruction.
 </trl>
 
-You are an agent that speaks TRL, follows AAA, and maintains Memory. This file teaches you everything.
+You are an agent that speaks TRL. This file teaches the language. Component folders teach the methodology.
+
+| Component | What it teaches | File |
+|-----------|----------------|------|
+| **Folder** | Machine-readable filesystem index | `FOLDER/AGENT.md` |
+| **AAA** | 9-phase development protocol | `AAA/AGENT.md` |
+| **EPIC** | Portfolio tracking as a graph | `EPIC/AGENT.md` |
+| **Memory** | Persistent context across sessions | `MEMORY/AGENT.md` |
+| **Trugging** | Describing a codebase with TRUGs and TRL | `TRUGGING/AGENT.md` |
+| **Web Hub** | Curated web resource landscape | `WEB_HUB/AGENT.md` |
+
+Read this file first. Read component files when you need that component.
 
 ---
 
@@ -27,7 +32,7 @@ EACH RECORD sentence SHALL COMPILE TO DATA graph.
 EACH DATA graph SHALL COMPILE TO RECORD sentence.
 </trl>
 
-**TRL (sentences)** — use when communicating. Instructions, specifications, acceptance criteria, code comments, issue descriptions. The human writes it, the agent reads it, both understand it.
+**TRL (sentences)** — use when communicating. Instructions, specifications, acceptance criteria, code comments. Human writes it, agent reads it, both understand it.
 
 **TRUGS (graphs)** — use when storing and executing. Project tracking, validation, traversal, state management. Machines read it, tools validate it, agents navigate it.
 
@@ -37,16 +42,14 @@ EACH DATA graph SHALL COMPILE TO RECORD sentence.
 | Code comments | TRL | Compilable documentation |
 | Acceptance criteria | TRL | Both human and agent verify against it |
 | Project tracking | TRUGS | Machines traverse and validate |
-| AAA planning phases | TRL | Communication between human and agent |
-| AAA execution state | TRUGS | Agent tracks progress as graph nodes |
+| Development phases | TRL | Communication between human and agent |
+| Execution state | TRUGS | Agent tracks progress as graph nodes |
 | Memory files | English + TRL | Context for future sessions |
 | Validation rules | TRUGS | Tools enforce mechanically |
 
 The sentence is the graph. The graph is the sentence. TRL is how you talk about it. TRUGS is how you store it.
 
 ### Side-by-Side Example
-
-The same specification expressed both ways:
 
 **TRL (the sentence):**
 
@@ -88,34 +91,11 @@ IF SERVICE api THROW EXCEPTION
 }
 ```
 
-**Same specification. Same structure. Different views.** The TRL sentence is 6 lines a human reads. The TRUGS graph is 30 lines a machine traverses. Both compile to each other.
-
-### The Validator
-
-TRUGS graphs are validated by `trugs-validate` — 16 rules that every graph must pass:
-
-- **Rules 1-9 (structural)** — always enforced. Unique IDs, valid edge references, hierarchy consistency, required fields, correct types.
-- **Rules 10-16 (compositional)** — enforced when graph declares `core_v1.0.0`. Subject-operation compatibility, modifier-entity compatibility, no double negation, reference scope.
-
-```bash
-# Validate a single TRUG
-python tools/validate.py my_graph.trug.json
-
-# Validate all TRUGs in a directory
-python tools/validate.py --all my_project/
-```
-
-<trl>
-AGENT SHALL VALIDATE ALL DATA graph SUBJECT_TO INTERFACE core_v1.0.0.
-IF DATA graph IS INVALID THEN AGENT SHALL FIX DATA graph THEN VALIDATE DATA graph.
-NO AGENT SHALL DEPLOY INVALID DATA graph.
-</trl>
-
-The validator is available at: https://github.com/TRUGS-LLC/TRUGS/tree/main/tools
+Same specification. Same structure. Different views.
 
 ---
 
-## Part 1: TRL — The Language
+## TRL — The Language
 
 <trl>
 DEFINE "TRL" AS INTERFACE.
@@ -243,170 +223,7 @@ AGENT SHALL STRIP RECORD sugar BEFORE PARSE RECORD sentence.
 
 ---
 
-## Part 2: AAA — Development Protocol
-
-<trl>
-DEFINE "AAA" AS PIPELINE CONTAINS PHASE vision AND PHASE feasibility AND PHASE specifications AND PHASE architecture AND PHASE validation AND PHASE coding AND PHASE testing AND PHASE audit AND PHASE deployment.
-DEFINE "PLANNING" AS STAGE CONTAINS PHASE vision AND PHASE feasibility AND PHASE specifications AND PHASE architecture AND PHASE validation.
-DEFINE "EXECUTION" AS STAGE CONTAINS PHASE coding AND PHASE testing AND PHASE audit AND PHASE deployment.
-PIPELINE AAA CONTAINS STAGE PLANNING AND STAGE EXECUTION.
-</trl>
-
-### Two Paths — No Middle Ground
-
-<trl>
-IF AGENT KNOWS ALL REQUIRED STEP THEN AGENT SHALL EXECUTE AS RECORD chore.
-IF AGENT REQUIRES RECORD specification OR RECORD decision THEN AGENT SHALL CREATE RECORD issue THEN EXECUTE PHASE vision.
-NO AGENT SHALL CREATE RECORD issue FOR RECORD chore.
-NO AGENT SHALL SKIP STAGE PLANNING FOR RECORD issue.
-</trl>
-
-| Path | Trigger | Flow |
-|------|---------|------|
-| **CHORE** | You know exactly what to do | Branch → do it → PR → human merges |
-| **ISSUE** | Something is unknown | Issue → AAA → PLANNING → HITM → EXECUTION → PR → human merges |
-
-When in doubt, start as a chore. If unknowns emerge, upgrade to an issue.
-
-### PLANNING Cycle (phases 1-5)
-
-<trl>
-PARTY human SHALL DEFINE PHASE vision.
-AGENT SHALL EXECUTE PHASE feasibility THEN PHASE specifications THEN PHASE architecture.
-PHASE specifications SHALL CONTAIN RECORD audit_criteria.
-PHASE architecture SHALL CONTAIN RECORD coding_plan.
-PARTY human SHALL APPROVE PHASE validation.
-NO AGENT SHALL EXECUTE STAGE EXECUTION UNLESS PARTY human APPROVE PHASE validation.
-</trl>
-
-| # | Phase | Who | Output |
-|---|-------|-----|--------|
-| 1 | **VISION** | Human | Problem + success criteria |
-| 2 | **FEASIBILITY** | Agent | GO/NO-GO + risks |
-| 3 | **SPECIFICATIONS** | Agent | Requirements + **audit criteria for Phase 8** |
-| 4 | **ARCHITECTURE** | Agent | Design + ADRs + **coding plan** |
-| 5 | **VALIDATION** | **Human approves** | Plan is complete → proceed to coding |
-
-**Phase 3 defines the audit. Phase 8 executes against it.** The plan defines what "done" looks like before any code is written.
-
-### VALIDATION Checks (Phase 5)
-
-<trl>
-AGENT SHALL VALIDATE PHASE specifications SUBJECT_TO PHASE vision.
-AGENT SHALL VALIDATE PHASE architecture SUBJECT_TO PHASE specifications.
-AGENT SHALL ASSERT PHASE specifications CONTAINS RECORD audit_criteria.
-AGENT SHALL ASSERT PHASE architecture CONTAINS RECORD coding_plan.
-AGENT SHALL ASSERT RECORD audit_criteria REFERENCES PHASE specifications.
-NO AGENT SHALL PROCEED UNLESS ALL VALIDATION IS VALID.
-</trl>
-
-### EXECUTION Cycle (phases 6-9)
-
-<trl>
-AGENT SHALL EXECUTE PHASE coding SUBJECT_TO RECORD coding_plan.
-AGENT SHALL EXECUTE PHASE testing THEN PHASE audit.
-PHASE audit SHALL VALIDATE RESULT SUBJECT_TO RECORD audit_criteria FROM PHASE specifications.
-IF PHASE audit IS INVALID THEN AGENT SHALL FIX CODE THEN EXECUTE PHASE testing THEN EXECUTE PHASE audit.
-EACH PHASE audit ROUND SHALL FIX ALL RECORD finding AND WRITE RECORD test FOR EACH RECORD finding.
-NO AGENT SHALL EXECUTE PHASE deployment UNLESS PHASE audit IS VALID.
-PARTY human SHALL APPROVE PHASE deployment.
-</trl>
-
-| # | Phase | Who | Output |
-|---|-------|-----|--------|
-| 6 | **CODING** | Agent | Working code per coding plan |
-| 7 | **TESTING** | Agent | All tests pass |
-| 8 | **AUDIT** | Agent + **Human approves** | Check against Phase 3 criteria. Cycles until clean. |
-| 9 | **DEPLOYMENT** | Agent creates PR. **Human merges.** | Shipped |
-
-### Hard Rules
-
-<trl>
-NO AGENT SHALL COMMIT TO BRANCH main.
-NO AGENT SHALL MERGE RECORD pull_request.
-AGENT SHALL CREATE BRANCH THEN CREATE RECORD pull_request THEN STOP.
-PARTY human SHALL MERGE RECORD pull_request.
-NO AGENT SHALL EXECUTE PHASE coding UNLESS PHASE validation IS VALID.
-NO AGENT SHALL EXECUTE PHASE deployment UNLESS PHASE audit IS VALID.
-</trl>
-
----
-
-## Part 3: Memory — Persistent Context
-
-<trl>
-DEFINE "Memory" AS MODULE CONTAINS RECORD user AND RECORD feedback AND RECORD project AND RECORD reference.
-AGENT SHALL READ FILE MEMORY.md AT ENTRY session.
-AGENT SHALL WRITE RECORD decision TO MODULE Memory DURING RECORD session.
-AGENT SHALL WRITE RECORD summary TO MODULE Memory AT EXIT session.
-</trl>
-
-### Memory Types
-
-<trl>
-DEFINE "user" AS RECORD FOR PARTY human CONTAINS RECORD role AND RECORD preference AND RECORD expertise.
-DEFINE "feedback" AS RECORD FOR RECORD correction OR RECORD confirmation.
-DEFINE "project" AS RECORD FOR RECORD decision OR RECORD status OR RECORD deadline.
-DEFINE "reference" AS RECORD FOR ENDPOINT external_system.
-</trl>
-
-| Type | Save when | Example |
-|------|----------|---------|
-| **user** | You learn about their role or preferences | "User is a data scientist focused on observability" |
-| **feedback** | They correct you OR confirm a non-obvious approach | "Don't mock the database — use real DB in tests" |
-| **project** | You learn who does what, why, or by when | "Merge freeze 2026-03-05 for mobile release" |
-| **reference** | You learn about external resources | "Pipeline bugs tracked in Linear project INGEST" |
-
-### What NOT to Save
-
-<trl>
-NO AGENT SHALL WRITE RECORD memory FOR DATA code_pattern.
-NO AGENT SHALL WRITE RECORD memory FOR DATA git_history.
-NO AGENT SHALL WRITE RECORD memory FOR DATA THAT EXISTS IN FILE CLAUDE.md.
-NO AGENT SHALL WRITE RECORD memory FOR RECORD ephemeral_task.
-</trl>
-
-### Memory File Format
-
-```markdown
----
-name: short title
-description: one-line description
-type: user|feedback|project|reference
----
-
-Content here.
-
-**Why:** reason for the decision
-**How to apply:** when this should influence future work
-```
-
-### MEMORY.md Index
-
-<trl>
-EACH RECORD memory SHALL REFERENCE FILE memory_file.md.
-FILE MEMORY.md SHALL CONTAIN A RECORD pointer FOR EACH RECORD memory.
-EACH RECORD pointer SHALL BE LESS_THAN 150 STRING characters.
-</trl>
-
-```markdown
-# Memory Index
-- [user_role.md](user_role.md) — Senior backend engineer, new to React
-- [feedback_no_mocks.md](feedback_no_mocks.md) — Integration tests hit real DB, not mocks
-```
-
-### Session Pattern
-
-<trl>
-AGENT SHALL READ FILE MEMORY.md AT ENTRY session.
-AGENT SHALL WRITE RECORD decision TO MODULE Memory WHEN RECORD decision EXISTS.
-AGENT SHALL WRITE RECORD session_summary AT EXIT session.
-AGENT SHALL WRITE RECORD pointer TO FILE MEMORY.md FOR EACH NEW RECORD memory.
-</trl>
-
----
-
-## Part 4: Using TRL in Your Project
+## Using TRL in Your Project
 
 <trl>
 PARTY human MAY WRITE RECORD trl_block IN FILE code_comment OR FILE specification OR FILE issue OR FILE config.
@@ -450,17 +267,41 @@ NO FUNCTION SHALL WRITE RECORD password TO FILE OR STREAM.
 
 ---
 
+## The Validator
+
+TRUGS graphs are validated by `trugs-validate` — 16 rules that every graph must pass:
+
+- **Rules 1-9 (structural)** — always enforced. Unique IDs, valid edge references, hierarchy consistency, required fields, correct types.
+- **Rules 10-16 (compositional)** — enforced when graph declares `core_v1.0.0`. Subject-operation compatibility, modifier-entity compatibility, no double negation, reference scope.
+
+```bash
+python tools/validate.py my_graph.trug.json       # Validate one
+python tools/validate.py --all my_project/         # Validate all
+```
+
+<trl>
+AGENT SHALL VALIDATE ALL DATA graph SUBJECT_TO INTERFACE core_v1.0.0.
+IF DATA graph IS INVALID THEN AGENT SHALL FIX DATA graph THEN VALIDATE DATA graph.
+NO AGENT SHALL DEPLOY INVALID DATA graph.
+</trl>
+
+---
+
 ## Quick Reference
 
 <trl>
 INTERFACE TRL CONTAINS 190 UNIQUE RECORD word.
 EACH RECORD word SHALL HAVE EXACTLY A RECORD meaning.
-PIPELINE AAA CONTAINS 9 PHASE AND 2 STAGE AND 3 RECORD touchpoint.
-PHASE specifications SHALL DEFINE RECORD audit_criteria.
-PHASE audit SHALL EXECUTE SUBJECT_TO RECORD audit_criteria.
 NO AGENT SHALL COMMIT TO BRANCH main.
 NO AGENT SHALL MERGE RECORD pull_request.
-MODULE Memory SHALL PERSIST RECORD context ACROSS RECORD session.
 </trl>
+
+For component-specific instructions, read the AGENT.md in each folder:
+- **FOLDER/AGENT.md** — filesystem indexing
+- **AAA/AGENT.md** — development protocol
+- **EPIC/AGENT.md** — portfolio tracking
+- **MEMORY/AGENT.md** — persistent context
+- **TRUGGING/AGENT.md** — codebase description
+- **WEB_HUB/AGENT.md** — curated web resource landscape
 
 For the full TRL specification: https://github.com/TRUGS-LLC/TRUGS
