@@ -4,7 +4,7 @@ Issue: #1261
 
 ## Phase 1: VISION
 
-I hate email. I have 3 Gmail accounts with 15,000+ messages across them. I need Claude Code to read, send, search, and organize email for me — triage inboxes, draft responses, archive junk, send outreach. Everything stays on my machine. No cloud OAuth, no API tokens, no Google dependency. Direct IMAP/SMTP, same MCP pattern as the browser and GIMP tools we already have.
+I hate email. I have 3 Gmail accounts with 15,000+ messages across them. I need Claude Code to read, send, search, and organize email for me — triage inboxes, draft responses, archive junk, send outreach. Everything stays on my machine. No cloud OAuth, no API tokens, no Google dependency. Direct IMAP/SMTP.
 
 ## Phase 2: FEASIBILITY
 
