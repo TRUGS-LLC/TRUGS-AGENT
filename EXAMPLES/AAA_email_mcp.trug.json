@@ -1,0 +1,600 @@
+{
+  "name": "#1261: Thunderbird MCP — Local Email Management Tool for Claude Code",
+  "version": "1.0.0",
+  "type": "AAA",
+  "description": "MCP server providing full email capabilities (read, compose, send, search, organize) via direct IMAP/SMTP. Same pattern as browser_mcp.py and gimp_mcp.py. All data stays on disk.",
+  "dimensions": {
+    "development": {
+      "description": "9-phase development lifecycle",
+      "base_level": "BASE"
+    }
+  },
+  "capabilities": {
+    "extensions": [],
+    "vocabularies": ["aaa_v1"],
+    "profiles": []
+  },
+  "nodes": [
+    {
+      "id": "aaa_root",
+      "type": "AAA",
+      "properties": {
+        "name": "#1261: Email MCP",
+        "description": "Local email management MCP server — IMAP/SMTP, zero cloud dependency",
+        "issue_number": 1261,
+        "folder": "TRUGS_WEB",
+        "status": "PLANNING",
+        "created": "2026-04-01",
+        "labels": ["folder:TRUGS_WEB", "business-tool", "mcp"]
+      },
+      "parent_id": null,
+      "contains": [
+        "phase_vision",
+        "phase_feasibility",
+        "phase_specifications",
+        "phase_architecture",
+        "phase_validation",
+        "phase_coding",
+        "phase_testing",
+        "phase_audit",
+        "phase_deployment"
+      ],
+      "metric_level": "KILO_AAA",
+      "dimension": "development"
+    },
+    {
+      "id": "phase_vision",
+      "type": "PHASE",
+      "properties": {
+        "name": "VISION",
+        "status": "COMPLETE",
+        "quality_gate": "✅",
+        "output": "Claude Code needs full email capabilities — read, send, search, organize — without cloud OAuth dependency. Thunderbird/IMAP keeps everything on disk. Primary use case: inbox triage and cleanup across multiple accounts (admin@trugs.ai, Proton Bridge accounts). Secondary: outbound email (endorsement requests, business correspondence)."
+      },
+      "parent_id": "aaa_root",
+      "contains": [],
+      "metric_level": "BASE_PHASE",
+      "dimension": "development"
+    },
+    {
+      "id": "phase_feasibility",
+      "type": "PHASE",
+      "properties": {
+        "name": "FEASIBILITY",
+        "status": "COMPLETE",
+        "quality_gate": "✅",
+        "output": "GO. Python imaplib/smtplib are stdlib — zero external dependencies. IMAP is universal (Google Workspace, Proton Bridge, any provider). MCP stdio transport matches existing browser_mcp.py and gimp_mcp.py pattern. No novel architecture needed."
+      },
+      "parent_id": "aaa_root",
+      "contains": [
+        "risk_credential_storage",
+        "risk_accidental_delete",
+        "dep_imap_smtp",
+        "dep_proton_bridge",
+        "source_browser_mcp",
+        "source_gimp_mcp"
+      ],
+      "metric_level": "BASE_PHASE",
+      "dimension": "development"
+    },
+    {
+      "id": "phase_specifications",
+      "type": "PHASE",
+      "properties": {
+        "name": "SPECIFICATIONS",
+        "status": "COMPLETE",
+        "quality_gate": "✅",
+        "output": "12 tools defined across 4 categories. Multi-account support via config file. All operations return structured JSON for Claude Code consumption."
+      },
+      "parent_id": "aaa_root",
+      "contains": [
+        "spec_tools_read",
+        "spec_tools_write",
+        "spec_tools_organize",
+        "spec_tools_search",
+        "spec_config",
+        "spec_acceptance"
+      ],
+      "metric_level": "BASE_PHASE",
+      "dimension": "development"
+    },
+    {
+      "id": "phase_architecture",
+      "type": "PHASE",
+      "properties": {
+        "name": "ARCHITECTURE",
+        "status": "COMPLETE",
+        "quality_gate": "✅",
+        "output": "Single file MCP server (email_mcp.py) alongside browser_mcp.py and gimp_mcp.py. IMAP connection pool per account. Config in ~/.config/trugs/email_accounts.json. SMTP send with configurable From address."
+      },
+      "parent_id": "aaa_root",
+      "contains": [
+        "adr_direct_imap",
+        "adr_config_location",
+        "adr_confirmation_required"
+      ],
+      "metric_level": "BASE_PHASE",
+      "dimension": "development"
+    },
+    {
+      "id": "phase_validation",
+      "type": "PHASE",
+      "properties": {
+        "name": "VALIDATION",
+        "status": "COMPLETE",
+        "quality_gate": "✅",
+        "output": "HITM approved 2026-04-01. Proceed to coding.",
+        "hitm_gate": true,
+        "checks": {
+          "alignment": "Vision → specs → architecture consistent",
+          "completeness": "Enough detail to code",
+          "feasibility": "imaplib/smtplib verified for all providers",
+          "risk": "Credential storage and accidental delete mitigated",
+          "scope": "12 tools, no more no less",
+          "coding_plan": "Single file, test with mock IMAP server"
+        }
+      },
+      "parent_id": "aaa_root",
+      "contains": [],
+      "metric_level": "BASE_PHASE",
+      "dimension": "development"
+    },
+    {
+      "id": "phase_coding",
+      "type": "PHASE",
+      "properties": {
+        "name": "CODING",
+        "status": "NOT_STARTED",
+        "quality_gate": "⏳",
+        "output": null
+      },
+      "parent_id": "aaa_root",
+      "contains": [
+        "task_core_imap",
+        "task_send_smtp",
+        "task_search",
+        "task_organize",
+        "task_multi_account",
+        "task_mcp_wrapper"
+      ],
+      "metric_level": "BASE_PHASE",
+      "dimension": "development"
+    },
+    {
+      "id": "phase_testing",
+      "type": "PHASE",
+      "properties": {
+        "name": "TESTING",
+        "status": "NOT_STARTED",
+        "quality_gate": "⏳",
+        "output": null
+      },
+      "parent_id": "aaa_root",
+      "contains": [
+        "gate_tests_passing"
+      ],
+      "metric_level": "BASE_PHASE",
+      "dimension": "development"
+    },
+    {
+      "id": "phase_audit",
+      "type": "PHASE",
+      "properties": {
+        "name": "AUDIT",
+        "status": "NOT_STARTED",
+        "quality_gate": "⏳",
+        "output": null,
+        "hitm_gate": true
+      },
+      "parent_id": "aaa_root",
+      "contains": [],
+      "metric_level": "BASE_PHASE",
+      "dimension": "development"
+    },
+    {
+      "id": "phase_deployment",
+      "type": "PHASE",
+      "properties": {
+        "name": "DEPLOYMENT",
+        "status": "NOT_STARTED",
+        "quality_gate": "⏳",
+        "output": null
+      },
+      "parent_id": "aaa_root",
+      "contains": [],
+      "metric_level": "BASE_PHASE",
+      "dimension": "development"
+    },
+
+    {
+      "id": "risk_credential_storage",
+      "type": "RISK",
+      "properties": {
+        "name": "IMAP/SMTP credentials must not be stored in repo or plain text",
+        "severity": "HIGH",
+        "mitigation": "Config file in ~/.config/trugs/email_accounts.json with 600 permissions. Passwords read from system keyring or environment variables. Never log credentials.",
+        "source": "Security best practice"
+      },
+      "parent_id": "phase_feasibility",
+      "contains": [],
+      "metric_level": "CENTI_RISK",
+      "dimension": "development"
+    },
+    {
+      "id": "risk_accidental_delete",
+      "type": "RISK",
+      "properties": {
+        "name": "Bulk email operations could accidentally delete important messages",
+        "severity": "MEDIUM",
+        "mitigation": "Destructive operations (delete, bulk_move) require explicit confirmation parameter. Default is dry-run mode that reports what would happen without acting.",
+        "source": "User requirement — inbox cleanup is primary use case"
+      },
+      "parent_id": "phase_feasibility",
+      "contains": [],
+      "metric_level": "CENTI_RISK",
+      "dimension": "development"
+    },
+    {
+      "id": "dep_imap_smtp",
+      "type": "DEPENDENCY",
+      "properties": {
+        "name": "Python imaplib + smtplib (stdlib)",
+        "type": "INTERNAL",
+        "version": "3.10+",
+        "status": "ACTIVE",
+        "url": "https://docs.python.org/3/library/imaplib.html"
+      },
+      "parent_id": "phase_feasibility",
+      "contains": [],
+      "metric_level": "CENTI_DEPENDENCY",
+      "dimension": "development"
+    },
+    {
+      "id": "dep_proton_bridge",
+      "type": "DEPENDENCY",
+      "properties": {
+        "name": "Proton Bridge (local IMAP/SMTP for Proton Mail accounts)",
+        "type": "EXTERNAL",
+        "status": "ACTIVE",
+        "url": "https://proton.me/mail/bridge",
+        "note": "Required for in-acu.com, pmintro.com, 8vitality.com until migrated to Google Workspace"
+      },
+      "parent_id": "phase_feasibility",
+      "contains": [],
+      "metric_level": "CENTI_DEPENDENCY",
+      "dimension": "development"
+    },
+    {
+      "id": "source_browser_mcp",
+      "type": "RESEARCH_SOURCE",
+      "properties": {
+        "name": "Existing browser MCP implementation",
+        "url": "TRUGS_WEB/trugs_web/browser_mcp.py",
+        "accessed": "2026-04-01",
+        "relevance": "Architectural pattern — MCP server with stdio transport, tool registration, error handling"
+      },
+      "parent_id": "phase_feasibility",
+      "contains": [],
+      "metric_level": "MILLI_RESEARCH_SOURCE",
+      "dimension": "development"
+    },
+    {
+      "id": "source_gimp_mcp",
+      "type": "RESEARCH_SOURCE",
+      "properties": {
+        "name": "Existing GIMP MCP implementation",
+        "url": "TRUGS_WEB/trugs_web/gimp_mcp.py",
+        "accessed": "2026-04-01",
+        "relevance": "Confirms MCP pattern works for external tool integration"
+      },
+      "parent_id": "phase_feasibility",
+      "contains": [],
+      "metric_level": "MILLI_RESEARCH_SOURCE",
+      "dimension": "development"
+    },
+
+    {
+      "id": "spec_tools_read",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "Read Tools",
+        "tools": [
+          {"name": "email_list", "args": "account, folder, limit, unread_only", "returns": "Array of {id, from, subject, date, flags}"},
+          {"name": "email_read", "args": "account, message_id", "returns": "{headers, body_text, body_html, attachments[]}"}
+        ]
+      },
+      "parent_id": "phase_specifications",
+      "contains": [],
+      "metric_level": "CENTI_SPECIFICATION",
+      "dimension": "development"
+    },
+    {
+      "id": "spec_tools_write",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "Write Tools",
+        "tools": [
+          {"name": "email_send", "args": "account, to, subject, body, cc, bcc, attachments", "returns": "{message_id, status}"},
+          {"name": "email_reply", "args": "account, message_id, body", "returns": "{message_id, status}"},
+          {"name": "email_draft", "args": "account, to, subject, body", "returns": "{draft_id}"}
+        ]
+      },
+      "parent_id": "phase_specifications",
+      "contains": [],
+      "metric_level": "CENTI_SPECIFICATION",
+      "dimension": "development"
+    },
+    {
+      "id": "spec_tools_organize",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "Organize Tools",
+        "tools": [
+          {"name": "email_move", "args": "account, message_ids, target_folder", "returns": "{moved_count}"},
+          {"name": "email_delete", "args": "account, message_ids, confirm=false", "returns": "{deleted_count} (dry-run unless confirm=true)"},
+          {"name": "email_flag", "args": "account, message_ids, flag, add=true", "returns": "{flagged_count}"},
+          {"name": "email_folders", "args": "account", "returns": "Array of {name, message_count, unread_count}"}
+        ]
+      },
+      "parent_id": "phase_specifications",
+      "contains": [],
+      "metric_level": "CENTI_SPECIFICATION",
+      "dimension": "development"
+    },
+    {
+      "id": "spec_tools_search",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "Search Tools",
+        "tools": [
+          {"name": "email_search", "args": "account, query, folder, from, to, since, before, limit", "returns": "Array of {id, from, subject, date, snippet}"},
+          {"name": "email_accounts", "args": "none", "returns": "Array of configured account names"}
+        ]
+      },
+      "parent_id": "phase_specifications",
+      "contains": [],
+      "metric_level": "CENTI_SPECIFICATION",
+      "dimension": "development"
+    },
+    {
+      "id": "spec_config",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "Configuration Format",
+        "location": "~/.config/trugs/email_accounts.json",
+        "format": {
+          "accounts": {
+            "trugs": {
+              "email": "admin@trugs.ai",
+              "imap_host": "imap.gmail.com",
+              "imap_port": 993,
+              "smtp_host": "smtp.gmail.com",
+              "smtp_port": 587,
+              "password_env": "TRUGS_EMAIL_PASSWORD"
+            }
+          }
+        },
+        "security": "File permissions 600. Passwords via env vars or system keyring. Never in the JSON file directly."
+      },
+      "parent_id": "phase_specifications",
+      "contains": [],
+      "metric_level": "CENTI_SPECIFICATION",
+      "dimension": "development"
+    },
+    {
+      "id": "spec_acceptance",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "Acceptance Criteria",
+        "criteria": [
+          "Can list unread emails from admin@trugs.ai",
+          "Can read full email body and headers",
+          "Can send email with subject, body, and attachment",
+          "Can search by sender, subject, date range",
+          "Can move emails between folders",
+          "Can delete emails (with dry-run default)",
+          "Can switch between multiple configured accounts",
+          "All operations return structured JSON",
+          "Zero external dependencies beyond Python stdlib",
+          "Credentials never logged or stored in repo"
+        ]
+      },
+      "parent_id": "phase_specifications",
+      "contains": [],
+      "metric_level": "CENTI_SPECIFICATION",
+      "dimension": "development"
+    },
+
+    {
+      "id": "adr_direct_imap",
+      "type": "ADR",
+      "properties": {
+        "name": "Use direct IMAP/SMTP over Thunderbird WebExtension API",
+        "decision": "Direct IMAP/SMTP via Python stdlib",
+        "rationale": "Zero dependencies, works without Thunderbird running, universal across providers. Thunderbird remains the human UI for the same mailboxes.",
+        "status": "ACCEPTED",
+        "adr_id": "ADR-1261-01"
+      },
+      "parent_id": "phase_architecture",
+      "contains": [],
+      "metric_level": "CENTI_ADR",
+      "dimension": "development"
+    },
+    {
+      "id": "adr_config_location",
+      "type": "ADR",
+      "properties": {
+        "name": "Store account config in ~/.config/trugs/ not in repo",
+        "decision": "Config at ~/.config/trugs/email_accounts.json",
+        "rationale": "Credentials must never enter git. XDG-compliant location. File permissions 600.",
+        "status": "ACCEPTED",
+        "adr_id": "ADR-1261-02"
+      },
+      "parent_id": "phase_architecture",
+      "contains": [],
+      "metric_level": "CENTI_ADR",
+      "dimension": "development"
+    },
+    {
+      "id": "adr_confirmation_required",
+      "type": "ADR",
+      "properties": {
+        "name": "Destructive operations require explicit confirmation",
+        "decision": "email_delete and email_bulk_move default to dry-run. Require confirm=true to execute.",
+        "rationale": "Inbox cleanup is the primary use case. Accidental mass deletion is unrecoverable. Dry-run shows what would happen first.",
+        "status": "ACCEPTED",
+        "adr_id": "ADR-1261-03"
+      },
+      "parent_id": "phase_architecture",
+      "contains": [],
+      "metric_level": "CENTI_ADR",
+      "dimension": "development"
+    },
+
+    {
+      "id": "task_core_imap",
+      "type": "TASK",
+      "properties": {
+        "name": "Implement IMAP connection manager and email_list, email_read, email_folders",
+        "status": "NOT_STARTED",
+        "priority": "HIGH"
+      },
+      "parent_id": "phase_coding",
+      "contains": [],
+      "metric_level": "CENTI_TASK",
+      "dimension": "development"
+    },
+    {
+      "id": "task_send_smtp",
+      "type": "TASK",
+      "properties": {
+        "name": "Implement email_send, email_reply, email_draft via SMTP",
+        "status": "NOT_STARTED",
+        "priority": "HIGH"
+      },
+      "parent_id": "phase_coding",
+      "contains": [],
+      "metric_level": "CENTI_TASK",
+      "dimension": "development"
+    },
+    {
+      "id": "task_search",
+      "type": "TASK",
+      "properties": {
+        "name": "Implement email_search with IMAP SEARCH command",
+        "status": "NOT_STARTED",
+        "priority": "MEDIUM"
+      },
+      "parent_id": "phase_coding",
+      "contains": [],
+      "metric_level": "CENTI_TASK",
+      "dimension": "development"
+    },
+    {
+      "id": "task_organize",
+      "type": "TASK",
+      "properties": {
+        "name": "Implement email_move, email_delete (dry-run default), email_flag",
+        "status": "NOT_STARTED",
+        "priority": "MEDIUM"
+      },
+      "parent_id": "phase_coding",
+      "contains": [],
+      "metric_level": "CENTI_TASK",
+      "dimension": "development"
+    },
+    {
+      "id": "task_multi_account",
+      "type": "TASK",
+      "properties": {
+        "name": "Implement multi-account config loading and email_accounts tool",
+        "status": "NOT_STARTED",
+        "priority": "MEDIUM"
+      },
+      "parent_id": "phase_coding",
+      "contains": [],
+      "metric_level": "CENTI_TASK",
+      "dimension": "development"
+    },
+    {
+      "id": "task_mcp_wrapper",
+      "type": "TASK",
+      "properties": {
+        "name": "Wire all tools into MCP server with stdio transport",
+        "status": "NOT_STARTED",
+        "priority": "HIGH"
+      },
+      "parent_id": "phase_coding",
+      "contains": [],
+      "metric_level": "CENTI_TASK",
+      "dimension": "development"
+    },
+
+    {
+      "id": "gate_tests_passing",
+      "type": "QUALITY_GATE",
+      "properties": {
+        "name": "All email MCP tests passing",
+        "condition": "pytest suite passes with mock IMAP server. Integration test against admin@trugs.ai succeeds.",
+        "status": "⏳",
+        "phase": "TESTING"
+      },
+      "parent_id": "phase_testing",
+      "contains": [],
+      "metric_level": "CENTI_QUALITY_GATE",
+      "dimension": "development"
+    }
+  ],
+  "edges": [
+    {"from_id": "phase_vision", "to_id": "phase_feasibility", "relation": "precedes"},
+    {"from_id": "phase_feasibility", "to_id": "phase_specifications", "relation": "precedes"},
+    {"from_id": "phase_specifications", "to_id": "phase_architecture", "relation": "precedes"},
+    {"from_id": "phase_architecture", "to_id": "phase_validation", "relation": "precedes"},
+    {"from_id": "phase_validation", "to_id": "phase_coding", "relation": "precedes"},
+    {"from_id": "phase_coding", "to_id": "phase_testing", "relation": "precedes"},
+    {"from_id": "phase_testing", "to_id": "phase_audit", "relation": "precedes"},
+    {"from_id": "phase_audit", "to_id": "phase_deployment", "relation": "precedes"},
+    {"from_id": "task_core_imap", "to_id": "task_mcp_wrapper", "relation": "depends_on"},
+    {"from_id": "task_send_smtp", "to_id": "task_mcp_wrapper", "relation": "depends_on"},
+    {"from_id": "task_search", "to_id": "task_core_imap", "relation": "depends_on"},
+    {"from_id": "task_organize", "to_id": "task_core_imap", "relation": "depends_on"},
+    {"from_id": "task_multi_account", "to_id": "task_core_imap", "relation": "depends_on"},
+    {"from_id": "adr_direct_imap", "to_id": "task_core_imap", "relation": "decides"},
+    {"from_id": "adr_config_location", "to_id": "task_multi_account", "relation": "decides"},
+    {"from_id": "adr_confirmation_required", "to_id": "task_organize", "relation": "decides"},
+    {"from_id": "risk_credential_storage", "to_id": "adr_config_location", "relation": "mitigates"},
+    {"from_id": "risk_accidental_delete", "to_id": "adr_confirmation_required", "relation": "mitigates"},
+    {"from_id": "gate_tests_passing", "to_id": "phase_coding", "relation": "validates"},
+    {"from_id": "aaa_root", "to_id": "phase_vision", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "aaa_root", "to_id": "phase_feasibility", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "aaa_root", "to_id": "phase_specifications", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "aaa_root", "to_id": "phase_architecture", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "aaa_root", "to_id": "phase_validation", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "aaa_root", "to_id": "phase_coding", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "aaa_root", "to_id": "phase_testing", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "aaa_root", "to_id": "phase_audit", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "aaa_root", "to_id": "phase_deployment", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_feasibility", "to_id": "risk_credential_storage", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_feasibility", "to_id": "risk_accidental_delete", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_feasibility", "to_id": "dep_imap_smtp", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_feasibility", "to_id": "dep_proton_bridge", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_feasibility", "to_id": "source_browser_mcp", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_feasibility", "to_id": "source_gimp_mcp", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_specifications", "to_id": "spec_tools_read", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_specifications", "to_id": "spec_tools_write", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_specifications", "to_id": "spec_tools_organize", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_specifications", "to_id": "spec_tools_search", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_specifications", "to_id": "spec_config", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_specifications", "to_id": "spec_acceptance", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_architecture", "to_id": "adr_direct_imap", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_architecture", "to_id": "adr_config_location", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_architecture", "to_id": "adr_confirmation_required", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_coding", "to_id": "task_core_imap", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_coding", "to_id": "task_send_smtp", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_coding", "to_id": "task_search", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_coding", "to_id": "task_organize", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_coding", "to_id": "task_multi_account", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_coding", "to_id": "task_mcp_wrapper", "relation": "contains", "weight": 1.0, "properties": {}},
+    {"from_id": "phase_testing", "to_id": "gate_tests_passing", "relation": "contains", "weight": 1.0, "properties": {}}
+  ]
+}
