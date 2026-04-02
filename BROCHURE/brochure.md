@@ -148,17 +148,6 @@ TRUGS is a specification, not a product. Define your domain's vocabulary. Valida
 
 ---
 
-## Start
-
-Copy one file into your project. Rename it for your IDE. Start a conversation.
-
-| IDE | File name |
-|-----|-----------|
-| Claude Code | `CLAUDE.md` |
-| Cursor | `.cursorrules` |
-| GitHub Copilot | `.github/copilot-instructions.md` |
-| Any LLM | System prompt |
-
 ## Repositories
 
 **TRUGS-AGENT** — The implementation guide
@@ -171,6 +160,7 @@ Copy one file into your project. Rename it for your IDE. Start a conversation.
 
 ## Paper
 
+`github.com/TRUGS-LLC/TRUGS/blob/main/PAPER/trugs.pdf`
 DOI: 10.5281/zenodo.19379454
 
 ## Contact
