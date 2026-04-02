@@ -13,7 +13,15 @@ Inside (open):      PANEL 2 (left)  |  PANEL 3 (right)
 
 ---
 
-## TRUGS — Traceable Recursive Universal Graph Specification
+```
+TRACEABLE           RRRRRRRRRRRRRRRRR   UU            UU    GGGGGGGGGGGGGGGG    SPECIFICATION
+    TT              RR            RR    UU            UU   GG                   SS
+    TT              RR            RR    UU            UU   GG                   SSSSSSSSSSSSSSSSSS
+    TT              RECURSIVE           UU            UU   GG  GGGGGGGGGGG                     SS
+    TT              RR      RR          UU            UU   GG    GRAPH   GG                    SS
+    TT              RR        RR        UU            UU   GG          GG       SSSSSSSSSSSSSSSSSS
+    TT              RR          RR       UNIVERSAL         GGGGGGGGGGGGGG
+```
 
 ```
 <trl>
