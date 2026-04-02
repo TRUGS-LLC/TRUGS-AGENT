@@ -4,16 +4,7 @@ Issue: #1261
 
 ## Phase 1: VISION
 
-<trl>
-AGENT SHALL CREATE MODULE email_mcp AS SERVICE.
-SERVICE email_mcp SHALL READ AND WRITE AND SEARCH AND ORGANIZE ALL MESSAGE.
-SERVICE email_mcp SHALL CONNECT TO MULTIPLE ENDPOINT imap_account.
-ALL DATA SHALL PERSIST ON LOCAL FILE.
-NO DATA SHALL ROUTE TO EXTERNAL SERVICE oauth.
-SERVICE email_mcp SHALL IMPLEMENT INTERFACE mcp_stdio.
-</trl>
-
-**Human intent:** Claude Code needs full email capabilities — read, send, search, organize — without cloud OAuth. Everything stays on disk. Same MCP pattern as browser and GIMP tools.
+I hate email. I have 3 Gmail accounts with 15,000+ messages across them. I need Claude Code to read, send, search, and organize email for me — triage inboxes, draft responses, archive junk, send outreach. Everything stays on my machine. No cloud OAuth, no API tokens, no Google dependency. Direct IMAP/SMTP, same MCP pattern as the browser and GIMP tools we already have.
 
 ## Phase 2: FEASIBILITY
 
