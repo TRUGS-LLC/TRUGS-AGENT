@@ -4,12 +4,16 @@
 
 ## Install
 
-1. Copy `CLAUDE.md` to your project root
-   - For Cursor: copy as `.cursorrules`
-   - For GitHub Copilot: copy as `.github/copilot-instructions.md`
-   - For any other LLM: paste the contents as your system prompt
-2. Start a conversation with your LLM
-3. It speaks TRL, runs AAA, remembers context
+Copy `AGENT.md` into your project, renamed for your IDE:
+
+| IDE | Copy as |
+|-----|---------|
+| Claude Code | `CLAUDE.md` |
+| Cursor | `.cursorrules` |
+| GitHub Copilot | `.github/copilot-instructions.md` |
+| Any other LLM | Paste contents as system prompt |
+
+Start a conversation. Your LLM speaks TRL, runs AAA, remembers context.
 
 ## What Your LLM Gets
 
