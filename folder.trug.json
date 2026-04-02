@@ -2,10 +2,10 @@
   "name": "TRUGS-AGENT",
   "version": "1.0.0",
   "type": "PROJECT",
-  "description": "Agent system for LLMs — TRL language, 5 component modules, validator tooling",
+  "description": "Agent system for LLMs — TRL language, 7 component modules, validator tooling, NDA example",
   "dimensions": {
     "folder_structure": {
-      "description": "Top-level repo structure — 5 component folders + tools",
+      "description": "Top-level repo structure — 7 component folders + tools + NDA example",
       "base_level": "BASE"
     }
   },
@@ -25,7 +25,7 @@
         "stale": false
       },
       "parent_id": null,
-      "contains": ["doc_agent", "doc_readme", "doc_license", "folder_aaa", "folder_epic", "folder_memory", "folder_folder", "folder_trugging", "folder_tools"],
+      "contains": ["doc_agent", "doc_readme", "doc_license", "folder_aaa", "folder_epic", "folder_memory", "folder_folder", "folder_trugging", "folder_webhub", "folder_nda", "folder_tools"],
       "metric_level": "KILO_FOLDER",
       "dimension": "folder_structure"
     },
@@ -332,6 +332,98 @@
       "dimension": "folder_structure"
     },
     {
+      "id": "folder_webhub",
+      "type": "COMPONENT",
+      "properties": {
+        "name": "WEB_HUB",
+        "purpose": "Curated web resource graph — 3 branches (structured agent, graph native, agent protocols), 54 nodes, 51 weighted edges",
+        "file_count": 3
+      },
+      "parent_id": "root",
+      "contains": ["webhub_agent", "webhub_readme", "webhub_web"],
+      "metric_level": "DEKA_COMPONENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "webhub_agent",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "WEB_HUB/AGENT.md",
+        "purpose": "Agent instructions for WEB_HUB — how to read, traverse, update, and maintain curated web resource graphs",
+        "format": "markdown"
+      },
+      "parent_id": "folder_webhub",
+      "contains": [],
+      "metric_level": "BASE_SPECIFICATION",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "webhub_readme",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "WEB_HUB/README.md",
+        "purpose": "Human overview of WEB_HUB — three branches, edge weights, how to use the research graph",
+        "format": "markdown"
+      },
+      "parent_id": "folder_webhub",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "webhub_web",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "WEB_HUB/web.trug.json",
+        "purpose": "Three-branch web resource graph — 45 resources, 5 convergence nodes, 51 weighted edges across 10 relation types",
+        "format": "json"
+      },
+      "parent_id": "folder_webhub",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "folder_nda",
+      "type": "COMPONENT",
+      "properties": {
+        "name": "NDA",
+        "purpose": "Complete example — all 7 systems applied to drafting a mutual NDA under WA state law (RCW 19.108)",
+        "file_count": 10,
+        "role": "demonstration"
+      },
+      "parent_id": "root",
+      "contains": ["nda_agent", "nda_readme"],
+      "metric_level": "DEKA_COMPONENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "nda_agent",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "NDA/AGENT.md",
+        "purpose": "Agent instructions for NDA example — 8-step walkthrough of the complete pipeline from research to indexing",
+        "format": "markdown"
+      },
+      "parent_id": "folder_nda",
+      "contains": [],
+      "metric_level": "BASE_SPECIFICATION",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "nda_readme",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "NDA/README.md",
+        "purpose": "Human walkthrough — how we built the NDA step by step using all 7 systems",
+        "format": "markdown"
+      },
+      "parent_id": "folder_nda",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
       "id": "folder_tools",
       "type": "COMPONENT",
       "properties": {
@@ -460,6 +552,60 @@
       "to_id": "folder_agent",
       "relation": "describes",
       "properties": {"scope": "Example folder.trug.json for an auth module"}
+    },
+    {
+      "from_id": "webhub_agent",
+      "to_id": "doc_agent",
+      "relation": "uses",
+      "properties": {"reason": "WEB_HUB instructions written in TRL"}
+    },
+    {
+      "from_id": "nda_agent",
+      "to_id": "doc_agent",
+      "relation": "uses",
+      "properties": {"reason": "NDA example uses TRL throughout"}
+    },
+    {
+      "from_id": "folder_nda",
+      "to_id": "folder_aaa",
+      "relation": "uses",
+      "properties": {"reason": "NDA demonstrates AAA 9-phase protocol"}
+    },
+    {
+      "from_id": "folder_nda",
+      "to_id": "folder_epic",
+      "relation": "uses",
+      "properties": {"reason": "NDA demonstrates EPIC project tracking"}
+    },
+    {
+      "from_id": "folder_nda",
+      "to_id": "folder_memory",
+      "relation": "uses",
+      "properties": {"reason": "NDA demonstrates Memory persistence"}
+    },
+    {
+      "from_id": "folder_nda",
+      "to_id": "folder_folder",
+      "relation": "uses",
+      "properties": {"reason": "NDA demonstrates folder.trug.json indexing"}
+    },
+    {
+      "from_id": "folder_nda",
+      "to_id": "folder_trugging",
+      "relation": "uses",
+      "properties": {"reason": "NDA demonstrates TRL in legal clauses"}
+    },
+    {
+      "from_id": "folder_nda",
+      "to_id": "folder_webhub",
+      "relation": "uses",
+      "properties": {"reason": "NDA demonstrates web resource graph for research"}
+    },
+    {
+      "from_id": "webhub_web",
+      "to_id": "webhub_agent",
+      "relation": "describes",
+      "properties": {"scope": "Three-branch web resource graph with 54 nodes"}
     },
     {
       "from_id": "tools_test",
