@@ -60,12 +60,12 @@ Inside the auth folder, each file and public interface is a node:
 
 ```python
 # <trl>
-# MODULE auth SHALL AUTHENTICATE ALL PARTY BEFORE GRANT ACCESS TO DATA.
+# MODULE auth SHALL AUTHENTICATE ALL PARTY 'before GRANT ACCESS TO DATA.
 # MODULE auth SHALL READ DATA credential FROM ENDPOINT environment_variable.
 # MODULE auth SHALL_NOT WRITE DATA credential TO FILE OR STREAM log.
 # MODULE auth SHALL VALIDATE DATA token SUBJECT_TO INTERFACE jwt_schema
 #   THEN RETURN PARTY user OR THROW EXCEPTION auth_error.
-# IF DATA token IS EXPIRED THEN MODULE auth SHALL DENY PARTY
+# IF DATA token 'is EXPIRED THEN MODULE auth SHALL DENY PARTY
 #   AND SEND ERROR TO PARTY caller.
 # </trl>
 
@@ -82,8 +82,8 @@ from models import User
 
 ```python
 # <trl>FUNCTION validate_token SHALL VALIDATE DATA token SUBJECT_TO INTERFACE jwt_schema.
-#   IF DATA token IS INVALID OR EXPIRED THEN THROW EXCEPTION auth_error.
-#   FUNCTION validate_token SHALL RETURN PARTY user WITH ACTIVE ACCESS.</trl>
+#   IF DATA token 'is INVALID OR EXPIRED THEN THROW EXCEPTION auth_error.
+#   FUNCTION validate_token SHALL RETURN PARTY user 'with ACTIVE ACCESS.</trl>
 def validate_token(token: str) -> User:
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])

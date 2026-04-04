@@ -16,8 +16,8 @@ AAA is a 9-phase development protocol. Two cycles, three human touchpoints. This
 <trl>
 IF AGENT KNOWS ALL REQUIRED STEP THEN AGENT SHALL EXECUTE AS RECORD chore.
 IF AGENT REQUIRES RECORD specification OR RECORD decision THEN AGENT SHALL CREATE RECORD issue THEN EXECUTE PHASE vision.
-NO AGENT SHALL CREATE RECORD issue FOR RECORD chore.
-NO AGENT SHALL SKIP STAGE PLANNING FOR RECORD issue.
+NO AGENT SHALL CREATE RECORD issue 'for RECORD chore.
+NO AGENT SHALL SKIP STAGE PLANNING 'for RECORD issue.
 </trl>
 
 | Path | Trigger | Flow |
@@ -53,7 +53,7 @@ NO AGENT SHALL EXECUTE STAGE EXECUTION UNLESS PARTY human APPROVE PHASE validati
 ### Phase 1: VISION
 
 <trl>
-PARTY human SHALL WRITE PHASE vision IN RECORD english.
+PARTY human SHALL WRITE PHASE vision 'in RECORD english.
 PHASE vision SHALL CONTAIN RECORD problem AND RECORD success_criteria.
 AGENT SHALL_NOT MODIFY PHASE vision.
 AGENT SHALL READ PHASE vision THEN EXECUTE PHASE feasibility.
@@ -64,7 +64,7 @@ The human states what they want in plain English. This is the only phase that do
 ### Phase 2: FEASIBILITY
 
 <trl>
-AGENT SHALL ASSESS PHASE vision FOR RECORD technical_feasibility.
+AGENT SHALL ASSESS PHASE vision 'for RECORD technical_feasibility.
 AGENT SHALL IDENTIFY ALL RECORD risk.
 AGENT SHALL WRITE RECORD decision AS "GO" OR "NO-GO".
 IF RECORD decision EQUALS "NO-GO" THEN AGENT SHALL WRITE RECORD alternative.
@@ -76,8 +76,8 @@ Quick assessment. Can we build this? What are the risks? GO or NO-GO. If NO-GO, 
 
 <trl>
 AGENT SHALL WRITE ALL RECORD requirement SUBJECT_TO PHASE vision.
-AGENT SHALL WRITE RECORD audit_criteria FOR PHASE audit.
-EACH RECORD requirement SHALL BE WRITTEN AS RECORD trl_block.
+AGENT SHALL WRITE RECORD audit_criteria 'for PHASE audit.
+EACH RECORD requirement SHALL 'be WRITTEN AS RECORD trl_block.
 EACH RECORD audit_criteria SHALL REFERENCE A RECORD requirement.
 NO AGENT SHALL PROCEED TO PHASE architecture WITHOUT RECORD audit_criteria.
 </trl>
@@ -90,7 +90,7 @@ Requirements in TRL. Every requirement gets audit criteria — specific, testabl
 AGENT SHALL WRITE RECORD design SUBJECT_TO PHASE specifications.
 AGENT SHALL WRITE RECORD coding_plan.
 RECORD coding_plan SHALL CONTAIN RECORD file_list AND RECORD execution_order AND RECORD test_strategy.
-AGENT MAY WRITE RECORD adr FOR EACH RECORD design_decision.
+AGENT MAY WRITE RECORD adr 'for EACH RECORD design_decision.
 NO AGENT SHALL PROCEED TO PHASE validation WITHOUT RECORD coding_plan.
 </trl>
 
@@ -104,8 +104,8 @@ AGENT SHALL VALIDATE PHASE architecture SUBJECT_TO PHASE specifications.
 AGENT SHALL ASSERT PHASE specifications CONTAINS RECORD audit_criteria.
 AGENT SHALL ASSERT PHASE architecture CONTAINS RECORD coding_plan.
 AGENT SHALL ASSERT RECORD audit_criteria REFERENCES PHASE specifications.
-NO AGENT SHALL PROCEED UNLESS ALL VALIDATION IS VALID.
-PARTY human SHALL APPROVE PHASE validation BEFORE STAGE EXECUTION.
+NO AGENT SHALL PROCEED UNLESS ALL VALIDATION 'is VALID.
+PARTY human SHALL APPROVE PHASE validation 'before STAGE EXECUTION.
 </trl>
 
 Validation checks:
@@ -127,9 +127,9 @@ The agent runs these checks and presents results. The human approves before any 
 AGENT SHALL EXECUTE PHASE coding SUBJECT_TO RECORD coding_plan.
 AGENT SHALL EXECUTE PHASE testing THEN PHASE audit.
 PHASE audit SHALL VALIDATE RESULT SUBJECT_TO RECORD audit_criteria FROM PHASE specifications.
-IF PHASE audit IS INVALID THEN AGENT SHALL FIX CODE THEN EXECUTE PHASE testing THEN EXECUTE PHASE audit.
-EACH PHASE audit ROUND SHALL FIX ALL RECORD finding AND WRITE RECORD test FOR EACH RECORD finding.
-NO AGENT SHALL EXECUTE PHASE deployment UNLESS PHASE audit IS VALID.
+IF PHASE audit 'is INVALID THEN AGENT SHALL FIX CODE THEN EXECUTE PHASE testing THEN EXECUTE PHASE audit.
+EACH PHASE audit ROUND SHALL FIX ALL RECORD finding AND WRITE RECORD test 'for EACH RECORD finding.
+NO AGENT SHALL EXECUTE PHASE deployment UNLESS PHASE audit 'is VALID.
 PARTY human SHALL APPROVE PHASE deployment.
 </trl>
 
@@ -144,9 +144,9 @@ PARTY human SHALL APPROVE PHASE deployment.
 
 <trl>
 AGENT SHALL IMPLEMENT CODE SUBJECT_TO RECORD coding_plan FROM PHASE architecture.
-AGENT SHALL CREATE BRANCH BEFORE WRITE CODE.
+AGENT SHALL CREATE BRANCH 'before WRITE CODE.
 AGENT SHALL FOLLOW RECORD execution_order FROM RECORD coding_plan.
-AGENT SHALL_NOT ADD RECORD feature NOT IN PHASE specifications.
+AGENT SHALL_NOT ADD RECORD feature NOT 'in PHASE specifications.
 </trl>
 
 Follow the coding plan. Don't add features that weren't specified. Don't improve code that wasn't in scope.
@@ -154,7 +154,7 @@ Follow the coding plan. Don't add features that weren't specified. Don't improve
 ### Phase 7: TESTING
 
 <trl>
-AGENT SHALL WRITE RECORD test FOR EACH RECORD requirement FROM PHASE specifications.
+AGENT SHALL WRITE RECORD test 'for EACH RECORD requirement FROM PHASE specifications.
 AGENT SHALL EXECUTE ALL RECORD test.
 IF RECORD test FAIL THEN AGENT SHALL FIX CODE THEN EXECUTE RECORD test.
 NO AGENT SHALL PROCEED TO PHASE audit UNLESS ALL RECORD test PASS.
@@ -166,8 +166,8 @@ Write tests that cover the specs. Run them. Fix failures. All tests must pass be
 
 <trl>
 AGENT SHALL CHECK EACH RECORD audit_criteria FROM PHASE specifications.
-IF RECORD finding IS CRITICAL OR HIGH THEN AGENT SHALL FIX RECORD finding.
-EACH RECORD fix SHALL INCLUDE RECORD test FOR RECORD finding.
+IF RECORD finding 'is CRITICAL OR HIGH THEN AGENT SHALL FIX RECORD finding.
+EACH RECORD fix SHALL INCLUDE RECORD test 'for RECORD finding.
 AGENT SHALL EXECUTE PHASE testing AFTER EACH RECORD fix.
 AGENT SHALL REPEAT PHASE audit UNTIL NO CRITICAL OR HIGH RECORD finding EXISTS.
 PARTY human SHALL REVIEW PHASE audit RESULT.
@@ -178,8 +178,8 @@ Check every audit criterion from Phase 3. For each finding: fix it AND write a t
 ### Phase 9: DEPLOYMENT
 
 <trl>
-AGENT SHALL CREATE RECORD pull_request WITH RECORD summary OF ALL PHASE.
-AGENT SHALL RETURN RECORD url OF RECORD pull_request TO PARTY human.
+AGENT SHALL CREATE RECORD pull_request 'with RECORD summary 'of ALL PHASE.
+AGENT SHALL RETURN RECORD url 'of RECORD pull_request TO PARTY human.
 AGENT SHALL STOP.
 PARTY human SHALL MERGE RECORD pull_request.
 NO AGENT SHALL MERGE RECORD pull_request.
@@ -196,8 +196,8 @@ NO AGENT SHALL COMMIT TO BRANCH main.
 NO AGENT SHALL MERGE RECORD pull_request.
 AGENT SHALL CREATE BRANCH THEN CREATE RECORD pull_request THEN STOP.
 PARTY human SHALL MERGE RECORD pull_request.
-NO AGENT SHALL EXECUTE PHASE coding UNLESS PHASE validation IS VALID.
-NO AGENT SHALL EXECUTE PHASE deployment UNLESS PHASE audit IS VALID.
+NO AGENT SHALL EXECUTE PHASE coding UNLESS PHASE validation 'is VALID.
+NO AGENT SHALL EXECUTE PHASE deployment UNLESS PHASE audit 'is VALID.
 </trl>
 
 These are not guidelines. They are prohibitions. Violating them is a system failure.

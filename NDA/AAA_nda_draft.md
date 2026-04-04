@@ -7,8 +7,8 @@ I need a mutual NDA for TRUGS LLC. We're entering conversations with potential p
 ## Phase 2: FEASIBILITY
 
 <trl>
-RECORD nda SHALL COMPLY WITH ENDPOINT RCW_19_108 — Washington Uniform Trade Secrets Act.
-RECORD nda SHALL BE RECORD mutual — BOTH PARTY SHALL HAVE EQUAL RECORD obligation.
+RECORD nda SHALL COMPLY 'with ENDPOINT RCW_19_108 — Washington Uniform Trade Secrets Act.
+RECORD nda SHALL 'be RECORD mutual — BOTH PARTY SHALL 'have EQUAL RECORD obligation.
 RECORD nda SHALL USE RECORD plain_english — NO RECORD legalese.
 AGENT SHALL REFERENCE RECORD template FROM ENDPOINT bonterms_mutual_nda OR ENDPOINT unda.
 </trl>
@@ -18,9 +18,9 @@ AGENT SHALL REFERENCE RECORD template FROM ENDPOINT bonterms_mutual_nda OR ENDPO
 ### Risks
 
 <trl>
-IF RECORD definition_of_confidential_info IS OVERBROAD THEN RECORD nda MAY BE INVALID.
-IF RECORD term EXCEEDS 5 YEARS THEN RECORD nda MAY BE UNENFORCEABLE IN SOME ENDPOINT jurisdiction.
-IF RECORD nda SHALL_NOT CONTAIN RECORD exclusions THEN RECORD nda IS INVALID.
+IF RECORD definition_of_confidential_info 'is OVERBROAD THEN RECORD nda MAY 'be INVALID.
+IF RECORD term EXCEEDS 5 YEARS THEN RECORD nda MAY 'be UNENFORCEABLE 'in SOME ENDPOINT jurisdiction.
+IF RECORD nda SHALL_NOT CONTAIN RECORD exclusions THEN RECORD nda 'is INVALID.
 RECORD nda SHALL CONTAIN RECORD whistleblower_immunity PURSUANT_TO ENDPOINT DTSA.
 </trl>
 
@@ -32,7 +32,7 @@ RECORD nda SHALL CONTAIN RECORD whistleblower_immunity PURSUANT_TO ENDPOINT DTSA
 RECORD nda SHALL CONTAIN RECORD definition_of_parties.
 RECORD nda SHALL CONTAIN RECORD definition_of_confidential_info.
 RECORD nda SHALL CONTAIN RECORD exclusions FROM RECORD confidential_info.
-RECORD nda SHALL CONTAIN RECORD obligations OF PARTY receiving.
+RECORD nda SHALL CONTAIN RECORD obligations 'of PARTY receiving.
 RECORD nda SHALL CONTAIN RECORD permitted_disclosures.
 RECORD nda SHALL CONTAIN RECORD term AND RECORD termination.
 RECORD nda SHALL CONTAIN RECORD remedies.
@@ -46,15 +46,15 @@ RECORD nda SHALL CONTAIN RECORD signature_block.
 ### Key Specifications
 
 <trl>
-RECORD definition_of_confidential_info SHALL BE SPECIFIC — NOT "all information".
+RECORD definition_of_confidential_info SHALL 'be SPECIFIC — NOT "all information".
 RECORD definition_of_confidential_info SHALL INCLUDE DATA technical AND DATA business AND DATA financial.
 RECORD exclusions SHALL INCLUDE RECORD publicly_known AND RECORD independently_developed AND RECORD prior_possession AND RECORD third_party_disclosure.
-RECORD term SHALL BE 2 YEARS FROM RECORD effective_date.
-RECORD survival SHALL BE 3 YEARS AFTER RECORD termination FOR RECORD trade_secret.
+RECORD term SHALL 'be 2 YEARS FROM RECORD effective_date.
+RECORD survival SHALL 'be 3 YEARS AFTER RECORD termination 'for RECORD trade_secret.
 PARTY receiving SHALL_NOT DISCLOSE RECORD confidential_info TO ANY PARTY EXCEPT RECORD authorized_representative.
-PARTY receiving SHALL PROTECT RECORD confidential_info WITH RECORD reasonable_measures.
-RECORD governing_law SHALL BE ENDPOINT Washington_State.
-RECORD dispute_resolution SHALL BE ENDPOINT King_County_Washington.
+PARTY receiving SHALL PROTECT RECORD confidential_info 'with RECORD reasonable_measures.
+RECORD governing_law SHALL 'be ENDPOINT Washington_State.
+RECORD dispute_resolution SHALL 'be ENDPOINT King_County_Washington.
 </trl>
 
 ### Audit Criteria (Phase 8 checks against these)
@@ -62,12 +62,12 @@ RECORD dispute_resolution SHALL BE ENDPOINT King_County_Washington.
 <trl>
 RECORD nda SHALL CONTAIN ALL 12 REQUIRED RECORD clause.
 EACH RECORD obligation SHALL USE RECORD modal "SHALL" OR "SHALL_NOT".
-RECORD definition_of_confidential_info SHALL BE SPECIFIC AND BOUNDED.
+RECORD definition_of_confidential_info SHALL 'be SPECIFIC AND BOUNDED.
 RECORD exclusions SHALL CONTAIN ALL 4 STANDARD RECORD exclusion.
 RECORD whistleblower_notice SHALL REFERENCE ENDPOINT DTSA SECTION 1833(b).
 RECORD governing_law SHALL REFERENCE ENDPOINT RCW_19_108.
 RECORD nda SHALL USE RECORD plain_english — Flesch reading score ABOVE 40.
-NO RECORD clause SHALL CONTAIN RECORD unilateral_obligation — ALL RECORD obligation SHALL BE RECORD mutual.
+NO RECORD clause SHALL CONTAIN RECORD unilateral_obligation — ALL RECORD obligation SHALL 'be RECORD mutual.
 EACH RECORD trl_block SHALL COMPILE — NO RECORD syntax_error.
 </trl>
 
@@ -76,9 +76,9 @@ EACH RECORD trl_block SHALL COMPILE — NO RECORD syntax_error.
 ### Document Structure
 
 <trl>
-RECORD nda SHALL BE ORGANIZED AS RECORD preamble THEN RECORD definitions THEN RECORD obligations THEN RECORD exclusions THEN RECORD permitted_disclosures THEN RECORD term THEN RECORD remedies THEN RECORD general_provisions THEN RECORD signature.
+RECORD nda SHALL 'be ORGANIZED AS RECORD preamble THEN RECORD definitions THEN RECORD obligations THEN RECORD exclusions THEN RECORD permitted_disclosures THEN RECORD term THEN RECORD remedies THEN RECORD general_provisions THEN RECORD signature.
 EACH RECORD clause SHALL CONTAIN RECORD trl_block DEFINING RECORD obligation.
-RECORD trl_block SHALL PRECEDE RECORD plain_english IN EACH RECORD clause.
+RECORD trl_block SHALL PRECEDE RECORD plain_english 'in EACH RECORD clause.
 </trl>
 
 ### Design Decisions
@@ -96,7 +96,7 @@ AGENT SHALL DRAFT RECORD preamble AND RECORD definitions FIRST.
 AGENT SHALL DRAFT RECORD obligations AND RECORD exclusions THEN RECORD permitted_disclosures.
 AGENT SHALL DRAFT RECORD term AND RECORD remedies THEN RECORD general_provisions.
 AGENT SHALL DRAFT RECORD whistleblower_notice AND RECORD signature_block FINALLY.
-AGENT SHALL WRITE RECORD trl_block FOR EACH RECORD clause BEFORE RECORD plain_english.
+AGENT SHALL WRITE RECORD trl_block 'for EACH RECORD clause 'before RECORD plain_english.
 </trl>
 
 ## Phase 5: VALIDATION

@@ -1,8 +1,8 @@
 # NDA — Agent Instructions
 
 <trl>
-DEFINE "NDA" AS DATA graph FOR RECORD legal_agreement.
-DEFINE "clause" AS DATA node IN DATA graph NDA.
+DEFINE "NDA" AS DATA graph 'for RECORD legal_agreement.
+DEFINE "clause" AS DATA node 'in DATA graph NDA.
 EACH RECORD clause SHALL CONTAIN RECORD obligation OR RECORD prohibition OR RECORD definition.
 AGENT SHALL READ THIS FILE THEN FOLLOW ALL RECORD step SEQUENTIAL.
 </trl>
@@ -16,8 +16,8 @@ This folder demonstrates every TRUGS-AGENT system applied to drafting a mutual N
 <trl>
 AGENT SHALL READ FILE web.trug.json FIRST.
 AGENT SHALL IDENTIFY ALL RESOURCE node BY RECORD category — TEMPLATE AND GUIDE AND TOOL AND STANDARD.
-AGENT SHALL FOLLOW DATA edge WITH HIGH RECORD weight TO FIND RECORD primary_sources.
-AGENT SHALL USE RECORD purpose FIELD TO DECIDE RECORD relevance BEFORE FETCH RECORD url.
+AGENT SHALL FOLLOW DATA edge 'with HIGH RECORD weight TO FIND RECORD primary_sources.
+AGENT SHALL USE RECORD purpose FIELD TO DECIDE RECORD relevance 'before FETCH RECORD url.
 </trl>
 
 **File:** `web.trug.json`
@@ -33,9 +33,9 @@ AGENT SHALL USE RECORD purpose FIELD TO DECIDE RECORD relevance BEFORE FETCH REC
 <trl>
 AGENT SHALL READ FILE AAA_nda_draft.md AFTER FILE web.trug.json.
 AGENT SHALL IDENTIFY RECORD current_phase.
-AGENT SHALL READ PHASE specifications FOR RECORD audit_criteria — THESE DEFINE "DONE".
-AGENT SHALL READ PHASE architecture FOR RECORD coding_plan — THIS DEFINES RECORD execution_order.
-AGENT SHALL_NOT DRAFT ANY RECORD clause UNLESS PHASE validation IS APPROVED.
+AGENT SHALL READ PHASE specifications 'for RECORD audit_criteria — 'these DEFINE "DONE".
+AGENT SHALL READ PHASE architecture 'for RECORD coding_plan — THIS DEFINES RECORD execution_order.
+AGENT SHALL_NOT DRAFT ANY RECORD clause UNLESS PHASE validation 'is APPROVED.
 </trl>
 
 **File:** `AAA_nda_draft.md`
@@ -55,9 +55,9 @@ AGENT SHALL_NOT DRAFT ANY RECORD clause UNLESS PHASE validation IS APPROVED.
 
 <trl>
 AGENT SHALL READ FILE epic.trug.json AFTER FILE AAA_nda_draft.md.
-AGENT SHALL IDENTIFY ALL TASK WHERE RECORD status EQUALS "TODO" OR "IN_PROGRESS".
-AGENT SHALL FOLLOW DATA edge OF RELATION BLOCKS TO UNDERSTAND RECORD execution_order.
-AGENT SHALL_NOT START TASK IF BLOCKING TASK IS NOT DONE.
+AGENT SHALL IDENTIFY ALL TASK 'where RECORD status EQUALS "TODO" OR "IN_PROGRESS".
+AGENT SHALL FOLLOW DATA edge 'of RELATION BLOCKS TO UNDERSTAND RECORD execution_order.
+AGENT SHALL_NOT START TASK IF BLOCKING TASK 'is NOT DONE.
 </trl>
 
 **File:** `epic.trug.json`
@@ -72,10 +72,10 @@ AGENT SHALL_NOT START TASK IF BLOCKING TASK IS NOT DONE.
 
 <trl>
 AGENT SHALL READ FILE nda.trug.json AFTER FILE epic.trug.json.
-AGENT SHALL IDENTIFY ALL DATA node OF TYPE RECORD — THESE ARE RECORD clause.
-AGENT SHALL FOLLOW DATA edge OF RELATION DEPENDS_ON TO UNDERSTAND RECORD clause_dependencies.
-AGENT SHALL FOLLOW DATA edge OF RELATION REFERENCES TO FIND RECORD bibliography_source.
-AGENT SHALL USE RECORD properties ON EACH DATA node TO UNDERSTAND RECORD clause_requirements.
+AGENT SHALL IDENTIFY ALL DATA node 'of TYPE RECORD — 'these 'are RECORD clause.
+AGENT SHALL FOLLOW DATA edge 'of RELATION DEPENDS_ON TO UNDERSTAND RECORD clause_dependencies.
+AGENT SHALL FOLLOW DATA edge 'of RELATION REFERENCES TO FIND RECORD bibliography_source.
+AGENT SHALL USE RECORD properties 'on EACH DATA node TO UNDERSTAND RECORD clause_requirements.
 </trl>
 
 **File:** `nda.trug.json`
@@ -94,11 +94,11 @@ AGENT SHALL USE RECORD properties ON EACH DATA node TO UNDERSTAND RECORD clause_
 
 <trl>
 AGENT SHALL READ FILE EXAMPLE_nda_mutual.md AFTER FILE nda.trug.json.
-FOR EACH RECORD clause AGENT SHALL READ RECORD trl_block FIRST THEN RECORD plain_english.
-RECORD trl_block IS RECORD formal_specification — THE OBLIGATION AS DEFINED.
-RECORD plain_english IS RECORD human_readable — THE SAME OBLIGATION IN PROSE.
+'for EACH RECORD clause AGENT SHALL READ RECORD trl_block FIRST THEN RECORD plain_english.
+RECORD trl_block 'is RECORD formal_specification — THE OBLIGATION AS DEFINED.
+RECORD plain_english 'is RECORD human_readable — THE SAME OBLIGATION 'in PROSE.
 AGENT SHALL VERIFY RECORD plain_english MATCHES RECORD trl_block.
-AGENT SHALL READ RECORD bibliography AT END FOR ALL RECORD source.
+AGENT SHALL READ RECORD bibliography 'at END 'for ALL RECORD source.
 </trl>
 
 **File:** `EXAMPLE_nda_mutual.md`
@@ -109,9 +109,9 @@ AGENT SHALL READ RECORD bibliography AT END FOR ALL RECORD source.
 
 ```
 <trl>
-PARTY receiving SHALL PROTECT RECORD confidential_info WITH REASONABLE RECORD measures.
+PARTY receiving SHALL PROTECT RECORD confidential_info 'with REASONABLE RECORD measures.
 PARTY receiving SHALL_NOT DISCLOSE RECORD confidential_info TO ANY PARTY
-  EXCEPT RECORD authorized_representative WHO HAS RECORD obligation OF RECORD confidentiality.
+  EXCEPT RECORD authorized_representative 'who 'has RECORD obligation 'of RECORD confidentiality.
 </trl>
 
 The Receiving Party shall:
@@ -129,8 +129,8 @@ The Receiving Party shall:
 
 <trl>
 AGENT SHALL READ FILE NDA_mutual_trugs_llc.md AFTER FILE EXAMPLE_nda_mutual.md.
-FILE NDA_mutual_trugs_llc.md IS RECORD final_output — NO RECORD trl_block AND NO RECORD annotation.
-THIS FILE IS RECORD signable — READY FOR PARTY human TO SEND TO PARTY counterparty.
+FILE NDA_mutual_trugs_llc.md 'is RECORD final_output — NO RECORD trl_block AND NO RECORD annotation.
+THIS FILE 'is RECORD signable — READY 'for PARTY human TO SEND TO PARTY counterparty.
 AGENT SHALL_NOT MODIFY THIS FILE WITHOUT FIRST MODIFYING FILE nda.trug.json AND FILE EXAMPLE_nda_mutual.md.
 </trl>
 
@@ -148,7 +148,7 @@ AGENT SHALL_NOT MODIFY THIS FILE WITHOUT FIRST MODIFYING FILE nda.trug.json AND 
 AGENT SHALL READ FILE MEMORY.md AFTER ALL OTHER FILE.
 AGENT SHALL USE RECORD memory TO UNDERSTAND RECORD decision AND RECORD preference.
 IF AGENT DRAFT NEW RECORD agreement THEN AGENT SHALL APPLY RECORD memory — RECORD jurisdiction AND RECORD style AND RECORD term.
-AGENT SHALL WRITE NEW RECORD memory IF NEW RECORD decision IS MADE.
+AGENT SHALL WRITE NEW RECORD memory IF NEW RECORD decision 'is MADE.
 </trl>
 
 **File:** `MEMORY.md`
@@ -160,9 +160,9 @@ AGENT SHALL WRITE NEW RECORD memory IF NEW RECORD decision IS MADE.
 ## Step 8: Read the Index — folder.trug.json
 
 <trl>
-AGENT SHALL READ FILE folder.trug.json AT ENTRY MODULE NDA.
-FILE folder.trug.json INDEXES ALL FILE IN MODULE NDA.
-AGENT SHALL FOLLOW DATA edge OF RELATION "produces" TO UNDERSTAND RECORD pipeline.
+AGENT SHALL READ FILE folder.trug.json 'at ENTRY MODULE NDA.
+FILE folder.trug.json INDEXES ALL FILE 'in MODULE NDA.
+AGENT SHALL FOLLOW DATA edge 'of RELATION "produces" TO UNDERSTAND RECORD pipeline.
 DATA edge "produces" SHOWS: nda.trug.json PRODUCES EXAMPLE_nda_mutual.md PRODUCES NDA_mutual_trugs_llc.md.
 </trl>
 

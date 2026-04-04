@@ -1,10 +1,10 @@
 # FOLDER — Agent Instructions
 
 <trl>
-DEFINE "folder.trug.json" AS DATA graph FOR MODULE folder.
+DEFINE "folder.trug.json" AS DATA graph 'for MODULE folder.
 EACH MODULE folder SHALL CONTAIN EXACTLY A FILE folder.trug.json.
-FILE folder.trug.json SHALL BE RECORD ground_truth FOR MODULE folder.
-AGENT SHALL READ FILE folder.trug.json AT ENTRY MODULE folder.
+FILE folder.trug.json SHALL 'be RECORD ground_truth 'for MODULE folder.
+AGENT SHALL READ FILE folder.trug.json 'at ENTRY MODULE folder.
 AGENT SHALL UPDATE FILE folder.trug.json WHEN AGENT MODIFY MODULE folder.
 </trl>
 
@@ -16,10 +16,10 @@ A `folder.trug.json` is a TRUG graph that indexes a directory. Every file is a n
 
 <trl>
 EACH MODULE folder MAY CONTAIN FILE folder.trug.json AND FILE README.md AND FILE ARCHITECTURE.md AND FILE AAA.md.
-FILE folder.trug.json SHALL BE RECORD ground_truth.
-FILE README.md SHALL BE RECORD narrative FOR PARTY human.
-FILE ARCHITECTURE.md SHALL BE RECORD auto_generated FROM FILE folder.trug.json.
-FILE AAA.md SHALL BE RECORD auto_generated FROM ENDPOINT github_issue.
+FILE folder.trug.json SHALL 'be RECORD ground_truth.
+FILE README.md SHALL 'be RECORD narrative 'for PARTY human.
+FILE ARCHITECTURE.md SHALL 'be RECORD auto_generated FROM FILE folder.trug.json.
+FILE AAA.md SHALL 'be RECORD auto_generated FROM ENDPOINT github_issue.
 NO AGENT SHALL MODIFY FILE ARCHITECTURE.md.
 NO AGENT SHALL MODIFY FILE AAA.md.
 </trl>
@@ -35,8 +35,8 @@ NO AGENT SHALL MODIFY FILE AAA.md.
 
 <trl>
 AGENT SHALL READ FILE folder.trug.json THEN READ FILE AAA.md IF EXISTS THEN READ FILE README.md IF REQUIRED.
-AGENT SHALL SKIP FILE ARCHITECTURE.md — DATA IS IN FILE folder.trug.json.
-AGENT SHALL SKIP ALL FILE WITH PREFIX "zzz_" — RECORD archived.
+AGENT SHALL SKIP FILE ARCHITECTURE.md — DATA 'is 'in FILE folder.trug.json.
+AGENT SHALL SKIP ALL FILE 'with PREFIX "zzz_" — RECORD archived.
 </trl>
 
 1. Read `folder.trug.json` — know every file, component, and relationship
@@ -50,14 +50,14 @@ AGENT SHALL SKIP ALL FILE WITH PREFIX "zzz_" — RECORD archived.
 ## Node Types
 
 <trl>
-DEFINE "FOLDER" AS DATA node AT KILO METRIC_LEVEL — THE FOLDER ITSELF.
-DEFINE "DOCUMENT" AS DATA node AT BASE METRIC_LEVEL — MARKDOWN FILE.
-DEFINE "SPECIFICATION" AS DATA node AT BASE METRIC_LEVEL — SPEC OR PROTOCOL FILE.
-DEFINE "COMPONENT" AS DATA node AT DEKA METRIC_LEVEL — MAJOR CODE SUBSYSTEM.
-DEFINE "TEST_SUITE" AS DATA node AT BASE METRIC_LEVEL — TEST DIRECTORY OR COLLECTION.
-DEFINE "EXAMPLE_SET" AS DATA node AT BASE METRIC_LEVEL — EXAMPLES DIRECTORY.
-DEFINE "SCHEMA" AS DATA node AT BASE METRIC_LEVEL — JSON SCHEMA FILE.
-DEFINE "TEMPLATE" AS DATA node AT BASE METRIC_LEVEL — GENERATOR TEMPLATE.
+DEFINE "FOLDER" AS DATA node 'at KILO METRIC_LEVEL — THE FOLDER ITSELF.
+DEFINE "DOCUMENT" AS DATA node 'at BASE METRIC_LEVEL — MARKDOWN FILE.
+DEFINE "SPECIFICATION" AS DATA node 'at BASE METRIC_LEVEL — SPEC OR PROTOCOL FILE.
+DEFINE "COMPONENT" AS DATA node 'at DEKA METRIC_LEVEL — MAJOR CODE SUBSYSTEM.
+DEFINE "TEST_SUITE" AS DATA node 'at BASE METRIC_LEVEL — TEST DIRECTORY OR COLLECTION.
+DEFINE "EXAMPLE_SET" AS DATA node 'at BASE METRIC_LEVEL — EXAMPLES DIRECTORY.
+DEFINE "SCHEMA" AS DATA node 'at BASE METRIC_LEVEL — JSON SCHEMA FILE.
+DEFINE "TEMPLATE" AS DATA node 'at BASE METRIC_LEVEL — GENERATOR TEMPLATE.
 EACH DATA node SHALL CONTAIN RECORD id AND RECORD type AND RECORD properties AND RECORD parent_id AND RECORD contains AND RECORD metric_level AND RECORD dimension.
 </trl>
 
@@ -75,12 +75,12 @@ EACH DATA node SHALL CONTAIN RECORD id AND RECORD type AND RECORD properties AND
 ### Node Properties
 
 <trl>
-EACH DATA node SHALL CONTAIN RECORD name IN RECORD properties.
-EACH DATA node SHALL CONTAIN RECORD purpose IN RECORD properties — A RECORD sentence DESCRIBING WHAT FILE DOES.
+EACH DATA node SHALL CONTAIN RECORD name 'in RECORD properties.
+EACH DATA node SHALL CONTAIN RECORD purpose 'in RECORD properties — A RECORD sentence DESCRIBING WHAT FILE DOES.
 DATA node MAY CONTAIN RECORD format AND RECORD status AND RECORD stale AND RECORD verified.
-IF RECORD stale EQUALS TRUE THEN FILE IS MISSING FROM DISK.
-IF RECORD planned EQUALS TRUE THEN FILE WILL BE CREATED BY FUTURE RECORD issue.
-IF RECORD verified EQUALS TRUE THEN PARTY human HAS CONFIRMED DATA node IS ACCURATE.
+IF RECORD stale EQUALS TRUE THEN FILE 'is MISSING FROM DISK.
+IF RECORD planned EQUALS TRUE THEN FILE 'will 'be CREATED BY FUTURE RECORD issue.
+IF RECORD verified EQUALS TRUE THEN PARTY human 'has CONFIRMED DATA node 'is ACCURATE.
 </trl>
 
 Every node has a `purpose` field — one sentence explaining what the file does. This is what saves tokens: you read the purpose instead of opening the file.
@@ -108,14 +108,14 @@ Every node has a `purpose` field — one sentence explaining what the file does.
 <trl>
 DEFINE "contains" AS DATA edge — FOLDER DIRECTLY CONTAINS THIS NODE.
 DEFINE "uses" AS DATA edge — RUNTIME OR BUILD DEPENDENCY.
-DEFINE "produces" AS DATA edge — THIS COMPONENT GENERATES THAT OUTPUT.
-DEFINE "validates" AS DATA edge — THIS NODE VALIDATES THAT NODE.
-DEFINE "implements" AS DATA edge — CODE THAT REALIZES A SPEC.
+DEFINE "produces" AS DATA edge — THIS COMPONENT GENERATES 'that OUTPUT.
+DEFINE "validates" AS DATA edge — THIS NODE VALIDATES 'that NODE.
+DEFINE "implements" AS DATA edge — CODE 'that REALIZES A SPEC.
 DEFINE "tests" AS DATA edge — TEST SUITE COVERS THIS COMPONENT.
 DEFINE "describes" AS DATA edge — DOCUMENT EXPLAINS THIS NODE.
 DEFINE "governs" AS DATA edge — OWNS POLICY OR COMPLIANCE RULES.
 EACH DATA edge SHALL CONTAIN RECORD from_id AND RECORD to_id AND RECORD relation AND RECORD properties.
-RECORD properties SHALL BE OBJECT — MUST BE PRESENT EVEN WHEN EMPTY.
+RECORD properties SHALL 'be OBJECT — MUST 'be PRESENT EVEN WHEN EMPTY.
 </trl>
 
 | Relation | From → To | Meaning |
@@ -143,10 +143,10 @@ RECORD properties SHALL BE OBJECT — MUST BE PRESENT EVEN WHEN EMPTY.
 ### Cross-Folder Edges
 
 <trl>
-DATA edge MAY REFERENCE DATA node IN ANOTHER MODULE folder.
+DATA edge MAY REFERENCE DATA node 'in ANOTHER MODULE folder.
 CROSS-FOLDER RECORD to_id SHALL USE RECORD syntax "folder_name:node_id".
 EACH MODULE folder SHALL DECLARE ONLY ITS OWN OUTBOUND DATA edge.
-NO MODULE folder SHALL DECLARE DATA edge FOR ANOTHER MODULE folder.
+NO MODULE folder SHALL DECLARE DATA edge 'for ANOTHER MODULE folder.
 </trl>
 
 When a node depends on something in another folder, use qualified IDs:
@@ -168,10 +168,10 @@ The prefix before `:` is the folder name. Each folder declares its own outbound 
 
 <trl>
 AGENT SHALL BUILD FILE folder.trug.json FROM RECORD filesystem — NOT FROM FILE AAA.md OR FILE README.md.
-AGENT SHALL COUNT FILE ON DISK USING RECORD command ls OR find OR wc.
+AGENT SHALL COUNT FILE 'on DISK USING RECORD command ls OR find OR wc.
 AGENT SHALL READ RECORD source — FILE pyproject.toml AND RECORD test_runner AND RECORD directory_listing.
-AGENT SHALL VERIFY EACH RECORD numeric_property AGAINST RECORD filesystem BEFORE COMMIT.
-NO AGENT SHALL USE RECORD prose_document AS SOURCE FOR RECORD count OR RECORD file_list.
+AGENT SHALL VERIFY EACH RECORD numeric_property AGAINST RECORD filesystem 'before COMMIT.
+NO AGENT SHALL USE RECORD prose_document AS SOURCE 'for RECORD count OR RECORD file_list.
 </trl>
 
 ### The Hard Rule
@@ -190,11 +190,11 @@ NO AGENT SHALL USE RECORD prose_document AS SOURCE FOR RECORD count OR RECORD fi
 ### Step by Step
 
 <trl>
-AGENT SHALL LIST ALL FILE IN MODULE folder.
-FOR EACH FILE AGENT SHALL CREATE DATA node WITH RECORD type AND RECORD purpose.
-AGENT SHALL CREATE EXACTLY A DATA node OF TYPE FOLDER AS RECORD root.
-AGENT SHALL SET RECORD parent_id AND RECORD contains FOR HIERARCHY.
-AGENT SHALL CREATE DATA edge FOR EACH RECORD relationship BETWEEN DATA node.
+AGENT SHALL LIST ALL FILE 'in MODULE folder.
+'for EACH FILE AGENT SHALL CREATE DATA node 'with RECORD type AND RECORD purpose.
+AGENT SHALL CREATE EXACTLY A DATA node 'of TYPE FOLDER AS RECORD root.
+AGENT SHALL SET RECORD parent_id AND RECORD contains 'for HIERARCHY.
+AGENT SHALL CREATE DATA edge 'for EACH RECORD relationship 'between DATA node.
 AGENT SHALL VALIDATE FILE folder.trug.json.
 </trl>
 
@@ -210,10 +210,10 @@ AGENT SHALL VALIDATE FILE folder.trug.json.
 ## Lifecycle Properties
 
 <trl>
-IF FILE IS MISSING FROM DISK THEN AGENT SHALL SET RECORD stale TO TRUE ON DATA node.
-IF FILE WILL BE CREATED BY FUTURE RECORD issue THEN PARTY human SHALL SET RECORD planned TO TRUE.
-IF PARTY human CONFIRMS DATA node IS ACCURATE THEN PARTY human SHALL SET RECORD verified TO TRUE.
-IF FILE folder.trug.json CHANGES AFTER RECORD verified IS SET THEN RECORD verified SHALL BE CLEARED.
+IF FILE 'is MISSING FROM DISK THEN AGENT SHALL SET RECORD stale TO TRUE 'on DATA node.
+IF FILE 'will 'be CREATED BY FUTURE RECORD issue THEN PARTY human SHALL SET RECORD planned TO TRUE.
+IF PARTY human CONFIRMS DATA node 'is ACCURATE THEN PARTY human SHALL SET RECORD verified TO TRUE.
+IF FILE folder.trug.json CHANGES AFTER RECORD verified 'is SET THEN RECORD verified SHALL 'be CLEARED.
 </trl>
 
 | Property | Set By | Meaning |
@@ -240,8 +240,8 @@ IF FILE folder.trug.json CHANGES AFTER RECORD verified IS SET THEN RECORD verifi
 ## Maintaining folder.trug.json
 
 <trl>
-IF AGENT CREATE FILE IN MODULE folder THEN AGENT SHALL ADD DATA node TO FILE folder.trug.json.
-IF AGENT DELETE FILE IN MODULE folder THEN AGENT SHALL SET RECORD stale TO TRUE ON DATA node.
+IF AGENT CREATE FILE 'in MODULE folder THEN AGENT SHALL ADD DATA node TO FILE folder.trug.json.
+IF AGENT DELETE FILE 'in MODULE folder THEN AGENT SHALL SET RECORD stale TO TRUE 'on DATA node.
 IF AGENT CREATE RECORD relationship THEN AGENT SHALL ADD DATA edge.
 AGENT SHALL_NOT REMOVE DATA node — SET RECORD stale INSTEAD.
 AGENT SHALL UPDATE RECORD purpose IF FILE RECORD content CHANGES SIGNIFICANTLY.
@@ -259,8 +259,8 @@ AGENT SHALL UPDATE RECORD purpose IF FILE RECORD content CHANGES SIGNIFICANTLY.
 
 <trl>
 EACH FILE CREATED BY PARTY human SHALL FOLLOW RECORD pattern "TYPE_description.md".
-RECORD TYPE SHALL BE UPPERCASE — TELLS RECORD type WITHOUT READING FILE.
-RECORD description SHALL BE LOWERCASE WITH UNDERSCORES.
+RECORD TYPE SHALL 'be UPPERCASE — TELLS RECORD type WITHOUT READING FILE.
+RECORD description SHALL 'be LOWERCASE 'with UNDERSCORES.
 </trl>
 
 ```
@@ -276,10 +276,10 @@ An agent seeing `SPEC_computation.md` knows it's a specification about computati
 ## The zzz_ Archive Convention
 
 <trl>
-NO AGENT SHALL READ FILE WITH PREFIX "zzz_".
-NO AGENT SHALL REFERENCE FILE WITH PREFIX "zzz_" IN DATA graph.
-NO AGENT SHALL CREATE DATA node FOR FILE WITH PREFIX "zzz_".
-FILE WITH PREFIX "zzz_" IS RECORD archived — INVISIBLE TO AGENT.
+NO AGENT SHALL READ FILE 'with PREFIX "zzz_".
+NO AGENT SHALL REFERENCE FILE 'with PREFIX "zzz_" 'in DATA graph.
+NO AGENT SHALL CREATE DATA node 'for FILE 'with PREFIX "zzz_".
+FILE 'with PREFIX "zzz_" 'is RECORD archived — INVISIBLE TO AGENT.
 </trl>
 
 Files prefixed with `zzz_` are archived — pending human review before deletion. They sort to the bottom of directory listings. They are invisible to agents and to the graph. Never read, reference, or index them.
