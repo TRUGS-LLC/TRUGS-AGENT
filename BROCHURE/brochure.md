@@ -36,7 +36,7 @@ EACH RECORD sentence SHALL COMPILE TO DATA graph.
 EACH DATA graph SHALL COMPILE TO RECORD sentence.
 AGENT SHALL READ RECORD sentence THEN EXECUTE.
 NO AGENT SHALL GUESS RECORD meaning —
-  EACH RECORD word HAS EXACTLY A RECORD definition.
+  EACH RECORD word 'has EXACTLY A RECORD definition.
 </trl>
 ```
 
@@ -142,7 +142,7 @@ The graph has **23 nodes** (12 clauses + 11 bibliography references) and **26 ed
 ```
 <trl>
 PARTY receiving SHALL PROTECT RECORD confidential_info
-  WITH REASONABLE RECORD measures.
+  'with REASONABLE RECORD measures.
 PARTY receiving SHALL_NOT DISCLOSE RECORD confidential_info
   TO ANY PARTY EXCEPT RECORD authorized_representative.
 </trl>

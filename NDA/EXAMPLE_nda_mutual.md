@@ -5,9 +5,9 @@
 ## 1. Parties
 
 <trl>
-DEFINE "Disclosing Party" AS PARTY WHO SEND RECORD confidential_info.
-DEFINE "Receiving Party" AS PARTY WHO RECEIVE RECORD confidential_info.
-EACH PARTY SHALL BE BOTH RECORD disclosing AND RECORD receiving.
+DEFINE "Disclosing Party" AS PARTY 'who SEND RECORD confidential_info.
+DEFINE "Receiving Party" AS PARTY 'who RECEIVE RECORD confidential_info.
+EACH PARTY SHALL 'be BOTH RECORD disclosing AND RECORD receiving.
 </trl>
 
 This Mutual Non-Disclosure Agreement ("Agreement") is between:
@@ -23,9 +23,9 @@ Company and Counterparty are each a "Party" and together the "Parties." Because 
 ## 2. Purpose
 
 <trl>
-DEFINE "Purpose" AS RECORD evaluation OF RECORD potential_business_relationship.
-PARTY SHALL USE RECORD confidential_info ONLY FOR RECORD Purpose.
-PARTY SHALL_NOT USE RECORD confidential_info FOR ANY RECORD purpose EXCEPT RECORD Purpose.
+DEFINE "Purpose" AS RECORD evaluation 'of RECORD potential_business_relationship.
+PARTY SHALL USE RECORD confidential_info ONLY 'for RECORD Purpose.
+PARTY SHALL_NOT USE RECORD confidential_info 'for ANY RECORD purpose EXCEPT RECORD Purpose.
 </trl>
 
 The Parties wish to explore a potential business relationship ("Purpose"). In connection with the Purpose, each Party may disclose confidential information to the other. This Agreement protects that information.
@@ -34,12 +34,12 @@ The Parties wish to explore a potential business relationship ("Purpose"). In co
 
 <trl>
 DEFINE "Confidential Information" AS DATA technical OR DATA business OR DATA financial
-  THAT PARTY disclosing SEND TO PARTY receiving
-  AND THAT IS PRIVATE OR CONFIDENTIAL.
+  'that PARTY disclosing SEND TO PARTY receiving
+  AND 'that 'is PRIVATE OR CONFIDENTIAL.
 RECORD confidential_info SHALL INCLUDE DATA source_code AND DATA specification AND DATA algorithm
   AND DATA business_plan AND DATA customer_list AND DATA financial_data.
 RECORD confidential_info SHALL INCLUDE DATA marked_confidential
-  OR DATA disclosed_orally THAT IS IDENTIFIED AS CONFIDENTIAL WITHIN 10 DAYS.
+  OR DATA disclosed_orally 'that 'is IDENTIFIED AS CONFIDENTIAL WITHIN 10 DAYS.
 </trl>
 
 "Confidential Information" means any technical, business, or financial information disclosed by one Party to the other in connection with the Purpose, including but not limited to:
@@ -53,10 +53,10 @@ RECORD confidential_info SHALL INCLUDE DATA marked_confidential
 ## 4. Exclusions
 
 <trl>
-RECORD confidential_info SHALL_NOT INCLUDE DATA THAT IS PUBLIC.
-RECORD confidential_info SHALL_NOT INCLUDE DATA THAT PARTY receiving HAS PRIOR_TO RECORD disclosure.
-RECORD confidential_info SHALL_NOT INCLUDE DATA THAT PARTY receiving DEVELOP INDEPENDENTLY.
-RECORD confidential_info SHALL_NOT INCLUDE DATA THAT PARTY third DISCLOSE WITHOUT RECORD restriction.
+RECORD confidential_info SHALL_NOT INCLUDE DATA 'that 'is PUBLIC.
+RECORD confidential_info SHALL_NOT INCLUDE DATA 'that PARTY receiving 'has PRIOR_TO RECORD disclosure.
+RECORD confidential_info SHALL_NOT INCLUDE DATA 'that PARTY receiving DEVELOP INDEPENDENTLY.
+RECORD confidential_info SHALL_NOT INCLUDE DATA 'that PARTY third DISCLOSE WITHOUT RECORD restriction.
 </trl>
 
 Confidential Information does not include information that:
@@ -72,11 +72,11 @@ Confidential Information does not include information that:
 ## 5. Obligations of the Receiving Party
 
 <trl>
-PARTY receiving SHALL PROTECT RECORD confidential_info WITH REASONABLE RECORD measures.
-PARTY receiving SHALL USE RECORD confidential_info ONLY FOR RECORD Purpose.
+PARTY receiving SHALL PROTECT RECORD confidential_info 'with REASONABLE RECORD measures.
+PARTY receiving SHALL USE RECORD confidential_info ONLY 'for RECORD Purpose.
 PARTY receiving SHALL_NOT DISCLOSE RECORD confidential_info TO ANY PARTY
-  EXCEPT RECORD authorized_representative WHO HAS RECORD obligation OF RECORD confidentiality.
-PARTY receiving SHALL BE RESPONSIBLE FOR RECORD breach BY RECORD authorized_representative.
+  EXCEPT RECORD authorized_representative 'who 'has RECORD obligation 'of RECORD confidentiality.
+PARTY receiving SHALL 'be RESPONSIBLE 'for RECORD breach BY RECORD authorized_representative.
 </trl>
 
 The Receiving Party shall:
@@ -94,8 +94,8 @@ The Receiving Party shall:
 <trl>
 IF ENDPOINT court OR ENDPOINT government REQUIRE PARTY receiving TO DISCLOSE RECORD confidential_info
   THEN PARTY receiving MAY DISCLOSE RECORD confidential_info.
-PARTY receiving SHALL SEND RECORD notice TO PARTY disclosing BEFORE DISCLOSE
-  UNLESS RECORD notice IS PROHIBITED BY ENDPOINT law.
+PARTY receiving SHALL SEND RECORD notice TO PARTY disclosing 'before DISCLOSE
+  UNLESS RECORD notice 'is PROHIBITED BY ENDPOINT law.
 PARTY receiving SHALL DISCLOSE ONLY RECORD minimum_required.
 </trl>
 
@@ -110,9 +110,9 @@ If the Receiving Party is required by law, regulation, or court order to disclos
 ## 7. Term and Termination
 
 <trl>
-RECORD term SHALL BE 2 YEARS FROM RECORD effective_date.
-EITHER PARTY MAY TERMINATE RECORD nda WITH 30 DAYS RECORD written_notice.
-RECORD obligation SHALL SURVIVE RECORD termination FOR 3 YEARS FOR RECORD trade_secret.
+RECORD term SHALL 'be 2 YEARS FROM RECORD effective_date.
+EITHER PARTY MAY TERMINATE RECORD nda 'with 30 DAYS RECORD written_notice.
+RECORD obligation SHALL SURVIVE RECORD termination 'for 3 YEARS 'for RECORD trade_secret.
 </trl>
 
 **(a)** This Agreement begins on the Effective Date and continues for two (2) years unless terminated earlier.
@@ -126,9 +126,9 @@ RECORD obligation SHALL SURVIVE RECORD termination FOR 3 YEARS FOR RECORD trade_
 <trl>
 IF RECORD nda TERMINATE OR PARTY disclosing REQUEST
   THEN PARTY receiving SHALL RETURN OR DESTROY ALL RECORD confidential_info WITHIN 10 DAYS.
-PARTY receiving SHALL CERTIFY RECORD destruction IN RECORD writing IF PARTY disclosing REQUEST.
+PARTY receiving SHALL CERTIFY RECORD destruction 'in RECORD writing IF PARTY disclosing REQUEST.
 PARTY receiving MAY RETAIN RECORD archival_copy REQUIRED BY ENDPOINT law OR RECORD backup_system
-  SUBJECT_TO RECORD obligation IN SECTION 5.
+  SUBJECT_TO RECORD obligation 'in SECTION 5.
 </trl>
 
 Upon termination or at the Disclosing Party's request, the Receiving Party shall within ten (10) days return or destroy all Confidential Information and certify destruction in writing if requested. The Receiving Party may retain copies required by law or created by automatic backup systems, subject to the continuing obligations of Section 5.
@@ -136,10 +136,10 @@ Upon termination or at the Disclosing Party's request, the Receiving Party shall
 ## 9. Remedies
 
 <trl>
-EACH PARTY SHALL ACKNOWLEDGE THAT RECORD breach MAY CAUSE RECORD irreparable_harm.
+EACH PARTY SHALL ACKNOWLEDGE 'that RECORD breach MAY CAUSE RECORD irreparable_harm.
 IF PARTY BREACH RECORD obligation THEN PARTY disclosing MAY REQUEST RECORD injunctive_relief
   WITHOUT RECORD bond PURSUANT_TO ENDPOINT RCW_19_108.
-RECORD injunctive_relief SHALL BE IN ADDITION TO ALL OTHER RECORD remedy.
+RECORD injunctive_relief SHALL 'be 'in ADDITION TO ALL OTHER RECORD remedy.
 </trl>
 
 Each Party acknowledges that a breach of this Agreement may cause irreparable harm for which monetary damages are inadequate. The Disclosing Party may seek injunctive relief without posting a bond, in addition to all other remedies available at law or equity under Washington's Uniform Trade Secrets Act (RCW 19.108).
@@ -148,8 +148,8 @@ Each Party acknowledges that a breach of this Agreement may cause irreparable ha
 
 <trl>
 RECORD nda SHALL CONTAIN RECORD notice PURSUANT_TO ENDPOINT DTSA SECTION 1833(b).
-PARTY SHALL_NOT BE LIABLE FOR RECORD disclosure TO ENDPOINT government OR ENDPOINT attorney
-  FOR RECORD purpose OF RECORD reporting RECORD violation OF ENDPOINT law.
+PARTY SHALL_NOT 'be LIABLE 'for RECORD disclosure TO ENDPOINT government OR ENDPOINT attorney
+  'for RECORD purpose 'of RECORD reporting RECORD violation 'of ENDPOINT law.
 </trl>
 
 Pursuant to the Defend Trade Secrets Act (18 U.S.C. § 1833(b)):
@@ -161,12 +161,12 @@ Pursuant to the Defend Trade Secrets Act (18 U.S.C. § 1833(b)):
 ## 11. General Provisions
 
 <trl>
-RECORD governing_law SHALL BE ENDPOINT Washington_State.
-RECORD dispute_resolution SHALL BE AT ENDPOINT King_County_Washington.
-RECORD nda SHALL BE RECORD entire_agreement — SUPERSEDES ALL PRIOR RECORD discussion.
-NO PARTY MAY ASSIGN RECORD nda WITHOUT RECORD written_consent OF OTHER PARTY.
-RECORD amendment SHALL REQUIRE RECORD written_consent OF BOTH PARTY.
-RECORD waiver OF RECORD breach SHALL_NOT BE RECORD waiver OF FUTURE RECORD breach.
+RECORD governing_law SHALL 'be ENDPOINT Washington_State.
+RECORD dispute_resolution SHALL 'be 'at ENDPOINT King_County_Washington.
+RECORD nda SHALL 'be RECORD entire_agreement — SUPERSEDES ALL PRIOR RECORD discussion.
+NO PARTY MAY ASSIGN RECORD nda WITHOUT RECORD written_consent 'of OTHER PARTY.
+RECORD amendment SHALL REQUIRE RECORD written_consent 'of BOTH PARTY.
+RECORD waiver 'of RECORD breach SHALL_NOT 'be RECORD waiver 'of FUTURE RECORD breach.
 </trl>
 
 **(a) Governing Law.** This Agreement is governed by the laws of the State of Washington, without regard to conflict of laws principles.
@@ -197,8 +197,8 @@ RECORD waiver OF RECORD breach SHALL_NOT BE RECORD waiver OF FUTURE RECORD breac
 ## Bibliography
 
 <trl>
-EACH RECORD clause SHALL REFERENCE RECORD source FOR RECORD legal_basis.
-RECORD bibliography SHALL CONTAIN ALL RECORD statute AND RECORD guide AND RECORD template USED IN RECORD nda.
+EACH RECORD clause SHALL REFERENCE RECORD source 'for RECORD legal_basis.
+RECORD bibliography SHALL CONTAIN ALL RECORD statute AND RECORD guide AND RECORD template USED 'in RECORD nda.
 </trl>
 
 ### Statutes

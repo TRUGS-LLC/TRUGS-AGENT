@@ -27,7 +27,7 @@ FILE email_accounts.json SHALL REQUIRE PRIVATE ACCESS.
 
 <trl>
 IF AGENT DELETE ALL MESSAGE WITHOUT VALID RECORD confirm THEN THROW EXCEPTION data_loss.
-FUNCTION email_delete SHALL REQUIRE ACTIVE RECORD confirm BEFORE DELETE MESSAGE.
+FUNCTION email_delete SHALL REQUIRE ACTIVE RECORD confirm 'before DELETE MESSAGE.
 FUNCTION email_delete SHALL DEFAULT TO RECORD dry_run.
 </trl>
 
@@ -62,7 +62,7 @@ FUNCTION email_flag SHALL WRITE DATA flag TO MESSAGE BY DATA uid.
 ### Configuration
 
 <trl>
-FILE email_accounts.json SHALL PERSIST AT ENDPOINT ~/.config/trugs/.
+FILE email_accounts.json SHALL PERSIST 'at ENDPOINT ~/.config/trugs/.
 FILE email_accounts.json SHALL REQUIRE PRIVATE ACCESS.
 EACH ENDPOINT imap_account SHALL CONTAIN DATA email AND DATA imap_host AND DATA imap_port AND DATA smtp_host AND DATA smtp_port AND DATA password_env.
 NO FILE SHALL CONTAIN DATA password DIRECTLY.
@@ -72,12 +72,12 @@ EACH DATA password SHALL READ FROM ENDPOINT environment_variable.
 ### Audit Criteria (Phase 8 checks against these)
 
 <trl>
-FUNCTION email_list SHALL RETURN VALID RESULT FOR EACH ENDPOINT imap_account.
-FUNCTION email_read SHALL RETURN DATA body_text AND DATA headers FOR ANY MESSAGE.
+FUNCTION email_list SHALL RETURN VALID RESULT 'for EACH ENDPOINT imap_account.
+FUNCTION email_read SHALL RETURN DATA body_text AND DATA headers 'for ANY MESSAGE.
 FUNCTION email_send SHALL SEND MESSAGE THEN RETURN DATA message_id.
 FUNCTION email_search SHALL FILTER BY DATA from_addr AND DATA subject AND DATA date.
-FUNCTION email_delete WITH NO RECORD confirm SHALL RETURN RECORD dry_run.
-FUNCTION email_delete WITH ACTIVE RECORD confirm SHALL DELETE MESSAGE.
+FUNCTION email_delete 'with NO RECORD confirm SHALL RETURN RECORD dry_run.
+FUNCTION email_delete 'with ACTIVE RECORD confirm SHALL DELETE MESSAGE.
 NO FUNCTION SHALL WRITE DATA credential TO STREAM log OR FILE.
 ALL FUNCTION SHALL RETURN VALID DATA json.
 SERVICE email_mcp SHALL REQUIRE NO EXTERNAL RESOURCE EXCEPT MODULE python_stdlib.
@@ -90,14 +90,14 @@ SERVICE email_mcp SHALL REQUIRE NO EXTERNAL RESOURCE EXCEPT MODULE python_stdlib
 <trl>
 SERVICE email_mcp SHALL USE MODULE imaplib DIRECTLY.
 SERVICE email_mcp SHALL_NOT USE SERVICE thunderbird_api.
-SERVICE email_mcp SHALL PERSIST AS FILE email_mcp.py AT ENDPOINT TRUGS_WEB/trugs_web/.
+SERVICE email_mcp SHALL PERSIST AS FILE email_mcp.py 'at ENDPOINT TRUGS_WEB/trugs_web/.
 </trl>
 
 **ADR-1261-01:** Direct IMAP/SMTP over Thunderbird WebExtension API. Zero dependencies, works without Thunderbird running, universal across providers.
 
 <trl>
-FILE email_accounts.json SHALL PERSIST AT ENDPOINT ~/.config/trugs/.
-FILE email_accounts.json SHALL_NOT PERSIST AT ENDPOINT repository.
+FILE email_accounts.json SHALL PERSIST 'at ENDPOINT ~/.config/trugs/.
+FILE email_accounts.json SHALL_NOT PERSIST 'at ENDPOINT repository.
 FILE .env SHALL CONTAIN ALL DATA password_env.
 FILE .env SHALL REQUIRE PRIVATE ACCESS.
 </trl>
@@ -115,11 +115,11 @@ FUNCTION email_move SHALL REQUIRE DATA target_folder.
 ### Coding Plan
 
 <trl>
-AGENT SHALL CREATE FILE email_mcp.py AT ENDPOINT TRUGS_WEB/trugs_web/.
+AGENT SHALL CREATE FILE email_mcp.py 'at ENDPOINT TRUGS_WEB/trugs_web/.
 AGENT SHALL IMPLEMENT STAGE read_tools THEN STAGE write_tools THEN STAGE search_tools THEN STAGE organize_tools.
 AGENT SHALL IMPLEMENT FUNCTION config_loader THEN FUNCTION imap_connect THEN FUNCTION smtp_connect.
 AGENT SHALL IMPLEMENT FUNCTION mcp_wrapper FINALLY.
-AGENT SHALL WRITE RECORD test FOR EACH FUNCTION.
+AGENT SHALL WRITE RECORD test 'for EACH FUNCTION.
 </trl>
 
 ## Phase 5: VALIDATION

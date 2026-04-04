@@ -101,10 +101,10 @@ Each clause is written twice: TRL specification first, then plain English.
 ## 5. Obligations of the Receiving Party
 
 <trl>
-PARTY receiving SHALL PROTECT RECORD confidential_info WITH REASONABLE RECORD measures.
-PARTY receiving SHALL USE RECORD confidential_info ONLY FOR RECORD Purpose.
+PARTY receiving SHALL PROTECT RECORD confidential_info 'with REASONABLE RECORD measures.
+PARTY receiving SHALL USE RECORD confidential_info ONLY 'for RECORD Purpose.
 PARTY receiving SHALL_NOT DISCLOSE RECORD confidential_info TO ANY PARTY
-  EXCEPT RECORD authorized_representative WHO HAS RECORD obligation OF RECORD confidentiality.
+  EXCEPT RECORD authorized_representative 'who 'has RECORD obligation 'of RECORD confidentiality.
 </trl>
 
 The Receiving Party shall:
