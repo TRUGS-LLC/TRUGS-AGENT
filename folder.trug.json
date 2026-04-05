@@ -2,10 +2,10 @@
   "name": "TRUGS-AGENT",
   "version": "1.0.0",
   "type": "PROJECT",
-  "description": "Agent system for LLMs — TRL language, 7 component modules, validator tooling, NDA example",
+  "description": "Agent system for LLMs — TRL language, 8 component modules, validator tooling, NDA example",
   "dimensions": {
     "folder_structure": {
-      "description": "Top-level repo structure — 7 component folders + tools + NDA example",
+      "description": "Top-level repo structure — 8 component folders + tools + NDA example",
       "base_level": "BASE"
     }
   },
@@ -25,7 +25,7 @@
         "stale": false
       },
       "parent_id": null,
-      "contains": ["doc_agent", "doc_readme", "doc_license", "folder_aaa", "folder_epic", "folder_memory", "folder_folder", "folder_trugging", "folder_webhub", "folder_nda", "folder_tools"],
+      "contains": ["doc_agent", "doc_readme", "doc_license", "folder_aaa", "folder_epic", "folder_memory", "folder_folder", "folder_trugging", "folder_webhub", "folder_skills", "folder_nda", "folder_tools"],
       "metric_level": "KILO_FOLDER",
       "dimension": "folder_structure"
     },
@@ -384,6 +384,45 @@
       "dimension": "folder_structure"
     },
     {
+      "id": "folder_skills",
+      "type": "COMPONENT",
+      "properties": {
+        "name": "SKILLS",
+        "purpose": "Composable agent actions — 19 primitives across 6 categories, compound composition with HITM gates",
+        "file_count": 2
+      },
+      "parent_id": "root",
+      "contains": ["skills_agent", "skills_readme"],
+      "metric_level": "DEKA_COMPONENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "skills_agent",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "SKILLS/AGENT.md",
+        "purpose": "Agent instructions for Skills — 19 primitive definitions in TRL, compound composition rules, 3 compound examples",
+        "format": "markdown"
+      },
+      "parent_id": "folder_skills",
+      "contains": [],
+      "metric_level": "BASE_SPECIFICATION",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "skills_readme",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "SKILLS/README.md",
+        "purpose": "Human overview of Skills — primitive catalog, compound composition, key rules",
+        "format": "markdown"
+      },
+      "parent_id": "folder_skills",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
       "id": "folder_nda",
       "type": "COMPONENT",
       "properties": {
@@ -600,6 +639,30 @@
       "to_id": "folder_webhub",
       "relation": "uses",
       "properties": {"reason": "NDA demonstrates web resource graph for research"}
+    },
+    {
+      "from_id": "skills_agent",
+      "to_id": "doc_agent",
+      "relation": "uses",
+      "properties": {"reason": "Skills instructions written in TRL"}
+    },
+    {
+      "from_id": "skills_agent",
+      "to_id": "memory_agent",
+      "relation": "uses",
+      "properties": {"reason": "Memory primitives (memory-save, memory-read) defined here"}
+    },
+    {
+      "from_id": "skills_agent",
+      "to_id": "epic_agent",
+      "relation": "uses",
+      "properties": {"reason": "EPIC primitives (epic-read, epic-sync, epic-portfolio) defined here"}
+    },
+    {
+      "from_id": "skills_agent",
+      "to_id": "folder_agent",
+      "relation": "uses",
+      "properties": {"reason": "TRUG graph primitives (trug-sync, trug-check, trug-clean, trug-edge) defined here"}
     },
     {
       "from_id": "webhub_web",
