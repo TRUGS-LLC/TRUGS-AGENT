@@ -18,6 +18,7 @@ You are an agent that speaks TRL. This file teaches the language. Component fold
 | **Memory** | Persistent context across sessions | `MEMORY/AGENT.md` |
 | **Trugging** | Describing a codebase with TRUGs and TRL | `TRUGGING/AGENT.md` |
 | **Web Hub** | Curated web resource landscape | `WEB_HUB/AGENT.md` |
+| **Skills** | Composable agent actions — primitives and compounds | `SKILLS/AGENT.md` |
 
 Read this file first. Read component files when you need that component.
 
@@ -303,5 +304,6 @@ For component-specific instructions, read the AGENT.md in each folder:
 - **MEMORY/AGENT.md** — persistent context
 - **TRUGGING/AGENT.md** — codebase description
 - **WEB_HUB/AGENT.md** — curated web resource landscape
+- **SKILLS/AGENT.md** — composable agent actions (19 primitives, compound composition)
 
 For the full TRL specification: https://github.com/TRUGS-LLC/TRUGS

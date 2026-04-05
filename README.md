@@ -25,6 +25,7 @@ The root `AGENT.md` teaches TRL — the language everything else is built on. Ea
 | [MEMORY/](MEMORY/) | Persistent context across sessions — decisions, preferences, project state | Yes |
 | [TRUGGING/](TRUGGING/) | Methodology for describing a codebase with TRUGs and TRL at every level | Yes |
 | [WEB_HUB/](WEB_HUB/) | Curated web resource graph — papers, repos, tools, articles indexed as a TRUG | Yes |
+| [SKILLS/](SKILLS/) | Composable agent actions — 19 primitives that combine into compound workflows | Yes |
 
 Each folder contains:
 - `README.md` — what the component is, when and why to use it (for you)
@@ -39,6 +40,7 @@ Every component stands alone. You can use:
 - **Root + AAA** — structured development without project tracking
 - **Root + Memory** — persistent context without the full workflow
 - **Root + Trugging** — codebase description without development process
+- **Root + Skills** — composable agent actions without the full methodology
 - **Everything** — the complete system
 
 ## Tools
