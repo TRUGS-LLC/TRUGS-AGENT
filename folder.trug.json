@@ -523,163 +523,163 @@
     {
       "from_id": "doc_readme",
       "to_id": "root",
-      "relation": "describes",
+      "relation": "REFERENCES",
       "properties": {}
     },
     {
       "from_id": "doc_agent",
       "to_id": "root",
-      "relation": "governs",
+      "relation": "GOVERNS",
       "properties": {"scope": "TRL language foundation — all components depend on this"}
     },
     {
       "from_id": "aaa_agent",
       "to_id": "doc_agent",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "AAA phases use TRL for specifications and audit criteria"}
     },
     {
       "from_id": "epic_agent",
       "to_id": "doc_agent",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "EPIC instructions written in TRL"}
     },
     {
       "from_id": "memory_agent",
       "to_id": "doc_agent",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "Memory instructions written in TRL"}
     },
     {
       "from_id": "folder_agent",
       "to_id": "doc_agent",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "Folder instructions written in TRL"}
     },
     {
       "from_id": "trugging_agent",
       "to_id": "doc_agent",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "Trugging methodology uses both TRL and TRUG graphs"}
     },
     {
       "from_id": "trugging_agent",
       "to_id": "folder_agent",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "Trugging levels 1-2 produce folder.trug.json files"}
     },
     {
       "from_id": "aaa_example",
       "to_id": "aaa_agent",
-      "relation": "describes",
+      "relation": "REFERENCES",
       "properties": {"scope": "Real production example of all 9 AAA phases"}
     },
     {
       "from_id": "epic_example",
       "to_id": "epic_agent",
-      "relation": "describes",
+      "relation": "REFERENCES",
       "properties": {"scope": "Starter template for EPIC tracker"}
     },
     {
       "from_id": "memory_example",
       "to_id": "memory_agent",
-      "relation": "describes",
+      "relation": "REFERENCES",
       "properties": {"scope": "Starter memory index with example entries"}
     },
     {
       "from_id": "folder_example",
       "to_id": "folder_agent",
-      "relation": "describes",
+      "relation": "REFERENCES",
       "properties": {"scope": "Example folder.trug.json for an auth module"}
     },
     {
       "from_id": "webhub_agent",
       "to_id": "doc_agent",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "WEB_HUB instructions written in TRL"}
     },
     {
       "from_id": "nda_agent",
       "to_id": "doc_agent",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "NDA example uses TRL throughout"}
     },
     {
       "from_id": "folder_nda",
       "to_id": "folder_aaa",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "NDA demonstrates AAA 9-phase protocol"}
     },
     {
       "from_id": "folder_nda",
       "to_id": "folder_epic",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "NDA demonstrates EPIC project tracking"}
     },
     {
       "from_id": "folder_nda",
       "to_id": "folder_memory",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "NDA demonstrates Memory persistence"}
     },
     {
       "from_id": "folder_nda",
       "to_id": "folder_folder",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "NDA demonstrates folder.trug.json indexing"}
     },
     {
       "from_id": "folder_nda",
       "to_id": "folder_trugging",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "NDA demonstrates TRL in legal clauses"}
     },
     {
       "from_id": "folder_nda",
       "to_id": "folder_webhub",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "NDA demonstrates web resource graph for research"}
     },
     {
       "from_id": "skills_agent",
       "to_id": "doc_agent",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "Skills instructions written in TRL"}
     },
     {
       "from_id": "skills_agent",
       "to_id": "memory_agent",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "Memory primitives (memory-save, memory-read) defined here"}
     },
     {
       "from_id": "skills_agent",
       "to_id": "epic_agent",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "EPIC primitives (epic-read, epic-sync, epic-portfolio) defined here"}
     },
     {
       "from_id": "skills_agent",
       "to_id": "folder_agent",
-      "relation": "uses",
+      "relation": "DEPENDS_ON",
       "properties": {"reason": "TRUG graph primitives (trug-sync, trug-check, trug-clean, trug-edge) defined here"}
     },
     {
       "from_id": "webhub_web",
       "to_id": "webhub_agent",
-      "relation": "describes",
+      "relation": "REFERENCES",
       "properties": {"scope": "Three-branch web resource graph with 54 nodes"}
     },
     {
       "from_id": "tools_test",
       "to_id": "tools_validate",
-      "relation": "tests",
+      "relation": "IMPLEMENTS",
       "properties": {}
     },
     {
       "from_id": "tools_validate",
       "to_id": "doc_agent",
-      "relation": "implements",
+      "relation": "IMPLEMENTS",
       "properties": {"scope": "Enforces TRUGS CORE rules referenced in root AGENT.md"}
     }
   ]
