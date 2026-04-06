@@ -139,13 +139,13 @@
     }
   ],
   "edges": [
-    {"from_id": "doc_nda_trug", "to_id": "doc_nda_trl", "relation": "produces", "properties": {"flow": "TRUG graph → TRL-annotated document"}},
-    {"from_id": "doc_nda_trl", "to_id": "doc_nda_clean", "relation": "produces", "properties": {"flow": "TRL-annotated → clean signable document"}},
-    {"from_id": "doc_aaa", "to_id": "doc_nda_trug", "relation": "governs", "properties": {"scope": "AAA specs define what the NDA graph must contain"}},
-    {"from_id": "doc_epic", "to_id": "doc_aaa", "relation": "implements", "properties": {"scope": "EPIC tracks tasks from the AAA plan"}},
-    {"from_id": "doc_web", "to_id": "doc_aaa", "relation": "describes", "properties": {"scope": "Web research informs the AAA planning phases"}},
-    {"from_id": "doc_memory", "to_id": "doc_aaa", "relation": "describes", "properties": {"scope": "Memory records decisions made during AAA planning"}},
-    {"from_id": "doc_agent", "to_id": "nda_folder", "relation": "governs", "properties": {}},
-    {"from_id": "doc_readme", "to_id": "nda_folder", "relation": "describes", "properties": {}}
+    {"from_id": "doc_nda_trug", "to_id": "doc_nda_trl", "relation": "FEEDS", "properties": {"flow": "TRUG graph → TRL-annotated document"}},
+    {"from_id": "doc_nda_trl", "to_id": "doc_nda_clean", "relation": "FEEDS", "properties": {"flow": "TRL-annotated → clean signable document"}},
+    {"from_id": "doc_aaa", "to_id": "doc_nda_trug", "relation": "GOVERNS", "properties": {"scope": "AAA specs define what the NDA graph must contain"}},
+    {"from_id": "doc_epic", "to_id": "doc_aaa", "relation": "IMPLEMENTS", "properties": {"scope": "EPIC tracks tasks from the AAA plan"}},
+    {"from_id": "doc_web", "to_id": "doc_aaa", "relation": "REFERENCES", "properties": {"scope": "Web research informs the AAA planning phases"}},
+    {"from_id": "doc_memory", "to_id": "doc_aaa", "relation": "REFERENCES", "properties": {"scope": "Memory records decisions made during AAA planning"}},
+    {"from_id": "doc_agent", "to_id": "nda_folder", "relation": "GOVERNS", "properties": {}},
+    {"from_id": "doc_readme", "to_id": "nda_folder", "relation": "REFERENCES", "properties": {}}
   ]
 }
