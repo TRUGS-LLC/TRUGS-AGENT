@@ -1,69 +1,136 @@
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+[![TRUGS v1.0](https://img.shields.io/badge/TRUGS-v1.0-green.svg)](https://github.com/TRUGS-LLC/TRUGS)
+[![Works with Claude Code](https://img.shields.io/badge/Works_with-Claude_Code-blueviolet.svg)](https://claude.ai/code)
+[![Works with Cursor](https://img.shields.io/badge/Works_with-Cursor-orange.svg)](https://cursor.com)
+[![Works with Copilot](https://img.shields.io/badge/Works_with-GitHub_Copilot-brightgreen.svg)](https://github.com/features/copilot)
+[![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero-lightgrey.svg)](#quickstart)
+
 # TRUGS Agent
 
-**Copy files into your project. Your LLM reads them. You don't have to.**
+**Your LLM ignores your system prompt because English is ambiguous. TRUGS Agent gives it a formal instruction language instead.**
 
-## Install
+TRL (TRUGS Language) has 190 words. Every sentence has exactly one meaning. Every instruction compiles to a verifiable graph. Your AI coding assistant stops interpreting and starts executing.
 
-Copy what you need into your project, renamed for your IDE:
+No SDK. No runtime. No dependencies. Copy one file into your project and your LLM speaks TRL.
 
-| IDE | System prompt file |
-|-----|-------------------|
-| Claude Code | `CLAUDE.md` |
-| Cursor | `.cursorrules` |
-| GitHub Copilot | `.github/copilot-instructions.md` |
-| Any other LLM | Paste contents as system prompt |
+## The Problem
 
-The root `AGENT.md` teaches TRL — the language everything else is built on. Each component folder has its own `AGENT.md` with complete instructions for that component. Copy the root plus whichever components you want.
+You write careful instructions in your `CLAUDE.md` or `.cursorrules`. Your LLM interprets them differently every time:
 
-## Components
+```
+❌  "Make sure the code is clean and well-tested"
+     → Sometimes adds tests, sometimes doesn't
+     → "Clean" means something different every run
+     → No way to verify the instruction was followed
+```
 
-| Folder | What It Does | Standalone? |
-|--------|-------------|-------------|
-| [FOLDER/](FOLDER/) | Machine-readable filesystem index — every file, component, and relationship in one JSON graph | Yes |
-| [AAA/](AAA/) | 9-phase development protocol — plan before you code, audit before you ship | Yes |
-| [EPIC/](EPIC/) | Portfolio tracker as a traversable graph — what's in progress, blocked, done | Yes |
-| [MEMORY/](MEMORY/) | Persistent context across sessions — decisions, preferences, project state | Yes |
-| [TRUGGING/](TRUGGING/) | Methodology for describing a codebase with TRUGs and TRL at every level | Yes |
-| [WEB_HUB/](WEB_HUB/) | Curated web resource graph — papers, repos, tools, articles indexed as a TRUG | Yes |
-| [SKILLS/](SKILLS/) | Composable agent actions — 19 primitives that combine into compound workflows | Yes |
+## The Fix
 
-Each folder contains:
-- `README.md` — what the component is, when and why to use it (for you)
-- `AGENT.md` — complete instructions for employing the component (for your LLM)
-- Examples — real artifacts from production use
+TRL instructions have exact definitions. The LLM doesn't interpret — it executes:
 
-## Adopt One or All
+```
+✅  <trl>
+    AGENT SHALL VALIDATE ALL CODE SUBJECT_TO INTERFACE schema.
+    AGENT SHALL REQUIRE RECORD test FOR EACH FUNCTION.
+    AGENT SHALL_NOT DEPLOY INVALID DATA.
+    </trl>
 
-Every component stands alone. You can use:
-- **Just the root** — TRL vocabulary and grammar, formalized instructions in any project
-- **Root + Folder** — filesystem indexing for any project
-- **Root + AAA** — structured development without project tracking
-- **Root + Memory** — persistent context without the full workflow
-- **Root + Trugging** — codebase description without development process
-- **Root + Skills** — composable agent actions without the full methodology
-- **Everything** — the complete system
+     → SHALL = must do, failure is a violation
+     → VALIDATE = specific operation, not a vague suggestion
+     → SUBJECT_TO = explicit dependency
+     → SHALL_NOT = hard prohibition
+```
 
-## Tools
+Every word maps to a graph element. Every sentence is auditable. No ambiguity.
 
-The `tools/` folder contains the TRUGS validator — 16 rules that enforce graph correctness. Zero dependencies, pure Python.
+## Quickstart
+
+**60 seconds to working TRL:**
 
 ```bash
+# 1. Clone (or just download AGENT.md)
+git clone https://github.com/TRUGS-LLC/TRUGS-AGENT.git
+cd TRUGS-AGENT
+
+# 2. Copy root AGENT.md into your project, renamed for your IDE
+cp AGENT.md /path/to/your/project/CLAUDE.md        # Claude Code
+cp AGENT.md /path/to/your/project/.cursorrules      # Cursor
+cp AGENT.md /path/to/your/project/.github/copilot-instructions.md  # Copilot
+
+# 3. Done. Your LLM now speaks TRL.
+#    Open your IDE, ask it to read the file, and try:
+#    "Write a TRL specification for my authentication module"
+```
+
+**Or grab just the file:**
+
+```bash
+# Single file, no clone needed
+curl -o CLAUDE.md https://raw.githubusercontent.com/TRUGS-LLC/TRUGS-AGENT/main/AGENT.md
+```
+
+**Validate your TRUGs:**
+
+```bash
+# The validator is zero-dependency Python
 python tools/validate.py my_graph.trug.json          # Validate one
 python tools/validate.py --all my_project/            # Validate all
 ```
 
-## Why This Over Writing Good Prompts
+See [examples/](examples/) for a working project with TRUGS Agent integrated.
 
-English prompts are ambiguous. "Make sure the code is clean" means different things to different LLMs on different days.
+## How It Compares
 
-TRL sentences have exactly one meaning. `AGENT SHALL VALIDATE ALL CODE BEFORE COMMIT` compiles to a graph with a specific obligation, a specific action, and a specific scope. The LLM doesn't interpret — it executes.
+| | TRUGS Agent | LangChain | CrewAI | Pydantic AI |
+|---|---|---|---|---|
+| **What it is** | A language (190 words) | A Python SDK | A Python framework | A Python library |
+| **Install** | Copy a file | `pip install langchain` | `pip install crewai` | `pip install pydantic-ai` |
+| **Dependencies** | Zero | 50+ packages | 20+ packages | Pydantic + httpx |
+| **Lock-in** | None — works with any LLM tool | LangChain ecosystem | CrewAI runtime | Pydantic AI runtime |
+| **How agents get instructions** | Formal language with exact semantics | Python code chains | Role/goal strings | Type-annotated functions |
+| **Instruction ambiguity** | Zero — every word has one meaning | English prompts in code | English role descriptions | English docstrings |
+| **Verifiable** | Yes — compiles to auditable graph | No | No | Partial (type checking) |
+| **Works with Claude Code** | Yes | No (different paradigm) | No (different paradigm) | No (different paradigm) |
+| **Works with Cursor** | Yes | No (different paradigm) | No (different paradigm) | No (different paradigm) |
+| **Runtime required** | No | Yes | Yes | Yes |
+| **Lines of code** | 0 (it's text files) | ~100K+ | ~30K+ | ~10K+ |
+
+**The key difference:** LangChain, CrewAI, and Pydantic AI are code frameworks — you write Python to orchestrate agents. TRUGS Agent is a language — you write instructions that any LLM tool can read. They solve different problems. If you need Python orchestration, use a framework. If you need your LLM to follow unambiguous instructions, use TRL.
+
+## Components
+
+Every component is standalone. Start with just the root (`AGENT.md`), add components as needed:
+
+| Folder | What It Does | When To Use It |
+|--------|-------------|----------------|
+| [FOLDER/](FOLDER/) | Machine-readable filesystem index as a JSON graph | You want your LLM to understand your project structure |
+| [AAA/](AAA/) | 9-phase development protocol — plan, code, audit | You want structured development with quality gates |
+| [EPIC/](EPIC/) | Portfolio tracker as a traversable graph | You track multiple projects or features |
+| [MEMORY/](MEMORY/) | Persistent context across sessions | Your LLM forgets decisions between conversations |
+| [TRUGGING/](TRUGGING/) | Describe your codebase with TRUGs at every level | You want machine-readable architecture documentation |
+| [WEB_HUB/](WEB_HUB/) | Curated web resources indexed as a graph | You research tools, papers, and libraries |
+| [SKILLS/](SKILLS/) | 19 composable primitives for agent workflows | You need repeatable agent actions |
+
+### Adoption Path
+
+```
+Just the root         → TRL vocabulary in any project (30 seconds)
+Root + Memory         → Persistent context across sessions
+Root + AAA            → Structured development with audit gates
+Root + Folder         → Machine-readable project index
+Root + Everything     → Complete LLM development system
+```
 
 ## Full Specification
 
-- **TRL + TRUGS**: https://github.com/TRUGS-LLC/TRUGS
+- **TRL + TRUGS Specification**: https://github.com/TRUGS-LLC/TRUGS
 - **Paper**: https://github.com/TRUGS-LLC/TRUGS/blob/main/PAPER/trugs.pdf
-- **DOI**: https://doi.org/10.5281/zenodo.19379454
+- **DOI**: [10.5281/zenodo.19379454](https://doi.org/10.5281/zenodo.19379454)
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to get involved. We welcome contributions of all kinds — from fixing typos to adding new components.
 
 ## License
 
-Apache 2.0 — TRUGS LLC
+Apache 2.0 — [TRUGS LLC](https://github.com/TRUGS-LLC)

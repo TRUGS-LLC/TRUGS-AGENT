@@ -1,0 +1,85 @@
+{
+  "name": "Todo App Example",
+  "version": "1.0.0",
+  "type": "EXAMPLE",
+  "description": "Minimal Python todo app demonstrating TRUGS Agent integration — TRL annotations in code comments, formal obligations, and machine-readable project index.",
+  "dimensions": {
+    "system": {
+      "description": "Application components",
+      "base_level": "BASE"
+    }
+  },
+  "capabilities": {
+    "extensions": [],
+    "vocabularies": ["core_v1.0.0"],
+    "profiles": []
+  },
+  "nodes": [
+    {
+      "id": "app",
+      "type": "MODULE",
+      "properties": {
+        "name": "app.py",
+        "description": "Todo application with TRL-annotated functions",
+        "file": "app.py"
+      },
+      "parent_id": null,
+      "contains": ["fn_create", "fn_list", "fn_complete"],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "fn_create",
+      "type": "FUNCTION",
+      "properties": {
+        "name": "create_todo",
+        "description": "Validates input then writes to todo store"
+      },
+      "parent_id": "app",
+      "contains": [],
+      "metric_level": "CENTI_FUNCTION",
+      "dimension": "system"
+    },
+    {
+      "id": "fn_list",
+      "type": "FUNCTION",
+      "properties": {
+        "name": "list_todos",
+        "description": "Reads all records, optionally filtered by state"
+      },
+      "parent_id": "app",
+      "contains": [],
+      "metric_level": "CENTI_FUNCTION",
+      "dimension": "system"
+    },
+    {
+      "id": "fn_complete",
+      "type": "FUNCTION",
+      "properties": {
+        "name": "complete_todo",
+        "description": "Matches record by ID, writes done state"
+      },
+      "parent_id": "app",
+      "contains": [],
+      "metric_level": "CENTI_FUNCTION",
+      "dimension": "system"
+    },
+    {
+      "id": "instructions",
+      "type": "FILE",
+      "properties": {
+        "name": "CLAUDE.md",
+        "description": "TRL instructions for Claude Code"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    }
+  ],
+  "edges": [
+    {"from_id": "fn_create", "to_id": "fn_list", "relation": "FEEDS"},
+    {"from_id": "fn_complete", "to_id": "fn_list", "relation": "FEEDS"},
+    {"from_id": "instructions", "to_id": "app", "relation": "GOVERNS"}
+  ]
+}
