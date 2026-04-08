@@ -43,36 +43,35 @@ TRL instructions have exact definitions. The LLM doesn't interpret — it execut
 
 Every word maps to a graph element. Every sentence is auditable. No ambiguity.
 
-## Quickstart
+## Install
 
-**60 seconds to working TRL:**
-
-```bash
-# 1. Clone (or just download AGENT.md)
-git clone https://github.com/TRUGS-LLC/TRUGS-AGENT.git
-cd TRUGS-AGENT
-
-# 2. Copy root AGENT.md into your project, renamed for your IDE
-cp AGENT.md /path/to/your/project/CLAUDE.md        # Claude Code
-cp AGENT.md /path/to/your/project/.cursorrules      # Cursor
-cp AGENT.md /path/to/your/project/.github/copilot-instructions.md  # Copilot
-
-# 3. Done. Your LLM now speaks TRL.
-#    Open your IDE, ask it to read the file, and try:
-#    "Write a TRL specification for my authentication module"
-```
-
-**Or grab just the file:**
+Pick your method:
 
 ```bash
-# Single file, no clone needed
+# npm — one command, all files
+npx create-trugs-agent                    # Claude Code (default)
+npx create-trugs-agent cursor             # Cursor
+npx create-trugs-agent copilot            # GitHub Copilot
+
+# pip — same thing, Python
+pip install trugs-agent
+trugs-agent-init                          # Claude Code (default)
+trugs-agent-init cursor                   # Cursor
+trugs-agent-init copilot                  # GitHub Copilot
+
+# curl — just the core file, nothing else
 curl -o CLAUDE.md https://raw.githubusercontent.com/TRUGS-LLC/TRUGS-AGENT/main/AGENT.md
+
+# git — clone and copy what you want
+git clone https://github.com/TRUGS-LLC/TRUGS-AGENT.git
+cp TRUGS-AGENT/AGENT.md your-project/CLAUDE.md
 ```
+
+**Already using Cursor?** This repo includes `.cursor/rules/trugs-agent.mdc` — clone the repo and copy the `.cursor/` directory into your project.
 
 **Validate your TRUGs:**
 
 ```bash
-# The validator is zero-dependency Python
 python tools/validate.py my_graph.trug.json          # Validate one
 python tools/validate.py --all my_project/            # Validate all
 ```
