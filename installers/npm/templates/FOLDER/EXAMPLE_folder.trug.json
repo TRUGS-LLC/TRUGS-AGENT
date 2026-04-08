@@ -1,0 +1,167 @@
+{
+  "name": "Auth Module",
+  "version": "1.0.0",
+  "type": "MODULE",
+  "description": "Authentication and authorization — JWT validation, session management, role-based access control",
+  "dimensions": {
+    "folder_structure": {
+      "description": "Auth module file and component structure",
+      "base_level": "BASE"
+    }
+  },
+  "capabilities": {
+    "extensions": [],
+    "vocabularies": ["project_v1"],
+    "profiles": []
+  },
+  "nodes": [
+    {
+      "id": "auth_folder",
+      "type": "FOLDER",
+      "properties": {
+        "name": "auth",
+        "purpose": "Authentication and authorization module — JWT tokens, sessions, RBAC",
+        "verified": false,
+        "stale": false
+      },
+      "parent_id": null,
+      "contains": ["spec_auth", "component_jwt", "component_sessions", "component_rbac", "doc_readme", "test_suite"],
+      "metric_level": "KILO_FOLDER",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "spec_auth",
+      "type": "SPECIFICATION",
+      "properties": {
+        "name": "SPEC_auth.md",
+        "purpose": "Formal auth specification — token format, expiration rules, role hierarchy, rate limits",
+        "format": "markdown"
+      },
+      "parent_id": "auth_folder",
+      "contains": [],
+      "metric_level": "BASE_SPECIFICATION",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "component_jwt",
+      "type": "COMPONENT",
+      "properties": {
+        "name": "jwt_handler.py",
+        "purpose": "JWT token creation, validation, and refresh — HS256, 15min access / 7d refresh",
+        "language": "python"
+      },
+      "parent_id": "auth_folder",
+      "contains": [],
+      "metric_level": "DEKA_COMPONENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "component_sessions",
+      "type": "COMPONENT",
+      "properties": {
+        "name": "sessions.py",
+        "purpose": "Server-side session store — Redis-backed, 24h TTL, sliding expiration",
+        "language": "python"
+      },
+      "parent_id": "auth_folder",
+      "contains": [],
+      "metric_level": "DEKA_COMPONENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "component_rbac",
+      "type": "COMPONENT",
+      "properties": {
+        "name": "rbac.py",
+        "purpose": "Role-based access control — admin/editor/viewer hierarchy, permission checks",
+        "language": "python"
+      },
+      "parent_id": "auth_folder",
+      "contains": [],
+      "metric_level": "DEKA_COMPONENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "doc_readme",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "README.md",
+        "purpose": "Auth module quickstart — setup, configuration, usage examples",
+        "format": "markdown"
+      },
+      "parent_id": "auth_folder",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
+    },
+    {
+      "id": "test_suite",
+      "type": "TEST_SUITE",
+      "properties": {
+        "name": "tests/",
+        "purpose": "Auth test suite — 43 tests covering JWT, sessions, RBAC, and integration",
+        "test_count": 43
+      },
+      "parent_id": "auth_folder",
+      "contains": [],
+      "metric_level": "BASE_TEST_SUITE",
+      "dimension": "folder_structure"
+    }
+  ],
+  "edges": [
+    {
+      "from_id": "component_jwt",
+      "to_id": "spec_auth",
+      "relation": "implements",
+      "properties": {"scope": "JWT token format and expiration rules"}
+    },
+    {
+      "from_id": "component_sessions",
+      "to_id": "spec_auth",
+      "relation": "implements",
+      "properties": {"scope": "Session TTL and sliding expiration"}
+    },
+    {
+      "from_id": "component_rbac",
+      "to_id": "spec_auth",
+      "relation": "implements",
+      "properties": {"scope": "Role hierarchy and permission model"}
+    },
+    {
+      "from_id": "component_rbac",
+      "to_id": "component_jwt",
+      "relation": "uses",
+      "properties": {"reason": "RBAC reads role claims from JWT payload"}
+    },
+    {
+      "from_id": "test_suite",
+      "to_id": "component_jwt",
+      "relation": "tests",
+      "properties": {}
+    },
+    {
+      "from_id": "test_suite",
+      "to_id": "component_sessions",
+      "relation": "tests",
+      "properties": {}
+    },
+    {
+      "from_id": "test_suite",
+      "to_id": "component_rbac",
+      "relation": "tests",
+      "properties": {}
+    },
+    {
+      "from_id": "doc_readme",
+      "to_id": "auth_folder",
+      "relation": "describes",
+      "properties": {}
+    },
+    {
+      "from_id": "component_sessions",
+      "to_id": "infrastructure:redis",
+      "relation": "uses",
+      "properties": {"reason": "Redis for session storage"}
+    }
+  ]
+}

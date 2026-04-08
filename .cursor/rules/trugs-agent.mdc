@@ -1,0 +1,63 @@
+---
+description: TRUGS Agent — formal instruction language for LLM coding assistants (190-word TRL vocabulary)
+alwaysApply: true
+---
+
+# TRUGS Agent
+
+You speak TRL — a 190-word formal instruction language. Every sentence compiles to a directed graph. Every word has exactly one meaning.
+
+## TRL Vocabulary
+
+**Nouns (graph nodes):**
+- Actors: PARTY, AGENT, PROCESS, SERVICE, FUNCTION, TRANSFORM, PRINCIPAL
+- Artifacts: DATA, FILE, RECORD, MESSAGE, STREAM, RESOURCE
+- Containers: PIPELINE, STAGE, MODULE, NAMESPACE
+- Boundaries: ENTRY, EXIT, INTERFACE, ENDPOINT
+- Outcomes: ERROR, EXCEPTION, REMEDY
+
+**Verbs (operation nodes):**
+- Transform: FILTER, MAP, SORT, MERGE, SPLIT, AGGREGATE, GROUP, DISTINCT, TAKE, SKIP
+- Move: READ, WRITE, SEND, RECEIVE, REQUEST, RESPOND, AUTHENTICATE
+- Obligate: VALIDATE, ASSERT, REQUIRE
+- Permit: ALLOW, APPROVE, GRANT, OVERRIDE
+- Prohibit: DENY, REJECT, REVOKE
+- Control: BRANCH, MATCH, RETRY, TIMEOUT, THROW, EXISTS, EXPIRE, EQUALS, EXCEEDS
+- Bind: DEFINE, DECLARE, IMPLEMENT, NEST, AUGMENT, REPLACE, CITE, ADMINISTER
+- Resolve: CATCH, HANDLE, RECOVER
+
+**Modals:**
+- SHALL = MUST do (obligation)
+- MAY = ALLOWED (permission)
+- SHALL_NOT = MUST NOT (prohibition)
+
+**Adjectives (node properties):** STRING, INTEGER, BOOLEAN, ARRAY, OBJECT, PUBLIC, PRIVATE, CONFIDENTIAL, READONLY, VALID, INVALID, ACTIVE, PENDING, FAILED, MUTABLE, IMMUTABLE, REQUIRED, OPTIONAL, UNIQUE, MULTIPLE, CRITICAL, HIGH, LOW, DEFAULT
+
+**Adverbs (operation properties):** ASYNC, SYNC, PARALLEL, SEQUENTIAL, IMMEDIATE, WITHIN, ONCE, ALWAYS, NEVER, BOUNDED, STRICTLY, SUBSTANTIALLY, REASONABLY
+
+**Prepositions (graph edges):** FEEDS, ROUTES, TO, FROM, RETURNS_TO, BINDS, DEPENDS_ON, IMPLEMENTS, EXTENDS, SUBJECT_TO, GOVERNS, PURSUANT_TO, ON_BEHALF_OF, CONTAINS, REFERENCES, SUPERSEDES, AS, BY
+
+**Conjunctions:** THEN, FINALLY, AND, OR, ELSE, IF, WHEN, WHILE, UNLESS, EXCEPT, NOTWITHSTANDING, PROVIDED_THAT, WHEREAS
+
+**Articles:** ALL, EACH, EVERY, ANY, SOME, A, THE, THIS, NO, NONE
+
+**Pronouns:** SELF, RESULT, OUTPUT, INPUT, SOURCE, TARGET
+
+**Sugar (compile to nothing):** OF, IS, ARE, BE, BEEN, HAS, HAVE, WILL, THAT, WHICH, WHERE, WHO, INTO, UPON, WITH, FOR, AT, ON, PLEASE, ALSO, THEN_ALSO, THESE, THOSE, SUCH
+
+## How to Execute `<trl>` Blocks
+
+1. Strip sugar words
+2. Parse each sentence: subject (noun), modal, verb, objects, prepositions
+3. Execute: SHALL = must do, MAY = allowed, SHALL_NOT = must not
+4. Follow conjunctions: THEN = next, OR = if previous fails, UNLESS = skip if condition met
+
+## Development Rules
+
+<trl>
+AGENT SHALL CREATE RESOURCE branch FROM ENDPOINT main THEN WRITE ALL DATA TO RESOURCE branch.
+AGENT SHALL_NOT WRITE ANY DATA TO ENDPOINT main.
+AGENT SHALL VALIDATE ALL CODE THEN ASSERT ALL RECORD test EQUALS VALID.
+</trl>
+
+Full specification: https://github.com/TRUGS-LLC/TRUGS-AGENT

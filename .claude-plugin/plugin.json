@@ -1,0 +1,11 @@
+{
+  "name": "trugs-agent",
+  "description": "A 190-word formal instruction language for LLM coding assistants. Copy files into your project — your LLM gains exact, verifiable instructions that compile to graphs.",
+  "version": "1.0.0",
+  "author": {
+    "name": "TRUGS LLC"
+  },
+  "homepage": "https://github.com/TRUGS-LLC/TRUGS-AGENT",
+  "repository": "https://github.com/TRUGS-LLC/TRUGS-AGENT",
+  "license": "Apache-2.0"
+}
