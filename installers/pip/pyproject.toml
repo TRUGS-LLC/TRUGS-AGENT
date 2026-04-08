@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "trugs-agent"
-version = "1.0.0"
+version = "1.1.0"
 description = "Initialize TRUGS Agent in your project — a 190-word formal instruction language for LLM coding assistants"
 readme = "README.md"
-license = "Apache-2.0"
+license = {text = "Apache-2.0"}
 authors = [
     { name = "TRUGS LLC" }
 ]
@@ -22,7 +22,10 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Topic :: Software Development :: Libraries",
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.10"
+dependencies = [
+    "trugs>=1.0.0",
+]
 
 [project.scripts]
 trugs-agent-init = "trugs_agent.cli:main"
