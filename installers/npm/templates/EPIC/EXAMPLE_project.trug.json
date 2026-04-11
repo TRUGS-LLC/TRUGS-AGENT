@@ -11,7 +11,9 @@
   },
   "capabilities": {
     "extensions": [],
-    "vocabularies": ["core_v1.0.0"],
+    "vocabularies": [
+      "core_v1.0.0"
+    ],
     "profiles": []
   },
   "nodes": [
@@ -29,7 +31,9 @@
         }
       },
       "parent_id": null,
-      "contains": ["epic_example"],
+      "contains": [
+        "epic_example"
+      ],
       "metric_level": "KILO_TRACKER",
       "dimension": "project_tracking"
     },
@@ -37,7 +41,7 @@
       "id": "epic_example",
       "type": "EPIC",
       "properties": {
-        "name": "Example Epic — Replace With Your First Initiative",
+        "name": "Example Epic \u2014 Replace With Your First Initiative",
         "purpose": "What this epic achieves and why it matters.",
         "status": "IN_PROGRESS",
         "github_issue": null,
@@ -45,7 +49,10 @@
         "created_date": "2026-04-01"
       },
       "parent_id": "tracker_root",
-      "contains": ["task_example_1", "task_example_2"],
+      "contains": [
+        "task_example_1",
+        "task_example_2"
+      ],
       "metric_level": "HECTO_EPIC",
       "dimension": "project_tracking"
     },
@@ -53,7 +60,7 @@
       "id": "task_example_1",
       "type": "TASK",
       "properties": {
-        "name": "First task — replace with real work",
+        "name": "First task \u2014 replace with real work",
         "status": "TODO",
         "github_issue": null,
         "priority": "P1"
@@ -67,7 +74,7 @@
       "id": "task_example_2",
       "type": "TASK",
       "properties": {
-        "name": "Second task — depends on first",
+        "name": "Second task \u2014 depends on first",
         "status": "TODO",
         "github_issue": null,
         "priority": "P2"
@@ -80,10 +87,12 @@
   ],
   "edges": [
     {
-      "from_id": "task_example_2",
-      "to_id": "task_example_1",
-      "relation": "BLOCKS",
-      "properties": {"description": "Task 2 cannot start until task 1 is complete"}
+      "from_id": "task_example_1",
+      "to_id": "task_example_2",
+      "relation": "DEPENDS_ON",
+      "properties": {
+        "description": "Task 2 cannot start until task 1 is complete"
+      }
     }
   ]
 }
