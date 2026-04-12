@@ -2,7 +2,7 @@
   "name": "TRUGS-AGENT Web Hub",
   "version": "1.0.0",
   "type": "WEB_HUB",
-  "description": "Curated web resource graph — 3 branches, 50+ resources, weighted edges converging on TRUGS-AGENT",
+  "description": "Curated web resource graph \u2014 3 branches, 50+ resources, weighted edges converging on TRUGS-AGENT",
   "dimensions": {
     "web_landscape": {
       "description": "Web resources organized by audience and relevance to TRUGS-AGENT",
@@ -11,7 +11,9 @@
   },
   "capabilities": {
     "extensions": [],
-    "vocabularies": ["project_v1"],
+    "vocabularies": [
+      "project_v1"
+    ],
     "profiles": []
   },
   "nodes": [
@@ -23,18 +25,26 @@
         "purpose": "Three-branch curated graph of web resources converging on TRUGS-AGENT adoption"
       },
       "parent_id": null,
-      "contains": ["branch_structured_agent", "branch_graph_native", "branch_agent_protocols", "convergence_trugs_agent", "convergence_trugs_spec", "convergence_trugs_paper", "convergence_natebjones", "convergence_natebjones_yt"],
+      "contains": [
+        "branch_structured_agent",
+        "branch_graph_native",
+        "branch_agent_protocols",
+        "convergence_trugs_agent",
+        "convergence_trugs_spec",
+        "convergence_trugs_paper",
+        "convergence_natebjones",
+        "convergence_natebjones_yt"
+      ],
       "metric_level": "KILO_FOLDER",
       "dimension": "web_landscape"
     },
-
     {
       "id": "convergence_trugs_agent",
       "type": "ENDPOINT",
       "properties": {
         "name": "TRUGS-AGENT Repository",
         "url": "https://github.com/TRUGS-LLC/TRUGS-AGENT",
-        "purpose": "The product — one file teaches your LLM TRL, AAA, Memory, EPIC, Folder indexing, and Trugging",
+        "purpose": "The product \u2014 one file teaches your LLM TRL, AAA, Memory, EPIC, Folder indexing, and Trugging",
         "category": "REPO"
       },
       "parent_id": "hub_root",
@@ -48,7 +58,7 @@
       "properties": {
         "name": "TRUGS Specification Repository",
         "url": "https://github.com/TRUGS-LLC/TRUGS",
-        "purpose": "Full TRL + TRUGS specification — 190-word vocabulary, CORE rules, validator, the complete formal system",
+        "purpose": "Full TRL + TRUGS specification \u2014 190-word vocabulary, CORE rules, validator, the complete formal system",
         "category": "REPO"
       },
       "parent_id": "hub_root",
@@ -62,7 +72,7 @@
       "properties": {
         "name": "TRUGS Paper (Zenodo DOI)",
         "url": "https://doi.org/10.5281/zenodo.19379454",
-        "purpose": "Academic paper — TRUGS specification, TRL compilation algorithm, graph-sentence equivalence proof",
+        "purpose": "Academic paper \u2014 TRUGS specification, TRL compilation algorithm, graph-sentence equivalence proof",
         "category": "PAPER"
       },
       "parent_id": "hub_root",
@@ -76,7 +86,7 @@
       "properties": {
         "name": "Nate B Jones",
         "url": "https://natebjones.com",
-        "purpose": "Tech creator with 500K+ audience — potential TRUGS-AGENT evangelist and adoption channel",
+        "purpose": "Tech creator with 500K+ audience \u2014 potential TRUGS-AGENT evangelist and adoption channel",
         "category": "INFLUENCER"
       },
       "parent_id": "hub_root",
@@ -88,9 +98,9 @@
       "id": "convergence_natebjones_yt",
       "type": "ENDPOINT",
       "properties": {
-        "name": "Nate B Jones — YouTube",
+        "name": "Nate B Jones \u2014 YouTube",
         "url": "https://www.youtube.com/@NateBJones",
-        "purpose": "YouTube channel — AI/dev tooling content reaching 500K+ audience, video format for TRUGS-AGENT demos",
+        "purpose": "YouTube channel \u2014 AI/dev tooling content reaching 500K+ audience, video format for TRUGS-AGENT demos",
         "category": "INFLUENCER"
       },
       "parent_id": "hub_root",
@@ -98,18 +108,33 @@
       "metric_level": "HECTO_ENDPOINT",
       "dimension": "web_landscape"
     },
-
     {
       "id": "branch_structured_agent",
       "type": "MODULE",
       "properties": {
         "name": "Structured Agent Instructions",
-        "purpose": "Branch 1 — the problem of prompt ambiguity and solutions for formalized LLM instructions",
+        "purpose": "Branch 1 \u2014 the problem of prompt ambiguity and solutions for formalized LLM instructions",
         "audience": "LLM developers frustrated with prompt drift",
         "converges_on": "TRL + TRUGGING"
       },
       "parent_id": "hub_root",
-      "contains": ["sa_specs_paper", "sa_prompt_report", "sa_ifeval", "sa_goal_drift", "sa_lmql_paper", "sa_agentif", "sa_dspy", "sa_guidance", "sa_lmql", "sa_typechat", "sa_outlines", "sa_instructor", "sa_json_prompting", "sa_anthropic_prompting", "sa_llmops_2025"],
+      "contains": [
+        "sa_specs_paper",
+        "sa_prompt_report",
+        "sa_ifeval",
+        "sa_goal_drift",
+        "sa_lmql_paper",
+        "sa_agentif",
+        "sa_dspy",
+        "sa_guidance",
+        "sa_lmql",
+        "sa_typechat",
+        "sa_outlines",
+        "sa_instructor",
+        "sa_json_prompting",
+        "sa_anthropic_prompting",
+        "sa_llmops_2025"
+      ],
       "metric_level": "HECTO_MODULE",
       "dimension": "web_landscape"
     },
@@ -119,7 +144,7 @@
       "properties": {
         "name": "Specifications: The Missing Link to Making LLM Systems an Engineering Discipline",
         "url": "https://arxiv.org/abs/2412.05299",
-        "purpose": "UC Berkeley paper arguing that precise specification of expected behavior is the missing foundation for reliable LLM systems — the exact problem TRL solves",
+        "purpose": "UC Berkeley paper arguing that precise specification of expected behavior is the missing foundation for reliable LLM systems \u2014 the exact problem TRL solves",
         "category": "PAPER",
         "authors": "Ion Stoica, Matei Zaharia et al."
       },
@@ -134,7 +159,7 @@
       "properties": {
         "name": "The Prompt Report: A Systematic Survey of Prompting Techniques",
         "url": "https://arxiv.org/abs/2406.06608",
-        "purpose": "76-page survey covering 58 text prompting techniques from 1,500+ papers — the landscape TRL simplifies to 190 words",
+        "purpose": "76-page survey covering 58 text prompting techniques from 1,500+ papers \u2014 the landscape TRL simplifies to 190 words",
         "category": "PAPER",
         "authors": "Schulhoff et al. (OpenAI, Microsoft, Google, Stanford)"
       },
@@ -164,7 +189,7 @@
       "properties": {
         "name": "Evaluating Goal Drift in Language Model Agents",
         "url": "https://arxiv.org/html/2505.02709v1",
-        "purpose": "Quantifies how LLM agents progressively deviate from original instructions during long-context interactions — the drift TRL prevents",
+        "purpose": "Quantifies how LLM agents progressively deviate from original instructions during long-context interactions \u2014 the drift TRL prevents",
         "category": "PAPER"
       },
       "parent_id": "branch_structured_agent",
@@ -178,7 +203,7 @@
       "properties": {
         "name": "Prompting Is Programming: A Query Language for Large Language Models",
         "url": "https://arxiv.org/abs/2212.06094",
-        "purpose": "ETH Zurich paper proposing prompting-as-programming with constraints and types — TRL takes this further with a fixed vocabulary that compiles to graphs",
+        "purpose": "ETH Zurich paper proposing prompting-as-programming with constraints and types \u2014 TRL takes this further with a fixed vocabulary that compiles to graphs",
         "category": "PAPER",
         "authors": "Beurer-Kellner et al."
       },
@@ -193,7 +218,7 @@
       "properties": {
         "name": "AGENTIF: Benchmarking Instruction Following of LLMs as Agents",
         "url": "https://keg.cs.tsinghua.edu.cn/persons/xubin/papers/AgentIF.pdf",
-        "purpose": "Tsinghua benchmark finding even GPT-4 achieves only ~80% on simple unambiguous instructions — motivates formalized instruction languages",
+        "purpose": "Tsinghua benchmark finding even GPT-4 achieves only ~80% on simple unambiguous instructions \u2014 motivates formalized instruction languages",
         "category": "PAPER"
       },
       "parent_id": "branch_structured_agent",
@@ -205,9 +230,9 @@
       "id": "sa_dspy",
       "type": "RESOURCE",
       "properties": {
-        "name": "DSPy — Programming, Not Prompting, Language Models",
+        "name": "DSPy \u2014 Programming, Not Prompting, Language Models",
         "url": "https://github.com/stanfordnlp/dspy",
-        "purpose": "Stanford framework replacing brittle prompts with composable Python modules — structured generation without a fixed vocabulary",
+        "purpose": "Stanford framework replacing brittle prompts with composable Python modules \u2014 structured generation without a fixed vocabulary",
         "category": "TOOL"
       },
       "parent_id": "branch_structured_agent",
@@ -219,9 +244,9 @@
       "id": "sa_guidance",
       "type": "RESOURCE",
       "properties": {
-        "name": "Guidance — Token-Level LLM Output Control",
+        "name": "Guidance \u2014 Token-Level LLM Output Control",
         "url": "https://github.com/guidance-ai/guidance",
-        "purpose": "Controls LLM output via Python-embedded grammars and CFGs — structural constraints at inference layer, not post-hoc",
+        "purpose": "Controls LLM output via Python-embedded grammars and CFGs \u2014 structural constraints at inference layer, not post-hoc",
         "category": "TOOL"
       },
       "parent_id": "branch_structured_agent",
@@ -233,9 +258,9 @@
       "id": "sa_lmql",
       "type": "RESOURCE",
       "properties": {
-        "name": "LMQL — Query Language for LLMs",
+        "name": "LMQL \u2014 Query Language for LLMs",
         "url": "https://github.com/eth-sri/lmql",
-        "purpose": "SQL-like declarative constraints for LLMs — typed output specifications and multi-variable templates",
+        "purpose": "SQL-like declarative constraints for LLMs \u2014 typed output specifications and multi-variable templates",
         "category": "TOOL"
       },
       "parent_id": "branch_structured_agent",
@@ -247,9 +272,9 @@
       "id": "sa_typechat",
       "type": "RESOURCE",
       "properties": {
-        "name": "TypeChat — Schema Engineering for LLMs",
+        "name": "TypeChat \u2014 Schema Engineering for LLMs",
         "url": "https://github.com/microsoft/TypeChat",
-        "purpose": "Microsoft tool replacing prompt engineering with TypeScript schema engineering — validates responses against types",
+        "purpose": "Microsoft tool replacing prompt engineering with TypeScript schema engineering \u2014 validates responses against types",
         "category": "TOOL"
       },
       "parent_id": "branch_structured_agent",
@@ -261,7 +286,7 @@
       "id": "sa_outlines",
       "type": "RESOURCE",
       "properties": {
-        "name": "Outlines — Structured Generation via FSMs",
+        "name": "Outlines \u2014 Structured Generation via FSMs",
         "url": "https://github.com/dottxt-ai/outlines",
         "purpose": "Compiles JSON schemas and regex into finite state machines for guaranteed-valid LLM output during token generation",
         "category": "TOOL"
@@ -275,9 +300,9 @@
       "id": "sa_instructor",
       "type": "RESOURCE",
       "properties": {
-        "name": "Instructor — Pydantic-Based Structured LLM Output",
+        "name": "Instructor \u2014 Pydantic-Based Structured LLM Output",
         "url": "https://github.com/567-labs/instructor",
-        "purpose": "Pydantic validation for LLM responses with automatic retries — available in Python, TypeScript, Go, Ruby, Rust, Elixir",
+        "purpose": "Pydantic validation for LLM responses with automatic retries \u2014 available in Python, TypeScript, Go, Ruby, Rust, Elixir",
         "category": "TOOL"
       },
       "parent_id": "branch_structured_agent",
@@ -291,7 +316,7 @@
       "properties": {
         "name": "Structured Prompting with JSON: The Engineering Path to Reliable LLMs",
         "url": "https://medium.com/@vishal.dutt.data.architect/structured-prompting-with-json-the-engineering-path-to-reliable-llms-2c0cb1b767cf",
-        "purpose": "Introduces the 'Ambiguity Tax' concept — operational cost of vague prompts, reports 99%+ schema adherence with structured JSON prompting",
+        "purpose": "Introduces the 'Ambiguity Tax' concept \u2014 operational cost of vague prompts, reports 99%+ schema adherence with structured JSON prompting",
         "category": "ARTICLE"
       },
       "parent_id": "branch_structured_agent",
@@ -303,7 +328,7 @@
       "id": "sa_anthropic_prompting",
       "type": "RESOURCE",
       "properties": {
-        "name": "Anthropic — Claude Prompting Best Practices",
+        "name": "Anthropic \u2014 Claude Prompting Best Practices",
         "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
         "purpose": "Official Anthropic guide recommending XML-tagged structure, role-based system prompts, and schema-first design",
         "category": "ARTICLE"
@@ -319,7 +344,7 @@
       "properties": {
         "name": "What 1,200 Production Deployments Reveal About LLMOps in 2025",
         "url": "https://www.zenml.io/blog/what-1200-production-deployments-reveal-about-llmops-in-2025",
-        "purpose": "Production retrospective marking the shift from prompt engineering to context engineering — architecting structured information, not tweaking wording",
+        "purpose": "Production retrospective marking the shift from prompt engineering to context engineering \u2014 architecting structured information, not tweaking wording",
         "category": "ARTICLE"
       },
       "parent_id": "branch_structured_agent",
@@ -327,18 +352,33 @@
       "metric_level": "BASE_RESOURCE",
       "dimension": "web_landscape"
     },
-
     {
       "id": "branch_graph_native",
       "type": "MODULE",
       "properties": {
         "name": "Graph-Native Development",
-        "purpose": "Branch 2 — using graphs to describe, index, and navigate codebases and knowledge",
+        "purpose": "Branch 2 \u2014 using graphs to describe, index, and navigate codebases and knowledge",
         "audience": "Engineers building with knowledge graphs and code graphs",
         "converges_on": "FOLDER + TRUGGING"
       },
       "parent_id": "hub_root",
-      "contains": ["gn_kg_survey", "gn_kg_evolution", "gn_llm_kg_construction", "gn_neo4j", "gn_networkx", "gn_joern", "gn_treesitter_graph", "gn_emerge", "gn_code_property_graph", "gn_neo4j_codebase", "gn_dependency_graphs", "gn_software_dep_graph", "gn_graph4code", "gn_jsonld", "gn_gql"],
+      "contains": [
+        "gn_kg_survey",
+        "gn_kg_evolution",
+        "gn_llm_kg_construction",
+        "gn_neo4j",
+        "gn_networkx",
+        "gn_joern",
+        "gn_treesitter_graph",
+        "gn_emerge",
+        "gn_code_property_graph",
+        "gn_neo4j_codebase",
+        "gn_dependency_graphs",
+        "gn_software_dep_graph",
+        "gn_graph4code",
+        "gn_jsonld",
+        "gn_gql"
+      ],
       "metric_level": "HECTO_MODULE",
       "dimension": "web_landscape"
     },
@@ -348,7 +388,7 @@
       "properties": {
         "name": "Knowledge Graphs: Opportunities and Challenges",
         "url": "https://link.springer.com/article/10.1007/s10462-023-10465-9",
-        "purpose": "Comprehensive survey covering KG construction, embedding, reasoning, and applications — the academic foundation for graph-based systems",
+        "purpose": "Comprehensive survey covering KG construction, embedding, reasoning, and applications \u2014 the academic foundation for graph-based systems",
         "category": "PAPER"
       },
       "parent_id": "branch_graph_native",
@@ -376,7 +416,7 @@
       "properties": {
         "name": "LLM-Empowered Knowledge Graph Construction: A Survey",
         "url": "https://arxiv.org/abs/2510.20345",
-        "purpose": "How LLMs reshape the KG construction pipeline from ontology engineering through knowledge fusion — TRUGS automates this for codebases",
+        "purpose": "How LLMs reshape the KG construction pipeline from ontology engineering through knowledge fusion \u2014 TRUGS automates this for codebases",
         "category": "PAPER"
       },
       "parent_id": "branch_graph_native",
@@ -388,9 +428,9 @@
       "id": "gn_neo4j",
       "type": "RESOURCE",
       "properties": {
-        "name": "Neo4j — Graph Database",
+        "name": "Neo4j \u2014 Graph Database",
         "url": "https://github.com/neo4j/neo4j",
-        "purpose": "Leading open-source property graph database with ACID transactions and Cypher query language — the heavyweight; TRUGS is the lightweight JSON alternative",
+        "purpose": "Leading open-source property graph database with ACID transactions and Cypher query language \u2014 the heavyweight; TRUGS is the lightweight JSON alternative",
         "category": "REPO"
       },
       "parent_id": "branch_graph_native",
@@ -402,9 +442,9 @@
       "id": "gn_networkx",
       "type": "RESOURCE",
       "properties": {
-        "name": "NetworkX — Network Analysis in Python",
+        "name": "NetworkX \u2014 Network Analysis in Python",
         "url": "https://github.com/networkx/networkx",
-        "purpose": "Python library for graph creation, manipulation, and analysis — computation engine, not a specification format",
+        "purpose": "Python library for graph creation, manipulation, and analysis \u2014 computation engine, not a specification format",
         "category": "REPO"
       },
       "parent_id": "branch_graph_native",
@@ -416,9 +456,9 @@
       "id": "gn_joern",
       "type": "RESOURCE",
       "properties": {
-        "name": "Joern — Code Analysis via Code Property Graphs",
+        "name": "Joern \u2014 Code Analysis via Code Property Graphs",
         "url": "https://github.com/joernio/joern",
-        "purpose": "Code analysis platform for C/C++/Java/Python/JS based on code property graphs — analyzes code as graphs, TRUGS indexes projects as graphs",
+        "purpose": "Code analysis platform for C/C++/Java/Python/JS based on code property graphs \u2014 analyzes code as graphs, TRUGS indexes projects as graphs",
         "category": "REPO"
       },
       "parent_id": "branch_graph_native",
@@ -430,9 +470,9 @@
       "id": "gn_treesitter_graph",
       "type": "RESOURCE",
       "properties": {
-        "name": "tree-sitter-graph — DSL for Graph Construction from Source Code",
+        "name": "tree-sitter-graph \u2014 DSL for Graph Construction from Source Code",
         "url": "https://github.com/tree-sitter/tree-sitter-graph",
-        "purpose": "Rust DSL for constructing arbitrary graph structures from parsed source code — AST to graph, bottom-up",
+        "purpose": "Rust DSL for constructing arbitrary graph structures from parsed source code \u2014 AST to graph, bottom-up",
         "category": "REPO"
       },
       "parent_id": "branch_graph_native",
@@ -444,9 +484,9 @@
       "id": "gn_emerge",
       "type": "RESOURCE",
       "properties": {
-        "name": "Emerge — Interactive Codebase Visualization",
+        "name": "Emerge \u2014 Interactive Codebase Visualization",
         "url": "https://github.com/glato/emerge",
-        "purpose": "Browser-based dependency visualization with graph metrics — visual where TRUGS is structural",
+        "purpose": "Browser-based dependency visualization with graph metrics \u2014 visual where TRUGS is structural",
         "category": "REPO"
       },
       "parent_id": "branch_graph_native",
@@ -458,9 +498,9 @@
       "id": "gn_code_property_graph",
       "type": "RESOURCE",
       "properties": {
-        "name": "Code Property Graph — Specification and Query Language",
+        "name": "Code Property Graph \u2014 Specification and Query Language",
         "url": "https://github.com/ShiftLeftSecurity/codepropertygraph",
-        "purpose": "Formal spec of the code property graph data structure — security-focused code graph, TRUGS is project-focused",
+        "purpose": "Formal spec of the code property graph data structure \u2014 security-focused code graph, TRUGS is project-focused",
         "category": "REPO"
       },
       "parent_id": "branch_graph_native",
@@ -474,7 +514,7 @@
       "properties": {
         "name": "Codebase Knowledge Graph: Code Analysis with Graphs",
         "url": "https://neo4j.com/blog/developer/codebase-knowledge-graph/",
-        "purpose": "Neo4j blog demonstrating Cypher queries for structural code analysis — heavy tooling, TRUGS does it with one JSON file",
+        "purpose": "Neo4j blog demonstrating Cypher queries for structural code analysis \u2014 heavy tooling, TRUGS does it with one JSON file",
         "category": "ARTICLE"
       },
       "parent_id": "branch_graph_native",
@@ -514,7 +554,7 @@
       "id": "gn_graph4code",
       "type": "RESOURCE",
       "properties": {
-        "name": "GraphGen4Code — Code Knowledge Graph Toolkit",
+        "name": "GraphGen4Code \u2014 Code Knowledge Graph Toolkit",
         "url": "https://wala.github.io/graph4code/",
         "purpose": "IBM toolkit for building code knowledge graphs powering program search, code understanding, and bug detection",
         "category": "TOOL"
@@ -528,9 +568,9 @@
       "id": "gn_jsonld",
       "type": "RESOURCE",
       "properties": {
-        "name": "JSON-LD 1.1 — W3C Recommendation",
+        "name": "JSON-LD 1.1 \u2014 W3C Recommendation",
         "url": "https://www.w3.org/TR/json-ld11/",
-        "purpose": "W3C standard for encoding linked/graph data in JSON — bridges JSON simplicity with RDF expressiveness. TRUGS is simpler: no @context, no namespaces",
+        "purpose": "W3C standard for encoding linked/graph data in JSON \u2014 bridges JSON simplicity with RDF expressiveness. TRUGS is simpler: no @context, no namespaces",
         "category": "STANDARD"
       },
       "parent_id": "branch_graph_native",
@@ -542,9 +582,9 @@
       "id": "gn_gql",
       "type": "RESOURCE",
       "properties": {
-        "name": "GQL — Graph Query Language (ISO/IEC 39075:2024)",
+        "name": "GQL \u2014 Graph Query Language (ISO/IEC 39075:2024)",
         "url": "https://www.gqlstandards.org/",
-        "purpose": "First new ISO database query language in 35+ years — complete DML/DDL for property graphs. TRUGS is a format, not a query language",
+        "purpose": "First new ISO database query language in 35+ years \u2014 complete DML/DDL for property graphs. TRUGS is a format, not a query language",
         "category": "STANDARD"
       },
       "parent_id": "branch_graph_native",
@@ -552,18 +592,33 @@
       "metric_level": "BASE_RESOURCE",
       "dimension": "web_landscape"
     },
-
     {
       "id": "branch_agent_protocols",
       "type": "MODULE",
       "properties": {
         "name": "LLM Agent Protocols",
-        "purpose": "Branch 3 — development workflows, memory systems, and reliability patterns for LLM-powered agents",
+        "purpose": "Branch 3 \u2014 development workflows, memory systems, and reliability patterns for LLM-powered agents",
         "audience": "Teams building reliable agent systems",
         "converges_on": "AAA + MEMORY + EPIC"
       },
       "parent_id": "hub_root",
-      "contains": ["ap_planning_survey", "ap_memory_survey", "ap_agentic_reasoning", "ap_autonomous_agents", "ap_anthropic_auditing", "ap_langgraph", "ap_crewai", "ap_autogen", "ap_openhands", "ap_claude_code_action", "ap_building_agents", "ap_claude_agent_sdk", "ap_year_in_llms", "ap_promptfoo", "ap_awesome_memory"],
+      "contains": [
+        "ap_planning_survey",
+        "ap_memory_survey",
+        "ap_agentic_reasoning",
+        "ap_autonomous_agents",
+        "ap_anthropic_auditing",
+        "ap_langgraph",
+        "ap_crewai",
+        "ap_autogen",
+        "ap_openhands",
+        "ap_claude_code_action",
+        "ap_building_agents",
+        "ap_claude_agent_sdk",
+        "ap_year_in_llms",
+        "ap_promptfoo",
+        "ap_awesome_memory"
+      ],
       "metric_level": "HECTO_MODULE",
       "dimension": "web_landscape"
     },
@@ -573,7 +628,7 @@
       "properties": {
         "name": "Understanding the Planning of LLM Agents: A Survey",
         "url": "https://arxiv.org/abs/2402.02716",
-        "purpose": "Survey of planning in LLM agents — task decomposition, multi-step reasoning, replanning. AAA is a fixed 9-phase plan that removes the need for ad-hoc planning",
+        "purpose": "Survey of planning in LLM agents \u2014 task decomposition, multi-step reasoning, replanning. AAA is a fixed 9-phase plan that removes the need for ad-hoc planning",
         "category": "PAPER"
       },
       "parent_id": "branch_agent_protocols",
@@ -587,7 +642,7 @@
       "properties": {
         "name": "Memory for Autonomous LLM Agents: Mechanisms, Evaluation, and Frontiers",
         "url": "https://arxiv.org/html/2603.07670",
-        "purpose": "Survey of agent memory architectures — episodic, semantic, procedural. TRUGS Memory is simpler: 4 types, markdown files, MEMORY.md index",
+        "purpose": "Survey of agent memory architectures \u2014 episodic, semantic, procedural. TRUGS Memory is simpler: 4 types, markdown files, MEMORY.md index",
         "category": "PAPER"
       },
       "parent_id": "branch_agent_protocols",
@@ -601,7 +656,7 @@
       "properties": {
         "name": "Agentic Reasoning for Large Language Models",
         "url": "https://arxiv.org/abs/2601.12538",
-        "purpose": "Unified roadmap bridging thought and action in LLM agents — personalization, long-horizon interaction, multi-agent scaling",
+        "purpose": "Unified roadmap bridging thought and action in LLM agents \u2014 personalization, long-horizon interaction, multi-agent scaling",
         "category": "PAPER"
       },
       "parent_id": "branch_agent_protocols",
@@ -629,7 +684,7 @@
       "properties": {
         "name": "Building and Evaluating Alignment Auditing Agents",
         "url": "https://alignment.anthropic.com/2025/automated-auditing/",
-        "purpose": "Anthropic research on automated agent auditing — the problem AAA Phase 8 solves with spec-defined audit criteria",
+        "purpose": "Anthropic research on automated agent auditing \u2014 the problem AAA Phase 8 solves with spec-defined audit criteria",
         "category": "PAPER"
       },
       "parent_id": "branch_agent_protocols",
@@ -641,9 +696,9 @@
       "id": "ap_langgraph",
       "type": "RESOURCE",
       "properties": {
-        "name": "LangGraph — Build Resilient Language Agents as Graphs",
+        "name": "LangGraph \u2014 Build Resilient Language Agents as Graphs",
         "url": "https://github.com/langchain-ai/langgraph",
-        "purpose": "Stateful multi-step agent workflows as directed graphs with persistence — graph-based execution, not graph-based specification",
+        "purpose": "Stateful multi-step agent workflows as directed graphs with persistence \u2014 graph-based execution, not graph-based specification",
         "category": "REPO"
       },
       "parent_id": "branch_agent_protocols",
@@ -655,9 +710,9 @@
       "id": "ap_crewai",
       "type": "RESOURCE",
       "properties": {
-        "name": "CrewAI — Orchestrating Role-Playing Autonomous AI Agents",
+        "name": "CrewAI \u2014 Orchestrating Role-Playing Autonomous AI Agents",
         "url": "https://github.com/crewaiinc/crewai",
-        "purpose": "Multi-agent framework with role-based crews and structured flows — orchestration without formalized instructions",
+        "purpose": "Multi-agent framework with role-based crews and structured flows \u2014 orchestration without formalized instructions",
         "category": "REPO"
       },
       "parent_id": "branch_agent_protocols",
@@ -669,9 +724,9 @@
       "id": "ap_autogen",
       "type": "RESOURCE",
       "properties": {
-        "name": "Microsoft AutoGen — Agentic AI Framework",
+        "name": "Microsoft AutoGen \u2014 Agentic AI Framework",
         "url": "https://github.com/microsoft/autogen",
-        "purpose": "Multi-agent conversation framework enabling LLM/tool/human integration — agent chat without development protocol",
+        "purpose": "Multi-agent conversation framework enabling LLM/tool/human integration \u2014 agent chat without development protocol",
         "category": "REPO"
       },
       "parent_id": "branch_agent_protocols",
@@ -683,9 +738,9 @@
       "id": "ap_openhands",
       "type": "RESOURCE",
       "properties": {
-        "name": "OpenHands — AI-Driven Software Development Platform",
+        "name": "OpenHands \u2014 AI-Driven Software Development Platform",
         "url": "https://github.com/OpenHands/OpenHands",
-        "purpose": "Open-source coding agent with composable SDK and GitHub issue resolver — execution without plan-before-code protocol",
+        "purpose": "Open-source coding agent with composable SDK and GitHub issue resolver \u2014 execution without plan-before-code protocol",
         "category": "REPO"
       },
       "parent_id": "branch_agent_protocols",
@@ -697,9 +752,9 @@
       "id": "ap_claude_code_action",
       "type": "RESOURCE",
       "properties": {
-        "name": "Claude Code Action — GitHub Actions Integration",
+        "name": "Claude Code Action \u2014 GitHub Actions Integration",
         "url": "https://github.com/anthropics/claude-code-action",
-        "purpose": "Official Anthropic action for Claude Code in CI/CD — autonomous agent in pipelines, uses CLAUDE.md for instructions",
+        "purpose": "Official Anthropic action for Claude Code in CI/CD \u2014 autonomous agent in pipelines, uses CLAUDE.md for instructions",
         "category": "REPO"
       },
       "parent_id": "branch_agent_protocols",
@@ -713,7 +768,7 @@
       "properties": {
         "name": "Building Effective Agents",
         "url": "https://www.anthropic.com/research/building-effective-agents",
-        "purpose": "Anthropic's foundational guide — human-in-the-loop checkpoints, stopping conditions, agents as LLMs in loops with tools. AAA formalizes this into 9 phases.",
+        "purpose": "Anthropic's foundational guide \u2014 human-in-the-loop checkpoints, stopping conditions, agents as LLMs in loops with tools. AAA formalizes this into 9 phases.",
         "category": "ARTICLE"
       },
       "parent_id": "branch_agent_protocols",
@@ -727,7 +782,7 @@
       "properties": {
         "name": "Building Agents with the Claude Agent SDK",
         "url": "https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk",
-        "purpose": "Engineering guide on self-evaluating agents that check and improve their own output — three approaches to agent reliability",
+        "purpose": "Engineering guide on self-evaluating agents that check and improve their own output \u2014 three approaches to agent reliability",
         "category": "ARTICLE"
       },
       "parent_id": "branch_agent_protocols",
@@ -739,7 +794,7 @@
       "id": "ap_year_in_llms",
       "type": "RESOURCE",
       "properties": {
-        "name": "2025: The Year in LLMs — Simon Willison",
+        "name": "2025: The Year in LLMs \u2014 Simon Willison",
         "url": "https://simonwillison.net/2025/Dec/31/the-year-in-llms/",
         "purpose": "Year-end review covering rise of coding agents (Claude Code, Copilot CLI, OpenHands), IDE integration, autonomous development workflows",
         "category": "ARTICLE"
@@ -753,9 +808,9 @@
       "id": "ap_promptfoo",
       "type": "RESOURCE",
       "properties": {
-        "name": "Promptfoo — CI/CD for LLM Evaluation",
+        "name": "Promptfoo \u2014 CI/CD for LLM Evaluation",
         "url": "https://www.promptfoo.dev/docs/integrations/ci-cd/",
-        "purpose": "LLM evaluation in CI/CD pipelines with quality gates and automated red-teaming — testing without formalized specs",
+        "purpose": "LLM evaluation in CI/CD pipelines with quality gates and automated red-teaming \u2014 testing without formalized specs",
         "category": "TOOL"
       },
       "parent_id": "branch_agent_protocols",
@@ -767,9 +822,9 @@
       "id": "ap_awesome_memory",
       "type": "RESOURCE",
       "properties": {
-        "name": "Awesome Memory for Agents — Tsinghua C3I",
+        "name": "Awesome Memory for Agents \u2014 Tsinghua C3I",
         "url": "https://github.com/TsinghuaC3I/Awesome-Memory-for-Agents",
-        "purpose": "Curated paper collection on agent memory — episodic, semantic, procedural memory mechanisms and persistence strategies",
+        "purpose": "Curated paper collection on agent memory \u2014 episodic, semantic, procedural memory mechanisms and persistence strategies",
         "category": "REPO"
       },
       "parent_id": "branch_agent_protocols",
@@ -779,64 +834,493 @@
     }
   ],
   "edges": [
-    {"from_id": "branch_structured_agent", "to_id": "convergence_trugs_agent", "relation": "FEEDS", "weight": 1.0, "properties": {"path": "Prompt ambiguity → TRL solves it → TRUGS-AGENT delivers it"}},
-    {"from_id": "branch_graph_native", "to_id": "convergence_trugs_agent", "relation": "FEEDS", "weight": 1.0, "properties": {"path": "Graph tooling → FOLDER indexes it → TRUGS-AGENT delivers it"}},
-    {"from_id": "branch_agent_protocols", "to_id": "convergence_trugs_agent", "relation": "FEEDS", "weight": 1.0, "properties": {"path": "Agent reliability → AAA/Memory/EPIC solve it → TRUGS-AGENT delivers it"}},
-
-    {"from_id": "convergence_trugs_agent", "to_id": "convergence_trugs_spec", "relation": "IMPLEMENTS", "weight": 1.0, "properties": {}},
-    {"from_id": "convergence_trugs_spec", "to_id": "convergence_trugs_paper", "relation": "DESCRIBES", "weight": 0.9, "properties": {}},
-
-    {"from_id": "convergence_natebjones", "to_id": "convergence_trugs_agent", "relation": "AMPLIFIES", "weight": 0.9, "properties": {"channel": "Website — tech content, 500K+ audience"}},
-    {"from_id": "convergence_natebjones_yt", "to_id": "convergence_trugs_agent", "relation": "AMPLIFIES", "weight": 0.9, "properties": {"channel": "YouTube — video demos, broader reach"}},
-    {"from_id": "convergence_natebjones_yt", "to_id": "convergence_natebjones", "relation": "EXTENDS", "weight": 0.8, "properties": {"relationship": "Same creator, video format"}},
-
-    {"from_id": "sa_specs_paper", "to_id": "convergence_trugs_agent", "relation": "MOTIVATES", "weight": 0.95, "properties": {"connection": "Paper argues specifications are missing — TRL is that specification"}},
-    {"from_id": "sa_goal_drift", "to_id": "convergence_trugs_agent", "relation": "MOTIVATES", "weight": 0.9, "properties": {"connection": "Drift is the problem — fixed vocabulary prevents it"}},
-    {"from_id": "sa_ifeval", "to_id": "convergence_trugs_agent", "relation": "MOTIVATES", "weight": 0.8, "properties": {"connection": "Instruction following benchmarks — TRL makes instructions unambiguous"}},
-    {"from_id": "sa_agentif", "to_id": "convergence_trugs_agent", "relation": "MOTIVATES", "weight": 0.8, "properties": {"connection": "80% compliance on simple instructions — TRL pushes toward 100%"}},
-    {"from_id": "sa_prompt_report", "to_id": "convergence_trugs_agent", "relation": "CONTEXTUALIZES", "weight": 0.7, "properties": {"connection": "58 prompting techniques — TRL replaces all of them with one language"}},
-    {"from_id": "sa_lmql_paper", "to_id": "convergence_trugs_agent", "relation": "CONTEXTUALIZES", "weight": 0.7, "properties": {"connection": "Prompting as programming — TRL takes it further with graph compilation"}},
-
-    {"from_id": "sa_dspy", "to_id": "convergence_trugs_agent", "relation": "CONTRASTS", "weight": 0.7, "properties": {"difference": "DSPy optimizes prompts automatically — TRL eliminates ambiguity by design"}},
-    {"from_id": "sa_guidance", "to_id": "convergence_trugs_agent", "relation": "CONTRASTS", "weight": 0.6, "properties": {"difference": "Guidance constrains output tokens — TRL constrains input instructions"}},
-    {"from_id": "sa_typechat", "to_id": "convergence_trugs_agent", "relation": "CONTRASTS", "weight": 0.6, "properties": {"difference": "TypeChat validates output against schema — TRL validates instructions against vocabulary"}},
-    {"from_id": "sa_outlines", "to_id": "convergence_trugs_agent", "relation": "CONTRASTS", "weight": 0.5, "properties": {"difference": "Outlines ensures valid output format — TRL ensures valid input specification"}},
-    {"from_id": "sa_instructor", "to_id": "convergence_trugs_agent", "relation": "CONTRASTS", "weight": 0.5, "properties": {"difference": "Instructor validates responses — TRL validates instructions"}},
-    {"from_id": "sa_lmql", "to_id": "sa_lmql_paper", "relation": "IMPLEMENTS", "weight": 0.9, "properties": {}},
-    {"from_id": "sa_anthropic_prompting", "to_id": "convergence_trugs_agent", "relation": "CONTEXTUALIZES", "weight": 0.6, "properties": {"connection": "Recommends structured prompts — TRL is the most structured prompt"}},
-    {"from_id": "sa_llmops_2025", "to_id": "convergence_trugs_agent", "relation": "MOTIVATES", "weight": 0.7, "properties": {"connection": "Shift from prompt engineering to context engineering — TRL is the context engineering language"}},
-    {"from_id": "sa_json_prompting", "to_id": "convergence_trugs_agent", "relation": "MOTIVATES", "weight": 0.6, "properties": {"connection": "Ambiguity Tax concept — TRL eliminates the tax"}},
-
-    {"from_id": "gn_neo4j", "to_id": "convergence_trugs_agent", "relation": "CONTRASTS", "weight": 0.7, "properties": {"difference": "Neo4j is a database — TRUGS is a specification format. Neo4j requires a server; TRUGS is one JSON file"}},
-    {"from_id": "gn_joern", "to_id": "convergence_trugs_agent", "relation": "CONTRASTS", "weight": 0.7, "properties": {"difference": "Joern analyzes code as graphs — TRUGS indexes projects as graphs. Different granularity"}},
-    {"from_id": "gn_code_property_graph", "to_id": "gn_joern", "relation": "GOVERNS", "weight": 0.9, "properties": {"relationship": "CPG spec underlies Joern"}},
-    {"from_id": "gn_treesitter_graph", "to_id": "convergence_trugs_agent", "relation": "CONTRASTS", "weight": 0.6, "properties": {"difference": "tree-sitter-graph builds graphs from ASTs — TRUGS builds graphs from project structure"}},
-    {"from_id": "gn_emerge", "to_id": "convergence_trugs_agent", "relation": "CONTRASTS", "weight": 0.5, "properties": {"difference": "Emerge visualizes — TRUGS specifies. Different output: visual vs machine-readable"}},
-    {"from_id": "gn_graph4code", "to_id": "convergence_trugs_agent", "relation": "CONTRASTS", "weight": 0.6, "properties": {"difference": "Graph4Code builds code KGs for search — TRUGS builds project KGs for navigation"}},
-    {"from_id": "gn_jsonld", "to_id": "convergence_trugs_spec", "relation": "CONTRASTS", "weight": 0.7, "properties": {"difference": "JSON-LD links to the semantic web — TRUGS links to nothing external. Simpler: no @context, no namespaces"}},
-    {"from_id": "gn_gql", "to_id": "convergence_trugs_spec", "relation": "CONTRASTS", "weight": 0.6, "properties": {"difference": "GQL queries graphs — TRL describes graphs as sentences. Query language vs specification language"}},
-    {"from_id": "gn_kg_survey", "to_id": "gn_kg_evolution", "relation": "EXTENDS", "weight": 0.8, "properties": {}},
-    {"from_id": "gn_llm_kg_construction", "to_id": "convergence_trugs_agent", "relation": "MOTIVATES", "weight": 0.8, "properties": {"connection": "LLMs building KGs — TRUGS is the format they build into"}},
-    {"from_id": "gn_neo4j_codebase", "to_id": "convergence_trugs_agent", "relation": "MOTIVATES", "weight": 0.7, "properties": {"connection": "Shows codebase-as-graph value — TRUGS does it without Neo4j"}},
-    {"from_id": "gn_dependency_graphs", "to_id": "convergence_trugs_agent", "relation": "MOTIVATES", "weight": 0.6, "properties": {"connection": "Dependency graphs for refactoring — folder.trug.json is the persistent index"}},
-    {"from_id": "gn_networkx", "to_id": "convergence_trugs_spec", "relation": "COMPLEMENTS", "weight": 0.5, "properties": {"relationship": "NetworkX can load and analyze TRUGS graphs"}},
-
-    {"from_id": "ap_building_agents", "to_id": "convergence_trugs_agent", "relation": "MOTIVATES", "weight": 0.95, "properties": {"connection": "Anthropic's agent patterns — AAA formalizes them into 9 mandatory phases"}},
-    {"from_id": "ap_anthropic_auditing", "to_id": "convergence_trugs_agent", "relation": "MOTIVATES", "weight": 0.9, "properties": {"connection": "Agent auditing research — AAA Phase 3 defines criteria, Phase 8 executes audit"}},
-    {"from_id": "ap_planning_survey", "to_id": "convergence_trugs_agent", "relation": "MOTIVATES", "weight": 0.85, "properties": {"connection": "Ad-hoc planning survey — AAA replaces ad-hoc with fixed 9-phase protocol"}},
-    {"from_id": "ap_memory_survey", "to_id": "convergence_trugs_agent", "relation": "MOTIVATES", "weight": 0.85, "properties": {"connection": "Complex memory architectures — TRUGS Memory is 4 types in markdown files"}},
-    {"from_id": "ap_claude_agent_sdk", "to_id": "convergence_trugs_agent", "relation": "MOTIVATES", "weight": 0.8, "properties": {"connection": "Self-evaluating agents — AAA audit cycle is the formalized version"}},
-
-    {"from_id": "ap_langgraph", "to_id": "convergence_trugs_agent", "relation": "CONTRASTS", "weight": 0.8, "properties": {"difference": "LangGraph executes workflows as graphs — TRUGS specifies projects as graphs. Runtime vs specification"}},
-    {"from_id": "ap_crewai", "to_id": "convergence_trugs_agent", "relation": "CONTRASTS", "weight": 0.7, "properties": {"difference": "CrewAI orchestrates multiple agents — TRUGS-AGENT teaches one agent to work correctly"}},
-    {"from_id": "ap_autogen", "to_id": "convergence_trugs_agent", "relation": "CONTRASTS", "weight": 0.7, "properties": {"difference": "AutoGen enables agent chat — TRUGS-AGENT enables agent discipline"}},
-    {"from_id": "ap_openhands", "to_id": "convergence_trugs_agent", "relation": "CONTRASTS", "weight": 0.7, "properties": {"difference": "OpenHands is a coding platform — TRUGS-AGENT is a methodology that works in any platform"}},
-    {"from_id": "ap_claude_code_action", "to_id": "convergence_trugs_agent", "relation": "COMPLEMENTS", "weight": 0.85, "properties": {"relationship": "Claude Code reads CLAUDE.md — TRUGS-AGENT IS the CLAUDE.md"}},
-
-    {"from_id": "ap_year_in_llms", "to_id": "convergence_trugs_agent", "relation": "CONTEXTUALIZES", "weight": 0.6, "properties": {"connection": "Landscape overview — shows the ecosystem TRUGS-AGENT operates in"}},
-    {"from_id": "ap_promptfoo", "to_id": "convergence_trugs_agent", "relation": "COMPLEMENTS", "weight": 0.6, "properties": {"relationship": "Promptfoo tests LLM output — TRL makes the input testable too"}},
-    {"from_id": "ap_awesome_memory", "to_id": "ap_memory_survey", "relation": "EXTENDS", "weight": 0.8, "properties": {}},
-    {"from_id": "ap_agentic_reasoning", "to_id": "ap_planning_survey", "relation": "EXTENDS", "weight": 0.7, "properties": {}},
-    {"from_id": "ap_autonomous_agents", "to_id": "convergence_trugs_agent", "relation": "CONTEXTUALIZES", "weight": 0.6, "properties": {"connection": "Reviews 2023-2025 agent frameworks — TRUGS-AGENT is the 2026 answer"}}
+    {
+      "from_id": "branch_structured_agent",
+      "to_id": "convergence_trugs_agent",
+      "relation": "FEEDS",
+      "weight": 1.0,
+      "properties": {
+        "path": "Prompt ambiguity \u2192 TRL solves it \u2192 TRUGS-AGENT delivers it"
+      }
+    },
+    {
+      "from_id": "branch_graph_native",
+      "to_id": "convergence_trugs_agent",
+      "relation": "FEEDS",
+      "weight": 1.0,
+      "properties": {
+        "path": "Graph tooling \u2192 FOLDER indexes it \u2192 TRUGS-AGENT delivers it"
+      }
+    },
+    {
+      "from_id": "branch_agent_protocols",
+      "to_id": "convergence_trugs_agent",
+      "relation": "FEEDS",
+      "weight": 1.0,
+      "properties": {
+        "path": "Agent reliability \u2192 AAA/Memory/EPIC solve it \u2192 TRUGS-AGENT delivers it"
+      }
+    },
+    {
+      "from_id": "convergence_trugs_agent",
+      "to_id": "convergence_trugs_spec",
+      "relation": "IMPLEMENTS",
+      "weight": 1.0,
+      "properties": {}
+    },
+    {
+      "from_id": "convergence_trugs_spec",
+      "to_id": "convergence_trugs_paper",
+      "relation": "REFERENCES",
+      "weight": 0.9,
+      "properties": {},
+      "sugar": "'DESCRIBES"
+    },
+    {
+      "from_id": "convergence_natebjones",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.9,
+      "properties": {
+        "channel": "Website \u2014 tech content, 500K+ audience"
+      },
+      "sugar": "'AMPLIFIES"
+    },
+    {
+      "from_id": "convergence_natebjones_yt",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.9,
+      "properties": {
+        "channel": "YouTube \u2014 video demos, broader reach"
+      },
+      "sugar": "'AMPLIFIES"
+    },
+    {
+      "from_id": "convergence_natebjones_yt",
+      "to_id": "convergence_natebjones",
+      "relation": "EXTENDS",
+      "weight": 0.8,
+      "properties": {
+        "relationship": "Same creator, video format"
+      }
+    },
+    {
+      "from_id": "sa_specs_paper",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.95,
+      "properties": {
+        "connection": "Paper argues specifications are missing \u2014 TRL is that specification"
+      },
+      "sugar": "'MOTIVATES"
+    },
+    {
+      "from_id": "sa_goal_drift",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.9,
+      "properties": {
+        "connection": "Drift is the problem \u2014 fixed vocabulary prevents it"
+      },
+      "sugar": "'MOTIVATES"
+    },
+    {
+      "from_id": "sa_ifeval",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.8,
+      "properties": {
+        "connection": "Instruction following benchmarks \u2014 TRL makes instructions unambiguous"
+      },
+      "sugar": "'MOTIVATES"
+    },
+    {
+      "from_id": "sa_agentif",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.8,
+      "properties": {
+        "connection": "80% compliance on simple instructions \u2014 TRL pushes toward 100%"
+      },
+      "sugar": "'MOTIVATES"
+    },
+    {
+      "from_id": "sa_prompt_report",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.7,
+      "properties": {
+        "connection": "58 prompting techniques \u2014 TRL replaces all of them with one language"
+      },
+      "sugar": "'CONTEXTUALIZES"
+    },
+    {
+      "from_id": "sa_lmql_paper",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.7,
+      "properties": {
+        "connection": "Prompting as programming \u2014 TRL takes it further with graph compilation"
+      },
+      "sugar": "'CONTEXTUALIZES"
+    },
+    {
+      "from_id": "sa_dspy",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.7,
+      "properties": {
+        "difference": "DSPy optimizes prompts automatically \u2014 TRL eliminates ambiguity by design"
+      },
+      "sugar": "'CONTRASTS"
+    },
+    {
+      "from_id": "sa_guidance",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.6,
+      "properties": {
+        "difference": "Guidance constrains output tokens \u2014 TRL constrains input instructions"
+      },
+      "sugar": "'CONTRASTS"
+    },
+    {
+      "from_id": "sa_typechat",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.6,
+      "properties": {
+        "difference": "TypeChat validates output against schema \u2014 TRL validates instructions against vocabulary"
+      },
+      "sugar": "'CONTRASTS"
+    },
+    {
+      "from_id": "sa_outlines",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.5,
+      "properties": {
+        "difference": "Outlines ensures valid output format \u2014 TRL ensures valid input specification"
+      },
+      "sugar": "'CONTRASTS"
+    },
+    {
+      "from_id": "sa_instructor",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.5,
+      "properties": {
+        "difference": "Instructor validates responses \u2014 TRL validates instructions"
+      },
+      "sugar": "'CONTRASTS"
+    },
+    {
+      "from_id": "sa_lmql",
+      "to_id": "sa_lmql_paper",
+      "relation": "IMPLEMENTS",
+      "weight": 0.9,
+      "properties": {}
+    },
+    {
+      "from_id": "sa_anthropic_prompting",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.6,
+      "properties": {
+        "connection": "Recommends structured prompts \u2014 TRL is the most structured prompt"
+      },
+      "sugar": "'CONTEXTUALIZES"
+    },
+    {
+      "from_id": "sa_llmops_2025",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.7,
+      "properties": {
+        "connection": "Shift from prompt engineering to context engineering \u2014 TRL is the context engineering language"
+      },
+      "sugar": "'MOTIVATES"
+    },
+    {
+      "from_id": "sa_json_prompting",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.6,
+      "properties": {
+        "connection": "Ambiguity Tax concept \u2014 TRL eliminates the tax"
+      },
+      "sugar": "'MOTIVATES"
+    },
+    {
+      "from_id": "gn_neo4j",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.7,
+      "properties": {
+        "difference": "Neo4j is a database \u2014 TRUGS is a specification format. Neo4j requires a server; TRUGS is one JSON file"
+      },
+      "sugar": "'CONTRASTS"
+    },
+    {
+      "from_id": "gn_joern",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.7,
+      "properties": {
+        "difference": "Joern analyzes code as graphs \u2014 TRUGS indexes projects as graphs. Different granularity"
+      },
+      "sugar": "'CONTRASTS"
+    },
+    {
+      "from_id": "gn_code_property_graph",
+      "to_id": "gn_joern",
+      "relation": "GOVERNS",
+      "weight": 0.9,
+      "properties": {
+        "relationship": "CPG spec underlies Joern"
+      }
+    },
+    {
+      "from_id": "gn_treesitter_graph",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.6,
+      "properties": {
+        "difference": "tree-sitter-graph builds graphs from ASTs \u2014 TRUGS builds graphs from project structure"
+      },
+      "sugar": "'CONTRASTS"
+    },
+    {
+      "from_id": "gn_emerge",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.5,
+      "properties": {
+        "difference": "Emerge visualizes \u2014 TRUGS specifies. Different output: visual vs machine-readable"
+      },
+      "sugar": "'CONTRASTS"
+    },
+    {
+      "from_id": "gn_graph4code",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.6,
+      "properties": {
+        "difference": "Graph4Code builds code KGs for search \u2014 TRUGS builds project KGs for navigation"
+      },
+      "sugar": "'CONTRASTS"
+    },
+    {
+      "from_id": "gn_jsonld",
+      "to_id": "convergence_trugs_spec",
+      "relation": "REFERENCES",
+      "weight": 0.7,
+      "properties": {
+        "difference": "JSON-LD links to the semantic web \u2014 TRUGS links to nothing external. Simpler: no @context, no namespaces"
+      },
+      "sugar": "'CONTRASTS"
+    },
+    {
+      "from_id": "gn_gql",
+      "to_id": "convergence_trugs_spec",
+      "relation": "REFERENCES",
+      "weight": 0.6,
+      "properties": {
+        "difference": "GQL queries graphs \u2014 TRL describes graphs as sentences. Query language vs specification language"
+      },
+      "sugar": "'CONTRASTS"
+    },
+    {
+      "from_id": "gn_kg_survey",
+      "to_id": "gn_kg_evolution",
+      "relation": "EXTENDS",
+      "weight": 0.8,
+      "properties": {}
+    },
+    {
+      "from_id": "gn_llm_kg_construction",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.8,
+      "properties": {
+        "connection": "LLMs building KGs \u2014 TRUGS is the format they build into"
+      },
+      "sugar": "'MOTIVATES"
+    },
+    {
+      "from_id": "gn_neo4j_codebase",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.7,
+      "properties": {
+        "connection": "Shows codebase-as-graph value \u2014 TRUGS does it without Neo4j"
+      },
+      "sugar": "'MOTIVATES"
+    },
+    {
+      "from_id": "gn_dependency_graphs",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.6,
+      "properties": {
+        "connection": "Dependency graphs for refactoring \u2014 folder.trug.json is the persistent index"
+      },
+      "sugar": "'MOTIVATES"
+    },
+    {
+      "from_id": "gn_networkx",
+      "to_id": "convergence_trugs_spec",
+      "relation": "REFERENCES",
+      "weight": 0.5,
+      "properties": {
+        "relationship": "NetworkX can load and analyze TRUGS graphs"
+      },
+      "sugar": "'COMPLEMENTS"
+    },
+    {
+      "from_id": "ap_building_agents",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.95,
+      "properties": {
+        "connection": "Anthropic's agent patterns \u2014 AAA formalizes them into 9 mandatory phases"
+      },
+      "sugar": "'MOTIVATES"
+    },
+    {
+      "from_id": "ap_anthropic_auditing",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.9,
+      "properties": {
+        "connection": "Agent auditing research \u2014 AAA Phase 3 defines criteria, Phase 8 executes audit"
+      },
+      "sugar": "'MOTIVATES"
+    },
+    {
+      "from_id": "ap_planning_survey",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.85,
+      "properties": {
+        "connection": "Ad-hoc planning survey \u2014 AAA replaces ad-hoc with fixed 9-phase protocol"
+      },
+      "sugar": "'MOTIVATES"
+    },
+    {
+      "from_id": "ap_memory_survey",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.85,
+      "properties": {
+        "connection": "Complex memory architectures \u2014 TRUGS Memory is 4 types in markdown files"
+      },
+      "sugar": "'MOTIVATES"
+    },
+    {
+      "from_id": "ap_claude_agent_sdk",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.8,
+      "properties": {
+        "connection": "Self-evaluating agents \u2014 AAA audit cycle is the formalized version"
+      },
+      "sugar": "'MOTIVATES"
+    },
+    {
+      "from_id": "ap_langgraph",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.8,
+      "properties": {
+        "difference": "LangGraph executes workflows as graphs \u2014 TRUGS specifies projects as graphs. Runtime vs specification"
+      },
+      "sugar": "'CONTRASTS"
+    },
+    {
+      "from_id": "ap_crewai",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.7,
+      "properties": {
+        "difference": "CrewAI orchestrates multiple agents \u2014 TRUGS-AGENT teaches one agent to work correctly"
+      },
+      "sugar": "'CONTRASTS"
+    },
+    {
+      "from_id": "ap_autogen",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.7,
+      "properties": {
+        "difference": "AutoGen enables agent chat \u2014 TRUGS-AGENT enables agent discipline"
+      },
+      "sugar": "'CONTRASTS"
+    },
+    {
+      "from_id": "ap_openhands",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.7,
+      "properties": {
+        "difference": "OpenHands is a coding platform \u2014 TRUGS-AGENT is a methodology that works in any platform"
+      },
+      "sugar": "'CONTRASTS"
+    },
+    {
+      "from_id": "ap_claude_code_action",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.85,
+      "properties": {
+        "relationship": "Claude Code reads CLAUDE.md \u2014 TRUGS-AGENT IS the CLAUDE.md"
+      },
+      "sugar": "'COMPLEMENTS"
+    },
+    {
+      "from_id": "ap_year_in_llms",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.6,
+      "properties": {
+        "connection": "Landscape overview \u2014 shows the ecosystem TRUGS-AGENT operates in"
+      },
+      "sugar": "'CONTEXTUALIZES"
+    },
+    {
+      "from_id": "ap_promptfoo",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.6,
+      "properties": {
+        "relationship": "Promptfoo tests LLM output \u2014 TRL makes the input testable too"
+      },
+      "sugar": "'COMPLEMENTS"
+    },
+    {
+      "from_id": "ap_awesome_memory",
+      "to_id": "ap_memory_survey",
+      "relation": "EXTENDS",
+      "weight": 0.8,
+      "properties": {}
+    },
+    {
+      "from_id": "ap_agentic_reasoning",
+      "to_id": "ap_planning_survey",
+      "relation": "EXTENDS",
+      "weight": 0.7,
+      "properties": {}
+    },
+    {
+      "from_id": "ap_autonomous_agents",
+      "to_id": "convergence_trugs_agent",
+      "relation": "REFERENCES",
+      "weight": 0.6,
+      "properties": {
+        "connection": "Reviews 2023-2025 agent frameworks \u2014 TRUGS-AGENT is the 2026 answer"
+      },
+      "sugar": "'CONTEXTUALIZES"
+    }
   ]
 }

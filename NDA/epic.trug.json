@@ -11,7 +11,9 @@
   },
   "capabilities": {
     "extensions": [],
-    "vocabularies": ["core_v1.0.0"],
+    "vocabularies": [
+      "core_v1.0.0"
+    ],
     "profiles": []
   },
   "nodes": [
@@ -24,12 +26,16 @@
         "total_open_issues": 0,
         "last_updated": "2026-04-02",
         "present_plan": {
-          "summary": "Draft mutual NDA for TRUGS LLC business conversations — WA state, plain English, TRL-specified",
+          "summary": "Draft mutual NDA for TRUGS LLC business conversations \u2014 WA state, plain English, TRL-specified",
           "active_issues": []
         }
       },
       "parent_id": null,
-      "contains": ["epic_research", "epic_draft", "epic_review"],
+      "contains": [
+        "epic_research",
+        "epic_draft",
+        "epic_review"
+      ],
       "metric_level": "KILO_TRACKER",
       "dimension": "project_tracking"
     },
@@ -42,7 +48,11 @@
         "status": "DONE"
       },
       "parent_id": "tracker_root",
-      "contains": ["task_templates", "task_wa_law", "task_aaa_plan"],
+      "contains": [
+        "task_templates",
+        "task_wa_law",
+        "task_aaa_plan"
+      ],
       "metric_level": "HECTO_EPIC",
       "dimension": "project_tracking"
     },
@@ -76,7 +86,7 @@
       "id": "task_aaa_plan",
       "type": "TASK",
       "properties": {
-        "name": "Write AAA plan — phases 1-5",
+        "name": "Write AAA plan \u2014 phases 1-5",
         "status": "DONE",
         "priority": "P1"
       },
@@ -94,7 +104,15 @@
         "status": "DONE"
       },
       "parent_id": "tracker_root",
-      "contains": ["task_definitions", "task_obligations", "task_exclusions", "task_term", "task_remedies", "task_general", "task_whistleblower"],
+      "contains": [
+        "task_definitions",
+        "task_obligations",
+        "task_exclusions",
+        "task_term",
+        "task_remedies",
+        "task_general",
+        "task_whistleblower"
+      ],
       "metric_level": "HECTO_EPIC",
       "dimension": "project_tracking"
     },
@@ -198,7 +216,11 @@
         "status": "DONE"
       },
       "parent_id": "tracker_root",
-      "contains": ["task_audit", "task_trl_check", "task_human_review"],
+      "contains": [
+        "task_audit",
+        "task_trl_check",
+        "task_human_review"
+      ],
       "metric_level": "HECTO_EPIC",
       "dimension": "project_tracking"
     },
@@ -232,7 +254,7 @@
       "id": "task_human_review",
       "type": "TASK",
       "properties": {
-        "name": "Human reviews final NDA — HITM gate",
+        "name": "Human reviews final NDA \u2014 HITM gate",
         "status": "DONE",
         "priority": "P0"
       },
@@ -243,16 +265,104 @@
     }
   ],
   "edges": [
-    {"from_id": "task_aaa_plan", "to_id": "task_templates", "relation": "BLOCKS", "properties": {"description": "Need templates before writing the plan"}},
-    {"from_id": "task_aaa_plan", "to_id": "task_wa_law", "relation": "BLOCKS", "properties": {"description": "Need WA law review before writing specs"}},
-    {"from_id": "task_obligations", "to_id": "task_definitions", "relation": "BLOCKS", "properties": {"description": "Must define terms before stating obligations"}},
-    {"from_id": "task_exclusions", "to_id": "task_definitions", "relation": "BLOCKS", "properties": {"description": "Exclusions reference the definition of Confidential Information"}},
-    {"from_id": "task_remedies", "to_id": "task_obligations", "relation": "BLOCKS", "properties": {"description": "Remedies are for breach of obligations"}},
-    {"from_id": "task_term", "to_id": "task_obligations", "relation": "BLOCKS", "properties": {"description": "Term governs how long obligations last"}},
-    {"from_id": "task_general", "to_id": "task_term", "relation": "BLOCKS", "properties": {"description": "General provisions reference term and termination"}},
-    {"from_id": "task_audit", "to_id": "task_general", "relation": "BLOCKS", "properties": {"description": "Audit after all clauses are drafted"}},
-    {"from_id": "task_audit", "to_id": "task_whistleblower", "relation": "BLOCKS", "properties": {"description": "Audit after whistleblower notice added"}},
-    {"from_id": "task_trl_check", "to_id": "task_audit", "relation": "BLOCKS", "properties": {"description": "TRL check after audit pass"}},
-    {"from_id": "task_human_review", "to_id": "task_trl_check", "relation": "BLOCKS", "properties": {"description": "Human reviews only after all checks pass"}}
+    {
+      "from_id": "task_templates",
+      "to_id": "task_aaa_plan",
+      "relation": "DEPENDS_ON",
+      "properties": {
+        "description": "Need templates before writing the plan"
+      },
+      "sugar": "'BLOCKS"
+    },
+    {
+      "from_id": "task_wa_law",
+      "to_id": "task_aaa_plan",
+      "relation": "DEPENDS_ON",
+      "properties": {
+        "description": "Need WA law review before writing specs"
+      },
+      "sugar": "'BLOCKS"
+    },
+    {
+      "from_id": "task_definitions",
+      "to_id": "task_obligations",
+      "relation": "DEPENDS_ON",
+      "properties": {
+        "description": "Must define terms before stating obligations"
+      },
+      "sugar": "'BLOCKS"
+    },
+    {
+      "from_id": "task_definitions",
+      "to_id": "task_exclusions",
+      "relation": "DEPENDS_ON",
+      "properties": {
+        "description": "Exclusions reference the definition of Confidential Information"
+      },
+      "sugar": "'BLOCKS"
+    },
+    {
+      "from_id": "task_obligations",
+      "to_id": "task_remedies",
+      "relation": "DEPENDS_ON",
+      "properties": {
+        "description": "Remedies are for breach of obligations"
+      },
+      "sugar": "'BLOCKS"
+    },
+    {
+      "from_id": "task_obligations",
+      "to_id": "task_term",
+      "relation": "DEPENDS_ON",
+      "properties": {
+        "description": "Term governs how long obligations last"
+      },
+      "sugar": "'BLOCKS"
+    },
+    {
+      "from_id": "task_term",
+      "to_id": "task_general",
+      "relation": "DEPENDS_ON",
+      "properties": {
+        "description": "General provisions reference term and termination"
+      },
+      "sugar": "'BLOCKS"
+    },
+    {
+      "from_id": "task_general",
+      "to_id": "task_audit",
+      "relation": "DEPENDS_ON",
+      "properties": {
+        "description": "Audit after all clauses are drafted"
+      },
+      "sugar": "'BLOCKS"
+    },
+    {
+      "from_id": "task_whistleblower",
+      "to_id": "task_audit",
+      "relation": "DEPENDS_ON",
+      "properties": {
+        "description": "Audit after whistleblower notice added"
+      },
+      "sugar": "'BLOCKS"
+    },
+    {
+      "from_id": "task_audit",
+      "to_id": "task_trl_check",
+      "relation": "DEPENDS_ON",
+      "properties": {
+        "description": "TRL check after audit pass"
+      },
+      "sugar": "'BLOCKS"
+    },
+    {
+      "from_id": "task_trl_check",
+      "to_id": "task_human_review",
+      "relation": "DEPENDS_ON",
+      "properties": {
+        "description": "Human reviews only after all checks pass"
+      },
+      "sugar": "'BLOCKS"
+    }
   ]
 }
