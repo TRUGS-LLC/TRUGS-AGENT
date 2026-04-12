@@ -458,6 +458,182 @@ def test_rule_16_unresolved_reference():
     assert "UNRESOLVED_REFERENCE" in _errors(r)
 
 
+# ─── Edge Cases: Empty Graph ──────────────────────────────────────────────────
+
+def test_empty_graph_is_valid():
+    """An empty graph (no nodes, no edges) should pass validation."""
+    t = {
+        "name": "T",
+        "version": "1.0.0",
+        "type": "X",
+        "dimensions": {},
+        "capabilities": {"extensions": [], "vocabularies": [], "profiles": []},
+        "nodes": [],
+        "edges": [],
+    }
+    r = _run(t)
+    assert r.valid, f"Empty graph should be valid but got: {_errors(r)}"
+
+
+# ─── Edge Cases: Circular and Self Containment ──────────────────────────────
+
+def test_circular_containment_consistent_but_cyclic():
+    """Node A contains B, B contains A — hierarchy is bidirectionally consistent
+    so rule 3 does NOT flag it (cycle detection is not implemented).
+    This test documents the gap: circular containment passes validation."""
+    t = _make(nodes=[
+        {"id": "a", "type": "X", "properties": {}, "parent_id": "b", "contains": ["b"], "metric_level": "BASE_X", "dimension": "d"},
+        {"id": "b", "type": "Y", "properties": {}, "parent_id": "a", "contains": ["a"], "metric_level": "BASE_Y", "dimension": "d"},
+    ])
+    r = _run(t)
+    # Circular but consistent — both sides agree, so rule 3 passes.
+    # A future rule could detect cycles; for now this documents current behavior.
+    assert "INCONSISTENT_HIERARCHY" not in _errors(r)
+
+
+def test_self_containment_consistent_but_cyclic():
+    """Node A lists itself in contains[] with parent_id=self — consistent
+    but degenerate. Rule 3 does not detect self-cycles."""
+    t = _make(nodes=[
+        {"id": "a", "type": "X", "properties": {}, "parent_id": "a", "contains": ["a"], "metric_level": "BASE_X", "dimension": "d"},
+    ])
+    r = _run(t)
+    # Self-containment is consistent (parent_id matches contains), so no error.
+    assert "INCONSISTENT_HIERARCHY" not in _errors(r)
+
+
+# ─── Edge Cases: Missing Root Fields ─────────────────────────────────────────
+
+def test_missing_edges_key_fails():
+    """A TRUG with no 'edges' key at root should fail."""
+    t = {
+        "name": "T",
+        "version": "1.0.0",
+        "type": "X",
+        "nodes": [
+            {"id": "a", "type": "X", "properties": {}, "parent_id": None, "contains": [], "metric_level": "BASE_X"},
+        ],
+    }
+    r = _run(t)
+    assert not r.valid
+    assert "MISSING_REQUIRED_FIELD" in _errors(r)
+
+
+# ─── Edge Cases: Edge with Missing Relation ──────────────────────────────────
+
+def test_edge_missing_relation_fails():
+    """An edge with from_id and to_id but no relation should fail."""
+    t = _make(
+        nodes=[
+            {"id": "a", "type": "X", "properties": {}, "parent_id": None, "contains": [], "metric_level": "BASE_X", "dimension": "d"},
+            {"id": "b", "type": "Y", "properties": {}, "parent_id": None, "contains": [], "metric_level": "BASE_Y", "dimension": "d"},
+        ],
+        edges=[{"from_id": "a", "to_id": "b"}],
+    )
+    r = _run(t)
+    assert "MISSING_REQUIRED_FIELD" in _errors(r)
+
+
+# ─── Edge Cases: Weight Boundaries ───────────────────────────────────────────
+
+def test_weight_zero_passes():
+    """weight=0.0 should be valid."""
+    t = _make(edges=[{"from_id": "root", "to_id": "root", "relation": "X", "weight": 0.0}])
+    r = _run(t)
+    assert "INVALID_EDGE_WEIGHT" not in _errors(r)
+
+
+def test_weight_one_passes():
+    """weight=1.0 should be valid."""
+    t = _make(edges=[{"from_id": "root", "to_id": "root", "relation": "X", "weight": 1.0}])
+    r = _run(t)
+    assert "INVALID_EDGE_WEIGHT" not in _errors(r)
+
+
+def test_weight_negative_fails():
+    """weight=-0.01 should fail."""
+    t = _make(edges=[{"from_id": "root", "to_id": "root", "relation": "X", "weight": -0.01}])
+    r = _run(t)
+    assert "INVALID_EDGE_WEIGHT" in _errors(r)
+
+
+def test_weight_over_one_fails():
+    """weight=1.01 should fail."""
+    t = _make(edges=[{"from_id": "root", "to_id": "root", "relation": "X", "weight": 1.01}])
+    r = _run(t)
+    assert "INVALID_EDGE_WEIGHT" in _errors(r)
+
+
+# ─── Edge Cases: Rule 12 — Modifier-Entity ──────────────────────────────────
+
+def test_rule_12_type_modifier_on_artifact_passes():
+    """Type modifier (STRING) on Artifact (DATA) should be fine."""
+    t = _make_v091(
+        nodes=[
+            {"id": "d", "type": "DATA", "properties": {"format": "STRING"}, "parent_id": None, "contains": [], "metric_level": "BASE_DATA", "dimension": "d"},
+        ],
+    )
+    r = _run(t)
+    assert "INCOMPATIBLE_MODIFIER_ENTITY" not in _errors(r)
+
+
+def test_rule_12_type_modifier_on_actor_fails():
+    """Type modifier (STRING) on Actor (PARTY) should fail."""
+    t = _make_v091(
+        nodes=[
+            {"id": "p", "type": "PARTY", "properties": {"format": "STRING"}, "parent_id": None, "contains": [], "metric_level": "BASE_ACTOR", "dimension": "d"},
+        ],
+    )
+    r = _run(t)
+    assert "INCOMPATIBLE_MODIFIER_ENTITY" in _errors(r)
+
+
+def test_rule_12_access_modifier_on_actor_fails():
+    """Access modifier (PRIVATE) on Actor (AGENT) should fail."""
+    t = _make_v091(
+        nodes=[
+            {"id": "a", "type": "AGENT", "properties": {"visibility": "PRIVATE"}, "parent_id": None, "contains": [], "metric_level": "BASE_AGENT", "dimension": "d"},
+        ],
+    )
+    r = _run(t)
+    assert "INCOMPATIBLE_MODIFIER_ENTITY" in _errors(r)
+
+
+# ─── Edge Cases: Rule 13 — Qualifier-Operation ──────────────────────────────
+
+def test_rule_13_timing_on_bind_fails():
+    """Timing qualifier (ASYNC) on Bind operation (DEFINE) should fail."""
+    t = _make_v091(
+        nodes=[
+            {"id": "tx", "type": "TRANSFORM", "properties": {"operation": "DEFINE", "mode": "ASYNC"}, "parent_id": None, "contains": [], "metric_level": "BASE_TX", "dimension": "d"},
+        ],
+    )
+    r = _run(t)
+    assert "INCOMPATIBLE_QUALIFIER_OPERATION" in _errors(r)
+
+
+def test_rule_13_degree_on_transform_fails():
+    """Degree qualifier (STRICTLY) on Transform operation (FILTER) should fail."""
+    t = _make_v091(
+        nodes=[
+            {"id": "tx", "type": "TRANSFORM", "properties": {"operation": "FILTER", "precision": "STRICTLY"}, "parent_id": None, "contains": [], "metric_level": "BASE_TX", "dimension": "d"},
+        ],
+    )
+    r = _run(t)
+    assert "INCOMPATIBLE_QUALIFIER_OPERATION" in _errors(r)
+
+
+def test_rule_13_timing_on_transform_passes():
+    """Timing qualifier (ASYNC) on Transform operation (FILTER) should be fine."""
+    t = _make_v091(
+        nodes=[
+            {"id": "tx", "type": "TRANSFORM", "properties": {"operation": "FILTER", "mode": "ASYNC"}, "parent_id": None, "contains": [], "metric_level": "BASE_TX", "dimension": "d"},
+        ],
+    )
+    r = _run(t)
+    assert "INCOMPATIBLE_QUALIFIER_OPERATION" not in _errors(r)
+
+
 # ─── Integration: validate_file ────────────────────────────────────────────────
 
 def test_validate_file_valid():

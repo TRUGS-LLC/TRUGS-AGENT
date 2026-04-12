@@ -37,6 +37,10 @@ The `>` means "then." Where a human must approve before continuing, the compound
 
 Primitives are atomic — they never contain other primitives. Compounds sequence primitives. You can build new compounds by composing existing primitives. You can nest compounds inside other compounds.
 
+## Compound Example File
+
+See [EXAMPLE_session_open.md](EXAMPLE_session_open.md) for a walkthrough of how `/session-open` chains 5 primitives with a HITM gate.
+
 ## Full Specification
 
 See [AGENT.md](AGENT.md) for the complete TRL definitions of all 19 primitives and 3 compound examples.
