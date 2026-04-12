@@ -396,7 +396,7 @@
       "properties": {
         "connection": "Both open-source mutual NDAs, different drafting philosophies"
       },
-      "sugar": "'COMPLEMENTS"
+      "sugar": "'complements"
     },
     {
       "from_id": "t_nvca",
@@ -406,7 +406,7 @@
       "properties": {
         "connection": "NVCA is VC-specific, Bonterms is general commercial"
       },
-      "sugar": "'CONTEXTUALIZES"
+      "sugar": "'contextualizes"
     },
     {
       "from_id": "t_open_agreements",
@@ -434,7 +434,7 @@
       "properties": {
         "connection": "Mistakes article shows what happens when best practices are ignored"
       },
-      "sugar": "'COMPLEMENTS"
+      "sugar": "'complements"
     },
     {
       "from_id": "g_acc_enforcement",
@@ -453,7 +453,7 @@
       "properties": {
         "connection": "Style guide for drafting the provisions"
       },
-      "sugar": "'COMPLEMENTS"
+      "sugar": "'complements"
     },
     {
       "from_id": "g_mutual_vs_unilateral",
@@ -463,7 +463,7 @@
       "properties": {
         "connection": "Understanding mutual vs unilateral leads to choosing Bonterms template"
       },
-      "sugar": "'MOTIVATES"
+      "sugar": "'motivates"
     },
     {
       "from_id": "s_rcw_19_108",
@@ -489,7 +489,7 @@
       "relation": "REFERENCES",
       "weight": 0.8,
       "properties": {},
-      "sugar": "'DESCRIBES"
+      "sugar": "'describes"
     },
     {
       "from_id": "s_cornell_trade_secret",
@@ -497,7 +497,7 @@
       "relation": "REFERENCES",
       "weight": 0.8,
       "properties": {},
-      "sugar": "'DESCRIBES"
+      "sugar": "'describes"
     },
     {
       "from_id": "tool_spellbook",
@@ -516,7 +516,7 @@
       "properties": {
         "difference": "Lumin generates custom NDAs, eForms provides static templates"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "branch_templates",
@@ -544,7 +544,7 @@
       "properties": {
         "reason": "Tools generate templates \u2014 templates are the output"
       },
-      "sugar": "'PRODUCES"
+      "sugar": "'produces"
     }
   ]
 }

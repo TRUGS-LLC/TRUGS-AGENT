@@ -874,7 +874,7 @@
       "relation": "REFERENCES",
       "weight": 0.9,
       "properties": {},
-      "sugar": "'DESCRIBES"
+      "sugar": "'describes"
     },
     {
       "from_id": "convergence_natebjones",
@@ -884,7 +884,7 @@
       "properties": {
         "channel": "Website \u2014 tech content, 500K+ audience"
       },
-      "sugar": "'AMPLIFIES"
+      "sugar": "'amplifies"
     },
     {
       "from_id": "convergence_natebjones_yt",
@@ -894,7 +894,7 @@
       "properties": {
         "channel": "YouTube \u2014 video demos, broader reach"
       },
-      "sugar": "'AMPLIFIES"
+      "sugar": "'amplifies"
     },
     {
       "from_id": "convergence_natebjones_yt",
@@ -913,7 +913,7 @@
       "properties": {
         "connection": "Paper argues specifications are missing \u2014 TRL is that specification"
       },
-      "sugar": "'MOTIVATES"
+      "sugar": "'motivates"
     },
     {
       "from_id": "sa_goal_drift",
@@ -923,7 +923,7 @@
       "properties": {
         "connection": "Drift is the problem \u2014 fixed vocabulary prevents it"
       },
-      "sugar": "'MOTIVATES"
+      "sugar": "'motivates"
     },
     {
       "from_id": "sa_ifeval",
@@ -933,7 +933,7 @@
       "properties": {
         "connection": "Instruction following benchmarks \u2014 TRL makes instructions unambiguous"
       },
-      "sugar": "'MOTIVATES"
+      "sugar": "'motivates"
     },
     {
       "from_id": "sa_agentif",
@@ -943,7 +943,7 @@
       "properties": {
         "connection": "80% compliance on simple instructions \u2014 TRL pushes toward 100%"
       },
-      "sugar": "'MOTIVATES"
+      "sugar": "'motivates"
     },
     {
       "from_id": "sa_prompt_report",
@@ -953,7 +953,7 @@
       "properties": {
         "connection": "58 prompting techniques \u2014 TRL replaces all of them with one language"
       },
-      "sugar": "'CONTEXTUALIZES"
+      "sugar": "'contextualizes"
     },
     {
       "from_id": "sa_lmql_paper",
@@ -963,7 +963,7 @@
       "properties": {
         "connection": "Prompting as programming \u2014 TRL takes it further with graph compilation"
       },
-      "sugar": "'CONTEXTUALIZES"
+      "sugar": "'contextualizes"
     },
     {
       "from_id": "sa_dspy",
@@ -973,7 +973,7 @@
       "properties": {
         "difference": "DSPy optimizes prompts automatically \u2014 TRL eliminates ambiguity by design"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "sa_guidance",
@@ -983,7 +983,7 @@
       "properties": {
         "difference": "Guidance constrains output tokens \u2014 TRL constrains input instructions"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "sa_typechat",
@@ -993,7 +993,7 @@
       "properties": {
         "difference": "TypeChat validates output against schema \u2014 TRL validates instructions against vocabulary"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "sa_outlines",
@@ -1003,7 +1003,7 @@
       "properties": {
         "difference": "Outlines ensures valid output format \u2014 TRL ensures valid input specification"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "sa_instructor",
@@ -1013,7 +1013,7 @@
       "properties": {
         "difference": "Instructor validates responses \u2014 TRL validates instructions"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "sa_lmql",
@@ -1030,7 +1030,7 @@
       "properties": {
         "connection": "Recommends structured prompts \u2014 TRL is the most structured prompt"
       },
-      "sugar": "'CONTEXTUALIZES"
+      "sugar": "'contextualizes"
     },
     {
       "from_id": "sa_llmops_2025",
@@ -1040,7 +1040,7 @@
       "properties": {
         "connection": "Shift from prompt engineering to context engineering \u2014 TRL is the context engineering language"
       },
-      "sugar": "'MOTIVATES"
+      "sugar": "'motivates"
     },
     {
       "from_id": "sa_json_prompting",
@@ -1050,7 +1050,7 @@
       "properties": {
         "connection": "Ambiguity Tax concept \u2014 TRL eliminates the tax"
       },
-      "sugar": "'MOTIVATES"
+      "sugar": "'motivates"
     },
     {
       "from_id": "gn_neo4j",
@@ -1060,7 +1060,7 @@
       "properties": {
         "difference": "Neo4j is a database \u2014 TRUGS is a specification format. Neo4j requires a server; TRUGS is one JSON file"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "gn_joern",
@@ -1070,7 +1070,7 @@
       "properties": {
         "difference": "Joern analyzes code as graphs \u2014 TRUGS indexes projects as graphs. Different granularity"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "gn_code_property_graph",
@@ -1089,7 +1089,7 @@
       "properties": {
         "difference": "tree-sitter-graph builds graphs from ASTs \u2014 TRUGS builds graphs from project structure"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "gn_emerge",
@@ -1099,7 +1099,7 @@
       "properties": {
         "difference": "Emerge visualizes \u2014 TRUGS specifies. Different output: visual vs machine-readable"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "gn_graph4code",
@@ -1109,7 +1109,7 @@
       "properties": {
         "difference": "Graph4Code builds code KGs for search \u2014 TRUGS builds project KGs for navigation"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "gn_jsonld",
@@ -1119,7 +1119,7 @@
       "properties": {
         "difference": "JSON-LD links to the semantic web \u2014 TRUGS links to nothing external. Simpler: no @context, no namespaces"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "gn_gql",
@@ -1129,7 +1129,7 @@
       "properties": {
         "difference": "GQL queries graphs \u2014 TRL describes graphs as sentences. Query language vs specification language"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "gn_kg_survey",
@@ -1146,7 +1146,7 @@
       "properties": {
         "connection": "LLMs building KGs \u2014 TRUGS is the format they build into"
       },
-      "sugar": "'MOTIVATES"
+      "sugar": "'motivates"
     },
     {
       "from_id": "gn_neo4j_codebase",
@@ -1156,7 +1156,7 @@
       "properties": {
         "connection": "Shows codebase-as-graph value \u2014 TRUGS does it without Neo4j"
       },
-      "sugar": "'MOTIVATES"
+      "sugar": "'motivates"
     },
     {
       "from_id": "gn_dependency_graphs",
@@ -1166,7 +1166,7 @@
       "properties": {
         "connection": "Dependency graphs for refactoring \u2014 folder.trug.json is the persistent index"
       },
-      "sugar": "'MOTIVATES"
+      "sugar": "'motivates"
     },
     {
       "from_id": "gn_networkx",
@@ -1176,7 +1176,7 @@
       "properties": {
         "relationship": "NetworkX can load and analyze TRUGS graphs"
       },
-      "sugar": "'COMPLEMENTS"
+      "sugar": "'complements"
     },
     {
       "from_id": "ap_building_agents",
@@ -1186,7 +1186,7 @@
       "properties": {
         "connection": "Anthropic's agent patterns \u2014 AAA formalizes them into 9 mandatory phases"
       },
-      "sugar": "'MOTIVATES"
+      "sugar": "'motivates"
     },
     {
       "from_id": "ap_anthropic_auditing",
@@ -1196,7 +1196,7 @@
       "properties": {
         "connection": "Agent auditing research \u2014 AAA Phase 3 defines criteria, Phase 8 executes audit"
       },
-      "sugar": "'MOTIVATES"
+      "sugar": "'motivates"
     },
     {
       "from_id": "ap_planning_survey",
@@ -1206,7 +1206,7 @@
       "properties": {
         "connection": "Ad-hoc planning survey \u2014 AAA replaces ad-hoc with fixed 9-phase protocol"
       },
-      "sugar": "'MOTIVATES"
+      "sugar": "'motivates"
     },
     {
       "from_id": "ap_memory_survey",
@@ -1216,7 +1216,7 @@
       "properties": {
         "connection": "Complex memory architectures \u2014 TRUGS Memory is 4 types in markdown files"
       },
-      "sugar": "'MOTIVATES"
+      "sugar": "'motivates"
     },
     {
       "from_id": "ap_claude_agent_sdk",
@@ -1226,7 +1226,7 @@
       "properties": {
         "connection": "Self-evaluating agents \u2014 AAA audit cycle is the formalized version"
       },
-      "sugar": "'MOTIVATES"
+      "sugar": "'motivates"
     },
     {
       "from_id": "ap_langgraph",
@@ -1236,7 +1236,7 @@
       "properties": {
         "difference": "LangGraph executes workflows as graphs \u2014 TRUGS specifies projects as graphs. Runtime vs specification"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "ap_crewai",
@@ -1246,7 +1246,7 @@
       "properties": {
         "difference": "CrewAI orchestrates multiple agents \u2014 TRUGS-AGENT teaches one agent to work correctly"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "ap_autogen",
@@ -1256,7 +1256,7 @@
       "properties": {
         "difference": "AutoGen enables agent chat \u2014 TRUGS-AGENT enables agent discipline"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "ap_openhands",
@@ -1266,7 +1266,7 @@
       "properties": {
         "difference": "OpenHands is a coding platform \u2014 TRUGS-AGENT is a methodology that works in any platform"
       },
-      "sugar": "'CONTRASTS"
+      "sugar": "'contrasts"
     },
     {
       "from_id": "ap_claude_code_action",
@@ -1276,7 +1276,7 @@
       "properties": {
         "relationship": "Claude Code reads CLAUDE.md \u2014 TRUGS-AGENT IS the CLAUDE.md"
       },
-      "sugar": "'COMPLEMENTS"
+      "sugar": "'complements"
     },
     {
       "from_id": "ap_year_in_llms",
@@ -1286,7 +1286,7 @@
       "properties": {
         "connection": "Landscape overview \u2014 shows the ecosystem TRUGS-AGENT operates in"
       },
-      "sugar": "'CONTEXTUALIZES"
+      "sugar": "'contextualizes"
     },
     {
       "from_id": "ap_promptfoo",
@@ -1296,7 +1296,7 @@
       "properties": {
         "relationship": "Promptfoo tests LLM output \u2014 TRL makes the input testable too"
       },
-      "sugar": "'COMPLEMENTS"
+      "sugar": "'complements"
     },
     {
       "from_id": "ap_awesome_memory",
@@ -1320,7 +1320,7 @@
       "properties": {
         "connection": "Reviews 2023-2025 agent frameworks \u2014 TRUGS-AGENT is the 2026 answer"
       },
-      "sugar": "'CONTEXTUALIZES"
+      "sugar": "'contextualizes"
     }
   ]
 }

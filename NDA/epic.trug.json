@@ -272,7 +272,7 @@
       "properties": {
         "description": "Need templates before writing the plan"
       },
-      "sugar": "'BLOCKS"
+      "sugar": "'blocks"
     },
     {
       "from_id": "task_wa_law",
@@ -281,7 +281,7 @@
       "properties": {
         "description": "Need WA law review before writing specs"
       },
-      "sugar": "'BLOCKS"
+      "sugar": "'blocks"
     },
     {
       "from_id": "task_definitions",
@@ -290,7 +290,7 @@
       "properties": {
         "description": "Must define terms before stating obligations"
       },
-      "sugar": "'BLOCKS"
+      "sugar": "'blocks"
     },
     {
       "from_id": "task_definitions",
@@ -299,7 +299,7 @@
       "properties": {
         "description": "Exclusions reference the definition of Confidential Information"
       },
-      "sugar": "'BLOCKS"
+      "sugar": "'blocks"
     },
     {
       "from_id": "task_obligations",
@@ -308,7 +308,7 @@
       "properties": {
         "description": "Remedies are for breach of obligations"
       },
-      "sugar": "'BLOCKS"
+      "sugar": "'blocks"
     },
     {
       "from_id": "task_obligations",
@@ -317,7 +317,7 @@
       "properties": {
         "description": "Term governs how long obligations last"
       },
-      "sugar": "'BLOCKS"
+      "sugar": "'blocks"
     },
     {
       "from_id": "task_term",
@@ -326,7 +326,7 @@
       "properties": {
         "description": "General provisions reference term and termination"
       },
-      "sugar": "'BLOCKS"
+      "sugar": "'blocks"
     },
     {
       "from_id": "task_general",
@@ -335,7 +335,7 @@
       "properties": {
         "description": "Audit after all clauses are drafted"
       },
-      "sugar": "'BLOCKS"
+      "sugar": "'blocks"
     },
     {
       "from_id": "task_whistleblower",
@@ -344,7 +344,7 @@
       "properties": {
         "description": "Audit after whistleblower notice added"
       },
-      "sugar": "'BLOCKS"
+      "sugar": "'blocks"
     },
     {
       "from_id": "task_audit",
@@ -353,7 +353,7 @@
       "properties": {
         "description": "TRL check after audit pass"
       },
-      "sugar": "'BLOCKS"
+      "sugar": "'blocks"
     },
     {
       "from_id": "task_trl_check",
@@ -362,7 +362,7 @@
       "properties": {
         "description": "Human reviews only after all checks pass"
       },
-      "sugar": "'BLOCKS"
+      "sugar": "'blocks"
     }
   ]
 }
