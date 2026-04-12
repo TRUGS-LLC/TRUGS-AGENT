@@ -5,13 +5,15 @@
   "description": "Curated web resources for developing a mutual NDA under Washington State law",
   "dimensions": {
     "web_landscape": {
-      "description": "NDA resources by category — templates, legal guidance, tools, statutes",
+      "description": "NDA resources by category \u2014 templates, legal guidance, tools, statutes",
       "base_level": "BASE"
     }
   },
   "capabilities": {
     "extensions": [],
-    "vocabularies": ["project_v1"],
+    "vocabularies": [
+      "project_v1"
+    ],
     "profiles": []
   },
   "nodes": [
@@ -20,23 +22,34 @@
       "type": "FOLDER",
       "properties": {
         "name": "NDA Research Hub",
-        "purpose": "Curated resources for drafting an enforceable mutual NDA — WA state focus"
+        "purpose": "Curated resources for drafting an enforceable mutual NDA \u2014 WA state focus"
       },
       "parent_id": null,
-      "contains": ["branch_templates", "branch_guidance", "branch_tools", "branch_standards"],
+      "contains": [
+        "branch_templates",
+        "branch_guidance",
+        "branch_tools",
+        "branch_standards"
+      ],
       "metric_level": "KILO_FOLDER",
       "dimension": "web_landscape"
     },
-
     {
       "id": "branch_templates",
       "type": "MODULE",
       "properties": {
         "name": "Templates & Examples",
-        "purpose": "Open-source and free NDA templates — starting points for drafting"
+        "purpose": "Open-source and free NDA templates \u2014 starting points for drafting"
       },
       "parent_id": "hub_root",
-      "contains": ["t_eforms", "t_bonterms", "t_unda", "t_open_agreements", "t_nvca", "t_nda_com"],
+      "contains": [
+        "t_eforms",
+        "t_bonterms",
+        "t_unda",
+        "t_open_agreements",
+        "t_nvca",
+        "t_nda_com"
+      ],
       "metric_level": "HECTO_MODULE",
       "dimension": "web_landscape"
     },
@@ -44,9 +57,9 @@
       "id": "t_eforms",
       "type": "RESOURCE",
       "properties": {
-        "name": "eForms — Free NDA Templates",
+        "name": "eForms \u2014 Free NDA Templates",
         "url": "https://eforms.com/nda/",
-        "purpose": "21 free NDA templates in PDF and Word — mutual, unilateral, employee, contractor, and industry-specific",
+        "purpose": "21 free NDA templates in PDF and Word \u2014 mutual, unilateral, employee, contractor, and industry-specific",
         "category": "TEMPLATE"
       },
       "parent_id": "branch_templates",
@@ -60,7 +73,7 @@
       "properties": {
         "name": "Bonterms Mutual NDA",
         "url": "https://github.com/Bonterms/Mutual-NDA",
-        "purpose": "Open-source mutual NDA, CC BY 4.0, drafted by Bonterms Standard Agreement Committee — balanced commercial starting point",
+        "purpose": "Open-source mutual NDA, CC BY 4.0, drafted by Bonterms Standard Agreement Committee \u2014 balanced commercial starting point",
         "category": "TEMPLATE"
       },
       "parent_id": "branch_templates",
@@ -74,7 +87,7 @@
       "properties": {
         "name": "Universal NDA (uNDA)",
         "url": "https://github.com/bitmovin/unda",
-        "purpose": "Standardized NDA for routine commercial transactions — eliminates negotiation overhead, UC Hastings collaboration",
+        "purpose": "Standardized NDA for routine commercial transactions \u2014 eliminates negotiation overhead, UC Hastings collaboration",
         "category": "TEMPLATE"
       },
       "parent_id": "branch_templates",
@@ -86,9 +99,9 @@
       "id": "t_open_agreements",
       "type": "RESOURCE",
       "properties": {
-        "name": "Open Agreements — 25 Legal Templates",
+        "name": "Open Agreements \u2014 25 Legal Templates",
         "url": "https://github.com/open-agreements/open-agreements",
-        "purpose": "Generates signable DOCX from templates — NDAs, cloud terms, SAFEs, NVCA financing docs",
+        "purpose": "Generates signable DOCX from templates \u2014 NDAs, cloud terms, SAFEs, NVCA financing docs",
         "category": "TEMPLATE"
       },
       "parent_id": "branch_templates",
@@ -102,7 +115,7 @@
       "properties": {
         "name": "NVCA Model Legal Documents",
         "url": "https://nvca.org/model-legal-documents/",
-        "purpose": "National Venture Capital Association model documents including NDA provisions — industry-accepted baseline for VC deals",
+        "purpose": "National Venture Capital Association model documents including NDA provisions \u2014 industry-accepted baseline for VC deals",
         "category": "TEMPLATE"
       },
       "parent_id": "branch_templates",
@@ -116,7 +129,7 @@
       "properties": {
         "name": "NonDisclosureAgreement.com",
         "url": "https://nondisclosureagreement.com/",
-        "purpose": "Dedicated NDA resource — downloadable templates, clause explanations, sample language for common scenarios",
+        "purpose": "Dedicated NDA resource \u2014 downloadable templates, clause explanations, sample language for common scenarios",
         "category": "TEMPLATE"
       },
       "parent_id": "branch_templates",
@@ -124,7 +137,6 @@
       "metric_level": "BASE_RESOURCE",
       "dimension": "web_landscape"
     },
-
     {
       "id": "branch_guidance",
       "type": "MODULE",
@@ -133,7 +145,14 @@
         "purpose": "Expert articles on NDA clauses, enforceability, pitfalls, and drafting best practices"
       },
       "parent_id": "hub_root",
-      "contains": ["g_aba_best_practices", "g_8_provisions", "g_mutual_vs_unilateral", "g_11_mistakes", "g_acc_enforcement", "g_plain_language"],
+      "contains": [
+        "g_aba_best_practices",
+        "g_8_provisions",
+        "g_mutual_vs_unilateral",
+        "g_11_mistakes",
+        "g_acc_enforcement",
+        "g_plain_language"
+      ],
       "metric_level": "HECTO_MODULE",
       "dimension": "web_landscape"
     },
@@ -141,9 +160,9 @@
       "id": "g_aba_best_practices",
       "type": "RESOURCE",
       "properties": {
-        "name": "ABA — Best Practices for Negotiating NDAs",
+        "name": "ABA \u2014 Best Practices for Negotiating NDAs",
         "url": "https://www.americanbar.org/groups/litigation/resources/newsletters/business-torts-unfair-competition/best-practices-negotiating-entering-nondisclosure-agreements/",
-        "purpose": "American Bar Association on definition scope, standard exclusions, marking requirements, and duration — authoritative legal guidance",
+        "purpose": "American Bar Association on definition scope, standard exclusions, marking requirements, and duration \u2014 authoritative legal guidance",
         "category": "GUIDE"
       },
       "parent_id": "branch_guidance",
@@ -185,7 +204,7 @@
       "properties": {
         "name": "11 Mistakes That Could Invalidate Your NDA",
         "url": "https://www.everynda.com/blog/11-ways-invalidate-nda/",
-        "purpose": "Common pitfalls — overbroad definitions, missing consideration, excessive duration, failure to maintain secrecy",
+        "purpose": "Common pitfalls \u2014 overbroad definitions, missing consideration, excessive duration, failure to maintain secrecy",
         "category": "ARTICLE"
       },
       "parent_id": "branch_guidance",
@@ -197,7 +216,7 @@
       "id": "g_acc_enforcement",
       "type": "RESOURCE",
       "properties": {
-        "name": "ACC — Issues Enforcing NDAs in the United States",
+        "name": "ACC \u2014 Issues Enforcing NDAs in the United States",
         "url": "https://www.acc.com/resource-library/issues-enforcing-nondisclosure-agreements-united-states",
         "purpose": "Association of Corporate Counsel on state-specific enforceability, judicial reasonableness tests, and public policy limitations",
         "category": "GUIDE"
@@ -213,7 +232,7 @@
       "properties": {
         "name": "Ten Tips for Writing Clear Contracts",
         "url": "https://contractnerds.com/ten-tips-for-writing-clear-contracts/",
-        "purpose": "Plain-language drafting guide — active voice, defined terms, sentence structure, eliminating legalese",
+        "purpose": "Plain-language drafting guide \u2014 active voice, defined terms, sentence structure, eliminating legalese",
         "category": "GUIDE"
       },
       "parent_id": "branch_guidance",
@@ -221,7 +240,6 @@
       "metric_level": "BASE_RESOURCE",
       "dimension": "web_landscape"
     },
-
     {
       "id": "branch_tools",
       "type": "MODULE",
@@ -230,7 +248,12 @@
         "purpose": "NDA generators, contract analysis, and legal AI tools"
       },
       "parent_id": "hub_root",
-      "contains": ["tool_lumin", "tool_spellbook", "tool_ailawyer", "tool_quicklegal"],
+      "contains": [
+        "tool_lumin",
+        "tool_spellbook",
+        "tool_ailawyer",
+        "tool_quicklegal"
+      ],
       "metric_level": "HECTO_MODULE",
       "dimension": "web_landscape"
     },
@@ -240,7 +263,7 @@
       "properties": {
         "name": "Lumin AI NDA Generator",
         "url": "https://www.luminpdf.com/generate/nda-generator",
-        "purpose": "Free AI-powered NDA generator — customized agreements from natural language descriptions, e-signature and PDF",
+        "purpose": "Free AI-powered NDA generator \u2014 customized agreements from natural language descriptions, e-signature and PDF",
         "category": "TOOL"
       },
       "parent_id": "branch_tools",
@@ -252,9 +275,9 @@
       "id": "tool_spellbook",
       "type": "RESOURCE",
       "properties": {
-        "name": "Spellbook — AI Contract Review",
+        "name": "Spellbook \u2014 AI Contract Review",
         "url": "https://www.spellbook.legal/learn/ai-legal-contract-review-faster-analysis",
-        "purpose": "AI contract review inside Microsoft Word — redlining, benchmarking, risk-flagging NDAs and other agreements",
+        "purpose": "AI contract review inside Microsoft Word \u2014 redlining, benchmarking, risk-flagging NDAs and other agreements",
         "category": "TOOL"
       },
       "parent_id": "branch_tools",
@@ -266,9 +289,9 @@
       "id": "tool_ailawyer",
       "type": "RESOURCE",
       "properties": {
-        "name": "AI Lawyer — Document Generator",
+        "name": "AI Lawyer \u2014 Document Generator",
         "url": "https://ailawyer.com/",
-        "purpose": "AI legal document generator — state-specific contracts including NDAs with clause explanations",
+        "purpose": "AI legal document generator \u2014 state-specific contracts including NDAs with clause explanations",
         "category": "TOOL"
       },
       "parent_id": "branch_tools",
@@ -280,9 +303,9 @@
       "id": "tool_quicklegal",
       "type": "RESOURCE",
       "properties": {
-        "name": "QuickLegalTools — Free NDA Generator",
+        "name": "QuickLegalTools \u2014 Free NDA Generator",
         "url": "https://www.quicklegaltools.com/nda-generator",
-        "purpose": "US-focused NDA generator with real-time validation, custom terms, instant PDF — no registration",
+        "purpose": "US-focused NDA generator with real-time validation, custom terms, instant PDF \u2014 no registration",
         "category": "TOOL"
       },
       "parent_id": "branch_tools",
@@ -290,16 +313,20 @@
       "metric_level": "BASE_RESOURCE",
       "dimension": "web_landscape"
     },
-
     {
       "id": "branch_standards",
       "type": "MODULE",
       "properties": {
         "name": "Standards & Statutes",
-        "purpose": "Legal foundations — trade secret law, federal statutes, WA state law"
+        "purpose": "Legal foundations \u2014 trade secret law, federal statutes, WA state law"
       },
       "parent_id": "hub_root",
-      "contains": ["s_utsa", "s_dtsa", "s_cornell_trade_secret", "s_rcw_19_108"],
+      "contains": [
+        "s_utsa",
+        "s_dtsa",
+        "s_cornell_trade_secret",
+        "s_rcw_19_108"
+      ],
       "metric_level": "HECTO_MODULE",
       "dimension": "web_landscape"
     },
@@ -309,7 +336,7 @@
       "properties": {
         "name": "Uniform Trade Secrets Act (UTSA)",
         "url": "https://www.uniformlaws.org/committees/community-home?CommunityKey=3a2538fb-e030-4e2d-a9e2-90373dc05792",
-        "purpose": "Uniform Law Commission page for UTSA (1979, amended 1985) — adopted by 48 states including WA, defines trade secret and misappropriation",
+        "purpose": "Uniform Law Commission page for UTSA (1979, amended 1985) \u2014 adopted by 48 states including WA, defines trade secret and misappropriation",
         "category": "STANDARD"
       },
       "parent_id": "branch_standards",
@@ -323,7 +350,7 @@
       "properties": {
         "name": "Defend Trade Secrets Act of 2016 (DTSA)",
         "url": "https://www.congress.gov/bill/114th-congress/senate-bill/1890",
-        "purpose": "Full text and legislative history — federal private civil cause of action for trade secret misappropriation with whistleblower immunity",
+        "purpose": "Full text and legislative history \u2014 federal private civil cause of action for trade secret misappropriation with whistleblower immunity",
         "category": "STANDARD"
       },
       "parent_id": "branch_standards",
@@ -335,9 +362,9 @@
       "id": "s_cornell_trade_secret",
       "type": "RESOURCE",
       "properties": {
-        "name": "Cornell LII — Trade Secret",
+        "name": "Cornell LII \u2014 Trade Secret",
         "url": "https://www.law.cornell.edu/wex/trade_secret",
-        "purpose": "Legal encyclopedia entry defining trade secrets under federal and state law — links to UTSA, DTSA, and Restatement of Torts",
+        "purpose": "Legal encyclopedia entry defining trade secrets under federal and state law \u2014 links to UTSA, DTSA, and Restatement of Torts",
         "category": "STANDARD"
       },
       "parent_id": "branch_standards",
@@ -349,9 +376,9 @@
       "id": "s_rcw_19_108",
       "type": "RESOURCE",
       "properties": {
-        "name": "RCW 19.108 — Washington Uniform Trade Secrets Act",
+        "name": "RCW 19.108 \u2014 Washington Uniform Trade Secrets Act",
         "url": "https://app.leg.wa.gov/rcw/default.aspx?cite=19.108",
-        "purpose": "Washington State's adoption of UTSA — the specific statute governing trade secret claims and NDA enforceability in WA",
+        "purpose": "Washington State's adoption of UTSA \u2014 the specific statute governing trade secret claims and NDA enforceability in WA",
         "category": "STANDARD"
       },
       "parent_id": "branch_standards",
@@ -361,26 +388,163 @@
     }
   ],
   "edges": [
-    {"from_id": "t_bonterms", "to_id": "t_unda", "relation": "COMPLEMENTS", "weight": 0.8, "properties": {"connection": "Both open-source mutual NDAs, different drafting philosophies"}},
-    {"from_id": "t_nvca", "to_id": "t_bonterms", "relation": "CONTEXTUALIZES", "weight": 0.6, "properties": {"connection": "NVCA is VC-specific, Bonterms is general commercial"}},
-    {"from_id": "t_open_agreements", "to_id": "t_bonterms", "relation": "CONTAINS", "weight": 0.7, "properties": {"connection": "Open Agreements includes NDA among 25 templates"}},
-
-    {"from_id": "g_aba_best_practices", "to_id": "g_8_provisions", "relation": "EXTENDS", "weight": 0.8, "properties": {"connection": "ABA is authoritative guidance, 8 provisions is practical checklist"}},
-    {"from_id": "g_11_mistakes", "to_id": "g_aba_best_practices", "relation": "COMPLEMENTS", "weight": 0.7, "properties": {"connection": "Mistakes article shows what happens when best practices are ignored"}},
-    {"from_id": "g_acc_enforcement", "to_id": "s_rcw_19_108", "relation": "REFERENCES", "weight": 0.8, "properties": {"connection": "ACC enforcement guide discusses state-specific laws including WA"}},
-    {"from_id": "g_plain_language", "to_id": "g_8_provisions", "relation": "COMPLEMENTS", "weight": 0.6, "properties": {"connection": "Style guide for drafting the provisions"}},
-    {"from_id": "g_mutual_vs_unilateral", "to_id": "t_bonterms", "relation": "MOTIVATES", "weight": 0.7, "properties": {"connection": "Understanding mutual vs unilateral leads to choosing Bonterms template"}},
-
-    {"from_id": "s_rcw_19_108", "to_id": "s_utsa", "relation": "IMPLEMENTS", "weight": 0.95, "properties": {"connection": "WA state adoption of the uniform act"}},
-    {"from_id": "s_dtsa", "to_id": "s_utsa", "relation": "EXTENDS", "weight": 0.9, "properties": {"connection": "Federal layer on top of state UTSA — adds civil cause of action and whistleblower immunity"}},
-    {"from_id": "s_cornell_trade_secret", "to_id": "s_utsa", "relation": "DESCRIBES", "weight": 0.8, "properties": {}},
-    {"from_id": "s_cornell_trade_secret", "to_id": "s_dtsa", "relation": "DESCRIBES", "weight": 0.8, "properties": {}},
-
-    {"from_id": "tool_spellbook", "to_id": "g_8_provisions", "relation": "IMPLEMENTS", "weight": 0.6, "properties": {"connection": "AI review tool checks the same provisions the guide recommends"}},
-    {"from_id": "tool_lumin", "to_id": "t_eforms", "relation": "CONTRASTS", "weight": 0.5, "properties": {"difference": "Lumin generates custom NDAs, eForms provides static templates"}},
-
-    {"from_id": "branch_templates", "to_id": "branch_guidance", "relation": "DEPENDS_ON", "weight": 0.8, "properties": {"reason": "Templates are starting points — guidance ensures they're used correctly"}},
-    {"from_id": "branch_guidance", "to_id": "branch_standards", "relation": "DEPENDS_ON", "weight": 0.9, "properties": {"reason": "Legal guidance is grounded in statutes and case law"}},
-    {"from_id": "branch_tools", "to_id": "branch_templates", "relation": "PRODUCES", "weight": 0.7, "properties": {"reason": "Tools generate templates — templates are the output"}}
+    {
+      "from_id": "t_bonterms",
+      "to_id": "t_unda",
+      "relation": "REFERENCES",
+      "weight": 0.8,
+      "properties": {
+        "connection": "Both open-source mutual NDAs, different drafting philosophies"
+      },
+      "sugar": "'complements"
+    },
+    {
+      "from_id": "t_nvca",
+      "to_id": "t_bonterms",
+      "relation": "REFERENCES",
+      "weight": 0.6,
+      "properties": {
+        "connection": "NVCA is VC-specific, Bonterms is general commercial"
+      },
+      "sugar": "'contextualizes"
+    },
+    {
+      "from_id": "t_open_agreements",
+      "to_id": "t_bonterms",
+      "relation": "CONTAINS",
+      "weight": 0.7,
+      "properties": {
+        "connection": "Open Agreements includes NDA among 25 templates"
+      }
+    },
+    {
+      "from_id": "g_aba_best_practices",
+      "to_id": "g_8_provisions",
+      "relation": "EXTENDS",
+      "weight": 0.8,
+      "properties": {
+        "connection": "ABA is authoritative guidance, 8 provisions is practical checklist"
+      }
+    },
+    {
+      "from_id": "g_11_mistakes",
+      "to_id": "g_aba_best_practices",
+      "relation": "REFERENCES",
+      "weight": 0.7,
+      "properties": {
+        "connection": "Mistakes article shows what happens when best practices are ignored"
+      },
+      "sugar": "'complements"
+    },
+    {
+      "from_id": "g_acc_enforcement",
+      "to_id": "s_rcw_19_108",
+      "relation": "REFERENCES",
+      "weight": 0.8,
+      "properties": {
+        "connection": "ACC enforcement guide discusses state-specific laws including WA"
+      }
+    },
+    {
+      "from_id": "g_plain_language",
+      "to_id": "g_8_provisions",
+      "relation": "REFERENCES",
+      "weight": 0.6,
+      "properties": {
+        "connection": "Style guide for drafting the provisions"
+      },
+      "sugar": "'complements"
+    },
+    {
+      "from_id": "g_mutual_vs_unilateral",
+      "to_id": "t_bonterms",
+      "relation": "REFERENCES",
+      "weight": 0.7,
+      "properties": {
+        "connection": "Understanding mutual vs unilateral leads to choosing Bonterms template"
+      },
+      "sugar": "'motivates"
+    },
+    {
+      "from_id": "s_rcw_19_108",
+      "to_id": "s_utsa",
+      "relation": "IMPLEMENTS",
+      "weight": 0.95,
+      "properties": {
+        "connection": "WA state adoption of the uniform act"
+      }
+    },
+    {
+      "from_id": "s_dtsa",
+      "to_id": "s_utsa",
+      "relation": "EXTENDS",
+      "weight": 0.9,
+      "properties": {
+        "connection": "Federal layer on top of state UTSA \u2014 adds civil cause of action and whistleblower immunity"
+      }
+    },
+    {
+      "from_id": "s_cornell_trade_secret",
+      "to_id": "s_utsa",
+      "relation": "REFERENCES",
+      "weight": 0.8,
+      "properties": {},
+      "sugar": "'describes"
+    },
+    {
+      "from_id": "s_cornell_trade_secret",
+      "to_id": "s_dtsa",
+      "relation": "REFERENCES",
+      "weight": 0.8,
+      "properties": {},
+      "sugar": "'describes"
+    },
+    {
+      "from_id": "tool_spellbook",
+      "to_id": "g_8_provisions",
+      "relation": "IMPLEMENTS",
+      "weight": 0.6,
+      "properties": {
+        "connection": "AI review tool checks the same provisions the guide recommends"
+      }
+    },
+    {
+      "from_id": "tool_lumin",
+      "to_id": "t_eforms",
+      "relation": "REFERENCES",
+      "weight": 0.5,
+      "properties": {
+        "difference": "Lumin generates custom NDAs, eForms provides static templates"
+      },
+      "sugar": "'contrasts"
+    },
+    {
+      "from_id": "branch_templates",
+      "to_id": "branch_guidance",
+      "relation": "DEPENDS_ON",
+      "weight": 0.8,
+      "properties": {
+        "reason": "Templates are starting points \u2014 guidance ensures they're used correctly"
+      }
+    },
+    {
+      "from_id": "branch_guidance",
+      "to_id": "branch_standards",
+      "relation": "DEPENDS_ON",
+      "weight": 0.9,
+      "properties": {
+        "reason": "Legal guidance is grounded in statutes and case law"
+      }
+    },
+    {
+      "from_id": "branch_tools",
+      "to_id": "branch_templates",
+      "relation": "FEEDS",
+      "weight": 0.7,
+      "properties": {
+        "reason": "Tools generate templates \u2014 templates are the output"
+      },
+      "sugar": "'produces"
+    }
   ]
 }
