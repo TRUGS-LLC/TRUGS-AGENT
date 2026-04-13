@@ -645,30 +645,7 @@ TRUGS provides an audit trail: the TRUG specification (what was intended), the T
 
 ---
 
-## 9. Practical Evidence
-
-### 9.1 Production System
-
-The TRUGS approach is not theoretical. It is deployed in a production development system:
-
-- **repo.trug.json**: 47 nodes, 49 weighted edges mapping an entire monorepo. Every directory, dependency, and relationship is machine-readable.
-- **152 validated TRUGs** across the codebase, each enforced by 16 CORE rules.
-- **PERAGO**: An autonomous code generation platform with 6 specialized agents (SENSUS supervisor + 5 ACTUS workers) that generates code through a 9-phase lifecycle (AAA protocol). Every phase produces TRUG-structured artifacts.
-- **TRUGS_OS**: A VLM-driven desktop automation system with 8,710 lines of code, 251 tests, built through 5 work packages — each with a TRUG-structured plan, TRL-commented code, and validated test matrix.
-- **trugs-folder-check**: Runs in CI on every pull request. 152 .trug.json files validated against 16 CORE rules. Broken TRUGs block merge.
-
-### 9.2 The AAA Protocol
-
-The AAA (Author-Audit-Approve) protocol enforces TRUG-first development:
-
-1. **PLANNING** (phases 1-5): Vision → Feasibility → Specifications → Architecture → Validation. The TRUG is authored before any code is written. Human approves the plan.
-2. **EXECUTION** (phases 6-9): Coding → Testing → Audit → Deployment. Code implements the TRUG. Tests verify the TRUG. Audit checks both code quality and plan compliance. Human approves the result.
-
-Plan compliance auditing — "does the code match the TRUG?" — is the structural mechanism that prevents Dark Code accumulation. Every deliverable traces back to a TRUG node. Every TRUG node traces back to a requirement. The chain is mechanically verifiable.
-
----
-
-## 10. Limitations
+## 9. Limitations
 
 **TRUGS reduces Dark Code; it does not eliminate it.** The implementation between TRL comments can still be opaque. A complex algorithm is still complex. The four-corner square verifies structure and intent, not every line of logic. The claim is legibility of intent, not legibility of implementation.
 
@@ -680,7 +657,7 @@ Plan compliance auditing — "does the code match the TRUG?" — is the structur
 
 ---
 
-## 11. Related Work
+## 10. Related Work
 
 **Literate Programming** (Knuth, 1984). Knuth proposed interweaving code and documentation in a single document. TRUGS shares the goal of co-locating intent with implementation but differs in three ways: TRL is formal (not prose), TRL is validated (not advisory), and TRL compiles to a machine-readable graph (not a typeset document).
 
@@ -694,7 +671,7 @@ Plan compliance auditing — "does the code match the TRUG?" — is the structur
 
 ---
 
-## 12. Conclusion
+## 11. Conclusion
 
 Dark Code is the inevitable consequence of LLM-assisted development. Code is generated faster than it can be understood. Existing mitigations — review, documentation, testing, analysis, AI auditing — address symptoms without resolving the structural cause.
 
@@ -702,7 +679,7 @@ The structural cause is the absence of a formal intermediate representation betw
 
 TRUGS provides the intermediate representation: a validated JSON graph (TRUG) with formal English annotations (TRL), mechanical consistency validation, and a TRL-annotated test matrix. Together, these form a four-corner verification square where each corner validates against the others. The human reads the TRUG and TRL — not the code. If the formal English makes sense and the validator confirms consistency, the code is understood in intent even if the implementation is complex.
 
-### 12.1 TRUGS as a Development Framework for LLMs
+### 11.1 TRUGS as a Development Framework for LLMs
 
 The value of TRUGS extends beyond reducing Dark Code for human readers. The TRUG and TRL also serve as a **supporting framework for the LLM itself** — both when generating code initially and when returning to modify it later.
 
@@ -725,7 +702,7 @@ Without the TRUG, the same modification is dangerous. The LLM changes `n_decks=8
 
 **The TRUG is not just documentation for humans — it is a development scaffold for LLMs.** It gives the LLM the same structural understanding that a senior developer carries in their head: what the components are, how they relate, what invariants matter, and where the boundaries are. The difference is that the TRUG is explicit, validated, and permanent — it does not degrade across sessions, models, or context windows.
 
-### 12.2 Two Audiences, One Structure
+### 11.2 Two Audiences, One Structure
 
 This dual audience — humans and LLMs — is the core insight. Traditional documentation serves humans. Traditional code serves machines. TRUGS serves both simultaneously:
 
@@ -734,7 +711,7 @@ This dual audience — humans and LLMs — is the core insight. Traditional docu
 
 The four-corner verification square works because all four corners are readable by both audiences. The TRUG is JSON (machine-native, human-readable). TRL is formal English (human-native, machine-parseable). Code is code. Tests are code with TRL annotations. Every artifact serves both readers.
 
-### 12.3 The Choice
+### 11.3 The Choice
 
 The cost of the TRUG approach is nonzero: a 190-word vocabulary, a 10-field node structure, and the discipline to write specifications before code. The cost of the alternative — unbounded Dark Code accumulation in every LLM-assisted codebase — is structural illegibility, unauditable security, unmaintainable systems, and unresolvable liability.
 
