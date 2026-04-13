@@ -1,0 +1,639 @@
+# Dark Code: How TRUGS Resolves the LLM-Generated Code Legibility Crisis
+
+**Authors:** Xepayac
+**Date:** April 2026
+**Venue:** arXiv (cs.SE primary, cs.AI secondary)
+**Issue:** Xepayac/TRUGS-DEVELOPMENT#1509
+
+---
+
+## Abstract
+
+As LLM code generation becomes mainstream, organizations accumulate *Dark Code* — code that humans did not write and cannot follow the logic of or understand what the code is accomplishing. We define the Dark Code problem, show why existing mitigations (code review, documentation, testing, static analysis, AI auditing) fail structurally, and present TRUGS (Traceable Recursive Universal Graph Specification) as a resolution. TRUGS introduces a four-corner verification square: a validated JSON graph (TRUG), formal English comments (TRL), implementation code, and a TRL-annotated test matrix. Each corner validates against the others mechanically. We demonstrate the approach on a production system and argue that formal intermediate representations between intent and code are necessary for safe autonomous code generation.
+
+---
+
+## 1. Introduction
+
+Code generation by large language models is no longer experimental. GitHub Copilot, Claude Code, Cursor, and Windsurf are used by millions of developers daily. These tools generate code faster than any human can write — and faster than any human can read.
+
+This speed creates a new category of technical debt. We call it **Dark Code**: code that humans did not write and cannot follow the logic of or understand what the code is accomplishing.
+
+Dark Code is not buggy code. It compiles. It passes tests. It ships to production. The problem is not correctness — it is legibility. When a human cannot follow the logic, they cannot:
+
+- Audit it for security vulnerabilities
+- Maintain it when requirements change
+- Explain it when something goes wrong
+- Take responsibility for its behavior
+
+This paper makes one claim: **developing with TRUGS significantly resolves the Dark Code problem.** The TRUG graph creates the logical framework. TRL inline comments make every line readable by both humans and machines. A mechanical validator enforces consistency. A TRL-annotated test matrix closes the verification loop.
+
+Together, these four components form a **verification square** where each corner validates against the others. Dark Code is code where any edge of this square is broken. TRUGS keeps all four edges mechanically verifiable.
+
+---
+
+## 2. The Dark Code Problem
+
+### 2.1 Definition
+
+Dark Code exists on a spectrum:
+
+| Level | Description | Example |
+|---|---|---|
+| **Transparent** | Human dictated the logic, LLM typed it | "Write a function that sorts by date" |
+| **Guided** | Human specified the architecture, LLM filled in details | Detailed spec → generated implementation |
+| **Supervised** | Human reviewed and understood the output | PR review where human reads every line |
+| **Opaque** | Human approved but didn't fully follow the logic | "Tests pass, audit clean, merge" |
+| **Dark** | Human cannot follow the logic even if they tried | Complex generated code with emergent patterns |
+
+Most LLM-assisted code lands in the Opaque-to-Dark range. The human provides a prompt, the LLM generates hundreds of lines, the human skims for obvious errors, and merges. The gap between what was generated and what was understood widens with every interaction.
+
+### 2.2 Why It Is Inevitable
+
+Dark Code accumulation is structural, not incidental. Three forces drive it:
+
+**Speed asymmetry.** LLMs generate code at thousands of tokens per minute. Humans read code at tens of lines per minute. The generation-to-comprehension ratio is at least 10:1 and growing with each model generation. No amount of discipline closes this gap — it is a property of the medium.
+
+**Review fatigue.** Studies of code review at scale (Bacchelli & Bird, 2013; Sadowski et al., 2018) show that review effectiveness drops with PR size and reviewer cognitive load. LLM-generated PRs are often larger (more files, more lines) and more frequent (faster generation cycles) than human-written PRs. The human reviewer's natural response is to trust the tests and approve.
+
+**Trust transfer.** As LLMs prove reliable on small tasks, humans extend trust to larger tasks. "It got the sort function right, so the pipeline orchestration is probably fine too." This trust is rational locally but dangerous systemically — the human's mental model of the code diverges from the actual code, and the divergence is invisible.
+
+### 2.3 Accumulation
+
+Dark Code is monotonically increasing in any LLM-assisted codebase without structural intervention. Each session adds more generated code. Each session reduces the percentage of code the human has personally read and understood. Over months, the human's mental model covers an ever-shrinking fraction of the system.
+
+This is not a problem that resolves itself. Dark Code does not become understood through time — it becomes normalized. The team stops expecting to understand every line. "The AI wrote it" becomes an acceptable answer to "why does this work this way?"
+
+---
+
+## 3. Why Existing Solutions Fail
+
+### 3.1 Code Review
+
+Code review is the primary defense against code quality issues. But code review assumes the reviewer can read and understand the code. When the code is LLM-generated:
+
+- The reviewer did not write it and has no mental model of its design decisions
+- The volume exceeds what careful review can handle
+- The reviewer's incentive is to merge (blocked PRs slow the team) not to understand
+- "Tests pass" becomes a proxy for "code is correct," which becomes a proxy for "I understand the code"
+
+Code review catches surface issues (naming, style, obvious bugs) but cannot catch Dark Code — because Dark Code is correct code that nobody understands.
+
+### 3.2 Documentation
+
+Natural language documentation fails against Dark Code for three reasons:
+
+1. **Ambiguity.** Natural language has multiple interpretations. "Shuffles the deck" does not specify the algorithm, the invariants, or the edge cases. Two readers extract different mental models from the same doc.
+
+2. **No validation.** Documentation can say anything. There is no mechanical check that the docs match the code. The docs say "Fisher-Yates" while the code implements something subtly different, and nobody catches it.
+
+3. **Decay.** Documentation diverges from code over time. The code changes; the docs don't. Within months, the docs describe a system that no longer exists.
+
+4. **Recursive darkness.** When LLMs generate documentation alongside code, you get LLM-generated docs explaining LLM-generated code. The documentation is as dark as the code it describes.
+
+### 3.3 Testing
+
+Testing verifies behavior, not understanding. A test suite with 100% code coverage proves that every branch executes — it does not prove that a human understands why any branch exists.
+
+Worse, tests themselves can be Dark Code. An LLM generates a test that asserts `result == expected_value`. The test passes. But:
+
+- Why is `expected_value` the correct value?
+- What requirement does this test verify?
+- What does the test NOT cover?
+- Is the test testing the right thing, or testing the LLM's assumptions?
+
+Green checkmarks create false confidence. The human sees "47 tests pass" and infers "the code works." The inference is valid for correctness. It is not valid for understanding.
+
+### 3.4 Static Analysis
+
+Static analysis tools (linters, type checkers, security scanners) catch patterns. They detect unused variables, type mismatches, known vulnerability patterns, and style violations. What they cannot detect is intent.
+
+A linter does not know why the code exists. It does not know that the shuffle must be Fisher-Yates (not a naive shuffle) because uniform randomness matters. It does not know that the cut card must be placed 60-80 cards from the end. It does not know that the burn card is a casino convention, not a mathematical requirement.
+
+Static analysis catches Dark Bugs in Dark Code. It does not make Dark Code legible.
+
+### 3.5 AI Auditing AI
+
+The most tempting solution is to use one LLM to audit another LLM's code. The code generator writes the implementation; an auditor model reviews it. This is the pattern used by autonomous development systems with cyclic audit phases.
+
+The problem: the human sees "audit passed" but cannot verify the audit. The auditor model may have the same blind spots as the generator model. The audit report is itself generated text — it can be wrong, misleading, or simply parroting the code.
+
+AI auditing AI is machines validating machines. It may catch errors (and empirically, it does). But it does not make the code less dark. It adds a layer of dark validation on top of dark code.
+
+---
+
+## 4. The TRUGS Solution: Four-Corner Verification Square
+
+TRUGS (Traceable Recursive Universal Graph Specification) introduces a formal intermediate representation between intent and code. The representation has three components, which combined with code form a four-corner verification square.
+
+### 4.1 Corner 1: The TRUG Graph
+
+A TRUG is a JSON document with three components: **nodes** (typed things), **edges** (named relationships), and **hierarchy** (parent/child containment with metric levels).
+
+Every node has 7 required fields:
+
+```json
+{
+  "id": "stage_shuffle",
+  "type": "STAGE",
+  "properties": {
+    "name": "Fisher-Yates Shuffle",
+    "algorithm": "Fisher-Yates (Knuth)",
+    "trl": "PROCESS shuffle SHALL SORT DATA shoe BY RANDOM ONCE."
+  },
+  "parent_id": "shoe",
+  "contains": [],
+  "metric_level": "BASE_STAGE",
+  "dimension": "shuffle"
+}
+```
+
+Every edge has 3 required fields:
+
+```json
+{
+  "from_id": "stage_build",
+  "to_id": "stage_shuffle",
+  "relation": "FEEDS"
+}
+```
+
+16 validation rules enforce structural integrity mechanically. The TRUG is the architecture document — machine-readable, validated, and always current. Any agent or human can traverse the graph to understand the system's structure without reading a single line of implementation code.
+
+### 4.2 Corner 2: TRL Inline Comments
+
+TRUGS Language (TRL) is a formalized subset of English with 190 executable words. Every valid sentence compiles to a directed graph. Every word has exactly one meaning. The vocabulary is drawn from computation and law:
+
+- **Nouns** (26): PROCESS, SERVICE, DATA, RECORD, ENDPOINT, ...
+- **Verbs** (61): FILTER, SORT, WRITE, VALIDATE, ASSERT, ...
+- **Modals** (3): SHALL (must), MAY (allowed), SHALL_NOT (prohibited)
+- **Adjectives** (36): ACTIVE, VALID, UNIQUE, REQUIRED, ...
+- **Prepositions** (18): FEEDS, DEPENDS_ON, IMPLEMENTS, CONTAINS, ...
+
+A TRL comment is placed above every code block:
+
+```python
+# PROCESS shuffle SHALL SORT DATA shoe BY RANDOM ONCE.
+# EACH DATA card SHALL EXIST 'at EXACTLY A UNIQUE RECORD position.
+# RESULT SHALL CONTAIN 416 DATA card.
+def shuffle_shoe(shoe: list[Card], rng: random.Random | None = None) -> list[Card]:
+    ...
+```
+
+The comment is not a description — it is a **compilable specification**. It has exactly one interpretation. It can be validated against the TRUG graph (does the comment match the node?) and against the code (does the implementation satisfy the specification?).
+
+TRL comments replace natural language documentation with formal English that both humans and machines can parse unambiguously.
+
+### 4.3 Corner 3: Implementation Code
+
+The code implements the TRUG through the TRL comments. Each function corresponds to a TRUG node. Each function's behavior satisfies its TRL specification. The code is still code — it can still be complex, optimized, or algorithmically sophisticated. The difference is that every function has an explicit, formal statement of what it is supposed to do.
+
+The code between TRL comments can still be opaque. A complex algorithm is still complex. But the *intent* of every code block is explicit, validated, and traceable to the TRUG graph. This is the distinction between Dark Code (no legible intent) and complex code (legible intent, complex implementation).
+
+### 4.4 Corner 4: TRL-Annotated Test Matrix
+
+Every test function gets a TRL comment stating what it verifies:
+
+```python
+# AGENT SHALL VALIDATE STAGE shuffle — RESULT SHALL CONTAIN ALL DATA card.
+# NO DATA card SHALL 'be ADDED OR REMOVED.
+def test_shuffle_preserves_cards():
+    ...
+```
+
+The test matrix as a TRUG graph has three node types and two edge types:
+
+- **TEST** nodes with TRL intent comments
+- **FUNCTION** nodes (code under test)
+- **SPEC** nodes (requirements)
+- TEST `VALIDATES` FUNCTION — this test exercises this function
+- TEST `IMPLEMENTS` SPEC — this test verifies this requirement
+
+This structure enables:
+
+- **Coverage gap detection** — SPEC nodes with no inbound TEST edges are untested requirements. Visible without reading any code.
+- **Dark test detection** — TEST nodes without TRL comments are dark tests. Flagged automatically.
+- **Test-to-requirement traceability** — "Are all requirements tested?" is a graph query, not a manual audit.
+- **Impact analysis** — When code changes, follow VALIDATES edges backward to find all affected tests.
+
+### 4.5 The Verification Square
+
+The four corners form a square where each edge is a mechanical validation:
+
+```
+      TRUG (structure)
+     /       \
+    TRL       Code
+  (intent)  (implementation)
+     \       /
+      Tests
+   (verification)
+```
+
+| Edge | Validation |
+|---|---|
+| TRUG ↔ Code | Does the code implement the graph? (function-to-node mapping) |
+| TRUG ↔ TRL | Do the comments match the graph? (TRL compiles to TRUG subgraph) |
+| TRUG ↔ Tests | Does the test matrix cover the graph? (SPEC node coverage) |
+| TRL ↔ Tests | Does each test's TRL match the code's TRL it verifies? (intent alignment) |
+| Code ↔ Tests | Do the tests pass? (behavioral verification) |
+| TRL ↔ Code | Does the implementation satisfy the TRL specification? (specification compliance) |
+
+**Dark Code is code where any edge of this square is broken or missing.** TRUGS keeps all edges mechanically verifiable. The human does not need to read the code — they read the TRUG, verify the TRL makes sense, and confirm the validator reports all edges intact.
+
+---
+
+## 5. Worked Example: Shuffling an 8-Deck Shoe
+
+### 5.1 The Dark Code Version
+
+An LLM generates this when asked to shuffle a casino shoe:
+
+```python
+import random
+
+def shuffle_shoe(n_decks=8):
+    suits = ['H', 'D', 'C', 'S']
+    ranks = ['A'] + [str(i) for i in range(2, 11)] + ['J', 'Q', 'K']
+    shoe = [(r, s) for _ in range(n_decks) for s in suits for r in ranks]
+    for i in range(len(shoe) - 1, 0, -1):
+        j = random.randint(0, i)
+        shoe[i], shoe[j] = shoe[j], shoe[i]
+    return shoe
+```
+
+This is 8 lines. It compiles. It probably works. A human reads it and thinks: "Looks like Fisher-Yates, tests pass, merge."
+
+But what is missing?
+
+- The algorithm is unnamed. You recognize Fisher-Yates or you don't.
+- No invariant assertions. Is the shoe 416 cards? Are there 32 of each rank?
+- No cut card. In a real casino shoe, a cut card is placed 60-80 cards from the end to determine when to reshuffle.
+- No burn card. The first card is dealt face-down and discarded.
+- The RNG is unseeded. Tests are not reproducible.
+- The function does everything in one block. Build, shuffle, cut, and burn are conflated.
+
+A different LLM editing this later has no idea what invariants matter, what domain conventions apply, or where the boundaries between stages are.
+
+### 5.2 The TRUG Version
+
+#### The TRUG
+
+```json
+{
+  "name": "8-Deck Shoe Shuffle",
+  "version": "1.0.0",
+  "type": "PIPELINE",
+  "nodes": [
+    {
+      "id": "shoe",
+      "type": "DATA",
+      "properties": {
+        "invariant_card_count": 416,
+        "invariant_per_rank": 32,
+        "invariant_per_suit": 104
+      },
+      "parent_id": null,
+      "contains": ["stage_build", "stage_shuffle", "stage_cut", "stage_burn"],
+      "metric_level": "DEKA_PIPELINE",
+      "dimension": "shuffle"
+    },
+    {
+      "id": "stage_build",
+      "type": "STAGE",
+      "properties": {
+        "order": 1,
+        "trl": "PROCESS build SHALL DEFINE DATA shoe AS 8 MULTIPLE DATA deck. EACH DATA deck CONTAINS 52 UNIQUE DATA card."
+      },
+      "parent_id": "shoe", "contains": [], "metric_level": "BASE_STAGE", "dimension": "shuffle"
+    },
+    {
+      "id": "stage_shuffle",
+      "type": "STAGE",
+      "properties": {
+        "order": 2,
+        "algorithm": "Fisher-Yates (Knuth)",
+        "trl": "PROCESS shuffle SHALL SORT DATA shoe BY RANDOM ONCE. EACH DATA card SHALL EXIST 'at EXACTLY A UNIQUE RECORD position."
+      },
+      "parent_id": "shoe", "contains": [], "metric_level": "BASE_STAGE", "dimension": "shuffle"
+    },
+    {
+      "id": "stage_cut",
+      "type": "STAGE",
+      "properties": {
+        "order": 3,
+        "cut_range_from_end": [60, 80],
+        "trl": "PROCESS cut SHALL SPLIT DATA shoe 'at RECORD position BETWEEN 336 AND 356."
+      },
+      "parent_id": "shoe", "contains": [], "metric_level": "BASE_STAGE", "dimension": "shuffle"
+    },
+    {
+      "id": "stage_burn",
+      "type": "STAGE",
+      "properties": {
+        "order": 4,
+        "trl": "PROCESS burn SHALL TAKE 1 DATA card FROM ENTRY shoe THEN WRITE RESULT TO DATA discard."
+      },
+      "parent_id": "shoe", "contains": [], "metric_level": "BASE_STAGE", "dimension": "shuffle"
+    }
+  ],
+  "edges": [
+    {"from_id": "stage_build", "to_id": "stage_shuffle", "relation": "FEEDS"},
+    {"from_id": "stage_shuffle", "to_id": "stage_cut", "relation": "FEEDS"},
+    {"from_id": "stage_cut", "to_id": "stage_burn", "relation": "FEEDS"}
+  ]
+}
+```
+
+The TRUG makes the architecture explicit: 4 stages, 3 invariants, a named algorithm, a specified cut range. Any agent or human reading this graph knows exactly what the system does without reading the code.
+
+#### TRL-Commented Code
+
+```python
+import random
+from dataclasses import dataclass
+
+SUITS = ('H', 'D', 'C', 'S')
+RANKS = ('A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K')
+
+@dataclass(frozen=True)
+class Card:
+    rank: str
+    suit: str
+
+# PROCESS build SHALL DEFINE DATA shoe AS 8 MULTIPLE DATA deck.
+# EACH DATA deck CONTAINS 52 UNIQUE DATA card.
+def build_shoe(n_decks: int = 8) -> list[Card]:
+    shoe = [Card(r, s) for _ in range(n_decks) for s in SUITS for r in RANKS]
+    assert len(shoe) == n_decks * 52
+    return shoe
+
+# PROCESS shuffle SHALL SORT DATA shoe BY RANDOM ONCE.
+# EACH DATA card SHALL EXIST 'at EXACTLY A UNIQUE RECORD position.
+# RESULT SHALL CONTAIN 416 DATA card.
+def shuffle_shoe(shoe: list[Card], rng: random.Random | None = None) -> list[Card]:
+    rng = rng or random.Random()
+    shuffled = shoe.copy()
+    for i in range(len(shuffled) - 1, 0, -1):
+        j = rng.randint(0, i)
+        shuffled[i], shuffled[j] = shuffled[j], shuffled[i]
+    assert len(shuffled) == len(shoe)
+    return shuffled
+
+# PROCESS cut SHALL SPLIT DATA shoe 'at RECORD position BETWEEN 336 AND 356.
+# DATA cut_card DEFINES ENDPOINT shoe_end.
+def place_cut_card(shoe: list[Card], rng: random.Random | None = None,
+                   cut_range: tuple[int, int] = (60, 80)) -> int:
+    rng = rng or random.Random()
+    cards_from_end = rng.randint(cut_range[0], cut_range[1])
+    return len(shoe) - cards_from_end
+
+# PROCESS burn SHALL TAKE 1 DATA card FROM ENTRY shoe
+# THEN WRITE RESULT TO DATA discard.
+def burn_card(shoe: list[Card]) -> tuple[list[Card], Card]:
+    return shoe[1:], shoe[0]
+```
+
+Every function has a TRL comment. The shuffle algorithm is named. Invariants are asserted. The RNG is injectable. Build, shuffle, cut, and burn are separate functions matching the TRUG stages.
+
+#### TRL-Commented Tests
+
+```python
+# AGENT SHALL VALIDATE STAGE build SUBJECT_TO RECORD invariant_card_count.
+# ASSERT DATA shoe CONTAINS 416 DATA card.
+def test_build_shoe_card_count():
+    shoe = build_shoe(8)
+    assert len(shoe) == 416
+
+# AGENT SHALL VALIDATE STAGE build SUBJECT_TO RECORD invariant_per_rank.
+# EACH RECORD rank SHALL EXIST 32 MULTIPLE 'in DATA shoe.
+def test_build_shoe_rank_distribution():
+    shoe = build_shoe(8)
+    from collections import Counter
+    rank_counts = Counter(c.rank for c in shoe)
+    assert all(count == 32 for count in rank_counts.values())
+
+# AGENT SHALL VALIDATE STAGE build SUBJECT_TO RECORD invariant_per_suit.
+# EACH RECORD suit SHALL EXIST 104 MULTIPLE 'in DATA shoe.
+def test_build_shoe_suit_distribution():
+    shoe = build_shoe(8)
+    from collections import Counter
+    suit_counts = Counter(c.suit for c in shoe)
+    assert all(count == 104 for count in suit_counts.values())
+
+# AGENT SHALL VALIDATE STAGE shuffle — RESULT SHALL CONTAIN ALL DATA card.
+# NO DATA card SHALL 'be ADDED OR REMOVED.
+def test_shuffle_preserves_cards():
+    rng = random.Random(42)
+    shoe = build_shoe(8)
+    shuffled = shuffle_shoe(shoe, rng)
+    assert sorted(shuffled, key=lambda c: (c.suit, c.rank)) == \
+           sorted(shoe, key=lambda c: (c.suit, c.rank))
+
+# AGENT SHALL VALIDATE STAGE shuffle — RESULT SHALL_NOT EQUAL DATA shoe.
+def test_shuffle_changes_order():
+    rng = random.Random(42)
+    shoe = build_shoe(8)
+    shuffled = shuffle_shoe(shoe, rng)
+    assert shuffled != shoe
+
+# AGENT SHALL VALIDATE STAGE shuffle — PROCESS shuffle SHALL 'be UNIFORM.
+# EACH RECORD position SHALL RECEIVE EACH DATA card 'with EQUAL RECORD probability.
+def test_shuffle_uniformity():
+    rng = random.Random(42)
+    shoe = build_shoe(1)
+    first_card_counts = {}
+    for _ in range(10_000):
+        shuffled = shuffle_shoe(shoe, rng)
+        first_card_counts[shuffled[0]] = first_card_counts.get(shuffled[0], 0) + 1
+    expected = 10_000 / 52
+    assert all(count < expected * 2.5 for count in first_card_counts.values())
+
+# AGENT SHALL VALIDATE STAGE cut — RECORD cut_position BETWEEN 336 AND 356.
+def test_cut_card_range():
+    rng = random.Random(42)
+    shoe = build_shoe(8)
+    for _ in range(100):
+        pos = place_cut_card(shoe, rng)
+        assert 336 <= pos <= 356
+
+# AGENT SHALL VALIDATE STAGE burn — RESULT SHALL CONTAIN 415 DATA card.
+# DATA burned SHALL EQUAL ENTRY card 'of DATA shoe.
+def test_burn_card():
+    shoe = build_shoe(8)
+    shuffled = shuffle_shoe(shoe, random.Random(42))
+    remaining, burned = burn_card(shuffled)
+    assert len(remaining) == 415
+    assert burned == shuffled[0]
+```
+
+Every test states its intent in TRL. A human reading only the comments sees: build (3 invariants), shuffle (3 properties: preservation, reordering, uniformity), cut (range), burn (count + identity). Coverage gaps are visible by comparing test TRL to TRUG stages.
+
+### 5.3 Comparison
+
+| Aspect | Dark Version | TRUG Version |
+|---|---|---|
+| Card count invariant | Implicit | Explicit in TRUG, asserted in code |
+| Algorithm identity | Unnamed | Named: Fisher-Yates in TRUG and comment |
+| Cut card | Not implemented | Stage in TRUG, function in code, range specified |
+| Burn card | Not implemented | Stage in TRUG, function in code |
+| Reproducibility | Unseeded `random.randint` | Injectable `rng` parameter |
+| Test intent | "test_shuffle works" | Each test states exactly what invariant it verifies |
+| Next developer | Reads code, guesses intent | Reads TRUG, understands pipeline |
+
+The Dark version is 8 lines. The TRUG version is more code. But the Dark version is a liability — every future interaction with it requires re-understanding. The TRUG version is an asset — the understanding is embedded in the structure and never decays.
+
+---
+
+## 6. The Test Matrix: From Dark Tests to Verified Coverage
+
+### 6.1 The Dark Test Problem
+
+Tests are the last line of defense — but they are also the most dangerous vector for false confidence. When an LLM generates tests alongside code:
+
+- The tests verify the LLM's interpretation, not the human's requirements
+- The tests may encode the LLM's assumptions as assertions
+- "All tests pass" creates confidence that the code is correct — but nobody verified that the tests are correct
+- The tests themselves are Dark Code
+
+A test suite with 100% coverage and all green is not evidence of understanding. It is evidence that the LLM's code is consistent with the LLM's tests. This is tautological, not informative.
+
+### 6.2 TRL-Commented Tests
+
+Adding a TRL comment to every test function breaks the tautology:
+
+```python
+# AGENT SHALL VALIDATE STAGE shuffle — PROCESS shuffle SHALL 'be UNIFORM.
+# EACH RECORD position SHALL RECEIVE EACH DATA card 'with EQUAL RECORD probability.
+def test_shuffle_uniformity():
+    ...
+```
+
+The TRL comment is a claim about what the test verifies. A human reading the comment can evaluate whether that claim matches the requirement. If the requirement says "uniform shuffle" and the TRL says `SHALL 'be UNIFORM`, the intent is aligned. If the test implementation actually verifies uniformity (via statistical test), the triangle closes.
+
+A test without a TRL comment is a dark test. A test with a TRL comment that doesn't match the implementation is a broken test. Both are mechanically detectable.
+
+### 6.3 The Test Matrix as TRUG
+
+When the test matrix is itself a TRUG graph, verification becomes structural:
+
+- **SPEC** nodes with no inbound TEST `IMPLEMENTS` edges → untested requirements
+- **TEST** nodes without TRL comments → dark tests
+- **FUNCTION** nodes with no inbound TEST `VALIDATES` edges → untested code
+- Multiple TEST nodes with similar TRL against the same FUNCTION → redundancy candidates
+
+"Are all requirements tested?" is a graph query: `FILTER ALL SPEC WHERE NO TEST IMPLEMENTS SELF`. The answer is a list of node IDs, not a judgment call.
+
+---
+
+## 7. The Self-Referential Problem
+
+In an autogenous system — a system that builds itself — Dark Code compounds across layers. The system generates code that generates code. Each layer is potentially darker than the last.
+
+Consider: an LLM agent writes a code generator. The generator writes application code. The application code processes user input. Three layers of code, each written by a different process, each potentially dark to the humans responsible for the system.
+
+TRUGS addresses this through **TRUG chains**: each layer has its own TRUG graph. The human audits the chain of TRUGs, not the chain of code. Each TRUG decompiles to formal English via TRL. The chain of English is human-readable even when the chain of code is not.
+
+```
+Layer 0 TRUG → Layer 0 Code → produces → Layer 1 TRUG → Layer 1 Code → produces → Layer 2 TRUG → ...
+```
+
+The human reads: Layer 0 TRUG, Layer 1 TRUG, Layer 2 TRUG. If each TRUG makes sense and the validator confirms each TRUG matches its code, the system is legible — even though no human has read the implementation at any layer.
+
+This is the structural argument for TRUG-first development in autonomous systems. The TRUG is not documentation added after the fact. It is the specification written before the code, validated during development, and maintained as the code evolves.
+
+---
+
+## 8. The Economics of Dark Code
+
+### 8.1 Maintenance Cost
+
+Dark Code maintenance costs more than understood code because the fix cycle is: regenerate, not repair. When code breaks and nobody understands it, the response is to ask the LLM to rewrite it. The rewrite produces new Dark Code. The system accumulates layers of regenerated Dark Code, each overwriting the last, with no human understanding at any point.
+
+TRUGS breaks this cycle. When code breaks, the human reads the TRUG to understand what the code was supposed to do. The fix targets the divergence between the TRUG specification and the implementation — a specific, bounded repair rather than a wholesale regeneration.
+
+### 8.2 Security Cost
+
+Security vulnerabilities in Dark Code are invisible. You cannot audit what you cannot read. An LLM may generate code with subtle vulnerabilities — race conditions, injection vectors, cryptographic weaknesses — that pass all tests and all automated scanners.
+
+The TRUG does not eliminate security vulnerabilities. But it makes the attack surface legible. Each node in the TRUG is a component with explicit inputs, outputs, and relationships. Security review becomes: "for each ENDPOINT node, what validates its inputs?" — a graph traversal, not a line-by-line code audit.
+
+### 8.3 Liability Cost
+
+Legal liability for Dark Code is an unresolved question. When autonomously generated code causes harm, the liability chain is unclear. The human approved the PR — but they didn't understand the code. The LLM generated it — but LLM providers disclaim liability for outputs. The company ships it — but no employee wrote it.
+
+TRUGS provides an audit trail: the TRUG specification (what was intended), the TRL comments (what was specified), the validator results (whether specification matched implementation), and the HITM approval records (who approved what, when). This does not resolve the legal question, but it provides the evidence that any resolution would require.
+
+---
+
+## 9. Practical Evidence
+
+### 9.1 Production System
+
+The TRUGS approach is not theoretical. It is deployed in a production development system:
+
+- **repo.trug.json**: 47 nodes, 49 weighted edges mapping an entire monorepo. Every directory, dependency, and relationship is machine-readable.
+- **152 validated TRUGs** across the codebase, each enforced by 16 CORE rules.
+- **PERAGO**: An autonomous code generation platform with 6 specialized agents (SENSUS supervisor + 5 ACTUS workers) that generates code through a 9-phase lifecycle (AAA protocol). Every phase produces TRUG-structured artifacts.
+- **TRUGS_OS**: A VLM-driven desktop automation system with 8,710 lines of code, 251 tests, built through 5 work packages — each with a TRUG-structured plan, TRL-commented code, and validated test matrix.
+- **trugs-folder-check**: Runs in CI on every pull request. 152 .trug.json files validated against 16 CORE rules. Broken TRUGs block merge.
+
+### 9.2 The AAA Protocol
+
+The AAA (Author-Audit-Approve) protocol enforces TRUG-first development:
+
+1. **PLANNING** (phases 1-5): Vision → Feasibility → Specifications → Architecture → Validation. The TRUG is authored before any code is written. Human approves the plan.
+2. **EXECUTION** (phases 6-9): Coding → Testing → Audit → Deployment. Code implements the TRUG. Tests verify the TRUG. Audit checks both code quality and plan compliance. Human approves the result.
+
+Plan compliance auditing — "does the code match the TRUG?" — is the structural mechanism that prevents Dark Code accumulation. Every deliverable traces back to a TRUG node. Every TRUG node traces back to a requirement. The chain is mechanically verifiable.
+
+---
+
+## 10. Limitations
+
+**TRUGS reduces Dark Code; it does not eliminate it.** The implementation between TRL comments can still be opaque. A complex algorithm is still complex. The four-corner square verifies structure and intent, not every line of logic. The claim is legibility of intent, not legibility of implementation.
+
+**TRL has 190 words.** Some domains may need branch extensions. The vocabulary is a closed set; extending it requires formal specification. Counter: 190 words cover computation, data flow, obligations, permissions, and prohibitions — sufficient for most software systems.
+
+**Adoption has a cost.** Developers must learn TRL (190 words) and TRUG structure (7 node fields, 3 edge fields). This is learnable in a day but is a nonzero cost. Counter: the alternative is unbounded Dark Code accumulation with escalating maintenance, security, and liability costs.
+
+**The validator enforces structure, not semantics.** The validator can confirm that a TRL comment compiles to a valid TRUG subgraph. It cannot confirm that the TRL comment accurately describes the code's behavior. Semantic verification remains a human (or AI auditor) responsibility — but the TRL comment gives them something formal to verify against, rather than nothing.
+
+---
+
+## 11. Related Work
+
+**Literate Programming** (Knuth, 1984). Knuth proposed interweaving code and documentation in a single document. TRUGS shares the goal of co-locating intent with implementation but differs in three ways: TRL is formal (not prose), TRL is validated (not advisory), and TRL compiles to a machine-readable graph (not a typeset document).
+
+**Design by Contract** (Meyer, 1986). Preconditions, postconditions, and invariants specify function behavior formally. TRUGS extends this from the function level to the system level: the TRUG graph is a contract for the entire architecture, not just individual functions.
+
+**Controlled Natural Languages** (Kuhn, 2014). CNLs restrict natural language to enable formal interpretation. TRL is a CNL optimized for graph compilation: its 190 words map to nodes, edges, and operations in a TRUG graph. Unlike Attempto or PENG, TRL targets directed graphs rather than first-order logic.
+
+**Model-Driven Development** (UML, SysML, Eclipse Modeling Framework). MDD uses visual models as the primary artifact. TRUGS replaces heavyweight visual modeling with lightweight JSON and formal English. No special tools are required — any text editor works. The TRUG is a text file, not a diagram.
+
+**AI Interpretability** (Christiano et al., 2017; Anthropic interpretability team). The Dark Code problem is an interpretability problem at the code level: understanding what a system does and why. TRUGS provides structural interpretability through the four-corner verification square — the system's intent is explicit, formal, and mechanically verifiable.
+
+---
+
+## 12. Conclusion
+
+Dark Code is the inevitable consequence of LLM-assisted development. Code is generated faster than it can be understood. Existing mitigations — review, documentation, testing, analysis, AI auditing — address symptoms without resolving the structural cause.
+
+The structural cause is the absence of a formal intermediate representation between human intent and machine-generated code. Without such a representation, intent lives in the human's head (or in ambiguous natural language) and code lives in the repository. The gap between them is Dark Code.
+
+TRUGS provides the intermediate representation: a validated JSON graph (TRUG) with formal English annotations (TRL), mechanical consistency validation, and a TRL-annotated test matrix. Together, these form a four-corner verification square where each corner validates against the others. The human reads the TRUG and TRL — not the code. If the formal English makes sense and the validator confirms consistency, the code is understood in intent even if the implementation is complex.
+
+The cost of the TRUG approach is nonzero: a 190-word vocabulary, a 10-field node structure, and the discipline to write specifications before code. The cost of the alternative — unbounded Dark Code accumulation in every LLM-assisted codebase — is structural illegibility, unauditable security, unmaintainable systems, and unresolvable liability.
+
+The four-corner verification square is the minimum viable framework for safe autonomous code generation. As LLMs write more of our code, we must choose: slow down generation, or make generation legible. TRUGS chooses the second path.
+
+---
+
+## References
+
+- Bacchelli, A., & Bird, C. (2013). Expectations, outcomes, and challenges of modern code review. *ICSE*.
+- Christiano, P., et al. (2017). Deep reinforcement learning from human feedback. *NeurIPS*.
+- Knuth, D. (1984). Literate programming. *The Computer Journal*, 27(2).
+- Kuhn, T. (2014). A survey and classification of controlled natural languages. *Computational Linguistics*, 40(1).
+- Meyer, B. (1986). Design by contract. *Technical Report TR-EI-12/CO, ISE*.
+- Sadowski, C., et al. (2018). Modern code review: A case study at Google. *ICSE-SEIP*.
