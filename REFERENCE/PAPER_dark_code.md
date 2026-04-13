@@ -243,9 +243,116 @@ The four corners form a square where each edge is a mechanical validation:
 
 ---
 
-## 5. Worked Example: Shuffling an 8-Deck Shoe
+## 5. How to Code with TRUGS: Outline First, Then Write
 
-### 5.1 The Dark Code Version
+Writing code with TRUGS is like writing a paper. You don't start with the first sentence — you start with the outline. The outline captures the structure: what the major sections are, how they relate, what each one accomplishes. Once the outline is solid, writing the prose is straightforward — you're filling in a skeleton that already makes sense.
+
+TRUG-first development follows the same principle. The TRUG is the outline. The code is the prose.
+
+### 5.1 Start with the Macro Flow
+
+Before writing any code, write the TRUG. The first pass captures the top-level structure: what are the major components, and how does data flow between them?
+
+This is the equivalent of a paper's section headings. You are not thinking about implementation. You are thinking about architecture — the shape of the system.
+
+For the shoe shuffle, the first pass is:
+
+```
+stage_build → stage_shuffle → stage_cut → stage_burn
+```
+
+Four nodes. Three FEEDS edges. This is the entire pipeline at the macro scale. A human reading this knows what the system does without any code, any detail, any implementation. Build a shoe, shuffle it, place the cut card, burn the first card.
+
+Write this as a TRUG:
+
+```json
+{
+  "nodes": [
+    {"id": "stage_build",   "type": "STAGE", "properties": {"order": 1}},
+    {"id": "stage_shuffle", "type": "STAGE", "properties": {"order": 2}},
+    {"id": "stage_cut",     "type": "STAGE", "properties": {"order": 3}},
+    {"id": "stage_burn",    "type": "STAGE", "properties": {"order": 4}}
+  ],
+  "edges": [
+    {"from_id": "stage_build",   "to_id": "stage_shuffle", "relation": "FEEDS"},
+    {"from_id": "stage_shuffle", "to_id": "stage_cut",     "relation": "FEEDS"},
+    {"from_id": "stage_cut",     "to_id": "stage_burn",    "relation": "FEEDS"}
+  ]
+}
+```
+
+This takes two minutes. It forces you to think about the flow before you think about the implementation. Most design mistakes are structural — wrong decomposition, missing stages, tangled dependencies. The TRUG catches these at the outline level, when they are cheap to fix.
+
+### 5.2 Clarify the Dependent Flows
+
+The second pass adds detail to each node. What does `stage_build` actually produce? What invariants does `stage_shuffle` maintain? What are the parameters of `stage_cut`?
+
+This is the equivalent of writing topic sentences for each section of a paper. You are still not writing code. You are specifying what each component does, in TRL:
+
+```json
+{
+  "id": "stage_build",
+  "type": "STAGE",
+  "properties": {
+    "trl": "PROCESS build SHALL DEFINE DATA shoe AS 8 MULTIPLE DATA deck. EACH DATA deck CONTAINS 52 UNIQUE DATA card.",
+    "invariant_card_count": 416,
+    "invariant_per_rank": 32
+  }
+}
+```
+
+```json
+{
+  "id": "stage_shuffle",
+  "type": "STAGE",
+  "properties": {
+    "trl": "PROCESS shuffle SHALL SORT DATA shoe BY RANDOM ONCE. EACH DATA card SHALL EXIST 'at EXACTLY A UNIQUE RECORD position.",
+    "algorithm": "Fisher-Yates (Knuth)"
+  }
+}
+```
+
+Now each node has a TRL specification — a formal English sentence that says exactly what the stage does. The invariants are explicit. The algorithm is named. A human reading the TRUG at this level understands the complete system specification without any code.
+
+If there are dependencies within a stage — sub-steps, helper functions, internal data transformations — add child nodes and edges within the stage. The TRUG hierarchy (parent_id, contains) supports arbitrary nesting. Clarify the dependent flows until every decision point has a TRL specification.
+
+### 5.3 Write the Code as You Write the TRL
+
+Once the TRUG maps the code, writing the implementation is the final step — not the first. Each TRUG node becomes a function. Each node's TRL specification becomes the function's inline comment. The code implements the comment.
+
+The process is simultaneous: write the TRL comment, then write the code that satisfies it.
+
+```python
+# PROCESS build SHALL DEFINE DATA shoe AS 8 MULTIPLE DATA deck.
+# EACH DATA deck CONTAINS 52 UNIQUE DATA card.
+def build_shoe(n_decks: int = 8) -> list[Card]:
+    shoe = [Card(r, s) for _ in range(n_decks) for s in SUITS for r in RANKS]
+    assert len(shoe) == n_decks * 52
+    return shoe
+```
+
+The TRL comment came from the TRUG. The code implements the comment. The assertion enforces the invariant from the TRUG properties. The three artifacts — TRUG node, TRL comment, code — are written in that order and are mechanically traceable.
+
+### 5.4 Why This Order Matters
+
+Writing code first and adding documentation later is how Dark Code is born. The code exists without a specification. The documentation (if it comes at all) describes what the code does — not what it was supposed to do. The gap between intent and implementation is invisible because intent was never recorded.
+
+Writing the TRUG first inverts this:
+
+1. **TRUG** captures intent at the architectural level (what are the pieces, how do they connect)
+2. **TRL** captures intent at the function level (what does each piece do, formally)
+3. **Code** implements the intent (how does it do it)
+4. **Tests** verify the intent (does it actually do it)
+
+At every step, intent precedes implementation. The human reads the intent chain (TRUG → TRL) and trusts the implementation chain (Code → Tests) because both are mechanically validated against the same specification.
+
+This is why TRUG-first development produces legible code where code-first development produces Dark Code. The outline exists before the prose. The specification exists before the implementation. The structure is legible because it was designed to be legible — not reverse-engineered from code that was designed to run.
+
+---
+
+## 6. Worked Example: Shuffling an 8-Deck Shoe
+
+### 6.1 The Dark Code Version
 
 An LLM generates this when asked to shuffle a casino shoe:
 
@@ -275,7 +382,7 @@ But what is missing?
 
 A different LLM editing this later has no idea what invariants matter, what domain conventions apply, or where the boundaries between stages are.
 
-### 5.2 The TRUG Version
+### 6.2 The TRUG Version
 
 #### The TRUG
 
@@ -469,7 +576,7 @@ def test_burn_card():
 
 Every test states its intent in TRL. A human reading only the comments sees: build (3 invariants), shuffle (3 properties: preservation, reordering, uniformity), cut (range), burn (count + identity). Coverage gaps are visible by comparing test TRL to TRUG stages.
 
-### 5.3 Comparison
+### 6.3 Comparison
 
 | Aspect | Dark Version | TRUG Version |
 |---|---|---|
@@ -485,9 +592,9 @@ The Dark version is 8 lines. The TRUG version is more code. But the Dark version
 
 ---
 
-## 6. The Test Matrix: From Dark Tests to Verified Coverage
+## 7. The Test Matrix: From Dark Tests to Verified Coverage
 
-### 6.1 The Dark Test Problem
+### 7.1 The Dark Test Problem
 
 Tests are the last line of defense — but they are also the most dangerous vector for false confidence. When an LLM generates tests alongside code:
 
@@ -498,7 +605,7 @@ Tests are the last line of defense — but they are also the most dangerous vect
 
 A test suite with 100% coverage and all green is not evidence of understanding. It is evidence that the LLM's code is consistent with the LLM's tests. This is tautological, not informative.
 
-### 6.2 TRL-Commented Tests
+### 7.2 TRL-Commented Tests
 
 Adding a TRL comment to every test function breaks the tautology:
 
@@ -513,7 +620,7 @@ The TRL comment is a claim about what the test verifies. A human reading the com
 
 A test without a TRL comment is a dark test. A test with a TRL comment that doesn't match the implementation is a broken test. Both are mechanically detectable.
 
-### 6.3 The Test Matrix as TRUG
+### 7.3 The Test Matrix as TRUG
 
 When the test matrix is itself a TRUG graph, verification becomes structural:
 
@@ -526,7 +633,7 @@ When the test matrix is itself a TRUG graph, verification becomes structural:
 
 ---
 
-## 7. The Self-Referential Problem
+## 8. The Self-Referential Problem
 
 In an autogenous system — a system that builds itself — Dark Code compounds across layers. The system generates code that generates code. Each layer is potentially darker than the last.
 
@@ -544,21 +651,21 @@ This is the structural argument for TRUG-first development in autonomous systems
 
 ---
 
-## 8. The Economics of Dark Code
+## 9. The Economics of Dark Code
 
-### 8.1 Maintenance Cost
+### 9.1 Maintenance Cost
 
 Dark Code maintenance costs more than understood code because the fix cycle is: regenerate, not repair. When code breaks and nobody understands it, the response is to ask the LLM to rewrite it. The rewrite produces new Dark Code. The system accumulates layers of regenerated Dark Code, each overwriting the last, with no human understanding at any point.
 
 TRUGS breaks this cycle. When code breaks, the human reads the TRUG to understand what the code was supposed to do. The fix targets the divergence between the TRUG specification and the implementation — a specific, bounded repair rather than a wholesale regeneration.
 
-### 8.2 Security Cost
+### 9.2 Security Cost
 
 Security vulnerabilities in Dark Code are invisible. You cannot audit what you cannot read. An LLM may generate code with subtle vulnerabilities — race conditions, injection vectors, cryptographic weaknesses — that pass all tests and all automated scanners.
 
 The TRUG does not eliminate security vulnerabilities. But it makes the attack surface legible. Each node in the TRUG is a component with explicit inputs, outputs, and relationships. Security review becomes: "for each ENDPOINT node, what validates its inputs?" — a graph traversal, not a line-by-line code audit.
 
-### 8.3 Liability Cost
+### 9.3 Liability Cost
 
 Legal liability for Dark Code is an unresolved question. When autonomously generated code causes harm, the liability chain is unclear. The human approved the PR — but they didn't understand the code. The LLM generated it — but LLM providers disclaim liability for outputs. The company ships it — but no employee wrote it.
 
@@ -566,9 +673,9 @@ TRUGS provides an audit trail: the TRUG specification (what was intended), the T
 
 ---
 
-## 9. Practical Evidence
+## 10. Practical Evidence
 
-### 9.1 Production System
+### 10.1 Production System
 
 The TRUGS approach is not theoretical. It is deployed in a production development system:
 
@@ -578,7 +685,7 @@ The TRUGS approach is not theoretical. It is deployed in a production developmen
 - **TRUGS_OS**: A VLM-driven desktop automation system with 8,710 lines of code, 251 tests, built through 5 work packages — each with a TRUG-structured plan, TRL-commented code, and validated test matrix.
 - **trugs-folder-check**: Runs in CI on every pull request. 152 .trug.json files validated against 16 CORE rules. Broken TRUGs block merge.
 
-### 9.2 The AAA Protocol
+### 10.2 The AAA Protocol
 
 The AAA (Author-Audit-Approve) protocol enforces TRUG-first development:
 
@@ -589,7 +696,7 @@ Plan compliance auditing — "does the code match the TRUG?" — is the structur
 
 ---
 
-## 10. Limitations
+## 11. Limitations
 
 **TRUGS reduces Dark Code; it does not eliminate it.** The implementation between TRL comments can still be opaque. A complex algorithm is still complex. The four-corner square verifies structure and intent, not every line of logic. The claim is legibility of intent, not legibility of implementation.
 
@@ -601,7 +708,7 @@ Plan compliance auditing — "does the code match the TRUG?" — is the structur
 
 ---
 
-## 11. Related Work
+## 12. Related Work
 
 **Literate Programming** (Knuth, 1984). Knuth proposed interweaving code and documentation in a single document. TRUGS shares the goal of co-locating intent with implementation but differs in three ways: TRL is formal (not prose), TRL is validated (not advisory), and TRL compiles to a machine-readable graph (not a typeset document).
 
@@ -615,7 +722,7 @@ Plan compliance auditing — "does the code match the TRUG?" — is the structur
 
 ---
 
-## 12. Conclusion
+## 13. Conclusion
 
 Dark Code is the inevitable consequence of LLM-assisted development. Code is generated faster than it can be understood. Existing mitigations — review, documentation, testing, analysis, AI auditing — address symptoms without resolving the structural cause.
 
