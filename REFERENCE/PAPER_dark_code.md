@@ -249,7 +249,39 @@ Writing code with TRUGS is like writing a paper. You don't start with the first 
 
 TRUG-first development follows the same principle. The TRUG is the outline. The code is the prose.
 
-### 5.1 Start with the Macro Flow
+We demonstrate this with a concrete example: shuffling an 8-deck casino shoe. We chose this problem because it is universally understood (everyone knows what shuffling a deck of cards means), short enough to fit in a paper, yet complicated enough to reveal the Dark Code problem. A casino shoe has domain conventions (cut cards, burn cards, specific deck counts) that are invisible in naive implementations and critical for correctness.
+
+### 5.1 What Dark Code Looks Like
+
+Before showing the TRUG approach, consider what an LLM produces when asked to shuffle a casino shoe:
+
+```python
+import random
+
+def shuffle_shoe(n_decks=8):
+    suits = ['H', 'D', 'C', 'S']
+    ranks = ['A'] + [str(i) for i in range(2, 11)] + ['J', 'Q', 'K']
+    shoe = [(r, s) for _ in range(n_decks) for s in suits for r in ranks]
+    for i in range(len(shoe) - 1, 0, -1):
+        j = random.randint(0, i)
+        shoe[i], shoe[j] = shoe[j], shoe[i]
+    return shoe
+```
+
+This is 8 lines. It compiles. It probably works. A human reads it and thinks: "Looks like Fisher-Yates, tests pass, merge."
+
+But what is missing?
+
+- The algorithm is unnamed. You recognize Fisher-Yates or you don't.
+- No invariant assertions. Is the shoe 416 cards? Are there 32 of each rank?
+- No cut card. In a real casino shoe, a cut card is placed 60-80 cards from the end to determine when to reshuffle.
+- No burn card. The first card is dealt face-down and discarded.
+- The RNG is unseeded. Tests are not reproducible.
+- The function does everything in one block. Build, shuffle, cut, and burn are conflated into a single function with no separation of concerns.
+
+A different LLM editing this later has no idea what invariants matter, what domain conventions apply, or where the boundaries between stages are. This is Dark Code — correct code that nobody can maintain, audit, or extend with confidence.
+
+### 5.2 Step 1: Write the TRUG — The Macro Flow
 
 Before writing any code, write the TRUG. The first pass captures the top-level structure: what are the major components, and how does data flow between them?
 
@@ -283,7 +315,9 @@ Write this as a TRUG:
 
 This takes two minutes. It forces you to think about the flow before you think about the implementation. Most design mistakes are structural — wrong decomposition, missing stages, tangled dependencies. The TRUG catches these at the outline level, when they are cheap to fix.
 
-### 5.2 Clarify the Dependent Flows
+Notice what the outline already reveals that the Dark Code version hides: there are four stages, not one. The cut card and burn card are explicit stages, not afterthoughts. The data flows in one direction. A human reviewing this outline can immediately ask: "Where does the cut card go? What are the invariants?" — questions that are invisible in the 8-line Dark Code version.
+
+### 5.3 Step 2: Clarify the Dependent Flows
 
 The second pass adds detail to each node. What does `stage_build` actually produce? What invariants does `stage_shuffle` maintain? What are the parameters of `stage_cut`?
 
@@ -296,7 +330,8 @@ This is the equivalent of writing topic sentences for each section of a paper. Y
   "properties": {
     "trl": "PROCESS build SHALL DEFINE DATA shoe AS 8 MULTIPLE DATA deck. EACH DATA deck CONTAINS 52 UNIQUE DATA card.",
     "invariant_card_count": 416,
-    "invariant_per_rank": 32
+    "invariant_per_rank": 32,
+    "invariant_per_suit": 104
   }
 }
 ```
@@ -312,157 +347,47 @@ This is the equivalent of writing topic sentences for each section of a paper. Y
 }
 ```
 
-Now each node has a TRL specification — a formal English sentence that says exactly what the stage does. The invariants are explicit. The algorithm is named. A human reading the TRUG at this level understands the complete system specification without any code.
-
-If there are dependencies within a stage — sub-steps, helper functions, internal data transformations — add child nodes and edges within the stage. The TRUG hierarchy (parent_id, contains) supports arbitrary nesting. Clarify the dependent flows until every decision point has a TRL specification.
-
-### 5.3 Write the Code as You Write the TRL
-
-Once the TRUG maps the code, writing the implementation is the final step — not the first. Each TRUG node becomes a function. Each node's TRL specification becomes the function's inline comment. The code implements the comment.
-
-The process is simultaneous: write the TRL comment, then write the code that satisfies it.
-
-```python
-# PROCESS build SHALL DEFINE DATA shoe AS 8 MULTIPLE DATA deck.
-# EACH DATA deck CONTAINS 52 UNIQUE DATA card.
-def build_shoe(n_decks: int = 8) -> list[Card]:
-    shoe = [Card(r, s) for _ in range(n_decks) for s in SUITS for r in RANKS]
-    assert len(shoe) == n_decks * 52
-    return shoe
-```
-
-The TRL comment came from the TRUG. The code implements the comment. The assertion enforces the invariant from the TRUG properties. The three artifacts — TRUG node, TRL comment, code — are written in that order and are mechanically traceable.
-
-### 5.4 Why This Order Matters
-
-Writing code first and adding documentation later is how Dark Code is born. The code exists without a specification. The documentation (if it comes at all) describes what the code does — not what it was supposed to do. The gap between intent and implementation is invisible because intent was never recorded.
-
-Writing the TRUG first inverts this:
-
-1. **TRUG** captures intent at the architectural level (what are the pieces, how do they connect)
-2. **TRL** captures intent at the function level (what does each piece do, formally)
-3. **Code** implements the intent (how does it do it)
-4. **Tests** verify the intent (does it actually do it)
-
-At every step, intent precedes implementation. The human reads the intent chain (TRUG → TRL) and trusts the implementation chain (Code → Tests) because both are mechanically validated against the same specification.
-
-This is why TRUG-first development produces legible code where code-first development produces Dark Code. The outline exists before the prose. The specification exists before the implementation. The structure is legible because it was designed to be legible — not reverse-engineered from code that was designed to run.
-
----
-
-## 6. Worked Example: Shuffling an 8-Deck Shoe
-
-### 6.1 The Dark Code Version
-
-An LLM generates this when asked to shuffle a casino shoe:
-
-```python
-import random
-
-def shuffle_shoe(n_decks=8):
-    suits = ['H', 'D', 'C', 'S']
-    ranks = ['A'] + [str(i) for i in range(2, 11)] + ['J', 'Q', 'K']
-    shoe = [(r, s) for _ in range(n_decks) for s in suits for r in ranks]
-    for i in range(len(shoe) - 1, 0, -1):
-        j = random.randint(0, i)
-        shoe[i], shoe[j] = shoe[j], shoe[i]
-    return shoe
-```
-
-This is 8 lines. It compiles. It probably works. A human reads it and thinks: "Looks like Fisher-Yates, tests pass, merge."
-
-But what is missing?
-
-- The algorithm is unnamed. You recognize Fisher-Yates or you don't.
-- No invariant assertions. Is the shoe 416 cards? Are there 32 of each rank?
-- No cut card. In a real casino shoe, a cut card is placed 60-80 cards from the end to determine when to reshuffle.
-- No burn card. The first card is dealt face-down and discarded.
-- The RNG is unseeded. Tests are not reproducible.
-- The function does everything in one block. Build, shuffle, cut, and burn are conflated.
-
-A different LLM editing this later has no idea what invariants matter, what domain conventions apply, or where the boundaries between stages are.
-
-### 6.2 The TRUG Version
-
-#### The TRUG
-
 ```json
 {
-  "name": "8-Deck Shoe Shuffle",
-  "version": "1.0.0",
-  "type": "PIPELINE",
-  "nodes": [
-    {
-      "id": "shoe",
-      "type": "DATA",
-      "properties": {
-        "invariant_card_count": 416,
-        "invariant_per_rank": 32,
-        "invariant_per_suit": 104
-      },
-      "parent_id": null,
-      "contains": ["stage_build", "stage_shuffle", "stage_cut", "stage_burn"],
-      "metric_level": "DEKA_PIPELINE",
-      "dimension": "shuffle"
-    },
-    {
-      "id": "stage_build",
-      "type": "STAGE",
-      "properties": {
-        "order": 1,
-        "trl": "PROCESS build SHALL DEFINE DATA shoe AS 8 MULTIPLE DATA deck. EACH DATA deck CONTAINS 52 UNIQUE DATA card."
-      },
-      "parent_id": "shoe", "contains": [], "metric_level": "BASE_STAGE", "dimension": "shuffle"
-    },
-    {
-      "id": "stage_shuffle",
-      "type": "STAGE",
-      "properties": {
-        "order": 2,
-        "algorithm": "Fisher-Yates (Knuth)",
-        "trl": "PROCESS shuffle SHALL SORT DATA shoe BY RANDOM ONCE. EACH DATA card SHALL EXIST 'at EXACTLY A UNIQUE RECORD position."
-      },
-      "parent_id": "shoe", "contains": [], "metric_level": "BASE_STAGE", "dimension": "shuffle"
-    },
-    {
-      "id": "stage_cut",
-      "type": "STAGE",
-      "properties": {
-        "order": 3,
-        "cut_range_from_end": [60, 80],
-        "trl": "PROCESS cut SHALL SPLIT DATA shoe 'at RECORD position BETWEEN 336 AND 356."
-      },
-      "parent_id": "shoe", "contains": [], "metric_level": "BASE_STAGE", "dimension": "shuffle"
-    },
-    {
-      "id": "stage_burn",
-      "type": "STAGE",
-      "properties": {
-        "order": 4,
-        "trl": "PROCESS burn SHALL TAKE 1 DATA card FROM ENTRY shoe THEN WRITE RESULT TO DATA discard."
-      },
-      "parent_id": "shoe", "contains": [], "metric_level": "BASE_STAGE", "dimension": "shuffle"
-    }
-  ],
-  "edges": [
-    {"from_id": "stage_build", "to_id": "stage_shuffle", "relation": "FEEDS"},
-    {"from_id": "stage_shuffle", "to_id": "stage_cut", "relation": "FEEDS"},
-    {"from_id": "stage_cut", "to_id": "stage_burn", "relation": "FEEDS"}
-  ]
+  "id": "stage_cut",
+  "type": "STAGE",
+  "properties": {
+    "trl": "PROCESS cut SHALL SPLIT DATA shoe 'at RECORD position BETWEEN 336 AND 356.",
+    "cut_range_from_end": [60, 80]
+  }
 }
 ```
 
-The TRUG makes the architecture explicit: 4 stages, 3 invariants, a named algorithm, a specified cut range. Any agent or human reading this graph knows exactly what the system does without reading the code.
+```json
+{
+  "id": "stage_burn",
+  "type": "STAGE",
+  "properties": {
+    "trl": "PROCESS burn SHALL TAKE 1 DATA card FROM ENTRY shoe THEN WRITE RESULT TO DATA discard."
+  }
+}
+```
 
-#### TRL-Commented Code
+Now each node has a TRL specification — a formal English sentence that says exactly what the stage does. The invariants are explicit. The algorithm is named. The cut card range is specified. A human reading the TRUG at this level understands the complete system specification without any code.
+
+If there are dependencies within a stage — sub-steps, helper functions, internal data transformations — add child nodes and edges within the stage. The TRUG hierarchy (parent_id, contains) supports arbitrary nesting. Clarify the dependent flows until every decision point has a TRL specification.
+
+### 5.4 Step 3: Write the Code as You Write the TRL
+
+Once the TRUG maps the code, writing the implementation is the final step — not the first. Each TRUG node becomes a function. Each node's TRL specification becomes the function's inline comment. The code implements the comment.
+
+The process is simultaneous: write the TRL comment, then write the code that satisfies it. TRL comments appear at two levels — **function-level comments** state what the function does (from the TRUG node's TRL property), and **inline comments** annotate the logic within the function so that every significant line is readable:
 
 ```python
 import random
 from dataclasses import dataclass
 
+# DEFINE DATA suit AS 4 UNIQUE STRING.
 SUITS = ('H', 'D', 'C', 'S')
+# DEFINE DATA rank AS 13 UNIQUE STRING.
 RANKS = ('A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K')
 
+# DEFINE DATA card AS RECORD CONTAINS RECORD rank AND RECORD suit.
 @dataclass(frozen=True)
 class Card:
     rank: str
@@ -471,7 +396,9 @@ class Card:
 # PROCESS build SHALL DEFINE DATA shoe AS 8 MULTIPLE DATA deck.
 # EACH DATA deck CONTAINS 52 UNIQUE DATA card.
 def build_shoe(n_decks: int = 8) -> list[Card]:
+    # MAP EACH DATA deck TO ALL DATA card — 8 decks × 4 suits × 13 ranks
     shoe = [Card(r, s) for _ in range(n_decks) for s in SUITS for r in RANKS]
+    # ASSERT RECORD invariant_card_count — shoe SHALL CONTAIN n_decks × 52 DATA card
     assert len(shoe) == n_decks * 52
     return shoe
 
@@ -480,10 +407,13 @@ def build_shoe(n_decks: int = 8) -> list[Card]:
 # RESULT SHALL CONTAIN 416 DATA card.
 def shuffle_shoe(shoe: list[Card], rng: random.Random | None = None) -> list[Card]:
     rng = rng or random.Random()
+    # PROCESS copy — SHALL_NOT MODIFY SOURCE DATA shoe
     shuffled = shoe.copy()
+    # Fisher-Yates: EACH RECORD position RECEIVES A RANDOM DATA card FROM REMAINING
     for i in range(len(shuffled) - 1, 0, -1):
-        j = rng.randint(0, i)
-        shuffled[i], shuffled[j] = shuffled[j], shuffled[i]
+        j = rng.randint(0, i)  # RANDOM INTEGER BETWEEN 0 AND i INCLUSIVE
+        shuffled[i], shuffled[j] = shuffled[j], shuffled[i]  # SWAP positions i AND j
+    # ASSERT RECORD invariant — NO DATA card ADDED OR REMOVED
     assert len(shuffled) == len(shoe)
     return shuffled
 
@@ -492,18 +422,31 @@ def shuffle_shoe(shoe: list[Card], rng: random.Random | None = None) -> list[Car
 def place_cut_card(shoe: list[Card], rng: random.Random | None = None,
                    cut_range: tuple[int, int] = (60, 80)) -> int:
     rng = rng or random.Random()
+    # RANDOM INTEGER cards FROM ENTRY end — dealer places cut card 60-80 from back
     cards_from_end = rng.randint(cut_range[0], cut_range[1])
+    # RESULT 'is RECORD position — cards AFTER THIS POSITION SHALL_NOT 'be DEALT
     return len(shoe) - cards_from_end
 
 # PROCESS burn SHALL TAKE 1 DATA card FROM ENTRY shoe
 # THEN WRITE RESULT TO DATA discard.
 def burn_card(shoe: list[Card]) -> tuple[list[Card], Card]:
+    # TAKE ENTRY card — first card dealt face-down, not played
     return shoe[1:], shoe[0]
 ```
 
-Every function has a TRL comment. The shuffle algorithm is named. Invariants are asserted. The RNG is injectable. Build, shuffle, cut, and burn are separate functions matching the TRUG stages.
+Notice the two levels of TRL commenting:
 
-#### TRL-Commented Tests
+1. **Function-level** (above the `def`): States the function's purpose, directly from the TRUG node's TRL property. This is the specification — what the function SHALL do.
+
+2. **Inline** (within the function): Annotates the implementation logic so that every significant line has a formal explanation. `# Fisher-Yates: EACH RECORD position RECEIVES A RANDOM DATA card FROM REMAINING` tells the reader both the algorithm name and what the line accomplishes in TRL vocabulary.
+
+A human reading this code can follow the logic at two speeds: skim the function-level TRL to understand the pipeline, or read the inline TRL to understand every step. An LLM modifying this code has formal specifications at both levels — it knows what the function must do and why each line exists.
+
+The TRL comment came from the TRUG. The code implements the comment. The assertions enforce the invariants from the TRUG properties. The three artifacts — TRUG node, TRL comment, code — are written in that order and are mechanically traceable.
+
+### 5.5 Step 4: Write TRL-Commented Tests
+
+The same principle applies to tests. Each test gets a TRL comment stating what it verifies — not in natural language ("test shuffle works") but in formal English that names the specific invariant or property being validated:
 
 ```python
 # AGENT SHALL VALIDATE STAGE build SUBJECT_TO RECORD invariant_card_count.
@@ -518,6 +461,7 @@ def test_build_shoe_rank_distribution():
     shoe = build_shoe(8)
     from collections import Counter
     rank_counts = Counter(c.rank for c in shoe)
+    # ASSERT EACH RECORD rank — 8 decks × 4 suits = 32 of each rank
     assert all(count == 32 for count in rank_counts.values())
 
 # AGENT SHALL VALIDATE STAGE build SUBJECT_TO RECORD invariant_per_suit.
@@ -526,6 +470,7 @@ def test_build_shoe_suit_distribution():
     shoe = build_shoe(8)
     from collections import Counter
     suit_counts = Counter(c.suit for c in shoe)
+    # ASSERT EACH RECORD suit — 8 decks × 13 ranks = 104 of each suit
     assert all(count == 104 for count in suit_counts.values())
 
 # AGENT SHALL VALIDATE STAGE shuffle — RESULT SHALL CONTAIN ALL DATA card.
@@ -534,26 +479,31 @@ def test_shuffle_preserves_cards():
     rng = random.Random(42)
     shoe = build_shoe(8)
     shuffled = shuffle_shoe(shoe, rng)
+    # SORT both BY suit AND rank — ASSERT identical multisets
     assert sorted(shuffled, key=lambda c: (c.suit, c.rank)) == \
            sorted(shoe, key=lambda c: (c.suit, c.rank))
 
 # AGENT SHALL VALIDATE STAGE shuffle — RESULT SHALL_NOT EQUAL DATA shoe.
+# PROCESS shuffle SHALL SORT DATA shoe BY RANDOM (not identity).
 def test_shuffle_changes_order():
     rng = random.Random(42)
     shoe = build_shoe(8)
     shuffled = shuffle_shoe(shoe, rng)
+    # ASSERT shuffled order DIFFERS — probability of identity is ~1/416!
     assert shuffled != shoe
 
 # AGENT SHALL VALIDATE STAGE shuffle — PROCESS shuffle SHALL 'be UNIFORM.
 # EACH RECORD position SHALL RECEIVE EACH DATA card 'with EQUAL RECORD probability.
 def test_shuffle_uniformity():
+    """Statistical test: 10,000 shuffles, verify first-position distribution."""
     rng = random.Random(42)
-    shoe = build_shoe(1)
+    shoe = build_shoe(1)  # single deck for tractability
     first_card_counts = {}
     for _ in range(10_000):
         shuffled = shuffle_shoe(shoe, rng)
         first_card_counts[shuffled[0]] = first_card_counts.get(shuffled[0], 0) + 1
     expected = 10_000 / 52
+    # ASSERT NO DATA card EXCEEDS 2.5× expected frequency — chi-squared proxy
     assert all(count < expected * 2.5 for count in first_card_counts.values())
 
 # AGENT SHALL VALIDATE STAGE cut — RECORD cut_position BETWEEN 336 AND 356.
@@ -562,7 +512,8 @@ def test_cut_card_range():
     shoe = build_shoe(8)
     for _ in range(100):
         pos = place_cut_card(shoe, rng)
-        assert 336 <= pos <= 356
+        # ASSERT position — 416 - 80 = 336 to 416 - 60 = 356
+        assert 336 <= pos <= 356, f"Cut at {pos}, expected 336-356"
 
 # AGENT SHALL VALIDATE STAGE burn — RESULT SHALL CONTAIN 415 DATA card.
 # DATA burned SHALL EQUAL ENTRY card 'of DATA shoe.
@@ -570,31 +521,52 @@ def test_burn_card():
     shoe = build_shoe(8)
     shuffled = shuffle_shoe(shoe, random.Random(42))
     remaining, burned = burn_card(shuffled)
+    # ASSERT card count — 416 minus 1 burned = 415
     assert len(remaining) == 415
+    # ASSERT burned card identity — SHALL EQUAL first card of shuffled shoe
     assert burned == shuffled[0]
 ```
 
-Every test states its intent in TRL. A human reading only the comments sees: build (3 invariants), shuffle (3 properties: preservation, reordering, uniformity), cut (range), burn (count + identity). Coverage gaps are visible by comparing test TRL to TRUG stages.
+A human reading only the TRL comments sees the complete test matrix: build (3 invariants: card count, rank distribution, suit distribution), shuffle (3 properties: card preservation, order change, uniformity), cut (position range), burn (count + identity). Coverage gaps are visible by comparing test TRL to TRUG stages — every stage has at least one test, every invariant has an assertion.
 
-### 6.3 Comparison
+### 5.6 Why This Order Matters
 
-| Aspect | Dark Version | TRUG Version |
+Writing code first and adding documentation later is how Dark Code is born. The code exists without a specification. The documentation (if it comes at all) describes what the code does — not what it was supposed to do. The gap between intent and implementation is invisible because intent was never recorded.
+
+Writing the TRUG first inverts this:
+
+1. **TRUG** captures intent at the architectural level (what are the pieces, how do they connect)
+2. **TRL** captures intent at the function level (what does each piece do, formally)
+3. **TRL inline** captures intent at the line level (why does each line exist)
+4. **Code** implements the intent (how does it do it)
+5. **Tests with TRL** verify the intent (does it actually do it, and which invariant does each test check)
+
+At every step, intent precedes implementation. The human reads the intent chain (TRUG → TRL → inline TRL) and trusts the implementation chain (Code → Tests) because both are mechanically validated against the same specification.
+
+### 5.7 The Complete Comparison
+
+| Aspect | Dark Version (8 lines) | TRUG Version |
 |---|---|---|
-| Card count invariant | Implicit | Explicit in TRUG, asserted in code |
-| Algorithm identity | Unnamed | Named: Fisher-Yates in TRUG and comment |
-| Cut card | Not implemented | Stage in TRUG, function in code, range specified |
-| Burn card | Not implemented | Stage in TRUG, function in code |
+| Card count invariant | Implicit (count the loop) | Explicit in TRUG properties, asserted in code, tested |
+| Algorithm identity | Unnamed | Named: "Fisher-Yates (Knuth)" in TRUG, comment, and inline |
+| Cut card | Not implemented | TRUG stage, function, range specified, tested |
+| Burn card | Not implemented | TRUG stage, function, tested |
 | Reproducibility | Unseeded `random.randint` | Injectable `rng` parameter |
-| Test intent | "test_shuffle works" | Each test states exactly what invariant it verifies |
-| Next developer | Reads code, guesses intent | Reads TRUG, understands pipeline |
+| Function-level intent | None | TRL comment on every function |
+| Line-level intent | None | TRL inline comment on every significant line |
+| Test intent | "test_shuffle works" | Each test names the specific invariant it verifies |
+| Test coverage visibility | Unknown | TRUG stages map to tests; gaps are visible |
+| Next developer | Reads code, guesses intent | Reads TRUG, understands pipeline; reads TRL, understands every line |
 
-The Dark version is 8 lines. The TRUG version is more code. But the Dark version is a liability — every future interaction with it requires re-understanding. The TRUG version is an asset — the understanding is embedded in the structure and never decays.
+The Dark version is 8 lines and a liability — every future interaction with it requires re-understanding. The TRUG version is more code and an asset — the understanding is embedded in the structure at three levels (architecture, function, line) and never decays.
+
+This is why TRUG-first development produces legible code where code-first development produces Dark Code. The outline exists before the prose. The specification exists before the implementation. The structure is legible because it was designed to be legible — not reverse-engineered from code that was designed to run.
 
 ---
 
-## 7. The Test Matrix: From Dark Tests to Verified Coverage
+## 6. The Test Matrix: From Dark Tests to Verified Coverage
 
-### 7.1 The Dark Test Problem
+### 6.1 The Dark Test Problem
 
 Tests are the last line of defense — but they are also the most dangerous vector for false confidence. When an LLM generates tests alongside code:
 
@@ -605,7 +577,7 @@ Tests are the last line of defense — but they are also the most dangerous vect
 
 A test suite with 100% coverage and all green is not evidence of understanding. It is evidence that the LLM's code is consistent with the LLM's tests. This is tautological, not informative.
 
-### 7.2 TRL-Commented Tests
+### 6.2 TRL-Commented Tests
 
 Adding a TRL comment to every test function breaks the tautology:
 
@@ -620,7 +592,7 @@ The TRL comment is a claim about what the test verifies. A human reading the com
 
 A test without a TRL comment is a dark test. A test with a TRL comment that doesn't match the implementation is a broken test. Both are mechanically detectable.
 
-### 7.3 The Test Matrix as TRUG
+### 6.3 The Test Matrix as TRUG
 
 When the test matrix is itself a TRUG graph, verification becomes structural:
 
@@ -633,7 +605,7 @@ When the test matrix is itself a TRUG graph, verification becomes structural:
 
 ---
 
-## 8. The Self-Referential Problem
+## 7. The Self-Referential Problem
 
 In an autogenous system — a system that builds itself — Dark Code compounds across layers. The system generates code that generates code. Each layer is potentially darker than the last.
 
@@ -651,21 +623,21 @@ This is the structural argument for TRUG-first development in autonomous systems
 
 ---
 
-## 9. The Economics of Dark Code
+## 8. The Economics of Dark Code
 
-### 9.1 Maintenance Cost
+### 8.1 Maintenance Cost
 
 Dark Code maintenance costs more than understood code because the fix cycle is: regenerate, not repair. When code breaks and nobody understands it, the response is to ask the LLM to rewrite it. The rewrite produces new Dark Code. The system accumulates layers of regenerated Dark Code, each overwriting the last, with no human understanding at any point.
 
 TRUGS breaks this cycle. When code breaks, the human reads the TRUG to understand what the code was supposed to do. The fix targets the divergence between the TRUG specification and the implementation — a specific, bounded repair rather than a wholesale regeneration.
 
-### 9.2 Security Cost
+### 8.2 Security Cost
 
 Security vulnerabilities in Dark Code are invisible. You cannot audit what you cannot read. An LLM may generate code with subtle vulnerabilities — race conditions, injection vectors, cryptographic weaknesses — that pass all tests and all automated scanners.
 
 The TRUG does not eliminate security vulnerabilities. But it makes the attack surface legible. Each node in the TRUG is a component with explicit inputs, outputs, and relationships. Security review becomes: "for each ENDPOINT node, what validates its inputs?" — a graph traversal, not a line-by-line code audit.
 
-### 9.3 Liability Cost
+### 8.3 Liability Cost
 
 Legal liability for Dark Code is an unresolved question. When autonomously generated code causes harm, the liability chain is unclear. The human approved the PR — but they didn't understand the code. The LLM generated it — but LLM providers disclaim liability for outputs. The company ships it — but no employee wrote it.
 
@@ -673,9 +645,9 @@ TRUGS provides an audit trail: the TRUG specification (what was intended), the T
 
 ---
 
-## 10. Practical Evidence
+## 9. Practical Evidence
 
-### 10.1 Production System
+### 9.1 Production System
 
 The TRUGS approach is not theoretical. It is deployed in a production development system:
 
@@ -685,7 +657,7 @@ The TRUGS approach is not theoretical. It is deployed in a production developmen
 - **TRUGS_OS**: A VLM-driven desktop automation system with 8,710 lines of code, 251 tests, built through 5 work packages — each with a TRUG-structured plan, TRL-commented code, and validated test matrix.
 - **trugs-folder-check**: Runs in CI on every pull request. 152 .trug.json files validated against 16 CORE rules. Broken TRUGs block merge.
 
-### 10.2 The AAA Protocol
+### 9.2 The AAA Protocol
 
 The AAA (Author-Audit-Approve) protocol enforces TRUG-first development:
 
@@ -696,7 +668,7 @@ Plan compliance auditing — "does the code match the TRUG?" — is the structur
 
 ---
 
-## 11. Limitations
+## 10. Limitations
 
 **TRUGS reduces Dark Code; it does not eliminate it.** The implementation between TRL comments can still be opaque. A complex algorithm is still complex. The four-corner square verifies structure and intent, not every line of logic. The claim is legibility of intent, not legibility of implementation.
 
@@ -708,7 +680,7 @@ Plan compliance auditing — "does the code match the TRUG?" — is the structur
 
 ---
 
-## 12. Related Work
+## 11. Related Work
 
 **Literate Programming** (Knuth, 1984). Knuth proposed interweaving code and documentation in a single document. TRUGS shares the goal of co-locating intent with implementation but differs in three ways: TRL is formal (not prose), TRL is validated (not advisory), and TRL compiles to a machine-readable graph (not a typeset document).
 
@@ -722,7 +694,7 @@ Plan compliance auditing — "does the code match the TRUG?" — is the structur
 
 ---
 
-## 13. Conclusion
+## 12. Conclusion
 
 Dark Code is the inevitable consequence of LLM-assisted development. Code is generated faster than it can be understood. Existing mitigations — review, documentation, testing, analysis, AI auditing — address symptoms without resolving the structural cause.
 
@@ -730,9 +702,43 @@ The structural cause is the absence of a formal intermediate representation betw
 
 TRUGS provides the intermediate representation: a validated JSON graph (TRUG) with formal English annotations (TRL), mechanical consistency validation, and a TRL-annotated test matrix. Together, these form a four-corner verification square where each corner validates against the others. The human reads the TRUG and TRL — not the code. If the formal English makes sense and the validator confirms consistency, the code is understood in intent even if the implementation is complex.
 
+### 12.1 TRUGS as a Development Framework for LLMs
+
+The value of TRUGS extends beyond reducing Dark Code for human readers. The TRUG and TRL also serve as a **supporting framework for the LLM itself** — both when generating code initially and when returning to modify it later.
+
+When an LLM generates code without a TRUG, it works from a natural language prompt and its training distribution. The output is statistically likely to be correct but carries no structural guarantee that the code matches the user's intent, maintains domain invariants, or preserves the design decisions of the existing codebase. Each generation is independent — the LLM has no memory of why the code was written this way.
+
+When an LLM generates code with a TRUG, the situation is fundamentally different:
+
+**During initial development**, the TRUG constrains the LLM's output. The LLM is not generating code from a vague prompt — it is implementing a validated graph with formal TRL specifications at every node. Each function has a stated purpose. Each invariant is explicit. The LLM's task shifts from "write code that probably does what the user means" to "implement this specific TRL specification." The specification is unambiguous (190 words, each with one meaning), so the LLM's output is verifiable against a formal target rather than a fuzzy intent.
+
+**During future modifications**, the TRUG serves as the context that the LLM otherwise lacks. When a different LLM (or the same LLM in a new session) returns to modify the code, it reads:
+
+1. **The TRUG graph** — the architecture of the system, all components and their relationships. The LLM immediately knows what exists, what depends on what, and where the boundaries are.
+2. **The function-level TRL comments** — what each function is supposed to do, formally. The LLM knows the specification before it reads the implementation.
+3. **The inline TRL comments** — why each line exists. The LLM can distinguish between lines that are load-bearing (they satisfy a TRL specification) and lines that are incidental (implementation details that could change).
+4. **The test TRL comments** — what each test verifies. The LLM knows which invariants are enforced and can ensure modifications don't break them.
+
+This means the LLM can make targeted changes rather than wholesale regeneration. Consider our shoe shuffle example: if the requirement changes from an 8-deck shoe to a 6-deck shoe, the LLM reads the TRUG node (`invariant_card_count: 416`) and the TRL (`PROCESS build SHALL DEFINE DATA shoe AS 8 MULTIPLE DATA deck`), updates both to 6 decks and 312 cards, modifies the code to match, and updates the test assertions. Every change is traceable to a TRUG node. No other code is touched. No invariants are silently broken.
+
+Without the TRUG, the same modification is dangerous. The LLM changes `n_decks=8` to `n_decks=6` in the function signature. But does it find the cut card range (which was calculated for 416 cards)? Does it update the test that asserts 416? Does it know that 32-per-rank changes to 24-per-rank? These are implicit dependencies in Dark Code. They are explicit edges in the TRUG.
+
+**The TRUG is not just documentation for humans — it is a development scaffold for LLMs.** It gives the LLM the same structural understanding that a senior developer carries in their head: what the components are, how they relate, what invariants matter, and where the boundaries are. The difference is that the TRUG is explicit, validated, and permanent — it does not degrade across sessions, models, or context windows.
+
+### 12.2 Two Audiences, One Structure
+
+This dual audience — humans and LLMs — is the core insight. Traditional documentation serves humans. Traditional code serves machines. TRUGS serves both simultaneously:
+
+- **Humans** read the TRUG to understand architecture, read TRL to understand intent, and trust the validator to confirm consistency. They never need to read the implementation to understand what the system does.
+- **LLMs** read the TRUG to understand scope, read TRL to understand specifications, and use both as constraints during generation. They produce code that is structurally aligned with the existing system rather than statistically plausible.
+
+The four-corner verification square works because all four corners are readable by both audiences. The TRUG is JSON (machine-native, human-readable). TRL is formal English (human-native, machine-parseable). Code is code. Tests are code with TRL annotations. Every artifact serves both readers.
+
+### 12.3 The Choice
+
 The cost of the TRUG approach is nonzero: a 190-word vocabulary, a 10-field node structure, and the discipline to write specifications before code. The cost of the alternative — unbounded Dark Code accumulation in every LLM-assisted codebase — is structural illegibility, unauditable security, unmaintainable systems, and unresolvable liability.
 
-The four-corner verification square is the minimum viable framework for safe autonomous code generation. As LLMs write more of our code, we must choose: slow down generation, or make generation legible. TRUGS chooses the second path.
+The four-corner verification square is the minimum viable framework for safe autonomous code generation. As LLMs write more of our code, we must choose: slow down generation, or make generation legible. TRUGS chooses the second path — and in doing so, it gives both the human and the LLM the structure they need to build, understand, and maintain software together.
 
 ---
 
