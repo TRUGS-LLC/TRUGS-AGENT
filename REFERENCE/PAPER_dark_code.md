@@ -702,9 +702,43 @@ The structural cause is the absence of a formal intermediate representation betw
 
 TRUGS provides the intermediate representation: a validated JSON graph (TRUG) with formal English annotations (TRL), mechanical consistency validation, and a TRL-annotated test matrix. Together, these form a four-corner verification square where each corner validates against the others. The human reads the TRUG and TRL — not the code. If the formal English makes sense and the validator confirms consistency, the code is understood in intent even if the implementation is complex.
 
+### 12.1 TRUGS as a Development Framework for LLMs
+
+The value of TRUGS extends beyond reducing Dark Code for human readers. The TRUG and TRL also serve as a **supporting framework for the LLM itself** — both when generating code initially and when returning to modify it later.
+
+When an LLM generates code without a TRUG, it works from a natural language prompt and its training distribution. The output is statistically likely to be correct but carries no structural guarantee that the code matches the user's intent, maintains domain invariants, or preserves the design decisions of the existing codebase. Each generation is independent — the LLM has no memory of why the code was written this way.
+
+When an LLM generates code with a TRUG, the situation is fundamentally different:
+
+**During initial development**, the TRUG constrains the LLM's output. The LLM is not generating code from a vague prompt — it is implementing a validated graph with formal TRL specifications at every node. Each function has a stated purpose. Each invariant is explicit. The LLM's task shifts from "write code that probably does what the user means" to "implement this specific TRL specification." The specification is unambiguous (190 words, each with one meaning), so the LLM's output is verifiable against a formal target rather than a fuzzy intent.
+
+**During future modifications**, the TRUG serves as the context that the LLM otherwise lacks. When a different LLM (or the same LLM in a new session) returns to modify the code, it reads:
+
+1. **The TRUG graph** — the architecture of the system, all components and their relationships. The LLM immediately knows what exists, what depends on what, and where the boundaries are.
+2. **The function-level TRL comments** — what each function is supposed to do, formally. The LLM knows the specification before it reads the implementation.
+3. **The inline TRL comments** — why each line exists. The LLM can distinguish between lines that are load-bearing (they satisfy a TRL specification) and lines that are incidental (implementation details that could change).
+4. **The test TRL comments** — what each test verifies. The LLM knows which invariants are enforced and can ensure modifications don't break them.
+
+This means the LLM can make targeted changes rather than wholesale regeneration. Consider our shoe shuffle example: if the requirement changes from an 8-deck shoe to a 6-deck shoe, the LLM reads the TRUG node (`invariant_card_count: 416`) and the TRL (`PROCESS build SHALL DEFINE DATA shoe AS 8 MULTIPLE DATA deck`), updates both to 6 decks and 312 cards, modifies the code to match, and updates the test assertions. Every change is traceable to a TRUG node. No other code is touched. No invariants are silently broken.
+
+Without the TRUG, the same modification is dangerous. The LLM changes `n_decks=8` to `n_decks=6` in the function signature. But does it find the cut card range (which was calculated for 416 cards)? Does it update the test that asserts 416? Does it know that 32-per-rank changes to 24-per-rank? These are implicit dependencies in Dark Code. They are explicit edges in the TRUG.
+
+**The TRUG is not just documentation for humans — it is a development scaffold for LLMs.** It gives the LLM the same structural understanding that a senior developer carries in their head: what the components are, how they relate, what invariants matter, and where the boundaries are. The difference is that the TRUG is explicit, validated, and permanent — it does not degrade across sessions, models, or context windows.
+
+### 12.2 Two Audiences, One Structure
+
+This dual audience — humans and LLMs — is the core insight. Traditional documentation serves humans. Traditional code serves machines. TRUGS serves both simultaneously:
+
+- **Humans** read the TRUG to understand architecture, read TRL to understand intent, and trust the validator to confirm consistency. They never need to read the implementation to understand what the system does.
+- **LLMs** read the TRUG to understand scope, read TRL to understand specifications, and use both as constraints during generation. They produce code that is structurally aligned with the existing system rather than statistically plausible.
+
+The four-corner verification square works because all four corners are readable by both audiences. The TRUG is JSON (machine-native, human-readable). TRL is formal English (human-native, machine-parseable). Code is code. Tests are code with TRL annotations. Every artifact serves both readers.
+
+### 12.3 The Choice
+
 The cost of the TRUG approach is nonzero: a 190-word vocabulary, a 10-field node structure, and the discipline to write specifications before code. The cost of the alternative — unbounded Dark Code accumulation in every LLM-assisted codebase — is structural illegibility, unauditable security, unmaintainable systems, and unresolvable liability.
 
-The four-corner verification square is the minimum viable framework for safe autonomous code generation. As LLMs write more of our code, we must choose: slow down generation, or make generation legible. TRUGS chooses the second path.
+The four-corner verification square is the minimum viable framework for safe autonomous code generation. As LLMs write more of our code, we must choose: slow down generation, or make generation legible. TRUGS chooses the second path — and in doing so, it gives both the human and the LLM the structure they need to build, understand, and maintain software together.
 
 ---
 
