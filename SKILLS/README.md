@@ -43,4 +43,4 @@ See [EXAMPLE_session_open.md](EXAMPLE_session_open.md) for a walkthrough of how 
 
 ## Full Specification
 
-See [AGENT.md](AGENT.md) for the complete TRL definitions of all 19 primitives and 3 compound examples.
+See [AGENT.md](AGENT.md) for the complete TRUG/L definitions of all 19 primitives and 3 compound examples.

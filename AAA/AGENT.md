@@ -59,7 +59,7 @@ AGENT SHALL_NOT MODIFY PHASE vision.
 AGENT SHALL READ PHASE vision THEN EXECUTE PHASE feasibility.
 </trl>
 
-The human states what they want in plain English. This is the only phase that does not use TRL — the human speaks naturally.
+The human states what they want in plain English. This is the only phase that does not use TRUG/L — the human speaks naturally.
 
 ### Phase 2: FEASIBILITY
 
@@ -82,7 +82,7 @@ EACH RECORD audit_criteria SHALL REFERENCE A RECORD requirement.
 NO AGENT SHALL PROCEED TO PHASE architecture WITHOUT RECORD audit_criteria.
 </trl>
 
-Requirements in TRL. Every requirement gets audit criteria — specific, testable statements that Phase 8 will check against. If you can't write audit criteria for a requirement, the requirement isn't specific enough.
+Requirements in TRUG/L. Every requirement gets audit criteria — specific, testable statements that Phase 8 will check against. If you can't write audit criteria for a requirement, the requirement isn't specific enough.
 
 ### Phase 4: ARCHITECTURE
 
@@ -206,6 +206,6 @@ These are not guidelines. They are prohibitions. Violating them is a system fail
 
 ## AAA Document Format
 
-An AAA document is a single markdown file with 9 sections, one per phase. Phase 1 is English. Phases 2-9 use TRL for specifications, criteria, and rules.
+An AAA document is a single markdown file with 9 sections, one per phase. Phase 1 is English. Phases 2-9 use TRUG/L for specifications, criteria, and rules.
 
-See [EXAMPLE_email_mcp.md](EXAMPLE_email_mcp.md) for a complete AAA from building an email MCP server — all 9 phases, TRL specs, audit criteria, and coding plan.
+See [EXAMPLE_email_mcp.md](EXAMPLE_email_mcp.md) for a complete AAA from building an email MCP server — all 9 phases, TRUG/L specs, audit criteria, and coding plan.

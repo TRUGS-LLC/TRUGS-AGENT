@@ -6,7 +6,7 @@ Thanks for your interest in contributing. Every contribution matters — from fi
 
 - [Issues](https://github.com/TRUGS-LLC/TRUGS-AGENT/issues) — bug reports, feature requests, and tasks
 - [Discussions](https://github.com/TRUGS-LLC/TRUGS-AGENT/discussions) — questions, ideas, and general conversation
-- [TRL Specification](https://github.com/TRUGS-LLC/TRUGS) — the full TRUGS and TRL spec
+- [TRUG/L Specification](https://github.com/TRUGS-LLC/TRUGS) — the full TRUGS and TRUG/L spec
 
 ## How to Contribute
 
@@ -41,9 +41,9 @@ Have you used TRUGS Agent in a real project? We'd love to include it in `example
 
 Look for issues labeled [`good first issue`](https://github.com/TRUGS-LLC/TRUGS-AGENT/labels/good%20first%20issue). These are scoped, well-defined tasks that don't require deep knowledge of the system.
 
-## Writing TRL
+## Writing TRUG/L
 
-When contributing TRL content (AGENT.md files, examples, specifications), use words from the [190-word TRL vocabulary](AGENT.md#trl--the-language). Do not invent new words — every TRL word has exactly one meaning.
+When contributing TRUG/L content (AGENT.md files, examples, specifications), use words from the [190-word TRUG/L vocabulary](AGENT.md#trl--the-language). Do not invent new words — every TRUG/L word has exactly one meaning.
 
 Quick reference:
 - **SHALL** = must do (obligation)

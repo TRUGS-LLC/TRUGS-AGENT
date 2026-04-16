@@ -2,13 +2,13 @@
 
 <trl>
 DEFINE "TRUGS" AS NAMESPACE.
-DEFINE "TRL" AS INTERFACE.
+DEFINE "TRUG/L" AS INTERFACE.
 NAMESPACE TRUGS GOVERNS ALL DATA graph AND ALL RECORD sentence.
-INTERFACE TRL GOVERNS ALL RECORD sentence.
+INTERFACE TRUG/L GOVERNS ALL RECORD sentence.
 AGENT SHALL READ THIS FILE THEN IMPLEMENT ALL RECORD instruction.
 </trl>
 
-You are an agent that speaks TRL. This file teaches the language. Component folders teach the methodology.
+You are an agent that speaks TRUG/L. This file teaches the language. Component folders teach the methodology.
 
 | Component | What it teaches | File |
 |-----------|----------------|------|
@@ -16,7 +16,7 @@ You are an agent that speaks TRL. This file teaches the language. Component fold
 | **AAA** | 9-phase development protocol | `AAA/AGENT.md` |
 | **EPIC** | Portfolio tracking as a graph | `EPIC/AGENT.md` |
 | **Memory** | Persistent context across sessions | `MEMORY/AGENT.md` |
-| **Trugging** | Describing a codebase with TRUGs and TRL | `TRUGGING/AGENT.md` |
+| **Trugging** | Describing a codebase with TRUGs and TRUG/L | `TRUGGING/AGENT.md` |
 | **Web Hub** | Curated web resource landscape | `WEB_HUB/AGENT.md` |
 | **Skills** | Composable agent actions — primitives and compounds | `SKILLS/AGENT.md` |
 
@@ -24,35 +24,35 @@ Read this file first. Read component files when you need that component.
 
 ---
 
-## TRL vs TRUGS — When to Use Which
+## TRUG/L vs TRUGS — When to Use Which
 
 <trl>
-DEFINE "TRL" AS INTERFACE 'for RECORD sentence.
+DEFINE "TRUG/L" AS INTERFACE 'for RECORD sentence.
 DEFINE "TRUGS" AS INTERFACE 'for DATA graph.
 EACH RECORD sentence SHALL COMPILE TO DATA graph.
 EACH DATA graph SHALL COMPILE TO RECORD sentence.
 </trl>
 
-**TRL (sentences)** — use when communicating. Instructions, specifications, acceptance criteria, code comments. Human writes it, agent reads it, both understand it.
+**TRUG/L (sentences)** — use when communicating. Instructions, specifications, acceptance criteria, code comments. Human writes it, agent reads it, both understand it.
 
 **TRUGS (graphs)** — use when storing and executing. Project tracking, validation, traversal, state management. Machines read it, tools validate it, agents navigate it.
 
 | Situation | Use | Why |
 |-----------|-----|-----|
-| Writing instructions | TRL | Human-readable, agent-executable |
-| Code comments | TRL | Compilable documentation |
-| Acceptance criteria | TRL | Both human and agent verify against it |
+| Writing instructions | TRUG/L | Human-readable, agent-executable |
+| Code comments | TRUG/L | Compilable documentation |
+| Acceptance criteria | TRUG/L | Both human and agent verify against it |
 | Project tracking | TRUGS | Machines traverse and validate |
-| Development phases | TRL | Communication between human and agent |
+| Development phases | TRUG/L | Communication between human and agent |
 | Execution state | TRUGS | Agent tracks progress as graph nodes |
-| Memory files | English + TRL | Context for future sessions |
+| Memory files | English + TRUG/L | Context for future sessions |
 | Validation rules | TRUGS | Tools enforce mechanically |
 
-The sentence is the graph. The graph is the sentence. TRL is how you talk about it. TRUGS is how you store it.
+The sentence is the graph. The graph is the sentence. TRUG/L is how you talk about it. TRUGS is how you store it.
 
 ### Side-by-Side Example
 
-**TRL (the sentence):**
+**TRUG/L (the sentence):**
 
 ```
 <trl>
@@ -96,11 +96,11 @@ Same specification. Same structure. Different views.
 
 ---
 
-## TRL — The Language
+## TRUG/L — The Language
 
 <trl>
-DEFINE "TRL" AS INTERFACE.
-INTERFACE TRL CONTAINS 190 UNIQUE RECORD word.
+DEFINE "TRUG/L" AS INTERFACE.
+INTERFACE TRUG/L CONTAINS 190 UNIQUE RECORD word.
 EACH RECORD word BELONGS_TO EXACTLY A RECORD part_of_speech.
 EACH RECORD sentence SHALL COMPILE TO DATA graph.
 EACH DATA graph SHALL COMPILE TO RECORD sentence.
@@ -224,7 +224,7 @@ AGENT SHALL STRIP RECORD sugar 'before PARSE RECORD sentence.
 
 ---
 
-## Using TRL in Your Project
+## Using TRUG/L in Your Project
 
 <trl>
 PARTY human MAY WRITE RECORD trl_block 'in FILE code_comment OR FILE specification OR FILE issue OR FILE config.
@@ -291,7 +291,7 @@ NO AGENT SHALL DEPLOY INVALID DATA graph.
 ## Quick Reference
 
 <trl>
-INTERFACE TRL CONTAINS 190 UNIQUE RECORD word.
+INTERFACE TRUG/L CONTAINS 190 UNIQUE RECORD word.
 EACH RECORD word SHALL 'have EXACTLY A RECORD meaning.
 NO AGENT SHALL COMMIT TO BRANCH main.
 NO AGENT SHALL MERGE RECORD pull_request.
@@ -306,4 +306,4 @@ For component-specific instructions, read the AGENT.md in each folder:
 - **WEB_HUB/AGENT.md** — curated web resource landscape
 - **SKILLS/AGENT.md** — composable agent actions (19 primitives, compound composition)
 
-For the full TRL specification: https://github.com/TRUGS-LLC/TRUGS
+For the full TRUG/L specification: https://github.com/TRUGS-LLC/TRUGS

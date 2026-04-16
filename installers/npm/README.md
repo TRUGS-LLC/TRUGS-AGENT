@@ -15,11 +15,11 @@ npx create-trugs-agent cursor
 npx create-trugs-agent copilot
 ```
 
-This copies AGENT.md (renamed for your IDE) and all component folders into the current directory. Your LLM reads the files and gains the TRL vocabulary — 190 words with exact definitions.
+This copies AGENT.md (renamed for your IDE) and all component folders into the current directory. Your LLM reads the files and gains the TRUG/L vocabulary — 190 words with exact definitions.
 
 ## What You Get
 
-- **CLAUDE.md** (or `.cursorrules` / `.github/copilot-instructions.md`) — TRL vocabulary and grammar
+- **CLAUDE.md** (or `.cursorrules` / `.github/copilot-instructions.md`) — TRUG/L vocabulary and grammar
 - **AAA/** — 9-phase development protocol
 - **EPIC/** — Portfolio tracking as a graph
 - **FOLDER/** — Machine-readable filesystem index

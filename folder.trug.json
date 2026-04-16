@@ -2,7 +2,7 @@
   "name": "TRUGS-AGENT",
   "version": "1.0.0",
   "type": "PROJECT",
-  "description": "Agent system for LLMs \u2014 TRL language, 8 component modules, validator tooling, NDA example",
+  "description": "Agent system for LLMs \u2014 TRUG/L language, 8 component modules, validator tooling, NDA example",
   "dimensions": {
     "folder_structure": {
       "description": "Top-level repo structure \u2014 8 component folders + tools + NDA example",
@@ -22,7 +22,7 @@
       "type": "FOLDER",
       "properties": {
         "name": "TRUGS-AGENT",
-        "purpose": "Agent system teaching LLMs to speak TRL, follow AAA, track EPICs, maintain memory, index folders, and describe codebases",
+        "purpose": "Agent system teaching LLMs to speak TRUG/L, follow AAA, track EPICs, maintain memory, index folders, and describe codebases",
         "verified": false,
         "stale": false
       },
@@ -55,7 +55,7 @@
       "type": "SPECIFICATION",
       "properties": {
         "name": "AGENT.md",
-        "purpose": "Root system prompt \u2014 TRL vocabulary (190 words), grammar, parsing rules, validator reference, usage patterns",
+        "purpose": "Root system prompt \u2014 TRUG/L vocabulary (190 words), grammar, parsing rules, validator reference, usage patterns",
         "format": "markdown",
         "lines": 305
       },
@@ -141,7 +141,7 @@
       "type": "DOCUMENT",
       "properties": {
         "name": "AAA/EXAMPLE_email_mcp.md",
-        "purpose": "Real production AAA \u2014 email MCP server, all 9 phases with TRL specs and audit criteria",
+        "purpose": "Real production AAA \u2014 email MCP server, all 9 phases with TRUG/L specs and audit criteria",
         "format": "markdown",
         "lines": 184
       },
@@ -332,7 +332,7 @@
       "type": "COMPONENT",
       "properties": {
         "name": "TRUGGING",
-        "purpose": "Methodology for describing a codebase \u2014 4 levels from system graph to inline TRL",
+        "purpose": "Methodology for describing a codebase \u2014 4 levels from system graph to inline TRUG/L",
         "file_count": 2
       },
       "parent_id": "root",
@@ -448,7 +448,7 @@
       "type": "SPECIFICATION",
       "properties": {
         "name": "SKILLS/AGENT.md",
-        "purpose": "Agent instructions for Skills \u2014 19 primitive definitions in TRL, compound composition rules, 3 compound examples",
+        "purpose": "Agent instructions for Skills \u2014 19 primitive definitions in TRUG/L, compound composition rules, 3 compound examples",
         "format": "markdown"
       },
       "parent_id": "folder_skills",
@@ -663,7 +663,7 @@
       "to_id": "root",
       "relation": "GOVERNS",
       "properties": {
-        "scope": "TRL language foundation \u2014 all components depend on this"
+        "scope": "TRUG/L language foundation \u2014 all components depend on this"
       }
     },
     {
@@ -671,7 +671,7 @@
       "to_id": "doc_agent",
       "relation": "DEPENDS_ON",
       "properties": {
-        "reason": "AAA phases use TRL for specifications and audit criteria"
+        "reason": "AAA phases use TRUG/L for specifications and audit criteria"
       }
     },
     {
@@ -679,7 +679,7 @@
       "to_id": "doc_agent",
       "relation": "DEPENDS_ON",
       "properties": {
-        "reason": "EPIC instructions written in TRL"
+        "reason": "EPIC instructions written in TRUG/L"
       }
     },
     {
@@ -687,7 +687,7 @@
       "to_id": "doc_agent",
       "relation": "DEPENDS_ON",
       "properties": {
-        "reason": "Memory instructions written in TRL"
+        "reason": "Memory instructions written in TRUG/L"
       }
     },
     {
@@ -695,7 +695,7 @@
       "to_id": "doc_agent",
       "relation": "DEPENDS_ON",
       "properties": {
-        "reason": "Folder instructions written in TRL"
+        "reason": "Folder instructions written in TRUG/L"
       }
     },
     {
@@ -703,7 +703,7 @@
       "to_id": "doc_agent",
       "relation": "DEPENDS_ON",
       "properties": {
-        "reason": "Trugging methodology uses both TRL and TRUG graphs"
+        "reason": "Trugging methodology uses both TRUG/L and TRUG graphs"
       }
     },
     {
@@ -751,7 +751,7 @@
       "to_id": "doc_agent",
       "relation": "DEPENDS_ON",
       "properties": {
-        "reason": "WEB_HUB instructions written in TRL"
+        "reason": "WEB_HUB instructions written in TRUG/L"
       }
     },
     {
@@ -759,7 +759,7 @@
       "to_id": "doc_agent",
       "relation": "DEPENDS_ON",
       "properties": {
-        "reason": "NDA example uses TRL throughout"
+        "reason": "NDA example uses TRUG/L throughout"
       }
     },
     {
@@ -799,7 +799,7 @@
       "to_id": "folder_trugging",
       "relation": "DEPENDS_ON",
       "properties": {
-        "reason": "NDA demonstrates TRL in legal clauses"
+        "reason": "NDA demonstrates TRUG/L in legal clauses"
       }
     },
     {
@@ -815,7 +815,7 @@
       "to_id": "doc_agent",
       "relation": "DEPENDS_ON",
       "properties": {
-        "reason": "Skills instructions written in TRL"
+        "reason": "Skills instructions written in TRUG/L"
       }
     },
     {

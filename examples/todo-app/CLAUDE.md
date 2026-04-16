@@ -22,7 +22,7 @@ AGENT SHALL_NOT WRITE ANY DATA TO ENDPOINT main.
 AGENT SHALL VALIDATE ALL CODE THEN ASSERT ALL RECORD test EQUALS VALID.
 </trl>
 
-## TRL Vocabulary
+## TRUG/L Vocabulary
 
-This project uses TRL (TRUGS Language) — a 190-word formal instruction language.
+This project uses TRUG/L (TRUGS Language) — a 190-word formal instruction language.
 Full vocabulary: https://github.com/TRUGS-LLC/TRUGS-AGENT

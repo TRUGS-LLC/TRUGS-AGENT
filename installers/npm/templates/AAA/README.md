@@ -31,4 +31,4 @@ Phase 3 (SPECIFICATIONS) defines the audit criteria. Phase 8 (AUDIT) checks agai
 
 ## Example
 
-See [EXAMPLE_email_mcp.md](EXAMPLE_email_mcp.md) — a real AAA plan from building an email MCP server. All 9 phases, TRL specs, audit criteria, and coding plan.
+See [EXAMPLE_email_mcp.md](EXAMPLE_email_mcp.md) — a real AAA plan from building an email MCP server. All 9 phases, TRUG/L specs, audit criteria, and coding plan.

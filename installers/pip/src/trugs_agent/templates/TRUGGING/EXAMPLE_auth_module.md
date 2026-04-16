@@ -56,7 +56,7 @@ Inside the auth folder, each file and public interface is a node:
 
 ---
 
-## Level 3: File Header TRL — top of `auth/handler.py`
+## Level 3: File Header TRUG/L — top of `auth/handler.py`
 
 ```python
 # <trl>
@@ -78,7 +78,7 @@ from models import User
 
 ---
 
-## Level 4: Inline TRL — on `validate_token` function
+## Level 4: Inline TRUG/L — on `validate_token` function
 
 ```python
 # <trl>FUNCTION validate_token SHALL VALIDATE DATA token SUBJECT_TO INTERFACE jwt_schema.
@@ -104,7 +104,7 @@ An LLM fixing a bug in auth reads 4 things:
 
 1. `project.trug.json` → auth exists, API depends on it, it reads from DB
 2. `auth/folder.trug.json` → handler.py, models.py, middleware.py, their imports
-3. `auth/handler.py` header TRL → module obligations: authenticate, never log secrets, handle expiration
-4. Inline TRL on `validate_token` → function contract: validate JWT, throw on expired, return User
+3. `auth/handler.py` header TRUG/L → module obligations: authenticate, never log secrets, handle expiration
+4. Inline TRUG/L on `validate_token` → function contract: validate JWT, throw on expired, return User
 
 System to function in 4 reads. No prose docs, no guessing, no asking.

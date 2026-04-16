@@ -2,7 +2,7 @@
 
 This file demonstrates how a compound skill chains primitives with HITM gates.
 
-## TRL Definition
+## TRUG/L Definition
 
 <trl>
 DEFINE "session-open" AS FUNCTION compound.
