@@ -76,9 +76,9 @@ if (fs.existsSync(toolsSrc) && !fs.existsSync(toolsDest)) {
 }
 
 console.log(
-  `\nTRUGS Agent initialized for ${ide}. Your LLM now speaks TRL.`
+  `\nTRUGS Agent initialized for ${ide}. Your LLM now speaks TRUG/L.`
 );
-console.log(`  ${targetFile} — TRL vocabulary and grammar`);
+console.log(`  ${targetFile} — TRUG/L vocabulary and grammar`);
 if (copied > 0) {
   console.log(`  ${copied} component folders — methodology and tools`);
 }

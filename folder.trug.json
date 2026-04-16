@@ -7,6 +7,18 @@
     "folder_structure": {
       "description": "Top-level repo structure \u2014 8 component folders + tools + NDA example",
       "base_level": "BASE"
+    },
+    "documentation": {
+      "description": "Standalone docs \u2014 contributing guide, demo walkthrough, license notices, brochure",
+      "base_level": "BASE"
+    },
+    "examples": {
+      "description": "End-to-end worked examples consuming the TRUGS-AGENT primitives",
+      "base_level": "BASE"
+    },
+    "distribution": {
+      "description": "Distribution-channel installers \u2014 npm and pip packages that ship templates to end users",
+      "base_level": "BASE"
     }
   },
   "capabilities": {
