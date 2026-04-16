@@ -6,7 +6,7 @@ A TRUG graph that indexes the web landscape around TRUGS-AGENT. Nodes are URLs â
 
 | Branch | Audience | Entry Point |
 |--------|----------|-------------|
-| **Structured Agent** | LLM developers frustrated with prompt drift | TRL + TRUGGING |
+| **Structured Agent** | LLM developers frustrated with prompt drift | TRUG/L + TRUGGING |
 | **Graph Native** | Engineers building with knowledge graphs and code graphs | FOLDER + TRUGGING |
 | **Agent Protocols** | Teams building reliable agent systems | AAA + MEMORY + EPIC |
 

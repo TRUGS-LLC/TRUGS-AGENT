@@ -58,7 +58,7 @@
       "type": "DOCUMENT",
       "properties": {
         "name": "AAA_nda_draft.md",
-        "purpose": "9-phase AAA plan for drafting the NDA — VISION through DEPLOYMENT with TRL specs and audit criteria"
+        "purpose": "9-phase AAA plan for drafting the NDA — VISION through DEPLOYMENT with TRUG/L specs and audit criteria"
       },
       "parent_id": "nda_folder",
       "contains": [],
@@ -118,7 +118,7 @@
       "type": "DOCUMENT",
       "properties": {
         "name": "EXAMPLE_nda_mutual.md",
-        "purpose": "The NDA with TRL annotations — each clause has a <trl> block specifying obligations before plain English"
+        "purpose": "The NDA with TRUG/L annotations — each clause has a <trl> block specifying obligations before plain English"
       },
       "parent_id": "nda_folder",
       "contains": [],
@@ -130,7 +130,7 @@
       "type": "DOCUMENT",
       "properties": {
         "name": "NDA_mutual_trugs_llc.md",
-        "purpose": "The finished NDA — clean, signable, no TRL annotations, plain English, ready for use"
+        "purpose": "The finished NDA — clean, signable, no TRUG/L annotations, plain English, ready for use"
       },
       "parent_id": "nda_folder",
       "contains": [],
@@ -139,8 +139,8 @@
     }
   ],
   "edges": [
-    {"from_id": "doc_nda_trug", "to_id": "doc_nda_trl", "relation": "FEEDS", "properties": {"flow": "TRUG graph → TRL-annotated document"}},
-    {"from_id": "doc_nda_trl", "to_id": "doc_nda_clean", "relation": "FEEDS", "properties": {"flow": "TRL-annotated → clean signable document"}},
+    {"from_id": "doc_nda_trug", "to_id": "doc_nda_trl", "relation": "FEEDS", "properties": {"flow": "TRUG graph → TRUG/L-annotated document"}},
+    {"from_id": "doc_nda_trl", "to_id": "doc_nda_clean", "relation": "FEEDS", "properties": {"flow": "TRUG/L-annotated → clean signable document"}},
     {"from_id": "doc_aaa", "to_id": "doc_nda_trug", "relation": "GOVERNS", "properties": {"scope": "AAA specs define what the NDA graph must contain"}},
     {"from_id": "doc_epic", "to_id": "doc_aaa", "relation": "IMPLEMENTS", "properties": {"scope": "EPIC tracks tasks from the AAA plan"}},
     {"from_id": "doc_web", "to_id": "doc_aaa", "relation": "REFERENCES", "properties": {"scope": "Web research informs the AAA planning phases"}},

@@ -21,7 +21,7 @@ Keep the code clean and well-documented.
 
 ---
 
-## After — TRL Instructions
+## After — TRUG/L Instructions
 
 Your `CLAUDE.md` says:
 
@@ -57,7 +57,7 @@ return a token if valid, and handle errors gracefully.
 - "Handle errors gracefully" — what does "gracefully" mean?
 - "Return a token" — what kind? Where? To whom?
 
-### TRL (exact)
+### TRUG/L (exact)
 
 ```
 <trl>
@@ -89,7 +89,7 @@ Every word compiles to a graph node or edge. The LLM executes the graph, not a v
 curl -o CLAUDE.md https://raw.githubusercontent.com/TRUGS-LLC/TRUGS-AGENT/main/AGENT.md
 
 # Open your IDE and ask your LLM:
-# "Read CLAUDE.md and write a TRL specification for [your module]"
+# "Read CLAUDE.md and write a TRUG/L specification for [your module]"
 ```
 
 See [examples/](examples/) for a complete working project.

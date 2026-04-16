@@ -9,7 +9,7 @@ STAGE inline SHALL PRODUCE RECORD trl_block 'at ENTRY FUNCTION.
 EACH STAGE SHALL EXECUTE SEQUENTIAL FROM STAGE system TO STAGE inline.
 </trl>
 
-Trugging is how you describe a program using TRUGs and TRL. Four levels, top-down. Graphs for structure, sentences for behavior.
+Trugging is how you describe a program using TRUGs and TRUG/L. Four levels, top-down. Graphs for structure, sentences for behavior.
 
 ---
 
@@ -184,9 +184,9 @@ Function contracts: what it takes, what it returns, what it throws, and any non-
 
 ### What Stays Out
 
-Trivial functions. A getter, a simple constructor, a one-line utility — these don't need TRL. If the function signature tells the whole story, don't repeat it in TRL.
+Trivial functions. A getter, a simple constructor, a one-line utility — these don't need TRUG/L. If the function signature tells the whole story, don't repeat it in TRUG/L.
 
-### When to Write Inline TRL
+### When to Write Inline TRUG/L
 
 <trl>
 AGENT SHALL WRITE INLINE RECORD trl_block IF FUNCTION 'is PUBLIC.
@@ -241,8 +241,8 @@ RECORD trl_block SHALL DESCRIBE RECORD behavior — WHAT MUST HAPPEN AND WHAT MU
 |-------|--------|-----------|----------------|
 | System | TRUG graph | Services, databases, top-level modules | What exists? |
 | Component | TRUG graph | Files, classes, public interfaces | What's inside this module? |
-| File header | TRL sentences | Module obligations and prohibitions | What are the contracts? |
-| Inline | TRL sentences | Function contracts and side effects | What does this function guarantee? |
+| File header | TRUG/L sentences | Module obligations and prohibitions | What are the contracts? |
+| Inline | TRUG/L sentences | Function contracts and side effects | What does this function guarantee? |
 
 **Above the file: graph. Inside the file: sentences.**
 
@@ -287,7 +287,7 @@ AGENT SHALL ASSERT RECORD trl_block CONTAINS RECORD obligation OR RECORD prohibi
 
 For each non-trivial file, write a `<trl>` header. Cover obligations, prohibitions, interfaces, error contracts.
 
-### Step 4: Inline TRL
+### Step 4: Inline TRUG/L
 
 <trl>
 AGENT SHALL READ EACH PUBLIC FUNCTION AND EACH CRITICAL FUNCTION.
@@ -309,4 +309,4 @@ IF AGENT MODIFY RECORD contract 'of FUNCTION THEN AGENT SHALL UPDATE INLINE RECO
 AGENT SHALL_NOT MODIFY RECORD trl_block WITHOUT MODIFYING RECORD code OR RECORD code WITHOUT MODIFYING RECORD trl_block.
 </trl>
 
-TRUGs and TRL stay in sync with code. When code changes, the description changes. When the description changes, the code changes. Drift between the two is a bug.
+TRUGs and TRUG/L stay in sync with code. When code changes, the description changes. When the description changes, the code changes. Drift between the two is a bug.

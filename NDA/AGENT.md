@@ -43,7 +43,7 @@ AGENT SHALL_NOT DRAFT ANY RECORD clause UNLESS PHASE validation 'is APPROVED.
 **What you learn:** The complete 9-phase plan. Phase 1 is the human's vision. Phases 2-4 are research, specs, and design. Phase 5 is human approval. Phases 6-8 are drafting, testing, and audit. Phase 9 is delivery.
 
 **Critical sections:**
-- **Phase 3 — SPECIFICATIONS:** defines 12 required clauses in TRL + 9 audit criteria
+- **Phase 3 — SPECIFICATIONS:** defines 12 required clauses in TRUG/L + 9 audit criteria
 - **Phase 4 — ARCHITECTURE:** defines drafting order and design decisions (2yr term, 3yr survival, King County jurisdiction)
 - **Phase 5 — VALIDATION:** human approved the plan before any drafting
 
@@ -90,7 +90,7 @@ AGENT SHALL USE RECORD properties 'on EACH DATA node TO UNDERSTAND RECORD clause
 
 ---
 
-## Step 5: Read the TRL-Annotated NDA — EXAMPLE_nda_mutual.md
+## Step 5: Read the TRUG/L-Annotated NDA — EXAMPLE_nda_mutual.md
 
 <trl>
 AGENT SHALL READ FILE EXAMPLE_nda_mutual.md AFTER FILE nda.trug.json.
@@ -102,8 +102,8 @@ AGENT SHALL READ RECORD bibliography 'at END 'for ALL RECORD source.
 </trl>
 
 **File:** `EXAMPLE_nda_mutual.md`
-**System:** TRUGGING (TRL applied to legal text)
-**What you learn:** Every clause written twice — TRL specification first, then plain English. The TRL is the formal contract. The English is the explanation.
+**System:** TRUGGING (TRUG/L applied to legal text)
+**What you learn:** Every clause written twice — TRUG/L specification first, then plain English. The TRUG/L is the formal contract. The English is the explanation.
 
 **Example from Section 5:**
 
@@ -119,8 +119,8 @@ The Receiving Party shall:
 ```
 
 **How to use it:**
-- Verify the English matches the TRL — if they disagree, the TRL is authoritative
-- Generate tests from the TRL — each SHALL/SHALL_NOT is a testable obligation
+- Verify the English matches the TRUG/L — if they disagree, the TRUG/L is authoritative
+- Generate tests from the TRUG/L — each SHALL/SHALL_NOT is a testable obligation
 - The bibliography at the end maps every source to the sections it informed
 
 ---
@@ -136,9 +136,9 @@ AGENT SHALL_NOT MODIFY THIS FILE WITHOUT FIRST MODIFYING FILE nda.trug.json AND 
 
 **File:** `NDA_mutual_trugs_llc.md`
 **System:** The output
-**What you learn:** The finished NDA — plain English, 12 sections, no TRL, no graph references. This is what the counterparty receives.
+**What you learn:** The finished NDA — plain English, 12 sections, no TRUG/L, no graph references. This is what the counterparty receives.
 
-**Key rule:** Changes flow through the pipeline. To change the clean document, first update `nda.trug.json` (the graph), then update `EXAMPLE_nda_mutual.md` (the TRL-annotated version), then regenerate `NDA_mutual_trugs_llc.md` (the clean output).
+**Key rule:** Changes flow through the pipeline. To change the clean document, first update `nda.trug.json` (the graph), then update `EXAMPLE_nda_mutual.md` (the TRUG/L-annotated version), then regenerate `NDA_mutual_trugs_llc.md` (the clean output).
 
 ---
 
@@ -168,7 +168,7 @@ DATA edge "produces" SHOWS: nda.trug.json PRODUCES EXAMPLE_nda_mutual.md PRODUCE
 
 **File:** `folder.trug.json`
 **System:** FOLDER
-**What you learn:** All 10 files indexed with purpose descriptions and relationship edges. The `produces` edges show the pipeline: graph → TRL-annotated → clean document. The `governs` edges show what controls what: AAA governs the NDA graph, AGENT.md governs the folder.
+**What you learn:** All 10 files indexed with purpose descriptions and relationship edges. The `produces` edges show the pipeline: graph → TRUG/L-annotated → clean document. The `governs` edges show what controls what: AAA governs the NDA graph, AGENT.md governs the folder.
 
 **When entering this folder cold:** Read `folder.trug.json` first. It tells you what every file is and how they relate. Then follow the steps above in order.
 
@@ -190,7 +190,7 @@ EACH STAGE SHALL EXECUTE SEQUENTIAL.
 
 ```
 research → plan → track → graph → specify → deliver → remember → index
-  (web)    (AAA)  (EPIC)  (TRUG)   (TRL)     (doc)    (memory)  (folder)
+  (web)    (AAA)  (EPIC)  (TRUG)   (TRUG/L)     (doc)    (memory)  (folder)
 ```
 
 Every system feeds the next. The input is a human's vision. The output is a signable NDA. Everything in between is machine-readable infrastructure that any LLM can navigate, verify, and build on.

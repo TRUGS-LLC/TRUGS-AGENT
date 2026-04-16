@@ -2,7 +2,7 @@
 
 A complete example showing every TRUGS-AGENT system applied to a non-code domain: drafting a mutual Non-Disclosure Agreement under Washington State law.
 
-TRUGs aren't just for code. Any domain with structure — legal, business, writing, research — benefits from machine-readable graphs and formalized instructions. An NDA is a perfect example: clauses are nodes, obligations are TRL, dependencies are edges.
+TRUGs aren't just for code. Any domain with structure — legal, business, writing, research — benefits from machine-readable graphs and formalized instructions. An NDA is a perfect example: clauses are nodes, obligations are TRUG/L, dependencies are edges.
 
 ---
 
@@ -29,10 +29,10 @@ With research done, we wrote the 9-phase AAA plan in `AAA_nda_draft.md`:
 |-------|--------------|
 | 1. VISION | Human states what they want: mutual NDA, WA state, plain English, protect TRUGS IP |
 | 2. FEASIBILITY | GO — WA has UTSA (RCW 19.108), DTSA provides federal layer, open-source templates exist |
-| 3. SPECIFICATIONS | 12 required clauses defined in TRL, audit criteria written — "done" defined before drafting |
+| 3. SPECIFICATIONS | 12 required clauses defined in TRUG/L, audit criteria written — "done" defined before drafting |
 | 4. ARCHITECTURE | Document structure, design decisions (2yr term, 3yr survival, King County jurisdiction) |
 | 5. VALIDATION | Human approves the plan before any drafting begins |
-| 6. CODING | Draft each clause — TRL spec first, then plain English |
+| 6. CODING | Draft each clause — TRUG/L spec first, then plain English |
 | 7. TESTING | Verify all 12 clauses present, all obligations mutual, all modals correct |
 | 8. AUDIT | Check against Phase 3 criteria — 9 checks, all green |
 | 9. DEPLOYMENT | Example complete — this is a demonstration, not a live deployment |
@@ -60,7 +60,7 @@ Draft NDA
 
 Review & Finalize
   ├── Audit against Phase 3       ── (after all clauses)
-  ├── Verify TRL compiles         ── (after audit)
+  ├── Verify TRUG/L compiles         ── (after audit)
   └── Human review — HITM gate    ── (after all checks)
 ```
 
@@ -93,9 +93,9 @@ Edges show legal structure — the exclusions clause DEPENDS_ON the definition c
 
 **The graph is the contract's skeleton.** An LLM reads it to understand clause relationships, find which sections reference which statutes, and verify completeness — without reading the full document.
 
-### Step 5: Write with TRL — EXAMPLE_nda_mutual.md
+### Step 5: Write with TRUG/L — EXAMPLE_nda_mutual.md
 
-Each clause is written twice: TRL specification first, then plain English.
+Each clause is written twice: TRUG/L specification first, then plain English.
 
 ```markdown
 ## 5. Obligations of the Receiving Party
@@ -111,22 +111,22 @@ The Receiving Party shall:
 (a) protect Confidential Information using at least the same degree of care...
 ```
 
-**The TRL is the contract. The English is the explanation.** An LLM can verify the English matches the TRL, generate tests from the TRL, or detect when one changes but the other doesn't.
+**The TRUG/L is the contract. The English is the explanation.** An LLM can verify the English matches the TRUG/L, generate tests from the TRUG/L, or detect when one changes but the other doesn't.
 
 The bibliography at the end maps every source to the sections it informed.
 
 ### Step 6: Produce the Clean Document — NDA_mutual_trugs_llc.md
 
-The final output: a clean, signable NDA with no TRL, no annotations, no graph references. Plain English, 12 sections, WA state jurisdiction.
+The final output: a clean, signable NDA with no TRUG/L, no annotations, no graph references. Plain English, 12 sections, WA state jurisdiction.
 
-This is what the counterparty sees. Everything else — the TRUG, the TRL, the research, the plan — is the machine-readable infrastructure that produced it.
+This is what the counterparty sees. Everything else — the TRUG, the TRUG/L, the research, the plan — is the machine-readable infrastructure that produced it.
 
 ### Step 7: Remember — MEMORY
 
 Decisions from the drafting process are saved in `MEMORY.md`:
 - **Jurisdiction:** WA state, King County, RCW 19.108
 - **Term:** 2 years, 3-year survival for trade secrets
-- **Style:** Plain English, no legalese, TRL for formal obligations
+- **Style:** Plain English, no legalese, TRUG/L for formal obligations
 - **Template baseline:** Bonterms Mutual NDA
 
 If we draft another agreement next session, the LLM already knows the jurisdiction, the style preference, and the legal references.
@@ -138,7 +138,7 @@ Finally, `folder.trug.json` indexes all 10 files with edges showing the producti
 ```
 nda.trug.json ──produces──→ EXAMPLE_nda_mutual.md ──produces──→ NDA_mutual_trugs_llc.md
      ↑                              ↑                                    ↑
-  AAA governs               TRL annotations                    Clean output
+  AAA governs               TRUG/L annotations                    Clean output
 ```
 
 An LLM entering this folder reads `folder.trug.json` first, knows every file and its role, and can navigate directly to what it needs.
@@ -148,7 +148,7 @@ An LLM entering this folder reads `folder.trug.json` first, knows every file and
 ## The Pipeline
 
 ```
-WEB_HUB (research) → AAA (plan) → EPIC (track) → TRUG (graph) → TRL (specify) → Document (deliver) → MEMORY (remember) → FOLDER (index)
+WEB_HUB (research) → AAA (plan) → EPIC (track) → TRUG (graph) → TRUG/L (specify) → Document (deliver) → MEMORY (remember) → FOLDER (index)
 ```
 
 Every system feeds the next. The output is a signable NDA. The infrastructure is a machine-readable graph that any LLM can navigate, verify, and build on.

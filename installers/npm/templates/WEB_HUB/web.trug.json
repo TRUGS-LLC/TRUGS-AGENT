@@ -44,7 +44,7 @@
       "properties": {
         "name": "TRUGS-AGENT Repository",
         "url": "https://github.com/TRUGS-LLC/TRUGS-AGENT",
-        "purpose": "The product \u2014 one file teaches your LLM TRL, AAA, Memory, EPIC, Folder indexing, and Trugging",
+        "purpose": "The product \u2014 one file teaches your LLM TRUG/L, AAA, Memory, EPIC, Folder indexing, and Trugging",
         "category": "REPO"
       },
       "parent_id": "hub_root",
@@ -58,7 +58,7 @@
       "properties": {
         "name": "TRUGS Specification Repository",
         "url": "https://github.com/TRUGS-LLC/TRUGS",
-        "purpose": "Full TRL + TRUGS specification \u2014 190-word vocabulary, CORE rules, validator, the complete formal system",
+        "purpose": "Full TRUG/L + TRUGS specification \u2014 190-word vocabulary, CORE rules, validator, the complete formal system",
         "category": "REPO"
       },
       "parent_id": "hub_root",
@@ -72,7 +72,7 @@
       "properties": {
         "name": "TRUGS Paper (Zenodo DOI)",
         "url": "https://doi.org/10.5281/zenodo.19379454",
-        "purpose": "Academic paper \u2014 TRUGS specification, TRL compilation algorithm, graph-sentence equivalence proof",
+        "purpose": "Academic paper \u2014 TRUGS specification, TRUG/L compilation algorithm, graph-sentence equivalence proof",
         "category": "PAPER"
       },
       "parent_id": "hub_root",
@@ -115,7 +115,7 @@
         "name": "Structured Agent Instructions",
         "purpose": "Branch 1 \u2014 the problem of prompt ambiguity and solutions for formalized LLM instructions",
         "audience": "LLM developers frustrated with prompt drift",
-        "converges_on": "TRL + TRUGGING"
+        "converges_on": "TRUG/L + TRUGGING"
       },
       "parent_id": "hub_root",
       "contains": [
@@ -144,7 +144,7 @@
       "properties": {
         "name": "Specifications: The Missing Link to Making LLM Systems an Engineering Discipline",
         "url": "https://arxiv.org/abs/2412.05299",
-        "purpose": "UC Berkeley paper arguing that precise specification of expected behavior is the missing foundation for reliable LLM systems \u2014 the exact problem TRL solves",
+        "purpose": "UC Berkeley paper arguing that precise specification of expected behavior is the missing foundation for reliable LLM systems \u2014 the exact problem TRUG/L solves",
         "category": "PAPER",
         "authors": "Ion Stoica, Matei Zaharia et al."
       },
@@ -159,7 +159,7 @@
       "properties": {
         "name": "The Prompt Report: A Systematic Survey of Prompting Techniques",
         "url": "https://arxiv.org/abs/2406.06608",
-        "purpose": "76-page survey covering 58 text prompting techniques from 1,500+ papers \u2014 the landscape TRL simplifies to 190 words",
+        "purpose": "76-page survey covering 58 text prompting techniques from 1,500+ papers \u2014 the landscape TRUG/L simplifies to 190 words",
         "category": "PAPER",
         "authors": "Schulhoff et al. (OpenAI, Microsoft, Google, Stanford)"
       },
@@ -189,7 +189,7 @@
       "properties": {
         "name": "Evaluating Goal Drift in Language Model Agents",
         "url": "https://arxiv.org/html/2505.02709v1",
-        "purpose": "Quantifies how LLM agents progressively deviate from original instructions during long-context interactions \u2014 the drift TRL prevents",
+        "purpose": "Quantifies how LLM agents progressively deviate from original instructions during long-context interactions \u2014 the drift TRUG/L prevents",
         "category": "PAPER"
       },
       "parent_id": "branch_structured_agent",
@@ -203,7 +203,7 @@
       "properties": {
         "name": "Prompting Is Programming: A Query Language for Large Language Models",
         "url": "https://arxiv.org/abs/2212.06094",
-        "purpose": "ETH Zurich paper proposing prompting-as-programming with constraints and types \u2014 TRL takes this further with a fixed vocabulary that compiles to graphs",
+        "purpose": "ETH Zurich paper proposing prompting-as-programming with constraints and types \u2014 TRUG/L takes this further with a fixed vocabulary that compiles to graphs",
         "category": "PAPER",
         "authors": "Beurer-Kellner et al."
       },
@@ -840,7 +840,7 @@
       "relation": "FEEDS",
       "weight": 1.0,
       "properties": {
-        "path": "Prompt ambiguity \u2192 TRL solves it \u2192 TRUGS-AGENT delivers it"
+        "path": "Prompt ambiguity \u2192 TRUG/L solves it \u2192 TRUGS-AGENT delivers it"
       }
     },
     {
@@ -911,7 +911,7 @@
       "relation": "REFERENCES",
       "weight": 0.95,
       "properties": {
-        "connection": "Paper argues specifications are missing \u2014 TRL is that specification"
+        "connection": "Paper argues specifications are missing \u2014 TRUG/L is that specification"
       },
       "sugar": "'motivates"
     },
@@ -931,7 +931,7 @@
       "relation": "REFERENCES",
       "weight": 0.8,
       "properties": {
-        "connection": "Instruction following benchmarks \u2014 TRL makes instructions unambiguous"
+        "connection": "Instruction following benchmarks \u2014 TRUG/L makes instructions unambiguous"
       },
       "sugar": "'motivates"
     },
@@ -941,7 +941,7 @@
       "relation": "REFERENCES",
       "weight": 0.8,
       "properties": {
-        "connection": "80% compliance on simple instructions \u2014 TRL pushes toward 100%"
+        "connection": "80% compliance on simple instructions \u2014 TRUG/L pushes toward 100%"
       },
       "sugar": "'motivates"
     },
@@ -951,7 +951,7 @@
       "relation": "REFERENCES",
       "weight": 0.7,
       "properties": {
-        "connection": "58 prompting techniques \u2014 TRL replaces all of them with one language"
+        "connection": "58 prompting techniques \u2014 TRUG/L replaces all of them with one language"
       },
       "sugar": "'contextualizes"
     },
@@ -961,7 +961,7 @@
       "relation": "REFERENCES",
       "weight": 0.7,
       "properties": {
-        "connection": "Prompting as programming \u2014 TRL takes it further with graph compilation"
+        "connection": "Prompting as programming \u2014 TRUG/L takes it further with graph compilation"
       },
       "sugar": "'contextualizes"
     },
@@ -971,7 +971,7 @@
       "relation": "REFERENCES",
       "weight": 0.7,
       "properties": {
-        "difference": "DSPy optimizes prompts automatically \u2014 TRL eliminates ambiguity by design"
+        "difference": "DSPy optimizes prompts automatically \u2014 TRUG/L eliminates ambiguity by design"
       },
       "sugar": "'contrasts"
     },
@@ -981,7 +981,7 @@
       "relation": "REFERENCES",
       "weight": 0.6,
       "properties": {
-        "difference": "Guidance constrains output tokens \u2014 TRL constrains input instructions"
+        "difference": "Guidance constrains output tokens \u2014 TRUG/L constrains input instructions"
       },
       "sugar": "'contrasts"
     },
@@ -991,7 +991,7 @@
       "relation": "REFERENCES",
       "weight": 0.6,
       "properties": {
-        "difference": "TypeChat validates output against schema \u2014 TRL validates instructions against vocabulary"
+        "difference": "TypeChat validates output against schema \u2014 TRUG/L validates instructions against vocabulary"
       },
       "sugar": "'contrasts"
     },
@@ -1001,7 +1001,7 @@
       "relation": "REFERENCES",
       "weight": 0.5,
       "properties": {
-        "difference": "Outlines ensures valid output format \u2014 TRL ensures valid input specification"
+        "difference": "Outlines ensures valid output format \u2014 TRUG/L ensures valid input specification"
       },
       "sugar": "'contrasts"
     },
@@ -1011,7 +1011,7 @@
       "relation": "REFERENCES",
       "weight": 0.5,
       "properties": {
-        "difference": "Instructor validates responses \u2014 TRL validates instructions"
+        "difference": "Instructor validates responses \u2014 TRUG/L validates instructions"
       },
       "sugar": "'contrasts"
     },
@@ -1028,7 +1028,7 @@
       "relation": "REFERENCES",
       "weight": 0.6,
       "properties": {
-        "connection": "Recommends structured prompts \u2014 TRL is the most structured prompt"
+        "connection": "Recommends structured prompts \u2014 TRUG/L is the most structured prompt"
       },
       "sugar": "'contextualizes"
     },
@@ -1038,7 +1038,7 @@
       "relation": "REFERENCES",
       "weight": 0.7,
       "properties": {
-        "connection": "Shift from prompt engineering to context engineering \u2014 TRL is the context engineering language"
+        "connection": "Shift from prompt engineering to context engineering \u2014 TRUG/L is the context engineering language"
       },
       "sugar": "'motivates"
     },
@@ -1048,7 +1048,7 @@
       "relation": "REFERENCES",
       "weight": 0.6,
       "properties": {
-        "connection": "Ambiguity Tax concept \u2014 TRL eliminates the tax"
+        "connection": "Ambiguity Tax concept \u2014 TRUG/L eliminates the tax"
       },
       "sugar": "'motivates"
     },
@@ -1127,7 +1127,7 @@
       "relation": "REFERENCES",
       "weight": 0.6,
       "properties": {
-        "difference": "GQL queries graphs \u2014 TRL describes graphs as sentences. Query language vs specification language"
+        "difference": "GQL queries graphs \u2014 TRUG/L describes graphs as sentences. Query language vs specification language"
       },
       "sugar": "'contrasts"
     },
@@ -1294,7 +1294,7 @@
       "relation": "REFERENCES",
       "weight": 0.6,
       "properties": {
-        "relationship": "Promptfoo tests LLM output \u2014 TRL makes the input testable too"
+        "relationship": "Promptfoo tests LLM output \u2014 TRUG/L makes the input testable too"
       },
       "sugar": "'complements"
     },

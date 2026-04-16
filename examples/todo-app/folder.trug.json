@@ -2,7 +2,7 @@
   "name": "Todo App Example",
   "version": "1.0.0",
   "type": "EXAMPLE",
-  "description": "Minimal Python todo app demonstrating TRUGS Agent integration — TRL annotations in code comments, formal obligations, and machine-readable project index.",
+  "description": "Minimal Python todo app demonstrating TRUGS Agent integration — TRUG/L annotations in code comments, formal obligations, and machine-readable project index.",
   "dimensions": {
     "system": {
       "description": "Application components",
@@ -20,7 +20,7 @@
       "type": "MODULE",
       "properties": {
         "name": "app.py",
-        "description": "Todo application with TRL-annotated functions",
+        "description": "Todo application with TRUG/L-annotated functions",
         "file": "app.py"
       },
       "parent_id": null,
@@ -69,7 +69,7 @@
       "type": "FILE",
       "properties": {
         "name": "CLAUDE.md",
-        "description": "TRL instructions for Claude Code"
+        "description": "TRUG/L instructions for Claude Code"
       },
       "parent_id": null,
       "contains": [],

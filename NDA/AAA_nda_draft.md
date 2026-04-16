@@ -2,7 +2,7 @@
 
 ## Phase 1: VISION
 
-I need a mutual NDA for TRUGS LLC. We're entering conversations with potential partners, investors, and contractors who will see proprietary technology (the TRUGS specification, TRL language, patent-pending graph substrate). The NDA must be enforceable in Washington State under RCW 19.108, be mutual (both parties share confidential information), and be written in plain English — no legalese. It should be firm enough to protect IP but not so aggressive that it scares off collaborators.
+I need a mutual NDA for TRUGS LLC. We're entering conversations with potential partners, investors, and contractors who will see proprietary technology (the TRUGS specification, TRUG/L language, patent-pending graph substrate). The NDA must be enforceable in Washington State under RCW 19.108, be mutual (both parties share confidential information), and be written in plain English — no legalese. It should be firm enough to protect IP but not so aggressive that it scares off collaborators.
 
 ## Phase 2: FEASIBILITY
 
@@ -83,7 +83,7 @@ RECORD trl_block SHALL PRECEDE RECORD plain_english 'in EACH RECORD clause.
 
 ### Design Decisions
 
-**ADR-NDA-01:** Plain English with TRL specs. Each clause opens with a `<trl>` block that formally specifies the obligation, followed by plain English that says the same thing. The TRL is the contract; the English is the explanation.
+**ADR-NDA-01:** Plain English with TRUG/L specs. Each clause opens with a `<trl>` block that formally specifies the obligation, followed by plain English that says the same thing. The TRUG/L is the contract; the English is the explanation.
 
 **ADR-NDA-02:** 2-year term, 3-year survival for trade secrets. Industry standard for technology discussions. Short enough to not scare collaborators, long enough to protect IP through patent filing.
 
@@ -143,7 +143,7 @@ Checking against Phase 3 audit criteria:
 - [x] Governing law references RCW 19.108
 - [x] Plain English — no legalese
 - [x] All obligations are mutual
-- [x] All TRL blocks compile
+- [x] All TRUG/L blocks compile
 
 ## Phase 9: DEPLOYMENT
 

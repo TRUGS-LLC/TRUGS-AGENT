@@ -9,9 +9,9 @@
 
 **Your LLM ignores your system prompt because English is ambiguous. TRUGS Agent gives it a formal instruction language instead.**
 
-TRL (TRUGS Language) has 190 words. Every sentence has exactly one meaning. Every instruction compiles to a verifiable graph. Your AI coding assistant stops interpreting and starts executing.
+TRUG/L (TRUGS Language) has 190 words. Every sentence has exactly one meaning. Every instruction compiles to a verifiable graph. Your AI coding assistant stops interpreting and starts executing.
 
-No SDK. No runtime. No dependencies. Copy one file into your project and your LLM speaks TRL.
+No SDK. No runtime. No dependencies. Copy one file into your project and your LLM speaks TRUG/L.
 
 ## The Problem
 
@@ -26,7 +26,7 @@ You write careful instructions in your `CLAUDE.md` or `.cursorrules`. Your LLM i
 
 ## The Fix
 
-TRL instructions have exact definitions. The LLM doesn't interpret — it executes:
+TRUG/L instructions have exact definitions. The LLM doesn't interpret — it executes:
 
 ```
 ✅  <trl>
@@ -94,7 +94,7 @@ See [examples/](examples/) for a working project with TRUGS Agent integrated.
 | **Runtime required** | No | Yes | Yes | Yes |
 | **Lines of code** | 0 (it's text files) | ~100K+ | ~30K+ | ~10K+ |
 
-**The key difference:** LangChain, CrewAI, and Pydantic AI are code frameworks — you write Python to orchestrate agents. TRUGS Agent is a language — you write instructions that any LLM tool can read. They solve different problems. If you need Python orchestration, use a framework. If you need your LLM to follow unambiguous instructions, use TRL.
+**The key difference:** LangChain, CrewAI, and Pydantic AI are code frameworks — you write Python to orchestrate agents. TRUGS Agent is a language — you write instructions that any LLM tool can read. They solve different problems. If you need Python orchestration, use a framework. If you need your LLM to follow unambiguous instructions, use TRUG/L.
 
 ## Components
 
@@ -113,7 +113,7 @@ Every component is standalone. Start with just the root (`AGENT.md`), add compon
 ### Adoption Path
 
 ```
-Just the root         → TRL vocabulary in any project (30 seconds)
+Just the root         → TRUG/L vocabulary in any project (30 seconds)
 Root + Memory         → Persistent context across sessions
 Root + AAA            → Structured development with audit gates
 Root + Folder         → Machine-readable project index
@@ -122,9 +122,18 @@ Root + Everything     → Complete LLM development system
 
 ## Full Specification
 
-- **TRL + TRUGS Specification**: https://github.com/TRUGS-LLC/TRUGS
-- **Paper**: https://github.com/TRUGS-LLC/TRUGS/blob/main/PAPER/trugs.pdf
-- **DOI**: [10.5281/zenodo.19379454](https://doi.org/10.5281/zenodo.19379454)
+The complete TRUGS reference library lives in [TRUGS-LLC/TRUGS/REFERENCE/](https://github.com/TRUGS-LLC/TRUGS/tree/main/REFERENCE). TRUGS-AGENT is the front door; go there for depth.
+
+### Papers and Standards
+
+- **[PAPER_dark_code.md](https://github.com/TRUGS-LLC/TRUGS/blob/main/REFERENCE/PAPER_dark_code.md)** — the WHY: Dark Code problem and TRUGS as resolution
+- **[PAPER_how_to_code_with_trugs.md](https://github.com/TRUGS-LLC/TRUGS/blob/main/REFERENCE/PAPER_how_to_code_with_trugs.md)** — the HOW: practitioner guide
+- **[STANDARD_dark_code_compliance.md](https://github.com/TRUGS-LLC/TRUGS/blob/main/REFERENCE/STANDARD_dark_code_compliance.md)** — the CHECK: auditable compliance checklist
+- **Foundational TRUGS Paper**: https://github.com/TRUGS-LLC/TRUGS/blob/main/PAPER/trugs.pdf — [DOI 10.5281/zenodo.19379454](https://doi.org/10.5281/zenodo.19379454)
+
+### Reference Implementation
+
+- **TRUG/L compiler + TRUGS toolchain**: https://github.com/TRUGS-LLC/TRUGS
 
 ## Contributing
 

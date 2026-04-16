@@ -21,11 +21,11 @@ trugs-agent-init cursor
 trugs-agent-init copilot
 ```
 
-This copies AGENT.md (renamed for your IDE) and all component folders into the current directory. Your LLM reads the files and gains the TRL vocabulary — 190 words with exact definitions.
+This copies AGENT.md (renamed for your IDE) and all component folders into the current directory. Your LLM reads the files and gains the TRUG/L vocabulary — 190 words with exact definitions.
 
 ## What You Get
 
-- **AGENT.md** — TRL vocabulary and grammar (the core)
+- **AGENT.md** — TRUG/L vocabulary and grammar (the core)
 - **AAA/** — 9-phase development protocol
 - **EPIC/** — Portfolio tracking as a graph
 - **FOLDER/** — Machine-readable filesystem index

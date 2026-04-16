@@ -31,7 +31,7 @@ TTTTTTTTTTTT RRRRRRRRRRRRRR    UU         UU   GG         GG    SSSSPECIFICATION
 ```
 <trl>
 NAMESPACE TRUGS GOVERNS ALL DATA graph AND ALL RECORD sentence.
-INTERFACE TRL CONTAINS 190 UNIQUE RECORD word.
+INTERFACE TRUG/L CONTAINS 190 UNIQUE RECORD word.
 EACH RECORD sentence SHALL COMPILE TO DATA graph.
 EACH DATA graph SHALL COMPILE TO RECORD sentence.
 AGENT SHALL READ RECORD sentence THEN EXECUTE.
@@ -44,7 +44,7 @@ NO AGENT SHALL GUESS RECORD meaning —
 {
   "nodes": [
     {"id": "trugs",      "type": "NAMESPACE", "properties": {"name": "TRUGS"}},
-    {"id": "trl",        "type": "INTERFACE", "properties": {"name": "TRL", "words": 190}},
+    {"id": "trl",        "type": "INTERFACE", "properties": {"name": "TRUG/L", "words": 190}},
     {"id": "graph",      "type": "DATA",      "properties": {"name": "graph"}},
     {"id": "sentence",   "type": "RECORD",    "properties": {"name": "sentence"}},
     {"id": "agent",      "type": "AGENT",     "properties": {"name": "agent"}},
@@ -76,16 +76,16 @@ Same specification. Same structure. Different views.
 
 Your prompts are ambiguous. "Make sure the code is clean" means something different every time. Your agent drifts from instructions mid-conversation. Your agent ships code it never audited against the spec. There is no spec — just English that everyone interprets differently.
 
-## TRL — 190 Words That Don't Drift
+## TRUG/L — 190 Words That Don't Drift
 
-TRL is a formal subset of English — 190 words drawn from computation and law. Every word has exactly one meaning. Every valid sentence compiles to a directed graph. Every graph decompiles back to a sentence. Losslessly.
+TRUG/L is a formal subset of English — 190 words drawn from computation and law. Every word has exactly one meaning. Every valid sentence compiles to a directed graph. Every graph decompiles back to a sentence. Losslessly.
 
 **English:**
 
 > Make sure users are authenticated before they can access data.
 > Handle errors gracefully. Don't log passwords.
 
-**TRL:**
+**TRUG/L:**
 
 ```
 <trl>
@@ -99,13 +99,13 @@ NO SERVICE SHALL WRITE DATA credential TO STREAM log.
 </trl>
 ```
 
-The English is three suggestions. The TRL is seven executable obligations. SHALL means must. SHALL_NOT means must not. MAY means allowed. There is no "try" — only obligations, permissions, and prohibitions.
+The English is three suggestions. The TRUG/L is seven executable obligations. SHALL means must. SHALL_NOT means must not. MAY means allowed. There is no "try" — only obligations, permissions, and prohibitions.
 
 ## The Validator
 
 16 rules enforce graph correctness. 9 structural rules (always). 7 compositional rules (opt-in). Subject-operation compatibility. Modifier-entity constraints. No double negation. Reference scope resolution.
 
-Your agent doesn't interpret TRL. It compiles it, validates it, and executes it. If the graph is invalid, the validator catches it before the agent acts.
+Your agent doesn't interpret TRUG/L. It compiles it, validates it, and executes it. If the graph is invalid, the validator catches it before the agent acts.
 
 **8 parts of speech. 190 words. Zero ambiguity.**
 
@@ -126,8 +126,8 @@ research → plan → track → graph → specify → deliver → remember → i
 | research | **WEB_HUB** | Curated web resources as a weighted graph — traverse research instead of searching |
 | plan | **AAA** | 9-phase protocol — plan before code, define audit criteria before build, human approves at 3 gates |
 | track | **EPIC** | Portfolio tracker as a traversable graph — what's blocked, what depends on what |
-| graph | **TRUGGING** | 4-level codebase description — system graph, folder graph, file header TRL, inline TRL |
-| specify | **TRL** | 190-word formalized English — every sentence compiles to a graph, every graph compiles back |
+| graph | **TRUGGING** | 4-level codebase description — system graph, folder graph, file header TRUG/L, inline TRUG/L |
+| specify | **TRUG/L** | 190-word formalized English — every sentence compiles to a graph, every graph compiles back |
 | deliver | **FOLDER** | JSON graph indexes your filesystem — agent navigates without reading every file |
 | remember | **MEMORY** | 4-type persistence across sessions — decisions, preferences, project state, external references |
 
@@ -137,7 +137,7 @@ Each component is one folder with a README (for you) and an AGENT.md (for your L
 
 We built a mutual NDA — a legal document, not software — using all seven systems.
 
-The graph has **23 nodes** (12 clauses + 11 bibliography references) and **26 edges** (clause dependencies + legal citations). Every obligation compiles to TRL:
+The graph has **23 nodes** (12 clauses + 11 bibliography references) and **26 edges** (clause dependencies + legal citations). Every obligation compiles to TRUG/L:
 
 ```
 <trl>

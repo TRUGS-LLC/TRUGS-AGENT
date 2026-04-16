@@ -4,7 +4,7 @@
 - [user_trugs_llc.md](user_trugs_llc.md) — TRUGS LLC, WA state entity, protecting graph specification IP
 
 ## Feedback
-- [feedback_plain_english.md](feedback_plain_english.md) — No legalese, plain English throughout, TRL for formal obligations
+- [feedback_plain_english.md](feedback_plain_english.md) — No legalese, plain English throughout, TRUG/L for formal obligations
 - [feedback_mutual_only.md](feedback_mutual_only.md) — All obligations must be mutual, no unilateral advantage
 
 ## Project
