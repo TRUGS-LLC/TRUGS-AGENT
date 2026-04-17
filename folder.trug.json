@@ -58,7 +58,8 @@
         "folder_brochure",
         "folder_examples",
         "folder_installers",
-        "doc_security"
+        "doc_security",
+        "doc_changelog"
       ],
       "metric_level": "KILO_FOLDER",
       "dimension": "folder_structure"
@@ -675,6 +676,19 @@
       "contains": [],
       "metric_level": "BASE_DOCUMENT",
       "dimension": "folder_structure"
+    },
+    {
+      "id": "doc_changelog",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "CHANGELOG.md",
+        "purpose": "Keep-a-Changelog format, SemVer-adherent",
+        "path": "CHANGELOG.md"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
     }
   ],
   "edges": [
@@ -995,6 +1009,12 @@
     {
       "from_id": "root",
       "to_id": "doc_security",
+      "relation": "contains",
+      "properties": {}
+    },
+    {
+      "from_id": "root",
+      "to_id": "doc_changelog",
       "relation": "contains",
       "properties": {}
     }

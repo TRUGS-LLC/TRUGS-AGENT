@@ -19,8 +19,26 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install trugs
-        run: pip install trugs
-
-      - name: Validate folder.trug.json
-        run: trugs-folder-check .
+      - name: Validate folder.trug.json (JSON syntax + basic shape)
+        # Full `trugs-folder-check` awaits trugs-tools PyPI publication
+        # (tracked in a follow-up issue). Until then, smoke-check the JSON
+        # and key structural invariants to catch the most common regressions.
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          from pathlib import Path
+          p = Path("folder.trug.json")
+          if not p.exists():
+              sys.exit("folder.trug.json missing")
+          d = json.loads(p.read_text())
+          for k in ("nodes", "edges"):
+              if k not in d:
+                  sys.exit(f"folder.trug.json missing top-level {k!r}")
+          ids = {n.get("id") for n in d["nodes"]}
+          for e in d["edges"]:
+              if ":" in e.get("from_id", "") or ":" in e.get("to_id", ""):
+                  continue  # cross-graph ref
+              if e["from_id"] not in ids or e["to_id"] not in ids:
+                  sys.exit(f"dangling edge: {e['from_id']} -> {e['to_id']}")
+          print(f"ok: {len(d['nodes'])} nodes, {len(d['edges'])} edges, 0 dangling")
+          PY
