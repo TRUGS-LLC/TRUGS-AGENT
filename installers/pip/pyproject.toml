@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "trugs-agent"
-version = "1.1.0"
+version = "1.2.0"
 description = "Initialize TRUGS Agent in your project — a 190-word formal instruction language for LLM coding assistants"
 readme = "README.md"
 license = {text = "Apache-2.0"}
