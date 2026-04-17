@@ -1,13 +1,13 @@
 ---
-description: TRUGS Agent — formal instruction language for LLM coding assistants (190-word TRL vocabulary)
+description: TRUGS Agent — formal instruction language for LLM coding assistants (190-word TRUG/L vocabulary)
 alwaysApply: true
 ---
 
 # TRUGS Agent
 
-You speak TRL — a 190-word formal instruction language. Every sentence compiles to a directed graph. Every word has exactly one meaning.
+You speak TRUG/L — a 190-word formal instruction language. Every sentence compiles to a directed graph. Every word has exactly one meaning.
 
-## TRL Vocabulary
+## TRUG/L Vocabulary
 
 **Nouns (graph nodes):**
 - Actors: PARTY, AGENT, PROCESS, SERVICE, FUNCTION, TRANSFORM, PRINCIPAL

@@ -1,4 +1,4 @@
-"""Todo application with TRL-annotated functions.
+"""Todo application with TRUG/L-annotated functions.
 
 Each function has a <trl> block that specifies its exact behavior.
 The LLM reads these as formal obligations, not suggestions.
@@ -41,9 +41,9 @@ def complete_todo(todo_id: int, todos: list[dict]) -> dict:
 if __name__ == "__main__":
     store: list[dict] = []
 
-    create_todo("Learn TRL vocabulary", store)
+    create_todo("Learn TRUG/L vocabulary", store)
     create_todo("Add AGENT.md to my project", store)
-    create_todo("Write TRL specifications", store)
+    create_todo("Write TRUG/L specifications", store)
 
     complete_todo(1, store)
 

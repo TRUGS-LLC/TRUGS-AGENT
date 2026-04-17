@@ -67,8 +67,8 @@ def main():
         shutil.copytree(tools_src, tools_dest)
         print("Created tools/ (validator)")
 
-    print(f"\nTRUGS Agent initialized for {args.ide}. Your LLM now speaks TRL.")
-    print(f"  {target_file} — TRL vocabulary and grammar")
+    print(f"\nTRUGS Agent initialized for {args.ide}. Your LLM now speaks TRUG/L.")
+    print(f"  {target_file} — TRUG/L vocabulary and grammar")
     if copied > 0:
         print(f"  {copied} component folders — methodology and tools")
     print("\nFull docs: https://github.com/TRUGS-LLC/TRUGS-AGENT")
