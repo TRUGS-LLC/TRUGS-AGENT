@@ -1,0 +1,50 @@
+name: Feature request
+description: Propose a new component, skill, or installer capability
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a change. Substantive features follow the AAA protocol — this issue is the VISION step. For additions to the TRUG/L vocabulary itself, file against [`TRUGS-LLC/TRUGS`](https://github.com/TRUGS-LLC/TRUGS) instead.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What are you proposing?
+      description: Describe the feature or change in 2–3 sentences
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does it matter?
+      description: What problem does it solve? Who benefits? What breaks without it?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What other approaches did you think about? Why did you pick this one?
+    validations:
+      required: false
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope — what's in, what's out
+      description: Be explicit about what this change does NOT cover.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: compliance
+    attributes:
+      label: Compliance awareness
+      options:
+        - label: I understand `trugs-folder-check` must pass before this can merge
+          required: true
+        - label: I understand only humans merge PRs; agents open them and stop
+          required: true

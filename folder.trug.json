@@ -57,7 +57,8 @@
         "doc_notice",
         "folder_brochure",
         "folder_examples",
-        "folder_installers"
+        "folder_installers",
+        "doc_security"
       ],
       "metric_level": "KILO_FOLDER",
       "dimension": "folder_structure"
@@ -661,6 +662,19 @@
         "name": "installers",
         "purpose": "Distribution-channel installers that ship the templates and skills to end users."
       }
+    },
+    {
+      "id": "doc_security",
+      "type": "DOCUMENT",
+      "properties": {
+        "name": "SECURITY.md",
+        "purpose": "Security policy \u2014 private disclosure via GitHub Security Advisories",
+        "path": "SECURITY.md"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "BASE_DOCUMENT",
+      "dimension": "folder_structure"
     }
   ],
   "edges": [
@@ -975,6 +989,12 @@
     {
       "from_id": "root",
       "to_id": "folder_tools",
+      "relation": "contains",
+      "properties": {}
+    },
+    {
+      "from_id": "root",
+      "to_id": "doc_security",
       "relation": "contains",
       "properties": {}
     }

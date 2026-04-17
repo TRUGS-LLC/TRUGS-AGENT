@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/TRUGS-LLC/TRUGS-AGENT/security/advisories/new
+    about: Report security issues privately — do not open a public issue
+  - name: Question or discussion
+    url: https://github.com/TRUGS-LLC/TRUGS-AGENT/discussions
+    about: Ask a question or start a conversation
+  - name: TRUG/L vocabulary question
+    url: https://github.com/TRUGS-LLC/TRUGS/issues/new
+    about: Vocabulary or spec questions go to the TRUGS repo, not here
