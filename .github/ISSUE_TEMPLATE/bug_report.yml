@@ -1,0 +1,63 @@
+name: Bug report
+description: Report a problem with the instruction templates, installers, or examples
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please fill in the fields below. **Security vulnerabilities should not be filed here — see [SECURITY.md](../blob/main/SECURITY.md).**
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Where does the bug live?
+      options:
+        - AGENT.md (root instruction file)
+        - AAA/ (development protocol)
+        - EPIC/ (portfolio tracker)
+        - MEMORY/ (persistent context)
+        - FOLDER/ (filesystem index)
+        - TRUGGING/ (codebase description)
+        - WEB_HUB/ (web resource graph)
+        - SKILLS/ (primitives)
+        - NDA/ (worked example)
+        - examples/ (examples)
+        - installers/npm (create-trugs-agent)
+        - installers/pip (trugs-agent-init)
+        - other — specify below
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug. What did you do, what did you expect, what did you get?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: The smallest steps that reproduce the problem. If your LLM behaved unexpectedly, quote the exact prompt and the LLM's output.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: LLM + version (Claude Code X.Y, Cursor, Copilot, etc.), OS, install method (npm/pip/curl/git)
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Anything else — related issues, what you've tried
+    validations:
+      required: false
