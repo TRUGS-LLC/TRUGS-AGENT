@@ -43,6 +43,23 @@ TRUG/L instructions have exact definitions. The LLM doesn't interpret — it exe
 
 Every word maps to a graph element. Every sentence is auditable. No ambiguity.
 
+```mermaid
+flowchart LR
+    L["Your LLM<br/>(Claude Code · Cursor · Copilot)"]
+    A["AGENT.md<br/>(TRUG/L vocab + grammar)"]
+    S["TRUG/L sentence<br/>SHALL · VALIDATE · SUBJECT_TO"]
+    G["TRUG graph<br/>(nodes · edges · hierarchy)"]
+    V{"validate.py"}
+    L -->|reads| A
+    L -->|emits| S
+    S <-->|compile / decompile| G
+    G --> V
+    V -->|pass| L
+    V -.fail.-> L
+```
+
+The LLM reads `AGENT.md`, emits TRUG/L sentences, each compiles to a graph. A bundled validator (`tools/validate.py`) checks every graph against the 16 CORE rules. No custom runtime, no proprietary SDK — the LLM, the file, the validator.
+
 ## Install
 
 Pick your method:
@@ -119,6 +136,23 @@ Root + AAA            → Structured development with audit gates
 Root + Folder         → Machine-readable project index
 Root + Everything     → Complete LLM development system
 ```
+
+## This repo, as a TRUG
+
+This repository describes itself as a TRUG. [`folder.trug.json`](folder.trug.json) at the repo root is the machine-readable index — every component folder (AAA, EPIC, MEMORY, FOLDER, TRUGGING, WEB_HUB, SKILLS, NDA), every docs file, every installer has a node, with typed edges showing which component depends on which.
+
+```bash
+# What components does this repo ship?
+trugs-tls folder.trug.json
+
+# What does the AAA component depend on?
+trugs-tget folder.trug.json aaa_agent --edges
+
+# Does the graph match the filesystem?
+trugs-folder-check .
+```
+
+CI runs a folder-check on every PR. When the graph drifts from prose or filesystem, CI fails. We eat our own dog food — the tool we tell you to use on your projects, we use on ours.
 
 ## Full Specification
 
