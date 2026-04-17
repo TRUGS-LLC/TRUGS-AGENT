@@ -16,6 +16,7 @@ IDE_FILES = {
 COMPONENTS = ["AAA", "EPIC", "FOLDER", "MEMORY", "SKILLS", "TRUGGING", "WEB_HUB"]
 
 
+# PROCESS installer SHALL COPY FILE AGENT.md AND ALL FOLDER component FROM RESOURCE templates TO ENDPOINT cwd THEN SHALL_NOT REPLACE ANY EXISTING FILE.
 def main():
     parser = argparse.ArgumentParser(
         description="Initialize TRUGS Agent in your project"
