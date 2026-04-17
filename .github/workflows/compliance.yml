@@ -19,8 +19,8 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install trugs
-        run: pip install trugs
+      - name: Install trugs-tools
+        run: pip install trugs-tools
 
       - name: Validate folder.trug.json
         run: trugs-folder-check .
