@@ -7,19 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-04-18
+
+Polish release — all three Dark Code compliance layers PASS for `TRUGS-LLC/TRUGS-AGENT`.
+
 ### Added
-- `.github/workflows/compliance.yml` — CI gate running `trugs-folder-check` on every PR (#32)
+- `.github/workflows/compliance.yml` — CI gate validating `folder.trug.json` on every PR (#32)
 - `SECURITY.md` — private disclosure via GitHub Security Advisories (#32)
-- `.github/ISSUE_TEMPLATE/` — bug_report + feature_request + config (#32)
+- `.github/ISSUE_TEMPLATE/` — `bug_report.yml` + `feature_request.yml` + `config.yml` (#32)
 - `.github/PULL_REQUEST_TEMPLATE.md` — summary, linked issue, compliance checklist (#32)
-- This `CHANGELOG.md` — initialized retroactively after v1.1.0
+- `CHANGELOG.md` — this file, initialized retroactively after v1.1.0 (#33)
+- README mermaid architecture diagram above-the-fold showing the LLM ↔ AGENT.md ↔ TRUG/L ↔ TRUG graph ↔ validator loop (#34)
+- README "This repo, as a TRUG" section with three copy-paste queries against `folder.trug.json` (#34)
 
 ### Changed
-- `folder.trug.json` — 57 errors + 6 warnings → 0 / 0 (#31). Edge relations aligned to folder-branch vocabulary, invalid DATA node types fixed, missing `contains` edges added, name/filename alignment for 6 nodes.
-- `installers/pip/src/trugs_agent/cli.py` — added `<trl>` preamble on `main()` for Dark Code compliance (this PR)
+- `folder.trug.json` — 57 errors + 6 warnings → 0 / 0 (#31). Edge relations aligned to folder-branch vocabulary, invalid `DATA` node types fixed, missing `contains` edges added, `name`/filename alignment for 6 nodes.
+- `installers/pip/src/trugs_agent/cli.py` — added `<trl>` preamble on `main()` for Dark Code compliance (#33)
+- `installers/pip/pyproject.toml` — version 1.1.0 → 1.2.0 (this release)
+- `installers/npm/package.json` — version 1.0.0 → 1.2.0 (this release; synchronizes with pip)
+
+### Release discipline
+- Retroactive GitHub Release cut for this version (the first one; 1.0.0 and 1.1.0 shipped to PyPI only). Going forward, every version bump creates a corresponding git tag and GitHub Release.
 
 ### Context
-- Work tracked under `Xepayac/TRUGS-DEVELOPMENT#1525` (P0 polish for TRUGS-LLC/TRUGS-AGENT). Goal: all three polish layers PASS. EPIC: `Xepayac/TRUGS-DEVELOPMENT#1548` (Bring TRUGS-LLC public portfolio to Dark Code compliance).
+- Work tracked under `Xepayac/TRUGS-DEVELOPMENT#1525` (P0 polish for `TRUGS-LLC/TRUGS-AGENT`). EPIC: `Xepayac/TRUGS-DEVELOPMENT#1548` (Bring TRUGS-LLC public portfolio to Dark Code compliance).
+- Follow-up: `Xepayac/TRUGS-DEVELOPMENT#1567` — publish `trugs-tools` to PyPI so CI can restore the full `trugs-folder-check` (currently uses an inline Python fallback).
 
 ## [1.1.0] - 2026-04-08
 
