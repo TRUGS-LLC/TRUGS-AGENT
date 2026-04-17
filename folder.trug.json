@@ -586,80 +586,80 @@
     },
     {
       "id": "doc_contributing",
-      "type": "DATA",
-      "name": "Contributing Guide",
-      "description": "Contributor onboarding and PR workflow.",
+      "type": "DOCUMENT",
       "parent_id": "root",
       "contains": [],
-      "metric_level": "BASE_DOC",
+      "metric_level": "BASE_DOCUMENT",
       "dimension": "documentation",
       "properties": {
-        "path": "CONTRIBUTING.md"
+        "path": "CONTRIBUTING.md",
+        "name": "CONTRIBUTING.md",
+        "purpose": "Contributor onboarding and PR workflow."
       }
     },
     {
       "id": "doc_demo",
-      "type": "DATA",
-      "name": "Demo",
-      "description": "Demo walkthrough of the trugs-agent on-ramp.",
+      "type": "DOCUMENT",
       "parent_id": "root",
       "contains": [],
-      "metric_level": "BASE_DOC",
+      "metric_level": "BASE_DOCUMENT",
       "dimension": "documentation",
       "properties": {
-        "path": "DEMO.md"
+        "path": "DEMO.md",
+        "name": "DEMO.md",
+        "purpose": "Demo walkthrough of the trugs-agent on-ramp."
       }
     },
     {
       "id": "doc_notice",
-      "type": "DATA",
-      "name": "Apache 2.0 NOTICE",
-      "description": "Apache License 2.0 attribution NOTICE file.",
+      "type": "DOCUMENT",
       "parent_id": "root",
       "contains": [],
-      "metric_level": "BASE_DOC",
+      "metric_level": "BASE_DOCUMENT",
       "dimension": "documentation",
       "properties": {
-        "path": "NOTICE"
+        "path": "NOTICE",
+        "name": "NOTICE",
+        "purpose": "Apache License 2.0 attribution NOTICE file."
       }
     },
     {
       "id": "folder_brochure",
-      "type": "DATA",
-      "name": "Marketing brochure",
-      "description": "Marketing and onboarding brochure content.",
+      "type": "FOLDER",
       "parent_id": "root",
       "contains": [],
-      "metric_level": "DECI_FOLDER",
+      "metric_level": "KILO_FOLDER",
       "dimension": "documentation",
       "properties": {
-        "path": "BROCHURE/"
+        "path": "BROCHURE/",
+        "name": "BROCHURE",
+        "purpose": "Marketing and onboarding brochure content."
       }
     },
     {
       "id": "folder_examples",
-      "type": "DATA",
-      "name": "Worked examples",
-      "description": "End-to-end worked examples consuming the TRUGS-AGENT primitives.",
+      "type": "FOLDER",
       "parent_id": "root",
       "contains": [],
-      "metric_level": "DECI_FOLDER",
+      "metric_level": "KILO_FOLDER",
       "dimension": "examples",
       "properties": {
-        "path": "examples/"
+        "path": "examples/",
+        "name": "examples",
+        "purpose": "End-to-end worked examples consuming the TRUGS-AGENT primitives."
       }
     },
     {
       "id": "folder_installers",
-      "type": "DATA",
-      "name": "Installers (npm + pip)",
-      "description": "Distribution-channel installers that ship the templates and skills to end users.",
+      "type": "FOLDER",
       "parent_id": "root",
       "contains": [],
-      "metric_level": "DECI_FOLDER",
+      "metric_level": "KILO_FOLDER",
       "dimension": "distribution",
       "properties": {
-        "path": "installers/"
+        "path": "installers/",
+        "name": "installers",
+        "purpose": "Distribution-channel installers that ship the templates and skills to end users."
       }
     }
   ],
@@ -667,13 +667,13 @@
     {
       "from_id": "doc_readme",
       "to_id": "root",
-      "relation": "REFERENCES",
+      "relation": "describes",
       "properties": {}
     },
     {
       "from_id": "doc_agent",
       "to_id": "root",
-      "relation": "GOVERNS",
+      "relation": "governs",
       "properties": {
         "scope": "TRUG/L language foundation \u2014 all components depend on this"
       }
@@ -681,7 +681,7 @@
     {
       "from_id": "aaa_agent",
       "to_id": "doc_agent",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "AAA phases use TRUG/L for specifications and audit criteria"
       }
@@ -689,7 +689,7 @@
     {
       "from_id": "epic_agent",
       "to_id": "doc_agent",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "EPIC instructions written in TRUG/L"
       }
@@ -697,7 +697,7 @@
     {
       "from_id": "memory_agent",
       "to_id": "doc_agent",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "Memory instructions written in TRUG/L"
       }
@@ -705,7 +705,7 @@
     {
       "from_id": "folder_agent",
       "to_id": "doc_agent",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "Folder instructions written in TRUG/L"
       }
@@ -713,7 +713,7 @@
     {
       "from_id": "trugging_agent",
       "to_id": "doc_agent",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "Trugging methodology uses both TRUG/L and TRUG graphs"
       }
@@ -721,7 +721,7 @@
     {
       "from_id": "trugging_agent",
       "to_id": "folder_agent",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "Trugging levels 1-2 produce folder.trug.json files"
       }
@@ -729,7 +729,7 @@
     {
       "from_id": "aaa_example",
       "to_id": "aaa_agent",
-      "relation": "REFERENCES",
+      "relation": "describes",
       "properties": {
         "scope": "Real production example of all 9 AAA phases"
       }
@@ -737,7 +737,7 @@
     {
       "from_id": "epic_example",
       "to_id": "epic_agent",
-      "relation": "REFERENCES",
+      "relation": "describes",
       "properties": {
         "scope": "Starter template for EPIC tracker"
       }
@@ -745,7 +745,7 @@
     {
       "from_id": "memory_example",
       "to_id": "memory_agent",
-      "relation": "REFERENCES",
+      "relation": "describes",
       "properties": {
         "scope": "Starter memory index with example entries"
       }
@@ -753,7 +753,7 @@
     {
       "from_id": "folder_example",
       "to_id": "folder_agent",
-      "relation": "REFERENCES",
+      "relation": "describes",
       "properties": {
         "scope": "Example folder.trug.json for an auth module"
       }
@@ -761,7 +761,7 @@
     {
       "from_id": "webhub_agent",
       "to_id": "doc_agent",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "WEB_HUB instructions written in TRUG/L"
       }
@@ -769,7 +769,7 @@
     {
       "from_id": "nda_agent",
       "to_id": "doc_agent",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "NDA example uses TRUG/L throughout"
       }
@@ -777,7 +777,7 @@
     {
       "from_id": "folder_nda",
       "to_id": "folder_aaa",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "NDA demonstrates AAA 9-phase protocol"
       }
@@ -785,7 +785,7 @@
     {
       "from_id": "folder_nda",
       "to_id": "folder_epic",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "NDA demonstrates EPIC project tracking"
       }
@@ -793,7 +793,7 @@
     {
       "from_id": "folder_nda",
       "to_id": "folder_memory",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "NDA demonstrates Memory persistence"
       }
@@ -801,7 +801,7 @@
     {
       "from_id": "folder_nda",
       "to_id": "folder_folder",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "NDA demonstrates folder.trug.json indexing"
       }
@@ -809,7 +809,7 @@
     {
       "from_id": "folder_nda",
       "to_id": "folder_trugging",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "NDA demonstrates TRUG/L in legal clauses"
       }
@@ -817,7 +817,7 @@
     {
       "from_id": "folder_nda",
       "to_id": "folder_webhub",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "NDA demonstrates web resource graph for research"
       }
@@ -825,7 +825,7 @@
     {
       "from_id": "skills_agent",
       "to_id": "doc_agent",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "Skills instructions written in TRUG/L"
       }
@@ -833,7 +833,7 @@
     {
       "from_id": "skills_agent",
       "to_id": "memory_agent",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "Memory primitives (memory-save, memory-read) defined here"
       }
@@ -841,7 +841,7 @@
     {
       "from_id": "skills_agent",
       "to_id": "epic_agent",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "EPIC primitives (epic-read, epic-sync, epic-portfolio) defined here"
       }
@@ -849,7 +849,7 @@
     {
       "from_id": "skills_agent",
       "to_id": "folder_agent",
-      "relation": "DEPENDS_ON",
+      "relation": "uses",
       "properties": {
         "reason": "TRUG graph primitives (trug-sync, trug-check, trug-clean, trug-edge) defined here"
       }
@@ -857,7 +857,7 @@
     {
       "from_id": "webhub_web",
       "to_id": "webhub_agent",
-      "relation": "REFERENCES",
+      "relation": "describes",
       "properties": {
         "scope": "Three-branch web resource graph with 54 nodes"
       }
@@ -865,13 +865,13 @@
     {
       "from_id": "tools_test",
       "to_id": "tools_validate",
-      "relation": "IMPLEMENTS",
+      "relation": "tests",
       "properties": {}
     },
     {
       "from_id": "tools_validate",
       "to_id": "doc_agent",
-      "relation": "IMPLEMENTS",
+      "relation": "implements",
       "properties": {
         "scope": "Enforces TRUGS CORE rules referenced in root AGENT.md"
       }
@@ -879,32 +879,104 @@
     {
       "from_id": "root",
       "to_id": "doc_contributing",
-      "relation": "CONTAINS"
+      "relation": "contains"
     },
     {
       "from_id": "root",
       "to_id": "doc_demo",
-      "relation": "CONTAINS"
+      "relation": "contains"
     },
     {
       "from_id": "root",
       "to_id": "doc_notice",
-      "relation": "CONTAINS"
+      "relation": "contains"
     },
     {
       "from_id": "root",
       "to_id": "folder_brochure",
-      "relation": "CONTAINS"
+      "relation": "contains"
     },
     {
       "from_id": "root",
       "to_id": "folder_examples",
-      "relation": "CONTAINS"
+      "relation": "contains"
     },
     {
       "from_id": "root",
       "to_id": "folder_installers",
-      "relation": "CONTAINS"
+      "relation": "contains"
+    },
+    {
+      "from_id": "root",
+      "to_id": "doc_agent",
+      "relation": "contains",
+      "properties": {}
+    },
+    {
+      "from_id": "root",
+      "to_id": "doc_readme",
+      "relation": "contains",
+      "properties": {}
+    },
+    {
+      "from_id": "root",
+      "to_id": "doc_license",
+      "relation": "contains",
+      "properties": {}
+    },
+    {
+      "from_id": "root",
+      "to_id": "folder_aaa",
+      "relation": "contains",
+      "properties": {}
+    },
+    {
+      "from_id": "root",
+      "to_id": "folder_epic",
+      "relation": "contains",
+      "properties": {}
+    },
+    {
+      "from_id": "root",
+      "to_id": "folder_memory",
+      "relation": "contains",
+      "properties": {}
+    },
+    {
+      "from_id": "root",
+      "to_id": "folder_folder",
+      "relation": "contains",
+      "properties": {}
+    },
+    {
+      "from_id": "root",
+      "to_id": "folder_trugging",
+      "relation": "contains",
+      "properties": {}
+    },
+    {
+      "from_id": "root",
+      "to_id": "folder_webhub",
+      "relation": "contains",
+      "properties": {}
+    },
+    {
+      "from_id": "root",
+      "to_id": "folder_skills",
+      "relation": "contains",
+      "properties": {}
+    },
+    {
+      "from_id": "root",
+      "to_id": "folder_nda",
+      "relation": "contains",
+      "properties": {}
+    },
+    {
+      "from_id": "root",
+      "to_id": "folder_tools",
+      "relation": "contains",
+      "properties": {}
     }
   ]
 }
