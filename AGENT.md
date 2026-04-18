@@ -270,7 +270,7 @@ NO FUNCTION SHALL WRITE RECORD password TO FILE OR STREAM.
 
 ## The Validator
 
-TRUGS graphs are validated by `trugs-validate` — 16 rules that every graph must pass:
+TRUGS graphs are validated by `tg validate` — 16 rules that every graph must pass:
 
 - **Rules 1-9 (structural)** — always enforced. Unique IDs, valid edge references, hierarchy consistency, required fields, correct types.
 - **Rules 10-16 (compositional)** — enforced when graph declares `core_v1.0.0`. Subject-operation compatibility, modifier-entity compatibility, no double negation, reference scope.

@@ -1,0 +1,240 @@
+{
+  "name": "AAA Protocol Reference for LLMs",
+  "version": "2.0.0",
+  "type": "SEMANTIC",
+  "branch": "semantic",
+  "description": "Semantic representation of the AAA 9-phase issue-sourced development protocol for LLM autonomous execution",
+  "dimensions": {
+    "aaa_structure": {
+      "description": "AAA v2 protocol structure — 9 phases, 2 cycles, 3 human touchpoints",
+      "base_level": "BASE"
+    }
+  },
+  "capabilities": {
+    "extensions": [],
+    "vocabularies": [
+      "semantic_v1"
+    ],
+    "profiles": []
+  },
+  "nodes": [
+    {
+      "id": "aaa_framework",
+      "type": "CONCEPT",
+      "metric_level": "STANDARD",
+      "properties": {
+        "name": "AAA Protocol v2",
+        "description": "9-phase issue-sourced development protocol. GitHub Issues are source of truth. AAA.md on disk is derived — never edit it.",
+        "version": "2.0.0",
+        "source_file": "GUIDE_aaa_workflow_for_llm_agents.md"
+      },
+      "contains": [
+        "two_paths",
+        "nine_phases",
+        "three_touchpoints",
+        "lifecycle",
+        "sub_issues",
+        "trug_native_format",
+        "research_protocol",
+        "nightly_pipeline",
+        "writing_style",
+        "critical_rules",
+        "intent_autonomous_execution",
+        "intent_context_efficiency",
+        "intent_quality_enforcement"
+      ],
+      "dimension": "aaa_structure"
+    },
+    {
+      "id": "two_paths",
+      "type": "CONCEPT",
+      "metric_level": "STANDARD",
+      "parent_id": "aaa_framework",
+      "properties": {
+        "name": "Two Paths — CHORE or ISSUE",
+        "description": "No middle ground. If it needs an issue, it needs an AAA. If it doesn't need an issue, it's a chore.",
+        "chore": {"trigger": "Simple task, known steps, no unknowns", "flow": "Branch → PR → merge. No issue needed."},
+        "issue": {"trigger": "Idea, proposal, feature, bug — anything with unknowns", "flow": "Issue → AAA → PLANNING → HITM → EXECUTION → PR → merge"}
+      },
+      "contains": [],
+      "dimension": "aaa_structure"
+    },
+    {
+      "id": "nine_phases",
+      "type": "CONCEPT",
+      "metric_level": "STANDARD",
+      "parent_id": "aaa_framework",
+      "properties": {
+        "name": "Nine Development Phases in Two Cycles",
+        "description": "PLANNING cycle (phases 1-5) and EXECUTION cycle (phases 6-9) separated by VALIDATION HITM gate",
+        "planning_cycle": "VISION → FEASIBILITY → SPECIFICATIONS → ARCHITECTURE → VALIDATION (HITM)",
+        "execution_cycle": "CODING → TESTING → AUDIT (HITM) → DEPLOYMENT",
+        "phase_statuses": ["NOT_STARTED", "IN_PROGRESS", "COMPLETE", "BLOCKED", "NOT_APPLICABLE"],
+        "quality_gates": ["passed", "pending", "blocked"],
+        "compute_routing": "PLANNING cycle runs on expensive models (Opus). EXECUTION cycle can run on cheaper models (Sonnet/Haiku)."
+      },
+      "contains": ["phase_vision", "phase_feasibility", "phase_specifications", "phase_architecture", "phase_validation", "phase_coding", "phase_testing", "phase_audit", "phase_deployment"],
+      "dimension": "aaa_structure"
+    },
+    {"id": "phase_vision", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 1: VISION", "phase_number": 1, "cycle": "PLANNING", "type": "Define", "purpose": "What and why", "output": "Problem statement, success criteria", "human_touchpoint": true, "document_types": ["VISION_"]}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_feasibility", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 2: FEASIBILITY", "phase_number": 2, "cycle": "PLANNING", "type": "Decide", "purpose": "Quick kill — worth pursuing?", "output": "GO/NO-GO decision, risk assessment", "requires_web_research": true, "difficulty_ratings": ["EASY", "MEDIUM", "HARD", "EXTREMELY_HARD"], "document_types": ["FEASIBILITY_", "RESEARCH_"]}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_specifications", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 3: SPECIFICATIONS", "phase_number": 3, "cycle": "PLANNING", "type": "Define", "purpose": "Exact requirements", "output": "API contracts, data models, acceptance criteria", "document_types": ["SPEC_", "PROPOSAL_"]}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_architecture", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 4: ARCHITECTURE", "phase_number": 4, "cycle": "PLANNING", "type": "Design", "purpose": "System design", "output": "Component map, tech stack, ADRs, data flows", "document_types": ["ARCHITECTURE"]}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_validation", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 5: VALIDATION", "phase_number": 5, "cycle": "PLANNING", "type": "HITM Gate", "purpose": "Audit phases 1-4 + coding plan", "human_touchpoint": true, "checks": ["Alignment", "Completeness", "Feasibility", "Risk", "Scope", "Coding plan"], "loop_target": "ARCHITECTURE"}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_coding", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 6: CODING", "phase_number": 6, "cycle": "EXECUTION", "type": "Build", "purpose": "Implementation", "output": "Task list, test coverage, blockers"}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_testing", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 7: TESTING", "phase_number": 7, "cycle": "EXECUTION", "type": "Verify", "purpose": "Run tests", "output": "Test results, bug tracking, coverage"}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_audit", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 8: AUDIT", "phase_number": 8, "cycle": "EXECUTION", "type": "HITM Gate", "purpose": "Audit code + tests. Write tests for uncovered findings. Cycle until no critical/high.", "human_touchpoint": true, "checks": ["Conformance", "Coverage", "Security", "Quality", "Performance"], "loop_targets": ["TESTING", "CODING", "ARCHITECTURE"]}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_deployment", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 9: DEPLOYMENT", "phase_number": 9, "cycle": "EXECUTION", "type": "Ship", "purpose": "Release", "output": "Deployment strategy, monitoring, runbooks"}, "contains": [], "dimension": "aaa_structure"},
+    {
+      "id": "three_touchpoints",
+      "type": "CONCEPT",
+      "metric_level": "STANDARD",
+      "parent_id": "aaa_framework",
+      "properties": {
+        "name": "Three Human Touchpoints",
+        "description": "Everything between touchpoints is autonomous agent work.",
+        "touchpoints": ["VISION — human states what they want", "VALIDATION — human approves the plan before coding", "AUDIT/DEPLOYMENT — human approves the result before shipping"]
+      },
+      "contains": [],
+      "dimension": "aaa_structure"
+    },
+    {
+      "id": "lifecycle",
+      "type": "CONCEPT",
+      "metric_level": "STANDARD",
+      "parent_id": "aaa_framework",
+      "properties": {
+        "name": "Lifecycle: From Idea to Agent Execution",
+        "steps": ["Developer writes documents on disk (VISION_*, RESEARCH_*, SPEC_*, PROPOSAL_*)", "Developer consolidates into GitHub Issue (9-phase AAA format)", "Nightly pipeline (trugs-aaa-generate) writes issue body to FOLDERNAME/AAA.md", "Agent reads folder.trug.json + AAA.md, implements, updates TRUG, creates PR"],
+        "agent_workflow": ["Read folder.trug.json", "Read AAA.md", "Implement", "Update folder.trug.json", "Create PR"]
+      },
+      "contains": [],
+      "dimension": "aaa_structure"
+    },
+    {
+      "id": "sub_issues",
+      "type": "CONCEPT",
+      "metric_level": "STANDARD",
+      "parent_id": "aaa_framework",
+      "properties": {
+        "name": "Sub-Issues",
+        "type_a": {"name": "AAA Upgrade", "work": "Edit the GitHub Issue body"},
+        "type_b": {"name": "Code Development", "work": "Branch, code, PR"},
+        "sequencing_rule": "Type A (spec) precedes Type B (code) for same phase"
+      },
+      "contains": [],
+      "dimension": "aaa_structure"
+    },
+    {
+      "id": "trug_native_format",
+      "type": "CONCEPT",
+      "metric_level": "STANDARD",
+      "parent_id": "aaa_framework",
+      "properties": {
+        "name": "TRUG-Native Format (Optional)",
+        "vocabulary": "aaa_v1",
+        "node_types": ["AAA", "PHASE", "TASK", "RISK", "ADR", "DEPENDENCY", "RESEARCH_SOURCE", "QUALITY_GATE", "SUB_ISSUE"],
+        "edge_relations": ["precedes", "depends_on", "blocked_by", "mitigates", "validates", "tracks", "cites", "decides", "implements"]
+      },
+      "contains": [],
+      "dimension": "aaa_structure"
+    },
+    {
+      "id": "research_protocol",
+      "type": "CONCEPT",
+      "metric_level": "STANDARD",
+      "parent_id": "aaa_framework",
+      "properties": {
+        "name": "Research Protocol",
+        "description": "FEASIBILITY requires web research. LLM training data alone is insufficient.",
+        "depth_by_difficulty": {"EASY": "3+ sources", "MEDIUM": "5+ sources", "HARD": "8+ sources", "EXTREMELY_HARD": "12+ sources"}
+      },
+      "contains": [],
+      "dimension": "aaa_structure"
+    },
+    {
+      "id": "nightly_pipeline",
+      "type": "CONCEPT",
+      "metric_level": "STANDARD",
+      "parent_id": "aaa_framework",
+      "properties": {
+        "name": "Nightly Pipeline",
+        "workflow_file": ".github/workflows/folder-sync.yml",
+        "steps": ["trugs-aaa-generate", "trugs-folder-sync", "trugs-folder-check", "trugs-folder-render", "trugs-folder-map", "change_summary.py", "git commit + push", "Error issue"]
+      },
+      "contains": [],
+      "dimension": "aaa_structure"
+    },
+    {
+      "id": "writing_style",
+      "type": "CONCEPT",
+      "metric_level": "STANDARD",
+      "parent_id": "aaa_framework",
+      "properties": {
+        "name": "Writing Style",
+        "rules": ["Bullets over paragraphs", "Tables for comparisons", "Precise terms", "Link, don't inline", "Target: <300 lines", "Single line for blocked phases"]
+      },
+      "contains": [],
+      "dimension": "aaa_structure"
+    },
+    {
+      "id": "critical_rules",
+      "type": "CONCEPT",
+      "metric_level": "STANDARD",
+      "parent_id": "aaa_framework",
+      "properties": {
+        "name": "Critical Rules for Agents",
+        "rules": ["GitHub Issues are source of truth — never edit AAA.md", "Read AAA.md, write to folder.trug.json and code", "Execution ends with: create PR", "All 9 phases always present", "FEASIBILITY requires web research", "Specs complete before coding", "When blocked: STOP"]
+      },
+      "contains": [],
+      "dimension": "aaa_structure"
+    },
+    {"id": "intent_autonomous_execution", "type": "INTENT", "metric_level": "STANDARD", "parent_id": "aaa_framework", "properties": {"description": "Enable LLMs to execute AAA tasks autonomously — three file reads to productive implementation", "goal": "autonomous_development", "priority": "critical"}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "intent_context_efficiency", "type": "INTENT", "metric_level": "STANDARD", "parent_id": "aaa_framework", "properties": {"description": "Optimize AAA.md for minimal token consumption — <300 lines target", "goal": "cost_optimization", "priority": "high"}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "intent_quality_enforcement", "type": "INTENT", "metric_level": "STANDARD", "parent_id": "aaa_framework", "properties": {"description": "Enforce quality gates and HITM touchpoints to prevent phase skipping", "goal": "quality_assurance", "priority": "high"}, "contains": [], "dimension": "aaa_structure"}
+  ],
+  "edges": [
+    {"from_id": "phase_vision", "to_id": "phase_feasibility", "relation": "precedes"},
+    {"from_id": "phase_feasibility", "to_id": "phase_specifications", "relation": "precedes"},
+    {"from_id": "phase_specifications", "to_id": "phase_architecture", "relation": "precedes"},
+    {"from_id": "phase_architecture", "to_id": "phase_validation", "relation": "precedes"},
+    {"from_id": "phase_validation", "to_id": "phase_coding", "relation": "precedes", "properties": {"hitm_gate": true}},
+    {"from_id": "phase_validation", "to_id": "phase_architecture", "relation": "loops_to", "weight": 0.5, "properties": {"condition": "checks_not_green"}},
+    {"from_id": "phase_coding", "to_id": "phase_testing", "relation": "precedes"},
+    {"from_id": "phase_testing", "to_id": "phase_audit", "relation": "precedes"},
+    {"from_id": "phase_audit", "to_id": "phase_deployment", "relation": "precedes"},
+    {"from_id": "phase_audit", "to_id": "phase_testing", "relation": "loops_to", "weight": 0.5, "properties": {"condition": "need_more_tests"}},
+    {"from_id": "phase_audit", "to_id": "phase_coding", "relation": "loops_to", "weight": 0.5, "properties": {"condition": "code_issues"}},
+    {"from_id": "phase_audit", "to_id": "phase_architecture", "relation": "loops_to", "weight": 0.3, "properties": {"condition": "design_issues"}},
+    {"from_id": "phase_feasibility", "to_id": "research_protocol", "relation": "depends_on"},
+    {"from_id": "aaa_framework", "to_id": "two_paths", "relation": "contains", "weight": 1.0},
+    {"from_id": "aaa_framework", "to_id": "nine_phases", "relation": "contains", "weight": 1.0},
+    {"from_id": "aaa_framework", "to_id": "three_touchpoints", "relation": "contains", "weight": 1.0},
+    {"from_id": "aaa_framework", "to_id": "lifecycle", "relation": "contains", "weight": 1.0},
+    {"from_id": "aaa_framework", "to_id": "sub_issues", "relation": "contains", "weight": 1.0},
+    {"from_id": "aaa_framework", "to_id": "trug_native_format", "relation": "contains", "weight": 1.0},
+    {"from_id": "aaa_framework", "to_id": "research_protocol", "relation": "contains", "weight": 1.0},
+    {"from_id": "aaa_framework", "to_id": "nightly_pipeline", "relation": "contains", "weight": 1.0},
+    {"from_id": "aaa_framework", "to_id": "writing_style", "relation": "contains", "weight": 1.0},
+    {"from_id": "aaa_framework", "to_id": "critical_rules", "relation": "contains", "weight": 1.0},
+    {"from_id": "aaa_framework", "to_id": "intent_autonomous_execution", "relation": "contains", "weight": 1.0},
+    {"from_id": "aaa_framework", "to_id": "intent_context_efficiency", "relation": "contains", "weight": 1.0},
+    {"from_id": "aaa_framework", "to_id": "intent_quality_enforcement", "relation": "contains", "weight": 1.0},
+    {"from_id": "nine_phases", "to_id": "phase_vision", "relation": "contains", "weight": 1.0},
+    {"from_id": "nine_phases", "to_id": "phase_feasibility", "relation": "contains", "weight": 1.0},
+    {"from_id": "nine_phases", "to_id": "phase_specifications", "relation": "contains", "weight": 1.0},
+    {"from_id": "nine_phases", "to_id": "phase_architecture", "relation": "contains", "weight": 1.0},
+    {"from_id": "nine_phases", "to_id": "phase_validation", "relation": "contains", "weight": 1.0},
+    {"from_id": "nine_phases", "to_id": "phase_coding", "relation": "contains", "weight": 1.0},
+    {"from_id": "nine_phases", "to_id": "phase_testing", "relation": "contains", "weight": 1.0},
+    {"from_id": "nine_phases", "to_id": "phase_audit", "relation": "contains", "weight": 1.0},
+    {"from_id": "nine_phases", "to_id": "phase_deployment", "relation": "contains", "weight": 1.0},
+    {"from_id": "intent_autonomous_execution", "to_id": "critical_rules", "relation": "motivates"},
+    {"from_id": "intent_autonomous_execution", "to_id": "lifecycle", "relation": "motivates"},
+    {"from_id": "intent_context_efficiency", "to_id": "writing_style", "relation": "motivates"},
+    {"from_id": "intent_quality_enforcement", "to_id": "three_touchpoints", "relation": "motivates"},
+    {"from_id": "intent_quality_enforcement", "to_id": "research_protocol", "relation": "motivates"},
+    {"from_id": "lifecycle", "to_id": "nightly_pipeline", "relation": "depends_on"},
+    {"from_id": "sub_issues", "to_id": "nine_phases", "relation": "depends_on"}
+  ]
+}

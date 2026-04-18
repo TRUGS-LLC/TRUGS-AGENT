@@ -63,10 +63,10 @@ Each node has a `purpose` field — one sentence explaining what the file does. 
 ## CLI Tools
 
 ```bash
-trugs-folder-init [PATH]    # Generate starter folder.trug.json from directory scan
-trugs-folder-sync [PATH]    # Update nodes for new/missing files
-trugs-folder-check [PATH]   # Validate folder.trug.json — exit 0 = pass
-trugs-folder-render [PATH]  # Regenerate ARCHITECTURE.md from folder.trug.json
+tg init [PATH]    # Generate starter folder.trug.json from directory scan
+tg sync [PATH]    # Update nodes for new/missing files
+tg check [PATH]   # Validate folder.trug.json — exit 0 = pass
+tg render [PATH]  # Regenerate ARCHITECTURE.md from folder.trug.json
 ```
 
 ## Example

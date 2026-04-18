@@ -101,7 +101,7 @@ FUNCTION trug-sync SHALL MARK RECORD node AS PENDING IF FILE 'is 'not FOUND.
 FUNCTION trug-sync SHALL_NOT REPLACE ANY RECORD node.
 </trl>
 
-Run `trugs-folder-sync` on a folder. Adds nodes for new files, marks missing files stale. Never removes nodes.
+Run `tg sync` on a folder. Adds nodes for new files, marks missing files stale. Never removes nodes.
 
 <trl>
 DEFINE "trug-check" AS FUNCTION.
@@ -110,7 +110,7 @@ FUNCTION trug-check SHALL RESPOND 'with RECORD result AS VALID OR INVALID.
 IF RECORD result 'is INVALID THEN FUNCTION trug-check SHALL RESPOND 'with EACH RECORD error.
 </trl>
 
-Run `trugs-folder-check` to validate a folder.trug.json against structural rules. Returns pass/fail with error details.
+Run `tg check` to validate a folder.trug.json against structural rules. Returns pass/fail with error details.
 
 <trl>
 DEFINE "trug-clean" AS FUNCTION.
