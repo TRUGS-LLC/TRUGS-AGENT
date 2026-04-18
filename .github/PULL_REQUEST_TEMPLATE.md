@@ -17,7 +17,7 @@ Fixes #<!-- issue number, if applicable. For trivial chore/docs PRs, write "none
 
 <!-- What did you do to convince yourself this works? -->
 
-- [ ] `trugs-folder-check .` reports 0 errors
+- [ ] `tg check .` reports 0 errors
 - [ ] If installer changed: `create-trugs-agent` / `trugs-agent-init` produces the expected files in a scratch directory
 - [ ] If template changed: manually validated that an LLM (Claude Code / Cursor / Copilot) follows the updated instruction correctly
 - [ ] Manual check: <!-- describe -->

@@ -105,7 +105,7 @@
       "parent_id": "aaa_framework",
       "properties": {
         "name": "Lifecycle: From Idea to Agent Execution",
-        "steps": ["Developer writes documents on disk (VISION_*, RESEARCH_*, SPEC_*, PROPOSAL_*)", "Developer consolidates into GitHub Issue (9-phase AAA format)", "Nightly pipeline (trugs-aaa-generate) writes issue body to FOLDERNAME/AAA.md", "Agent reads folder.trug.json + AAA.md, implements, updates TRUG, creates PR"],
+        "steps": ["Developer writes documents on disk (VISION_*, RESEARCH_*, SPEC_*, PROPOSAL_*)", "Developer consolidates into GitHub Issue (9-phase AAA format)", "Nightly pipeline (tg aaa generate) writes issue body to FOLDERNAME/AAA.md", "Agent reads folder.trug.json + AAA.md, implements, updates TRUG, creates PR"],
         "agent_workflow": ["Read folder.trug.json", "Read AAA.md", "Implement", "Update folder.trug.json", "Create PR"]
       },
       "contains": [],
@@ -160,7 +160,7 @@
       "properties": {
         "name": "Nightly Pipeline",
         "workflow_file": ".github/workflows/folder-sync.yml",
-        "steps": ["trugs-aaa-generate", "trugs-folder-sync", "trugs-folder-check", "trugs-folder-render", "trugs-folder-map", "change_summary.py", "git commit + push", "Error issue"]
+        "steps": ["tg aaa generate", "tg sync", "tg check", "tg render", "tg info", "change_summary.py", "git commit + push", "Error issue"]
       },
       "contains": [],
       "dimension": "aaa_structure"

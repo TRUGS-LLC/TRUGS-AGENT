@@ -413,7 +413,7 @@ The full nightly sequence (`.github/workflows/folder-sync.yml`, 07:00 UTC daily)
 2. tg sync      → Sync folder.trug.json stale flags
 3. tg check     → Validate all TRUGs (continue on error)
 4. tg render    → Regenerate all ARCHITECTURE.md
-5. trugs-folder-map       → Build root cross-folder graph
+5. tg info       → Build root cross-folder graph
 6. change_summary.py      → Generate change summary
 7. git commit + push      → Commit all generated changes
 8. Error issue (if any)   → Open issue for pipeline errors
