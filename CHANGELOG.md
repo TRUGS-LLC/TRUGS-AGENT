@@ -5,7 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [Frozen] - 2026-04-18
+
+**TRUGS-AGENT is now a content repository only — no further PyPI or npm releases.**
+
+### Rationale
+
+Per TRUGS-LLC reorganization EPIC [`Xepayac/TRUGS-DEVELOPMENT#1576`](https://github.com/Xepayac/TRUGS-DEVELOPMENT/issues/1576), TRUGS-AGENT's role is now "marketing hub + info repo." Content updates ship via `git` commits to `main`; consumers should `git clone` this repo rather than `pip install`.
+
+- `trugs-agent` 1.2.0 remains on PyPI indefinitely (PyPI immutability) but will **not** receive updates.
+- `create-trugs-agent` (npm) was never published; the `installers/` directory has been removed from this repo.
+- CLI automation has moved to the sibling package [`trugs-tools`](https://github.com/TRUGS-LLC/TRUGS-TOOLS) — `pip install trugs-tools` provides the `tg` binary with 36 operations.
+
+### Added
+- `AAA/GUIDE_aaa_workflow_for_llm_agents.md` — 21 KB workflow deep-dive migrated from `Xepayac/TRUGS-AAA` (now archived).
+- `AAA/AAA_REFERENCE_for_LLM.trug.json` — canonical 9-phase protocol TRUG (16 KB) migrated from `Xepayac/TRUGS-AAA`.
+- `AAA/EXAMPLE_canonical.trug.json` — 14 KB runnable 9-phase example.
+
+### Removed
+- `installers/` directory entirely (pip + npm + `sync-templates.sh`). The pip/npm scaffolders duplicated repo-root concept folders and created version-coupling churn; `git clone` achieves the same with no shadow copies.
+- `[Unreleased]` section (this section) — replaced with `[Frozen]` marker to signal no future releases.
+
+### Changed
+- `README.md` install section — promotes `git clone` as the canonical method; `pip install trugs-agent` noted as legacy frozen artifact.
+- `folder.trug.json` — 4 installer references pruned (`folder_installers` node, `root.contains[]` entry, `distribution` dimension, outbound `contains` edge).
 
 ## [1.2.0] - 2026-04-18
 

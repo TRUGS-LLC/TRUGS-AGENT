@@ -15,10 +15,6 @@
     "examples": {
       "description": "End-to-end worked examples consuming the TRUGS-AGENT primitives",
       "base_level": "BASE"
-    },
-    "distribution": {
-      "description": "Distribution-channel installers \u2014 npm and pip packages that ship templates to end users",
-      "base_level": "BASE"
     }
   },
   "capabilities": {
@@ -57,7 +53,6 @@
         "doc_notice",
         "folder_brochure",
         "folder_examples",
-        "folder_installers",
         "doc_security",
         "doc_changelog"
       ],
@@ -652,19 +647,6 @@
       }
     },
     {
-      "id": "folder_installers",
-      "type": "FOLDER",
-      "parent_id": "root",
-      "contains": [],
-      "metric_level": "KILO_FOLDER",
-      "dimension": "distribution",
-      "properties": {
-        "path": "installers/",
-        "name": "installers",
-        "purpose": "Distribution-channel installers that ship the templates and skills to end users."
-      }
-    },
-    {
       "id": "doc_security",
       "type": "DOCUMENT",
       "properties": {
@@ -927,11 +909,6 @@
     {
       "from_id": "root",
       "to_id": "folder_examples",
-      "relation": "contains"
-    },
-    {
-      "from_id": "root",
-      "to_id": "folder_installers",
       "relation": "contains"
     },
     {

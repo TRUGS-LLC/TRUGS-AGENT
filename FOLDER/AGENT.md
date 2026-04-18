@@ -203,7 +203,7 @@ AGENT SHALL VALIDATE FILE folder.trug.json.
 3. **Create a node for each file/component** — type it correctly, write a one-sentence purpose
 4. **Set hierarchy** — `parent_id` points up, `contains` points down, both must agree
 5. **Create edges** — `implements`, `tests`, `uses`, `describes`, etc.
-6. **Validate** — run `trugs-folder-check` or `python tools/validate.py`
+6. **Validate** — run `tg check` or `python tools/validate.py`
 
 ---
 
@@ -289,20 +289,20 @@ Files prefixed with `zzz_` are archived — pending human review before deletion
 ## CLI Tools
 
 <trl>
-AGENT MAY USE RECORD command "trugs-folder-init" TO CREATE FILE folder.trug.json FROM RECORD filesystem.
-AGENT MAY USE RECORD command "trugs-folder-sync" TO UPDATE FILE folder.trug.json FROM RECORD filesystem.
-AGENT SHALL USE RECORD command "trugs-folder-check" TO VALIDATE FILE folder.trug.json.
-AGENT MAY USE RECORD command "trugs-folder-render" TO GENERATE FILE ARCHITECTURE.md FROM FILE folder.trug.json.
+AGENT MAY USE RECORD command "tg init" TO CREATE FILE folder.trug.json FROM RECORD filesystem.
+AGENT MAY USE RECORD command "tg sync" TO UPDATE FILE folder.trug.json FROM RECORD filesystem.
+AGENT SHALL USE RECORD command "tg check" TO VALIDATE FILE folder.trug.json.
+AGENT MAY USE RECORD command "tg render" TO GENERATE FILE ARCHITECTURE.md FROM FILE folder.trug.json.
 </trl>
 
 ```bash
-trugs-folder-init [PATH]              # Generate starter folder.trug.json from directory scan
-trugs-folder-sync [PATH] [--all]      # Add nodes for new files, mark missing files stale
-trugs-folder-check [PATH] [--all]     # Validate folder.trug.json — exit 0 = pass, exit 1 = errors
-trugs-folder-render [PATH] [--all]    # Regenerate ARCHITECTURE.md from folder.trug.json
+tg init [PATH]              # Generate starter folder.trug.json from directory scan
+tg sync [PATH] [--all]      # Add nodes for new files, mark missing files stale
+tg check [PATH] [--all]     # Validate folder.trug.json — exit 0 = pass, exit 1 = errors
+tg render [PATH] [--all]    # Regenerate ARCHITECTURE.md from folder.trug.json
 ```
 
-`trugs-folder-sync` rules:
+`tg sync` rules:
 - Adds nodes for new files found on disk
 - Sets `stale: true` on nodes whose files are missing
 - Never removes nodes

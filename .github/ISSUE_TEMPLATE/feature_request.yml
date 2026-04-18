@@ -44,7 +44,7 @@ body:
     attributes:
       label: Compliance awareness
       options:
-        - label: I understand `trugs-folder-check` must pass before this can merge
+        - label: I understand `tg check` must pass before this can merge
           required: true
         - label: I understand only humans merge PRs; agents open them and stop
           required: true

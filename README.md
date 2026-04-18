@@ -3,7 +3,7 @@
 [![Works with Claude Code](https://img.shields.io/badge/Works_with-Claude_Code-blueviolet.svg)](https://claude.ai/code)
 [![Works with Cursor](https://img.shields.io/badge/Works_with-Cursor-orange.svg)](https://cursor.com)
 [![Works with Copilot](https://img.shields.io/badge/Works_with-GitHub_Copilot-brightgreen.svg)](https://github.com/features/copilot)
-[![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero-lightgrey.svg)](#quickstart)
+[![Zero Install](https://img.shields.io/badge/Install-git_clone-lightgrey.svg)](#install)
 
 # TRUGS Agent
 
@@ -62,29 +62,29 @@ The LLM reads `AGENT.md`, emits TRUG/L sentences, each compiles to a graph. A bu
 
 ## Install
 
-Pick your method:
+TRUGS-AGENT is a **content repository** — zero pip install to use. Clone it, or copy what you need:
 
 ```bash
-# npm — one command, all files
-npx create-trugs-agent                    # Claude Code (default)
-npx create-trugs-agent cursor             # Cursor
-npx create-trugs-agent copilot            # GitHub Copilot
-
-# pip — same thing, Python
-pip install trugs-agent
-trugs-agent-init                          # Claude Code (default)
-trugs-agent-init cursor                   # Cursor
-trugs-agent-init copilot                  # GitHub Copilot
+# git — clone the repo (recommended)
+git clone https://github.com/TRUGS-LLC/TRUGS-AGENT.git
+cp TRUGS-AGENT/AGENT.md your-project/CLAUDE.md
 
 # curl — just the core file, nothing else
 curl -o CLAUDE.md https://raw.githubusercontent.com/TRUGS-LLC/TRUGS-AGENT/main/AGENT.md
-
-# git — clone and copy what you want
-git clone https://github.com/TRUGS-LLC/TRUGS-AGENT.git
-cp TRUGS-AGENT/AGENT.md your-project/CLAUDE.md
 ```
 
 **Already using Cursor?** This repo includes `.cursor/rules/trugs-agent.mdc` — clone the repo and copy the `.cursor/` directory into your project.
+
+**Want the CLI automation?** Install the sibling [`trugs-tools`](https://github.com/TRUGS-LLC/TRUGS-TOOLS) package — it provides the unified `tg` binary for validation, graph operations, memory, AAA protocol checks, and more:
+
+```bash
+pip install trugs-tools
+tg --help   # 36 operations under 21 top-level verbs + 3 sub-namespaces
+```
+
+### Legacy — `pip install trugs-agent` (frozen at 1.2.0)
+
+The npm `create-trugs-agent` package was never published. The `pip install trugs-agent` package is frozen at 1.2.0 — it still installs but ships pre-1.0 shadow-copy templates and does not receive updates. **For current content, `git clone` this repo.**
 
 **Validate your TRUGs:**
 
@@ -143,13 +143,13 @@ This repository describes itself as a TRUG. [`folder.trug.json`](folder.trug.jso
 
 ```bash
 # What components does this repo ship?
-trugs-tls folder.trug.json
+tg ls folder.trug.json
 
 # What does the AAA component depend on?
-trugs-tget folder.trug.json aaa_agent --edges
+tg get folder.trug.json aaa_agent --edges
 
 # Does the graph match the filesystem?
-trugs-folder-check .
+tg check .
 ```
 
 CI runs a folder-check on every PR. When the graph drifts from prose or filesystem, CI fails. We eat our own dog food — the tool we tell you to use on your projects, we use on ours.
