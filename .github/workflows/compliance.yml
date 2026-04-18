@@ -9,7 +9,7 @@ on:
 jobs:
   folder-check:
     runs-on: ubuntu-latest
-    name: trugs-folder-check
+    name: tg check
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -20,7 +20,7 @@ jobs:
           python-version: '3.11'
 
       - name: Validate folder.trug.json (JSON syntax + basic shape)
-        # Full `trugs-folder-check` awaits trugs-tools PyPI publication
+        # Now using `tg check` from trugs-tools 1.0.0 (published 2026-04-18)
         # (tracked in a follow-up issue). Until then, smoke-check the JSON
         # and key structural invariants to catch the most common regressions.
         run: |
