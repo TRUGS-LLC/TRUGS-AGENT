@@ -53,6 +53,7 @@
         "doc_notice",
         "folder_brochure",
         "folder_examples",
+        "folder_proposal",
         "doc_security",
         "doc_changelog"
       ],
@@ -671,6 +672,19 @@
       "contains": [],
       "metric_level": "BASE_DOCUMENT",
       "dimension": "folder_structure"
+    },
+    {
+      "id": "folder_proposal",
+      "type": "FOLDER",
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "KILO_FOLDER",
+      "dimension": "documentation",
+      "properties": {
+        "path": "PROPOSAL/",
+        "name": "PROPOSAL",
+        "purpose": "Design proposals — graph-first development with the trugs-agent developer tutorial (#1432)."
+      }
     }
   ],
   "edges": [
@@ -992,6 +1006,12 @@
     {
       "from_id": "root",
       "to_id": "doc_changelog",
+      "relation": "contains",
+      "properties": {}
+    },
+    {
+      "from_id": "root",
+      "to_id": "folder_proposal",
       "relation": "contains",
       "properties": {}
     }
