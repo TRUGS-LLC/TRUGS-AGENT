@@ -7,6 +7,25 @@
 
 # TRUGS Agent
 
+> ## 🚧 Under reconstruction — this repo is NOT currently working
+>
+> **TRUGS-AGENT is being rebuilt and is not in a functional state right now.** The previous
+> installable-kit version is frozen and unmaintained — its install instructions, version
+> numbers, and bundled artifacts **do not reflect a working product and should not be relied
+> on** (for example, the canonical `AAA/AAA_REFERENCE_for_LLM.trug.json` does not currently
+> validate). **Treat everything below this banner as legacy and possibly inaccurate** until
+> the rebuild ships.
+>
+> **New direction:** TRUGS-AGENT is becoming a curated collection of **examples and tutorials
+> that show how to use TRUGS / TRL** — no pip package, no npm package, no installable
+> components; just worked examples you read, run, and copy. That rebuild is in progress and
+> has **not shipped yet**.
+>
+> **In the meantime:** for the working toolchain use
+> [`trugs-tools`](https://github.com/TRUGS-LLC/TRUGS-TOOLS) (`pip install trugs-tools` → the
+> `tg` CLI); for the language and reference spec see
+> [`TRUGS`](https://github.com/TRUGS-LLC/TRUGS).
+
 **Your LLM ignores your system prompt because English is ambiguous. TRUGS Agent gives it a formal instruction language instead.**
 
 TRUG/L (TRUGS Language) has 190 words. Every sentence has exactly one meaning. Every instruction compiles to a verifiable graph. Your AI coding assistant stops interpreting and starts executing.
