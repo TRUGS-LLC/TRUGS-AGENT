@@ -23,7 +23,8 @@
 >
 > **In the meantime:** for the working toolchain use
 > [`trugs-tools`](https://github.com/TRUGS-LLC/TRUGS-TOOLS) (`pip install trugs-tools` → the
-> `tg` CLI); for the language and reference spec see
+> **`trug`** CLI) and `trugs-folder` (`pip install trugs-folder` → **`trug-a-folder`**, for
+> filesystem ↔ graph cartography); for the language and reference spec see
 > [`TRUGS`](https://github.com/TRUGS-LLC/TRUGS).
 
 **Your LLM ignores your system prompt because English is ambiguous. TRUGS Agent gives it a formal instruction language instead.**
