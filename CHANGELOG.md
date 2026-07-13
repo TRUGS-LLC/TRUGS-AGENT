@@ -15,7 +15,7 @@ Per TRUGS-LLC reorganization EPIC [`Xepayac/TRUGS-DEVELOPMENT#1576`](https://git
 
 - `trugs-agent` 1.2.0 remains on PyPI indefinitely (PyPI immutability) but will **not** receive updates.
 - `create-trugs-agent` (npm) was never published; the `installers/` directory has been removed from this repo.
-- CLI automation has moved to the sibling package [`trugs-tools`](https://github.com/TRUGS-LLC/TRUGS-TOOLS) — `pip install trugs-tools` provides the `tg` binary with 36 operations.
+- CLI automation has moved to the sibling packages — `pip install trugs-tools` provides the **`trug`** binary (8 verbs), and `pip install trugs-folder` provides **`trug-a-folder`** (14 verbs). There is no public `tg` binary.
 
 ### Added
 - `AAA/GUIDE_aaa_workflow_for_llm_agents.md` — 21 KB workflow deep-dive migrated from `Xepayac/TRUGS-AAA` (now archived).

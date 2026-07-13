@@ -94,11 +94,13 @@ curl -o CLAUDE.md https://raw.githubusercontent.com/TRUGS-LLC/TRUGS-AGENT/main/A
 
 **Already using Cursor?** This repo includes `.cursor/rules/trugs-agent.mdc` — clone the repo and copy the `.cursor/` directory into your project.
 
-**Want the CLI automation?** Install the sibling [`trugs-tools`](https://github.com/TRUGS-LLC/TRUGS-TOOLS) package — it provides the unified `tg` binary for validation, graph operations, memory, AAA protocol checks, and more:
+**Want the CLI automation?** Install the sibling packages — `trugs-tools` provides the **`trug`** binary (validate, compile TRL, graph reads/writes), and `trugs-folder` provides **`trug-a-folder`** (filesystem ↔ graph cartography):
 
 ```bash
-pip install trugs-tools
-tg --help   # 36 operations under 21 top-level verbs + 3 sub-namespaces
+pip install trugs-tools trugs-folder
+
+trug --help            # 8 verbs: validate · trl · get · update · delete · unlink · compliance · audit
+trug-a-folder --help   # 14 verbs: init · check · sync · render · info · ls · where · find · …
 ```
 
 ### Legacy — `pip install trugs-agent` (frozen at 1.2.0)
@@ -162,13 +164,13 @@ This repository describes itself as a TRUG. [`folder.trug.json`](folder.trug.jso
 
 ```bash
 # What components does this repo ship?
-tg ls folder.trug.json
+trug-a-folder ls .
 
 # What does the AAA component depend on?
-tg get folder.trug.json aaa_agent --edges
+trug get folder.trug.json aaa_agent --edges
 
 # Does the graph match the filesystem?
-tg check .
+trug-a-folder check .
 ```
 
 CI runs a folder-check on every PR. When the graph drifts from prose or filesystem, CI fails. We eat our own dog food — the tool we tell you to use on your projects, we use on ours.
