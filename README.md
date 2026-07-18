@@ -69,7 +69,7 @@ flowchart LR
     A["AGENT.md<br/>(TRUG/L vocab + grammar)"]
     S["TRUG/L sentence<br/>SHALL · VALIDATE · SUBJECT_TO"]
     G["TRUG graph<br/>(nodes · edges · hierarchy)"]
-    V{"validate.py"}
+    V{"trug validate"}
     L -->|reads| A
     L -->|emits| S
     S <-->|compile / decompile| G
@@ -78,7 +78,7 @@ flowchart LR
     V -.fail.-> L
 ```
 
-The LLM reads `AGENT.md`, emits TRUG/L sentences, each compiles to a graph. A bundled validator (`tools/validate.py`) checks every graph against the 16 CORE rules. No custom runtime, no proprietary SDK — the LLM, the file, the validator.
+The LLM reads `AGENT.md`, emits TRUG/L sentences, each compiles to a graph. The open `trug` validator (`pip install trugs-tools`, Apache-2.0) checks every graph against the 16 CORE rules. No custom runtime, no proprietary SDK — the LLM, the file, and an open validator.
 
 ## Install
 
@@ -108,11 +108,11 @@ trug-a-folder --help   # 14 verbs: init · check · sync · render · info · ls
 
 The npm `create-trugs-agent` package was never published. The `pip install trugs-agent` package is frozen at 1.2.0 — it still installs but ships pre-1.0 shadow-copy templates and does not receive updates. **For current content, `git clone` this repo.**
 
-**Validate your TRUGs:**
+**Validate your TRUGs** — with `trug` from `trugs-tools` (installed above):
 
 ```bash
-python tools/validate.py my_graph.trug.json          # Validate one
-python tools/validate.py --all my_project/            # Validate all
+trug validate my_graph.trug.json          # Validate one
+trug validate --all my_project/           # Validate all
 ```
 
 See [examples/](examples/) for a working project with TRUGS Agent integrated.

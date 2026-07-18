@@ -15,7 +15,7 @@ If you cannot use GitHub Security Advisories, email `xepayac@gmail.com` with `[T
 TRUGS-AGENT ships agent-instruction templates and thin installers. Security issues most likely surface in:
 
 - The `installers/npm/` and `installers/pip/` packages — arbitrary file write, path traversal, or code execution during `create-trugs-agent` / `trugs-agent-init`
-- Vendored `tools/validate.py` if crafted input causes resource exhaustion or arbitrary read (upstream TRUGS — we'll forward)
+- The `trug` validator (from the sibling `trugs-tools` package) if crafted input causes resource exhaustion or arbitrary read — this repo no longer vendors it; report upstream at [TRUGS-LLC/TRUGS-TOOLS](https://github.com/TRUGS-LLC/TRUGS-TOOLS)
 - A template file that, if followed literally by an LLM, steers it into dangerous behavior (prompt injection exposure)
 
 Bugs that are **not** security issues (just file a normal issue):

@@ -7,9 +7,9 @@ on:
     branches: [main]
 
 jobs:
-  folder-check:
+  validate:
     runs-on: ubuntu-latest
-    name: tg check
+    name: trug validate
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,26 +19,31 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Validate folder.trug.json (JSON syntax + basic shape)
-        # Now using `tg check` from trugs-tools 1.0.0 (published 2026-04-18)
-        # (tracked in a follow-up issue). Until then, smoke-check the JSON
-        # and key structural invariants to catch the most common regressions.
+      # Consume-not-vendor (Xepayac/TRUGS-DEVELOPMENT#3086): validation uses the
+      # published, open TRUGS CLIs — no hand-vendored validator to drift.
+      - name: Install the published TRUGS CLIs
+        run: pip install trugs-tools trugs-folder
+
+      - name: Folder-graph integrity (trug-a-folder check)
+        run: trug-a-folder check .
+
+      - name: Validate shipped TRUGs (trug validate)
+        # Validate every shipped graph against the 16 CORE rules with the real
+        # `trug` validator (exit code, not output-grep). EXCLUDE
+        # AAA/AAA_REFERENCE_for_LLM.trug.json: it has a pre-existing STRUCTURAL
+        # break (metric_level "STANDARD" is not an SI prefix) tracked at
+        # Xepayac/TRUGS-DEVELOPMENT#3082 — unrelated to CORE v1 retirement.
         run: |
-          python3 - <<'PY'
-          import json, sys
-          from pathlib import Path
-          p = Path("folder.trug.json")
-          if not p.exists():
-              sys.exit("folder.trug.json missing")
-          d = json.loads(p.read_text())
-          for k in ("nodes", "edges"):
-              if k not in d:
-                  sys.exit(f"folder.trug.json missing top-level {k!r}")
-          ids = {n.get("id") for n in d["nodes"]}
-          for e in d["edges"]:
-              if ":" in e.get("from_id", "") or ":" in e.get("to_id", ""):
-                  continue  # cross-graph ref
-              if e["from_id"] not in ids or e["to_id"] not in ids:
-                  sys.exit(f"dangling edge: {e['from_id']} -> {e['to_id']}")
-          print(f"ok: {len(d['nodes'])} nodes, {len(d['edges'])} edges, 0 dangling")
-          PY
+          fail=0
+          while IFS= read -r -d '' f; do
+            if ! trug validate "$f" >/dev/null 2>&1; then
+              echo "::error::INVALID $f"
+              trug validate "$f" | tail -20
+              fail=1
+            fi
+          done < <(find . -name '*.trug.json' -not -path './.git/*' \
+                     -not -name 'AAA_REFERENCE_for_LLM.trug.json' -print0)
+          if [ "$fail" -eq 0 ]; then
+            echo "All shipped TRUGs VALID (excl. #3082 AAA_REFERENCE_for_LLM.trug.json)."
+          fi
+          exit $fail
