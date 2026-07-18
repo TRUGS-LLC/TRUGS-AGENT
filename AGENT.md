@@ -270,18 +270,19 @@ NO FUNCTION SHALL WRITE RECORD password TO FILE OR STREAM.
 
 ## The Validator
 
-TRUGS graphs are validated by `tg validate` — 16 rules that every graph must pass:
+TRUGS graphs are validated by `trug validate` (from `trugs-tools`) — 16 rules that every graph must pass:
 
 - **Rules 1-9 (structural)** — always enforced. Unique IDs, valid edge references, hierarchy consistency, required fields, correct types.
-- **Rules 10-16 (compositional)** — enforced when graph declares `core_v1.0.0`. Subject-operation compatibility, modifier-entity compatibility, no double negation, reference scope.
+- **Rules 10-16 (compositional)** — enforced when graph declares `core_v2.0.0`. Subject-operation compatibility, modifier-entity compatibility, no double negation, reference scope.
 
 ```bash
-python tools/validate.py my_graph.trug.json       # Validate one
-python tools/validate.py --all my_project/         # Validate all
+pip install trugs-tools                       # provides the `trug` binary
+trug validate my_graph.trug.json              # Validate one
+trug validate --all my_project/               # Validate all
 ```
 
 <trl>
-AGENT SHALL VALIDATE ALL DATA graph SUBJECT_TO INTERFACE core_v1.0.0.
+AGENT SHALL VALIDATE ALL DATA graph SUBJECT_TO INTERFACE core_v2.0.0.
 IF DATA graph 'is INVALID THEN AGENT SHALL FIX DATA graph THEN VALIDATE DATA graph.
 NO AGENT SHALL DEPLOY INVALID DATA graph.
 </trl>

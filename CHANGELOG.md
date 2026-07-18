@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Content] - 2026-07-18
+
+### Changed
+- **Consume-not-vendor the CORE validator** ([Xepayac/TRUGS-DEVELOPMENT#3086](https://github.com/Xepayac/TRUGS-DEVELOPMENT/issues/3086)): validation now uses the published, open `trug validate` from `trugs-tools` (`pip install trugs-tools`) instead of a hand-vendored copy. The vendored `tools/` validator had silently drifted a full major version behind the live one — it was still v1: it accepted the now-retired `core_v1.0.0`, had no `RETIRED_VOCABULARY` rejection, and armed rules 10-16 on `core_v1.0.0` instead of `core_v2.0.0`. `README.md`, `AGENT.md`, `CONTRIBUTING.md`, `SECURITY.md`, `FOLDER/AGENT.md` and `folder.trug.json` now point at `trug validate`; CI installs `trugs-tools`/`trugs-folder` and runs `trug-a-folder check` + `trug validate` over the shipped graphs.
+
+### Removed
+- `tools/validate.py`, `tools/test_validate.py`, `tools/__init__.py` — the hand-vendored validator (zero-drift: the authorship home is `trugs-tools`).
+
 ## [Frozen] - 2026-04-18
 
 **TRUGS-AGENT is now a content repository only — no further PyPI or npm releases.**

@@ -22,7 +22,7 @@ Open an [issue](https://github.com/TRUGS-LLC/TRUGS-AGENT/issues/new). Include:
 1. Fork the repo
 2. Create a branch: `git checkout -b fix/description` or `feat/description`
 3. Make your changes
-4. Run the validator tests: `python -m pytest tools/test_validate.py`
+4. Validate any TRUGs you touched: `pip install trugs-tools && trug validate --all .`
 5. Submit a pull request
 
 ### Improve Documentation

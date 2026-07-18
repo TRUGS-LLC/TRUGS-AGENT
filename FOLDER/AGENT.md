@@ -203,7 +203,7 @@ AGENT SHALL VALIDATE FILE folder.trug.json.
 3. **Create a node for each file/component** — type it correctly, write a one-sentence purpose
 4. **Set hierarchy** — `parent_id` points up, `contains` points down, both must agree
 5. **Create edges** — `implements`, `tests`, `uses`, `describes`, etc.
-6. **Validate** — run `tg check` or `python tools/validate.py`
+6. **Validate** — run `tg check` or `trug validate`
 
 ---
 
