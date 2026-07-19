@@ -12,8 +12,8 @@
 > **TRUGS-AGENT is being rebuilt and is not in a functional state right now.** The previous
 > installable-kit version is frozen and unmaintained — its install instructions, version
 > numbers, and bundled artifacts **do not reflect a working product and should not be relied
-> on** (for example, the canonical `AAA/AAA_REFERENCE_for_LLM.trug.json` does not currently
-> validate). **Treat everything below this banner as legacy and possibly inaccurate** until
+> on** (for example, `AGENT.md`'s own TRL blocks do not currently parse under the published
+> toolchain). **Treat everything below this banner as legacy and possibly inaccurate** until
 > the rebuild ships.
 >
 > **New direction:** TRUGS-AGENT is becoming a curated collection of **examples and tutorials
