@@ -104,9 +104,9 @@ trug --help            # 8 verbs: validate · trl · get · update · delete · 
 trug-a-folder --help   # 14 verbs: init · check · sync · render · info · ls · where · find · …
 ```
 
-### Legacy — `pip install trugs-agent` (frozen at 1.2.0)
+### Legacy — `pip install trugs-agent` (frozen at 1.1.0)
 
-The npm `create-trugs-agent` package was never published. The `pip install trugs-agent` package is frozen at 1.2.0 — it still installs but ships pre-1.0 shadow-copy templates and does not receive updates. **For current content, `git clone` this repo.**
+The npm `create-trugs-agent` package was never published. The `pip install trugs-agent` package is frozen at 1.1.0 — it still installs but ships pre-1.0 shadow-copy templates and does not receive updates. **For current content, `git clone` this repo.**
 
 **Validate your TRUGs** — with `trug` from `trugs-tools` (installed above):
 
