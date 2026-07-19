@@ -137,16 +137,16 @@ The working documents on disk either:
 - Get archived with `zzz_` prefix when superseded by the issue content
 - Stay as-is until the issue is completed
 
-### Step 3: Nightly pipeline generates AAA.md
+### Step 3: The issue body becomes the folder's AAA.md
 
-A nightly workflow (`tg aaa generate`) scans all open GitHub Issues for `folder:FOLDERNAME` labels and writes the issue body to `FOLDERNAME/AAA.md` on disk.
+AAA is a **prompt protocol, not a program** — no binary generates plans. The issue body *is* the plan; it reaches the agent by being placed as `FOLDERNAME/AAA.md` on disk. For an issue carrying a `folder:FOLDERNAME` label, the developer (or the agent itself, when asked) copies the issue body into that folder.
 
 ```
 GitHub Issue #612 (labeled folder:TRUGS_COMPUTATION)
     │
-    ▼  nightly tg aaa generate
+    ▼  copy the issue body into the folder
     │
-TRUGS_COMPUTATION/AAA.md  (read-only, auto-generated)
+TRUGS_COMPUTATION/AAA.md  (the plan the agent reads)
 ```
 
 **Key rules:**
@@ -197,7 +197,7 @@ These improve the specification itself. The work is: edit the GitHub Issue body 
 
 Example: *"Phase 2 FEASIBILITY: Complete external research for PERAGO v2.0"*
 
-After the edit, the nightly pipeline regenerates `AAA.md`. Type A sub-issues don't carry a `folder:` label themselves.
+After the edit, the updated issue body is re-placed as `AAA.md` in the folder (Step 3). Type A sub-issues don't carry a `folder:` label themselves.
 
 ### Type B — Code Development Sub-Issues
 
@@ -370,7 +370,7 @@ This is the `aaa_v1` vocabulary:
 
 Edge relations include `precedes`, `depends_on`, `blocked_by`, `mitigates`, `validates`, `tracks`, `cites`, `decides`, `implements`.
 
-The benefit: the nightly pipeline can validate the graph structure (all node IDs exist, edges point to real nodes, required properties present) *before* rendering `AAA.md`. Bad data is caught at write time, not at agent-execution time.
+The benefit: `trug-a-folder check` validates the graph structure (all node IDs exist, edges point to real nodes, required properties present) *before* the folder's `ARCHITECTURE.md` is rendered. Bad data is caught at write time, not at agent-execution time.
 
 ---
 
@@ -404,25 +404,20 @@ Research depth scales with difficulty:
 
 ---
 
-## The Nightly Pipeline
+## The Folder-Maintenance Pipeline
 
-The full nightly sequence (`.github/workflows/folder-sync.yml`, 07:00 UTC daily):
+The nightly folder-cartography sequence (`.github/workflows/folder-sync.yml`, 07:00 UTC daily) keeps each folder's structural graph in sync with disk:
 
 ```
-1. tg aaa generate     → Write AAA.md from GitHub Issues
-2. tg sync      → Sync folder.trug.json stale flags
-3. tg check     → Validate all TRUGs (continue on error)
-4. tg render    → Regenerate all ARCHITECTURE.md
-5. tg info       → Build root cross-folder graph
-6. change_summary.py      → Generate change summary
-7. git commit + push      → Commit all generated changes
-8. Error issue (if any)   → Open issue for pipeline errors
+1. trug-a-folder sync     → Sync folder.trug.json stale flags
+2. trug-a-folder check    → Validate all TRUGs (continue on error)
+3. trug-a-folder render   → Regenerate all ARCHITECTURE.md
+4. change_summary.py      → Generate change summary
+5. git commit + push      → Commit all generated changes
+6. Error issue (if any)   → Open issue for pipeline errors
 ```
 
-**Manual trigger:**
-```bash
-tg aaa generate --root .
-```
+Placing an issue body as a folder's `AAA.md` (Step 3 above) is a **prompt-protocol** step performed by the developer or agent — it is not part of this maintenance pipeline.
 
 ---
 
@@ -481,7 +476,7 @@ Human develops VISION_*, FEASIBILITY_*, SPEC_* docs on disk
     ↓
 Human consolidates into GitHub Issue (9-phase AAA format)
     ↓
-Nightly pipeline generates AAA.md in the folder
+Issue body placed as AAA.md in the folder
     ↓
 Agent reads folder.trug.json + AAA.md
     ↓
