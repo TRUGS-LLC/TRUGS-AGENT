@@ -20,8 +20,9 @@
   "nodes": [
     {
       "id": "aaa_framework",
+      "parent_id": null,
       "type": "CONCEPT",
-      "metric_level": "STANDARD",
+      "metric_level": "BASE_CONCEPT",
       "properties": {
         "name": "AAA Protocol v2",
         "description": "9-phase issue-sourced development protocol. GitHub Issues are source of truth. AAA.md on disk is derived — never edit it.",
@@ -48,7 +49,7 @@
     {
       "id": "two_paths",
       "type": "CONCEPT",
-      "metric_level": "STANDARD",
+      "metric_level": "BASE_CONCEPT",
       "parent_id": "aaa_framework",
       "properties": {
         "name": "Two Paths — CHORE or ISSUE",
@@ -62,7 +63,7 @@
     {
       "id": "nine_phases",
       "type": "CONCEPT",
-      "metric_level": "STANDARD",
+      "metric_level": "BASE_CONCEPT",
       "parent_id": "aaa_framework",
       "properties": {
         "name": "Nine Development Phases in Two Cycles",
@@ -76,19 +77,19 @@
       "contains": ["phase_vision", "phase_feasibility", "phase_specifications", "phase_architecture", "phase_validation", "phase_coding", "phase_testing", "phase_audit", "phase_deployment"],
       "dimension": "aaa_structure"
     },
-    {"id": "phase_vision", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 1: VISION", "phase_number": 1, "cycle": "PLANNING", "type": "Define", "purpose": "What and why", "output": "Problem statement, success criteria", "human_touchpoint": true, "document_types": ["VISION_"]}, "contains": [], "dimension": "aaa_structure"},
-    {"id": "phase_feasibility", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 2: FEASIBILITY", "phase_number": 2, "cycle": "PLANNING", "type": "Decide", "purpose": "Quick kill — worth pursuing?", "output": "GO/NO-GO decision, risk assessment", "requires_web_research": true, "difficulty_ratings": ["EASY", "MEDIUM", "HARD", "EXTREMELY_HARD"], "document_types": ["FEASIBILITY_", "RESEARCH_"]}, "contains": [], "dimension": "aaa_structure"},
-    {"id": "phase_specifications", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 3: SPECIFICATIONS", "phase_number": 3, "cycle": "PLANNING", "type": "Define", "purpose": "Exact requirements", "output": "API contracts, data models, acceptance criteria", "document_types": ["SPEC_", "PROPOSAL_"]}, "contains": [], "dimension": "aaa_structure"},
-    {"id": "phase_architecture", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 4: ARCHITECTURE", "phase_number": 4, "cycle": "PLANNING", "type": "Design", "purpose": "System design", "output": "Component map, tech stack, ADRs, data flows", "document_types": ["ARCHITECTURE"]}, "contains": [], "dimension": "aaa_structure"},
-    {"id": "phase_validation", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 5: VALIDATION", "phase_number": 5, "cycle": "PLANNING", "type": "HITM Gate", "purpose": "Audit phases 1-4 + coding plan", "human_touchpoint": true, "checks": ["Alignment", "Completeness", "Feasibility", "Risk", "Scope", "Coding plan"], "loop_target": "ARCHITECTURE"}, "contains": [], "dimension": "aaa_structure"},
-    {"id": "phase_coding", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 6: CODING", "phase_number": 6, "cycle": "EXECUTION", "type": "Build", "purpose": "Implementation", "output": "Task list, test coverage, blockers"}, "contains": [], "dimension": "aaa_structure"},
-    {"id": "phase_testing", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 7: TESTING", "phase_number": 7, "cycle": "EXECUTION", "type": "Verify", "purpose": "Run tests", "output": "Test results, bug tracking, coverage"}, "contains": [], "dimension": "aaa_structure"},
-    {"id": "phase_audit", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 8: AUDIT", "phase_number": 8, "cycle": "EXECUTION", "type": "HITM Gate", "purpose": "Audit code + tests. Write tests for uncovered findings. Cycle until no critical/high.", "human_touchpoint": true, "checks": ["Conformance", "Coverage", "Security", "Quality", "Performance"], "loop_targets": ["TESTING", "CODING", "ARCHITECTURE"]}, "contains": [], "dimension": "aaa_structure"},
-    {"id": "phase_deployment", "type": "CONCEPT", "metric_level": "STANDARD", "parent_id": "nine_phases", "properties": {"name": "Phase 9: DEPLOYMENT", "phase_number": 9, "cycle": "EXECUTION", "type": "Ship", "purpose": "Release", "output": "Deployment strategy, monitoring, runbooks"}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_vision", "type": "CONCEPT", "metric_level": "BASE_CONCEPT", "parent_id": "nine_phases", "properties": {"name": "Phase 1: VISION", "phase_number": 1, "cycle": "PLANNING", "type": "Define", "purpose": "What and why", "output": "Problem statement, success criteria", "human_touchpoint": true, "document_types": ["VISION_"]}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_feasibility", "type": "CONCEPT", "metric_level": "BASE_CONCEPT", "parent_id": "nine_phases", "properties": {"name": "Phase 2: FEASIBILITY", "phase_number": 2, "cycle": "PLANNING", "type": "Decide", "purpose": "Quick kill — worth pursuing?", "output": "GO/NO-GO decision, risk assessment", "requires_web_research": true, "difficulty_ratings": ["EASY", "MEDIUM", "HARD", "EXTREMELY_HARD"], "document_types": ["FEASIBILITY_", "RESEARCH_"]}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_specifications", "type": "CONCEPT", "metric_level": "BASE_CONCEPT", "parent_id": "nine_phases", "properties": {"name": "Phase 3: SPECIFICATIONS", "phase_number": 3, "cycle": "PLANNING", "type": "Define", "purpose": "Exact requirements", "output": "API contracts, data models, acceptance criteria", "document_types": ["SPEC_", "PROPOSAL_"]}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_architecture", "type": "CONCEPT", "metric_level": "BASE_CONCEPT", "parent_id": "nine_phases", "properties": {"name": "Phase 4: ARCHITECTURE", "phase_number": 4, "cycle": "PLANNING", "type": "Design", "purpose": "System design", "output": "Component map, tech stack, ADRs, data flows", "document_types": ["ARCHITECTURE"]}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_validation", "type": "CONCEPT", "metric_level": "BASE_CONCEPT", "parent_id": "nine_phases", "properties": {"name": "Phase 5: VALIDATION", "phase_number": 5, "cycle": "PLANNING", "type": "HITM Gate", "purpose": "Audit phases 1-4 + coding plan", "human_touchpoint": true, "checks": ["Alignment", "Completeness", "Feasibility", "Risk", "Scope", "Coding plan"], "loop_target": "ARCHITECTURE"}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_coding", "type": "CONCEPT", "metric_level": "BASE_CONCEPT", "parent_id": "nine_phases", "properties": {"name": "Phase 6: CODING", "phase_number": 6, "cycle": "EXECUTION", "type": "Build", "purpose": "Implementation", "output": "Task list, test coverage, blockers"}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_testing", "type": "CONCEPT", "metric_level": "BASE_CONCEPT", "parent_id": "nine_phases", "properties": {"name": "Phase 7: TESTING", "phase_number": 7, "cycle": "EXECUTION", "type": "Verify", "purpose": "Run tests", "output": "Test results, bug tracking, coverage"}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_audit", "type": "CONCEPT", "metric_level": "BASE_CONCEPT", "parent_id": "nine_phases", "properties": {"name": "Phase 8: AUDIT", "phase_number": 8, "cycle": "EXECUTION", "type": "HITM Gate", "purpose": "Audit code + tests. Write tests for uncovered findings. Cycle until no critical/high.", "human_touchpoint": true, "checks": ["Conformance", "Coverage", "Security", "Quality", "Performance"], "loop_targets": ["TESTING", "CODING", "ARCHITECTURE"]}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "phase_deployment", "type": "CONCEPT", "metric_level": "BASE_CONCEPT", "parent_id": "nine_phases", "properties": {"name": "Phase 9: DEPLOYMENT", "phase_number": 9, "cycle": "EXECUTION", "type": "Ship", "purpose": "Release", "output": "Deployment strategy, monitoring, runbooks"}, "contains": [], "dimension": "aaa_structure"},
     {
       "id": "three_touchpoints",
       "type": "CONCEPT",
-      "metric_level": "STANDARD",
+      "metric_level": "BASE_CONCEPT",
       "parent_id": "aaa_framework",
       "properties": {
         "name": "Three Human Touchpoints",
@@ -101,7 +102,7 @@
     {
       "id": "lifecycle",
       "type": "CONCEPT",
-      "metric_level": "STANDARD",
+      "metric_level": "BASE_CONCEPT",
       "parent_id": "aaa_framework",
       "properties": {
         "name": "Lifecycle: From Idea to Agent Execution",
@@ -114,7 +115,7 @@
     {
       "id": "sub_issues",
       "type": "CONCEPT",
-      "metric_level": "STANDARD",
+      "metric_level": "BASE_CONCEPT",
       "parent_id": "aaa_framework",
       "properties": {
         "name": "Sub-Issues",
@@ -128,7 +129,7 @@
     {
       "id": "trug_native_format",
       "type": "CONCEPT",
-      "metric_level": "STANDARD",
+      "metric_level": "BASE_CONCEPT",
       "parent_id": "aaa_framework",
       "properties": {
         "name": "TRUG-Native Format (Optional)",
@@ -142,7 +143,7 @@
     {
       "id": "research_protocol",
       "type": "CONCEPT",
-      "metric_level": "STANDARD",
+      "metric_level": "BASE_CONCEPT",
       "parent_id": "aaa_framework",
       "properties": {
         "name": "Research Protocol",
@@ -155,7 +156,7 @@
     {
       "id": "nightly_pipeline",
       "type": "CONCEPT",
-      "metric_level": "STANDARD",
+      "metric_level": "BASE_CONCEPT",
       "parent_id": "aaa_framework",
       "properties": {
         "name": "Nightly Pipeline",
@@ -168,7 +169,7 @@
     {
       "id": "writing_style",
       "type": "CONCEPT",
-      "metric_level": "STANDARD",
+      "metric_level": "BASE_CONCEPT",
       "parent_id": "aaa_framework",
       "properties": {
         "name": "Writing Style",
@@ -180,7 +181,7 @@
     {
       "id": "critical_rules",
       "type": "CONCEPT",
-      "metric_level": "STANDARD",
+      "metric_level": "BASE_CONCEPT",
       "parent_id": "aaa_framework",
       "properties": {
         "name": "Critical Rules for Agents",
@@ -189,9 +190,9 @@
       "contains": [],
       "dimension": "aaa_structure"
     },
-    {"id": "intent_autonomous_execution", "type": "INTENT", "metric_level": "STANDARD", "parent_id": "aaa_framework", "properties": {"description": "Enable LLMs to execute AAA tasks autonomously — three file reads to productive implementation", "goal": "autonomous_development", "priority": "critical"}, "contains": [], "dimension": "aaa_structure"},
-    {"id": "intent_context_efficiency", "type": "INTENT", "metric_level": "STANDARD", "parent_id": "aaa_framework", "properties": {"description": "Optimize AAA.md for minimal token consumption — <300 lines target", "goal": "cost_optimization", "priority": "high"}, "contains": [], "dimension": "aaa_structure"},
-    {"id": "intent_quality_enforcement", "type": "INTENT", "metric_level": "STANDARD", "parent_id": "aaa_framework", "properties": {"description": "Enforce quality gates and HITM touchpoints to prevent phase skipping", "goal": "quality_assurance", "priority": "high"}, "contains": [], "dimension": "aaa_structure"}
+    {"id": "intent_autonomous_execution", "type": "INTENT", "metric_level": "BASE_INTENT", "parent_id": "aaa_framework", "properties": {"description": "Enable LLMs to execute AAA tasks autonomously — three file reads to productive implementation", "goal": "autonomous_development", "priority": "critical"}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "intent_context_efficiency", "type": "INTENT", "metric_level": "BASE_INTENT", "parent_id": "aaa_framework", "properties": {"description": "Optimize AAA.md for minimal token consumption — <300 lines target", "goal": "cost_optimization", "priority": "high"}, "contains": [], "dimension": "aaa_structure"},
+    {"id": "intent_quality_enforcement", "type": "INTENT", "metric_level": "BASE_INTENT", "parent_id": "aaa_framework", "properties": {"description": "Enforce quality gates and HITM touchpoints to prevent phase skipping", "goal": "quality_assurance", "priority": "high"}, "contains": [], "dimension": "aaa_structure"}
   ],
   "edges": [
     {"from_id": "phase_vision", "to_id": "phase_feasibility", "relation": "precedes"},
