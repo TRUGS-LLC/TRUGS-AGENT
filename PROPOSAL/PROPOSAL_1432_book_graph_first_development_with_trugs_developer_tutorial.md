@@ -10,7 +10,7 @@ labels: (none)
 
 # BOOK: Graph-First Development with TRUGS — developer tutorial for code-as-graph workflow
 
-> **Push-down 2026-05-09.** Captured from [`Xepayac/TRUGS-DEVELOPMENT#1432`](https://github.com/Xepayac/TRUGS-DEVELOPMENT/issues/1432) verbatim during the 2026-05-09 issue-triage walkthrough. The original issue has been closed; this file is the working surface in this repo.
+> **Push-down 2026-05-09.** Captured from `Xepayac/TRUGS-DEVELOPMENT#1432` (private) verbatim during the 2026-05-09 issue-triage walkthrough. The original issue has been closed; this file is the working surface in this repo.
 
 ---
 

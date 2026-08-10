@@ -193,7 +193,7 @@
       "type": "RESEARCH_SOURCE",
       "properties": {
         "name": "TRUGS protocol documentation",
-        "url": "https://github.com/Xepayac/TRUGS-DEVELOPMENT/tree/main/TRUGS_PROTOCOL",
+        "url": "https://github.com/TRUGS-LLC/TRUGS/tree/main/TRUGS_LANGUAGE",
         "accessed": "2026-02-20",
         "relevance": "Defines node and edge constraints enforced by governance logic"
       },
