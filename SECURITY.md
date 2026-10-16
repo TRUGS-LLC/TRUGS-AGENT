@@ -2,43 +2,14 @@
 
 ## Reporting a vulnerability
 
-**Do not open a public issue for security problems.** Instead, report privately via GitHub's security advisory workflow:
+Report vulnerabilities in this repository privately through
+[GitHub Security Advisories](https://github.com/TRUGS-LLC/TRUGS-AGENT/security/advisories/new).
 
-1. Go to [github.com/TRUGS-LLC/TRUGS-AGENT/security/advisories/new](https://github.com/TRUGS-LLC/TRUGS-AGENT/security/advisories/new)
-2. Fill in the details: the bug, its impact, how to reproduce it
-3. We'll respond within 5 business days
+## Current scope and support
 
-If you cannot use GitHub Security Advisories, email `xepayac@gmail.com` with `[TRUGS-AGENT SECURITY]` in the subject line.
+This repository contains documentation and licence files only while it is being rebuilt.
+It currently ships no instruction templates or installers, and no package from this
+repository is currently supported.
 
-## What counts as a security issue
-
-TRUGS-AGENT ships agent-instruction templates and thin installers. Security issues most likely surface in:
-
-- The `installers/npm/` and `installers/pip/` packages — arbitrary file write, path traversal, or code execution during `create-trugs-agent` / `trugs-agent-init`
-- The `trug` validator (from the sibling `trugs-tools` package) if crafted input causes resource exhaustion or arbitrary read — this repo no longer vendors it; report upstream at [TRUGS-LLC/TRUGS-TOOLS](https://github.com/TRUGS-LLC/TRUGS-TOOLS)
-- A template file that, if followed literally by an LLM, steers it into dangerous behavior (prompt injection exposure)
-
-Bugs that are **not** security issues (just file a normal issue):
-- An installer fails on a specific OS or Node/Python version
-- A template doesn't produce the behavior you expected from your LLM
-- A broken link or typo in an agent instruction file
-
-## Supported versions
-
-TRUGS-AGENT tracks its own SemVer line, published on npm (`create-trugs-agent`) and PyPI (`trugs-agent`). Only the latest minor receives security fixes.
-
-| Version | Supported |
-|---------|-----------|
-| Latest on npm + PyPI | Yes |
-| Prior versions | No — upgrade |
-
-## Our commitment
-
-- Acknowledge receipt within 5 business days
-- Keep you informed during investigation
-- Credit you in the advisory and CHANGELOG (unless you prefer anonymity)
-- Publish a fix within 30 days for high/critical findings, or explain why more time is needed
-
-## Scope
-
-This policy covers `TRUGS-LLC/TRUGS-AGENT` — the instruction templates, installers, and documentation in this repository. For the underlying TRUGS specification and reference tools, see `TRUGS-LLC/TRUGS/SECURITY.md`.
+The published PyPI releases of `trugs-agent`, 1.0.0 and 1.1.0, receive no updates.
+The rebuilt agent kit (T6) will bring its own security policy.

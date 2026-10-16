@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - `LICENSE` is the official Apache License 2.0 text; `NOTICE` carries the attribution only, its patent
   paragraph removed; the README gains a Scope section.
+- Everything except `CHANGELOG.md`, `LICENSE`, `NOTICE`, `README.md` and `SECURITY.md`
+  was removed pending the rebuild.
 
 ## [Content] - 2026-07-18
 
@@ -28,6 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 Per TRUGS-LLC reorganization EPIC `(private reference removed)` (private), TRUGS-AGENT's role is now "marketing hub + info repo." Content updates ship via `git` commits to `main`; consumers should `git clone` this repo rather than `pip install`.
 
 - `trugs-agent` 1.2.0 remains on PyPI indefinitely (PyPI immutability) but will **not** receive updates.
+- Correction, 2026-10-16: PyPI holds 1.0.0 and 1.1.0; 1.2.0 was a GitHub release only.
 - `create-trugs-agent` (npm) was never published; the `installers/` directory has been removed from this repo.
 - CLI automation has moved to the sibling packages — `pip install trugs-tools` provides the **`trug`** binary (8 verbs), and `pip install trugs-folder` provides **`trug-a-folder`** (14 verbs). There is no public `tg` binary.
 
@@ -84,3 +87,5 @@ Initial public release on PyPI (`trugs-agent`) and npm (`create-trugs-agent`). S
 - `installers/npm/` — `npx create-trugs-agent` wrapper
 - `installers/pip/` — `trugs-agent-init` wrapper
 - Support for Claude Code, Cursor, GitHub Copilot
+
+Correction, 2026-10-16: the npm package was never published; PyPI only.
