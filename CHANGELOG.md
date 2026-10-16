@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Content] - 2026-07-18
 
 ### Changed
-- **Consume-not-vendor the CORE validator** (Xepayac/TRUGS-DEVELOPMENT#3086 (private)): validation now uses the published, open `trug validate` from `trugs-tools` (`pip install trugs-tools`) instead of a hand-vendored copy. The vendored `tools/` validator had silently drifted a full major version behind the live one — it was still v1: it accepted the now-retired `core_v1.0.0`, had no `RETIRED_VOCABULARY` rejection, and armed rules 10-16 on `core_v1.0.0` instead of `core_v2.0.0`. `README.md`, `AGENT.md`, `CONTRIBUTING.md`, `SECURITY.md`, `FOLDER/AGENT.md` and `folder.trug.json` now point at `trug validate`; CI installs `trugs-tools`/`trugs-folder` and runs `trug-a-folder check` + `trug validate` over the shipped graphs.
+- **Consume-not-vendor the CORE validator** ((private reference removed) (private)): validation now uses the published, open `trug validate` from `trugs-tools` (`pip install trugs-tools`) instead of a hand-vendored copy. The vendored `tools/` validator had silently drifted a full major version behind the live one — it was still v1: it accepted the now-retired `core_v1.0.0`, had no `RETIRED_VOCABULARY` rejection, and armed rules 10-16 on `core_v1.0.0` instead of `core_v2.0.0`. `README.md`, `AGENT.md`, `CONTRIBUTING.md`, `SECURITY.md`, `FOLDER/AGENT.md` and `folder.trug.json` now point at `trug validate`; CI installs `trugs-tools`/`trugs-folder` and runs `trug-a-folder check` + `trug validate` over the shipped graphs.
 
 ### Removed
 - `tools/validate.py`, `tools/test_validate.py`, `tools/__init__.py` — the hand-vendored validator (zero-drift: the authorship home is `trugs-tools`).
@@ -19,15 +19,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Rationale
 
-Per TRUGS-LLC reorganization EPIC `Xepayac/TRUGS-DEVELOPMENT#1576` (private), TRUGS-AGENT's role is now "marketing hub + info repo." Content updates ship via `git` commits to `main`; consumers should `git clone` this repo rather than `pip install`.
+Per TRUGS-LLC reorganization EPIC `(private reference removed)` (private), TRUGS-AGENT's role is now "marketing hub + info repo." Content updates ship via `git` commits to `main`; consumers should `git clone` this repo rather than `pip install`.
 
 - `trugs-agent` 1.2.0 remains on PyPI indefinitely (PyPI immutability) but will **not** receive updates.
 - `create-trugs-agent` (npm) was never published; the `installers/` directory has been removed from this repo.
 - CLI automation has moved to the sibling packages — `pip install trugs-tools` provides the **`trug`** binary (8 verbs), and `pip install trugs-folder` provides **`trug-a-folder`** (14 verbs). There is no public `tg` binary.
 
 ### Added
-- `AAA/GUIDE_aaa_workflow_for_llm_agents.md` — 21 KB workflow deep-dive migrated from `Xepayac/TRUGS-AAA` (now archived).
-- `AAA/AAA_REFERENCE_for_LLM.trug.json` — canonical 9-phase protocol TRUG (16 KB) migrated from `Xepayac/TRUGS-AAA`.
+- `AAA/GUIDE_aaa_workflow_for_llm_agents.md` — 21 KB workflow deep-dive migrated from `(private reference removed)` (now archived).
+- `AAA/AAA_REFERENCE_for_LLM.trug.json` — canonical 9-phase protocol TRUG (16 KB) migrated from `(private reference removed)`.
 - `AAA/EXAMPLE_canonical.trug.json` — 14 KB runnable 9-phase example.
 
 ### Removed
@@ -61,8 +61,8 @@ Polish release — all three Dark Code compliance layers PASS for `TRUGS-LLC/TRU
 - Retroactive GitHub Release cut for this version (the first one; 1.0.0 and 1.1.0 shipped to PyPI only). Going forward, every version bump creates a corresponding git tag and GitHub Release.
 
 ### Context
-- Work tracked under `Xepayac/TRUGS-DEVELOPMENT#1525` (P0 polish for `TRUGS-LLC/TRUGS-AGENT`). EPIC: `Xepayac/TRUGS-DEVELOPMENT#1548` (Bring TRUGS-LLC public portfolio to Dark Code compliance).
-- Follow-up: `Xepayac/TRUGS-DEVELOPMENT#1567` — publish `trugs-tools` to PyPI so CI can restore the full `trugs-folder-check` (currently uses an inline Python fallback).
+- Work tracked under `(private reference removed)` (P0 polish for `TRUGS-LLC/TRUGS-AGENT`). EPIC: `(private reference removed)` (Bring TRUGS-LLC public portfolio to Dark Code compliance).
+- Follow-up: `(private reference removed)` — publish `trugs-tools` to PyPI so CI can restore the full `trugs-folder-check` (currently uses an inline Python fallback).
 
 ## [1.1.0] - 2026-04-08
 
