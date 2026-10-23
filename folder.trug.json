@@ -16,8 +16,8 @@
         "path": ".",
         "name": ".",
         "kind": "folder",
-        "size": 236209,
-        "sha256": "47178c4a5a3db7a9bb6ee227c33f2938b0044c036a8e2db4f8b8dc0f18a3f874",
+        "size": 242675,
+        "sha256": "893a78a594b306aeda9a6f143dda3c4a61a971da11b8e3e828d152653269e89f",
         "unread": [
           {
             "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -226,8 +226,8 @@
         "path": ".github",
         "name": ".github",
         "kind": "folder",
-        "size": 5653,
-        "sha256": "f272e79dad522d4f29731974c7eed0b18d1b08989f4f5d84ba43124644c1d69f"
+        "size": 5713,
+        "sha256": "6845c6e74e1c041e1ac7e10705775ce42b8fa3bb9e2d1875ba9105e515ffd747"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
@@ -325,8 +325,8 @@
         "path": ".github/workflows",
         "name": ".github/workflows",
         "kind": "folder",
-        "size": 1442,
-        "sha256": "b54afec9abadddc38c2825e271aa5c9e2587a2505c20ca54f40a0375a0e7b3ba"
+        "size": 1502,
+        "sha256": "b59e21a250e650247ffc923db5d01598b96b3798132e038ff8482df88ae06981"
       },
       "parent_id": "module_bdcc6a2a85f645f62724fe8dafbf0581cb0c1d65f6a76cb2985a9172e31a473c",
       "contains": [
@@ -342,8 +342,8 @@
         "path": ".github/workflows/check.yml",
         "name": ".github/workflows/check.yml",
         "kind": "yml",
-        "size": 1442,
-        "sha256": "3007985dbc38b287ae11b276ef37a992f96ecfe243ae2d4fce434a2996c857ad"
+        "size": 1502,
+        "sha256": "a46fec699538c61d7e28c76cf4ca77b9e68ec520905b3bd5e1160ce886fff1b2"
       },
       "parent_id": "module_87ee5504a3e25ac558b343724c905f2f7949e8cec3d92b9c4300bb922afa164f",
       "contains": [],
@@ -1316,8 +1316,8 @@
         "path": "installer",
         "name": "installer",
         "kind": "folder",
-        "size": 53087,
-        "sha256": "f5bbda2367748349767e1e63dd6bf747feb50d7a546f212dd5324051d80e42d2"
+        "size": 58063,
+        "sha256": "e1cc5e642a34463505acb382bb6282440a6c5353720b5af68846992bf4dcff8e"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
@@ -1398,8 +1398,8 @@
         "path": "installer/src",
         "name": "installer/src",
         "kind": "folder",
-        "size": 29491,
-        "sha256": "c79cb3f977f3cc046283bbf3938b0998852ed1d52f0ef1e64759978aa72d5fc8"
+        "size": 29622,
+        "sha256": "a7bd4e94d559111b73844759f073a1e52254874d906cabff405b29dce947030d"
       },
       "parent_id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
       "contains": [
@@ -1415,8 +1415,8 @@
         "path": "installer/src/trugs_agent",
         "name": "installer/src/trugs_agent",
         "kind": "folder",
-        "size": 29491,
-        "sha256": "d7120050b54c029df9bbc4bee21ac0956a16b84d033b6dd56b511861612b3c11"
+        "size": 29622,
+        "sha256": "85427f3da51fb7a5ff639f3b5097098ff116a61e22d2a958afd03e09570a5716"
       },
       "parent_id": "module_c297652765a469a7500e0b6f61839350a9cb5a2fadadb947d8eaa16788196787",
       "contains": [
@@ -1465,8 +1465,8 @@
         "path": "installer/src/trugs_agent/markdown.py",
         "name": "installer/src/trugs_agent/markdown.py",
         "kind": "py",
-        "size": 656,
-        "sha256": "38c24ff8c9280d5b855141d819e4ac3cbad0515d8a3381e6163d5232b684eb61"
+        "size": 787,
+        "sha256": "3d0cd26a3dd552c3dc2b8a7aeeb5c7b7be717f02cee1780df03a05e3945cf8c5"
       },
       "parent_id": "module_ece4fbe51cb7b2e4898aef7ca69a9fa55f7b5eb5d07b73c4550ad7e8dcf5146b",
       "contains": [],
@@ -1613,15 +1613,31 @@
         "path": "installer/tests",
         "name": "installer/tests",
         "kind": "folder",
-        "size": 10770,
-        "sha256": "baa48e4a6dcecadc731463806dd3254c9e383c61e2746d4ed4b6fa2595f808b1"
+        "size": 15615,
+        "sha256": "da91ab0c35d48f01c7cdcf2811b83e8458e0dbb625ce72b975634379c71ecfe3"
       },
       "parent_id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
       "contains": [
+        "file_8c246d0d0d03c2523111742cc1affa7a54a9b0e9806591191f865ae70a6a339c",
         "file_c63fcda09c22296274ba575a7f32e7b0762af5b8ac829b82984f3a1f205eb1e3",
         "file_548039e10ba43fa1fdfe1a922139f17b6d157ac60a27ab0ff0aac18db952d55b"
       ],
       "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_8c246d0d0d03c2523111742cc1affa7a54a9b0e9806591191f865ae70a6a339c",
+      "type": "FILE",
+      "properties": {
+        "path": "installer/tests/conftest.py",
+        "name": "installer/tests/conftest.py",
+        "kind": "py",
+        "size": 455,
+        "sha256": "91454166ab549533acedb849d64f0bfd1c76f8b82eabbeb815732430af7fde44"
+      },
+      "parent_id": "module_dfbeef8ee1e99a2f38001ef66ef406eb58f9144884e60407df501361781e4d5e",
+      "contains": [],
+      "metric_level": "BASE_FILE",
       "dimension": "system"
     },
     {
@@ -1646,8 +1662,8 @@
         "path": "installer/tests/test_markdown_commands.py",
         "name": "installer/tests/test_markdown_commands.py",
         "kind": "py",
-        "size": 7117,
-        "sha256": "b378b59a1bcc0737cd8f7df1e21cb31c40fd671e980f16149acee58359a4dfb4"
+        "size": 11507,
+        "sha256": "5b2441246001df80b7fb624ee4eedb7040b7c72b9a3cb4aa35d8555557a49dc8"
       },
       "parent_id": "module_dfbeef8ee1e99a2f38001ef66ef406eb58f9144884e60407df501361781e4d5e",
       "contains": [],
@@ -2146,8 +2162,8 @@
         "path": "tools",
         "name": "tools",
         "kind": "folder",
-        "size": 37348,
-        "sha256": "5c203d6ed61e49ea36cb936b9826bd4606de192c878dcbb9b97449ccac92d5dd"
+        "size": 38778,
+        "sha256": "20b2f25e8a2fd762a6e565abf75ff892944fe9d6d0ed2c7ebd13888d69647e68"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
@@ -2197,8 +2213,8 @@
         "path": "tools/kit_check.py",
         "name": "tools/kit_check.py",
         "kind": "py",
-        "size": 6347,
-        "sha256": "80e0d922a7f99a0bdcf876bb284ca9412891fd43e7a971a2cf23f00a4e764d92"
+        "size": 6478,
+        "sha256": "cd0a8aa9db949d98b4b2093aa4cef2d73e32edaf20da3801302f6ea54341fe94"
       },
       "parent_id": "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281",
       "contains": [],
@@ -2212,8 +2228,8 @@
         "path": "tools/kit_parts.py",
         "name": "tools/kit_parts.py",
         "kind": "py",
-        "size": 15130,
-        "sha256": "272b8d02ecbf761f3e96c296a5c771f761ae38cf5b4fe8be52bd251830d75531"
+        "size": 16429,
+        "sha256": "40238485c24013365a3f0850e84012f84e28b23e99e2ec8e4cb268c2ee1b5029"
       },
       "parent_id": "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281",
       "contains": [],

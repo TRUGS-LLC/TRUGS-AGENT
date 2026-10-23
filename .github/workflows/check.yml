@@ -33,4 +33,4 @@ jobs:
       - run: python -c "import shutil; shutil.copytree('installer', '${{ runner.temp }}/kit-installer')"
       - run: python -m pip install --no-index --find-links "${{ runner.temp }}/kit-inputs/wheelhouse" --no-build-isolation "${{ runner.temp }}/kit-installer"
       - run: python tools/kit_check.py --repositories "${{ runner.temp }}/kit-inputs/repositories"
-      - run: python -m pytest -p no:cacheprovider installer/tests
+      - run: python -m pytest -p no:cacheprovider installer/tests --repositories "${{ runner.temp }}/kit-inputs/repositories"

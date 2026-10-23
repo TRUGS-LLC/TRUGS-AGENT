@@ -213,3 +213,123 @@ def test_every_occurrence_checks_stdout_and_status(tmp_path, monkeypatch, second
     assert "README.md:4" in message
     assert "contradictory expectations" in message
     assert (tmp_path / "executions").read_text() == "x"
+
+
+def shell_block(container, fence, kind, command, expected):
+    prefix = container.rsplit("{fence}", 1)[0].rsplit("\n", 1)[-1]
+    return container.replace("trl", kind).format(fence=fence, body=command) + (
+        prefix + "<!-- expect: " + json.dumps(expected) + " -->\n"
+    )
+
+
+@pytest.mark.parametrize("container", CONTAINERS)
+@pytest.mark.parametrize("fence", ("```", "~~~"))
+@pytest.mark.parametrize("kind", ("sh", "bash", "shell"))
+def test_command_containers_execute_and_compare(
+    tmp_path, monkeypatch, capsys, container, fence, kind
+):
+    expected = {"status": 0, "stdout": "PASS: command\n"}
+    inputs = command_fixture(tmp_path, monkeypatch, expected)
+    document = tmp_path / "PRIMER.md"
+    command = next(iter(blocks(document.read_text())))[1].rstrip("\n")
+    document.write_text(shell_block(container, fence, kind, command, expected))
+    commands(tmp_path, tmp_path, *inputs)
+    assert (tmp_path / "executions").read_text() == "x"
+    assert "2 stated commands, 1 distinct" in capsys.readouterr().out
+
+
+@pytest.mark.parametrize(
+    "name",
+    (
+        "CONTRIBUTING.md",
+        "map/README.md",
+        "kit/primer.md.in",
+        "installer/src/trugs_agent/payload/extra.md",
+    ),
+)
+def test_commands_in_every_markdown_document(tmp_path, monkeypatch, name):
+    inputs = command_fixture(
+        tmp_path, monkeypatch, {"status": 0, "stdout": "PASS: command\n"}
+    )
+    document = tmp_path / name
+    document.parent.mkdir(parents=True, exist_ok=True)
+    document.write_text(
+        shell_block(
+            CONTAINERS[1],
+            "~~~",
+            "sh",
+            "printf actual",
+            {"status": 0, "stdout": "false"},
+        )
+    )
+    with pytest.raises(ValueError, match="command differs at " + name + ":2"):
+        commands(tmp_path, tmp_path, *inputs)
+
+
+@pytest.mark.parametrize(
+    "tail",
+    (
+        "",
+        "> <!-- expect: invalid -->\n",
+        '> <!-- expect: {"status": 0} -->\n',
+        '<!-- expect: {"status": 0, "stdout": "actual"} -->\n',
+    ),
+)
+def test_missing_or_invalid_container_expectation_fails(tmp_path, monkeypatch, tail):
+    inputs = command_fixture(
+        tmp_path, monkeypatch, {"status": 0, "stdout": "PASS: command\n"}
+    )
+    (tmp_path / "PRIMER.md").write_text("> ~~~sh\n> printf actual\n> ~~~\n" + tail)
+    with pytest.raises(ValueError, match="expected|expectation") as failure:
+        commands(tmp_path, tmp_path, *inputs)
+    assert "PRIMER.md:2" in str(failure.value)
+
+
+@pytest.mark.parametrize("container", (CONTAINERS[1], CONTAINERS[3]))
+@pytest.mark.parametrize("fence", ("```", "~~~"))
+@pytest.mark.parametrize("fault", ("stdout", "status"))
+def test_full_kit_entry_rejects_container_command_result(
+    tmp_path, prepared_repositories, container, fence, fault
+):
+    tree = tmp_path / "kit"
+    shutil.copytree(ROOT, tree, ignore=shutil.ignore_patterns(".git"))
+    document = tree / "kit/skills/compile-decompile/SKILL.md"
+    text = document.read_text()
+    if fault == "stdout":
+        text = text.replace("PASS: hello", "IMPOSSIBLE")
+    else:
+        text = text.replace('"status": 0', '"status": 7').replace(
+            "exit status 0", "exit status 7"
+        )
+    start = text.index("```sh\n")
+    end = text.index("-->\n", start) + 4
+    command = "bash examples/hello/check.sh"
+    expected = {
+        "status": 7 if fault == "status" else 0,
+        "stdout": "IMPOSSIBLE\n" if fault == "stdout" else "PASS: hello\n",
+    }
+    text = (
+        text[:start]
+        + shell_block(container, fence, "sh", command, expected)
+        + text[end:]
+    )
+    document.write_text(text)
+    body_line = text[: text.index(command)].count("\n") + 1
+    args = [
+        sys.executable,
+        str(tree / "tools/kit_check.py"),
+        "--repositories",
+        str(prepared_repositories),
+    ]
+    # Regenerate normally first, so stale-index rejection cannot mask the fault.
+    for extra in (["--generate"], []):
+        result = subprocess.run(
+            args + extra, cwd=tree, capture_output=True, text=True, check=False
+        )
+        assert result.returncode == 1, result.stdout + result.stderr
+        assert (
+            f"command differs at kit/skills/compile-decompile/SKILL.md:{body_line}"
+            in result.stderr
+        )
+        assert "first stated at README.md:65" in result.stderr
+        assert "PASS: kit_check" not in result.stdout

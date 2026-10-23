@@ -13,6 +13,7 @@ import sys
 from pathlib import Path
 
 from kit_check import language, run, trl_check
+from trugs_agent.markdown import tokens
 
 
 def layout(root):
@@ -243,6 +244,12 @@ def commands(root, scratch, repositories=None, calculator_source=None):
     candidates = [root / "README.md", root / "PRIMER.md"]
     candidates += sorted((root / "kit/skills").rglob("*.md"))
     candidates += sorted((root / "examples").rglob("*.md"))
+    candidates += [
+        root / relative
+        for relative in file_list(root)
+        if (relative.suffix.lower() == ".md" or relative.name.endswith(".md.in"))
+        and root / relative not in candidates
+    ]
     count = 0
     seen = {}
     checked_examples = set()
@@ -252,19 +259,45 @@ def commands(root, scratch, repositories=None, calculator_source=None):
     env["calculator_source"] = (
         str(Path(calculator_source).resolve()) if calculator_source else ""
     )
-    pattern = re.compile(r"```sh\n(.*?)\n```\n<!-- expect: (.*?) -->", re.S)
     for path in candidates:
-        text = path.read_text()
-        entries = list(pattern.finditer(text))
-        if len(entries) != len(re.findall(r"^```sh$", text, re.M)):
-            raise ValueError(
-                "command lacks expected result: " + str(path.relative_to(root))
-            )
-        for entry in entries:
-            command, expected = entry.groups()
-            expected = json.loads(expected)
-            line = text.count("\n", 0, entry.start(1)) + 1
-            location = f"{path.relative_to(root)}:{line}"
+        try:
+            parsed = tokens(path.read_text())
+        except ValueError as exc:
+            raise ValueError(f"{path.relative_to(root)}: {exc}") from exc
+        for index, token in enumerate(parsed):
+            if token.type != "fence":
+                continue
+            info = token.info.split()
+            if not info or info[0] not in ("sh", "bash", "shell"):
+                continue
+            command = token.content
+            location = f"{path.relative_to(root)}:{token.map[0] + 2}"
+            following = parsed[index + 1] if index + 1 < len(parsed) else None
+            expectation = None
+            if (
+                following is not None
+                and following.type == "html_block"
+                and following.level == token.level
+            ):
+                expectation = re.fullmatch(
+                    r"<!-- expect: (.*?) -->\s*", following.content, re.DOTALL
+                )
+            if expectation is None:
+                raise ValueError(f"command lacks expected result at {location}")
+            try:
+                expected = json.loads(expectation[1])
+            except ValueError as exc:
+                raise ValueError(
+                    f"invalid command expectation at {location}: {exc}"
+                ) from exc
+            if (
+                not isinstance(expected, dict)
+                or type(expected.get("status")) is not int
+                or not isinstance(expected.get("stdout"), str)
+            ):
+                raise ValueError(
+                    f"invalid command expectation at {location}: {expected!r}"
+                )
             if command not in seen:
                 result = subprocess.run(
                     ["bash", "-c", command],

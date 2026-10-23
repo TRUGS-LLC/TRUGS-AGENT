@@ -126,9 +126,12 @@ def documents(scratch):
         path = ROOT / relative
         if path.suffix.lower() == ".md" or path.name.endswith(".md.in"):
             text = path.read_text()
-            for kind, body in blocks(text):
-                if kind == "trl":
-                    trl_check(body, str(path), scratch)
+            try:
+                for kind, body in blocks(text):
+                    if kind == "trl":
+                        trl_check(body, str(path), scratch)
+            except ValueError as exc:
+                raise ValueError(f"{relative}: {exc}") from exc
     for path in sorted((ROOT / "kit").rglob("*")):
         if path.suffix == ".mdc":
             for kind, body in blocks(path.read_text()):
