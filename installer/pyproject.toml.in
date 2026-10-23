@@ -6,11 +6,16 @@ build-backend = "setuptools.build_meta"
 name = "trugs-agent"
 version = "2.0.0"
 description = "TRUGS onboarding instructions and project installer"
+readme = "README.md"
 requires-python = ">=3.11"
 license = "Apache-2.0"
 license-files = ["LICENSE", "NOTICE"]
 dependencies = ["trugs-tools{{TOOLS_REQUIREMENT}}", "markdown-it-py>=4.2,<5"]
 authors = [{name = "TRUGS LLC"}]
+
+[project.urls]
+Homepage = "https://github.com/TRUGS-LLC/TRUGS-AGENT"
+Repository = "https://github.com/TRUGS-LLC/TRUGS-AGENT"
 
 [project.scripts]
 trugs-agent = "trugs_agent.cli:main"

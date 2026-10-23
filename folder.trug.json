@@ -16,8 +16,8 @@
         "path": ".",
         "name": ".",
         "kind": "folder",
-        "size": 251327,
-        "sha256": "16e27d83709688c97610c186c64a7e29e4c0f2848532683b7c7d1baee3ffe5cc",
+        "size": 252096,
+        "sha256": "fe85d3196f72027aaedb56c62627a1df21efc0be927636d90531bb5ea4af90d4",
         "unread": [
           {
             "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -1316,13 +1316,14 @@
         "path": "installer",
         "name": "installer",
         "kind": "folder",
-        "size": 60226,
-        "sha256": "6ce7f554c4725ef87c90bad2c27963c1d288ad4caae7900209c8440f37ee6352"
+        "size": 60995,
+        "sha256": "340a2a6c9aebf618feac627230340514f4983af9a223c92c3520d3142422f8df"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
         "file_204120b5c0ac6fc09e16168cdef7f31bf57ca868006cc81a57df5e4c07fcd685",
         "file_b77f013d7ace5b43eefe2cce3aa7d199758d0bb4c330d3b34aa685cddb9890dc",
+        "file_2b1dbafc9d8f9c6bd0ca4dc3d5f6f9458a485c9c1d202fbd269147afc40beebf",
         "file_7c42c85554b1a1b436a986a2e67c24de5fb48e492b36e0bc3b71d1df0dc3891a",
         "file_1944b8300f15ebc9cadf4227c7f9bbc0abcdac0b1dfad90bf0a564ffaf723b20",
         "module_c297652765a469a7500e0b6f61839350a9cb5a2fadadb947d8eaa16788196787",
@@ -1362,14 +1363,30 @@
       "dimension": "system"
     },
     {
+      "id": "file_2b1dbafc9d8f9c6bd0ca4dc3d5f6f9458a485c9c1d202fbd269147afc40beebf",
+      "type": "FILE",
+      "properties": {
+        "path": "installer/README.md",
+        "name": "installer/README.md",
+        "kind": "md",
+        "size": 475,
+        "sha256": "967dfe04ec6a855fde10d3fbf9e84864de9659b3e798dc9bdabc82fed6809906",
+        "title": "trugs-agent"
+      },
+      "parent_id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
       "id": "file_7c42c85554b1a1b436a986a2e67c24de5fb48e492b36e0bc3b71d1df0dc3891a",
       "type": "FILE",
       "properties": {
         "path": "installer/pyproject.toml",
         "name": "installer/pyproject.toml",
         "kind": "toml",
-        "size": 673,
-        "sha256": "6ca793d9bb6b37533916237c6f2fca980bdb4257b678d198e4b2e0e9e3654bb0"
+        "size": 820,
+        "sha256": "0a0bda84337fb42b72b53b7cd3f68fe7c73023ea7e3e0a2e609c607590345dc6"
       },
       "parent_id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
       "contains": [],
@@ -1383,8 +1400,8 @@
         "path": "installer/pyproject.toml.in",
         "name": "installer/pyproject.toml.in",
         "kind": "in",
-        "size": 684,
-        "sha256": "f75706249a7c3200f0a6f2583464ce3114861b3c2c27e41473f089eee64cb573"
+        "size": 831,
+        "sha256": "0a301e926c26ce26139e89f76690c9e1d923f5ff5288d508cbff1df4f3d9a161"
       },
       "parent_id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
       "contains": [],
