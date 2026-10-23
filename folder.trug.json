@@ -1,0 +1,3172 @@
+{
+  "name": "folder",
+  "version": "1.0.0",
+  "type": "PROJECT",
+  "dimension": "system",
+  "dimensions": {
+    "system": {
+      "description": "Folder contents and references"
+    }
+  },
+  "nodes": [
+    {
+      "id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "type": "MODULE",
+      "properties": {
+        "path": ".",
+        "name": ".",
+        "kind": "folder",
+        "size": 227392,
+        "sha256": "159586d42b09f775de7f801b82df09c46462ab4e97895f8b76e6808d7a67b5cb",
+        "unread": [
+          {
+            "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+            "reason": "imports not read"
+          },
+          {
+            "path": ".github/ISSUE_TEMPLATE/config.yml",
+            "reason": "imports not read"
+          },
+          {
+            "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+            "reason": "imports not read"
+          },
+          {
+            "path": ".github/workflows/check.yml",
+            "reason": "imports not read"
+          },
+          {
+            "path": ".gitignore",
+            "reason": "imports not read"
+          },
+          {
+            "path": "LICENSE",
+            "reason": "imports not read"
+          },
+          {
+            "path": "NOTICE",
+            "reason": "imports not read"
+          },
+          {
+            "path": "eval/items.json",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/calculator/calculator.trl",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/calculator/calculator.trug.json",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/calculator/check.sh",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/hello/check.sh",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/hello/hello.trl",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/hello/hello.trug.json",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/logic-graph/check.sh",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/logic-graph/logic-graph.trl",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/logic-graph/logic-graph.trug.json",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/map-a-folder/check.sh",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/map-a-folder/map-a-folder.trl",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/map-a-folder/map-a-folder.trug.json",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/refactor_a_program/check.sh",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/refactor_a_program/refactor_a_program.trl",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/refactor_a_program/refactor_a_program.trug.json",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/skill_refactor_safely/check.sh",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/skill_refactor_safely/skill_refactor_safely.trl",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/skill_refactor_safely/skill_refactor_safely.trug.json",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/skill_ship_safely/check.sh",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/skill_ship_safely/skill_ship_safely.trl",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/skill_ship_safely/skill_ship_safely.trug.json",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/todo-app/check.sh",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/todo-app/todo-app.trl",
+            "reason": "imports not read"
+          },
+          {
+            "path": "examples/todo-app/todo-app.trug.json",
+            "reason": "imports not read"
+          },
+          {
+            "path": "installer/LICENSE",
+            "reason": "imports not read"
+          },
+          {
+            "path": "installer/NOTICE",
+            "reason": "imports not read"
+          },
+          {
+            "path": "installer/pyproject.toml",
+            "reason": "imports not read"
+          },
+          {
+            "path": "installer/pyproject.toml.in",
+            "reason": "imports not read"
+          },
+          {
+            "path": "installer/src/trugs_agent/payload/.claude-plugin/plugin.json",
+            "reason": "imports not read"
+          },
+          {
+            "path": "installer/src/trugs_agent/payload/.cursor/rules/trugs-agent.mdc",
+            "reason": "imports not read"
+          },
+          {
+            "path": "kit/.claude-plugin/plugin.json",
+            "reason": "imports not read"
+          },
+          {
+            "path": "kit/.cursor/rules/trugs-agent.mdc",
+            "reason": "imports not read"
+          },
+          {
+            "path": "kit/primer.md.in",
+            "reason": "imports not read"
+          },
+          {
+            "path": "map/published.trl",
+            "reason": "imports not read"
+          },
+          {
+            "path": "map/published.trug.json",
+            "reason": "imports not read"
+          },
+          {
+            "path": "map/repositories.json",
+            "reason": "imports not read"
+          }
+        ]
+      },
+      "parent_id": null,
+      "contains": [
+        "module_bdcc6a2a85f645f62724fe8dafbf0581cb0c1d65f6a76cb2985a9172e31a473c",
+        "file_bc37d034bad564583790a46f19d807abfe519c5671395fd494d8cce506c42947",
+        "file_a54ff182c7e8acf56acfd6e4b9c3ff41e2c41a31c9b211b2deb9df75d9a478f9",
+        "file_06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed",
+        "file_eca12c0a30e25b4b46522ebf89465a03ba72a03f540796c979137931d8f92055",
+        "file_c693279643b8cd5d248172d9c22cb7cf4ed163a3c98c8a3f69c2717edd3eacb7",
+        "file_dfb14fbb9e7d095209ec4cfd621069437bf9c442ff9de9d4ce889781bd0fefcf",
+        "file_5721368413ed74d5dd5464d3f38074d371764425ee850e0d320bce2f11ed1ba8",
+        "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+        "file_f6ed156e4bf5c791680662464b94ea5d753f219ee816b385f67870e2c0d7d4c7",
+        "module_1bbd174404efbce95f1af489ef93f4aa0f4d55718f24c3504682216afa7b7fb1",
+        "module_c590b3c924c35c2f241746522284e4709df490d73a38aaa7d6de4ed1eac2f546",
+        "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
+        "module_cbc8a597a67c465497550c4a4a7eebdb138442c06be06a78cc1ee8715658ff44",
+        "module_60be9861750facbfad8758254a2f76c0cfe78d54459a3bc187d49b1401fcd8e8",
+        "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_bdcc6a2a85f645f62724fe8dafbf0581cb0c1d65f6a76cb2985a9172e31a473c",
+      "type": "MODULE",
+      "properties": {
+        "path": ".github",
+        "name": ".github",
+        "kind": "folder",
+        "size": 5653,
+        "sha256": "f272e79dad522d4f29731974c7eed0b18d1b08989f4f5d84ba43124644c1d69f"
+      },
+      "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "contains": [
+        "module_3afc0895c6bbf0cf8777294fd7c3a51a6023cc78fd51bf2e29679553b63196c7",
+        "file_18813c86948efc57e661623d7ba48ff94325c9b5421ec9177f724922dd553a35",
+        "module_87ee5504a3e25ac558b343724c905f2f7949e8cec3d92b9c4300bb922afa164f"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_3afc0895c6bbf0cf8777294fd7c3a51a6023cc78fd51bf2e29679553b63196c7",
+      "type": "MODULE",
+      "properties": {
+        "path": ".github/ISSUE_TEMPLATE",
+        "name": ".github/ISSUE_TEMPLATE",
+        "kind": "folder",
+        "size": 3651,
+        "sha256": "94101a6504274c0e9b937d02295853a396fad8a6550abee69e24d41d021dd0a4"
+      },
+      "parent_id": "module_bdcc6a2a85f645f62724fe8dafbf0581cb0c1d65f6a76cb2985a9172e31a473c",
+      "contains": [
+        "file_637f7b97bba458badb691a1557c3d4648686292e948dbe3e8360564378b653ef",
+        "file_1c0d972ee49103af56fd608a77a28e1eb12f6908f263f0f183d46868fdcd8ea2",
+        "file_c6b098646bf32c644234bec14c2675ea2a3d9c2dc2df450a25aa0e7ff02323cd"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_637f7b97bba458badb691a1557c3d4648686292e948dbe3e8360564378b653ef",
+      "type": "FILE",
+      "properties": {
+        "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+        "name": ".github/ISSUE_TEMPLATE/bug_report.yml",
+        "kind": "yml",
+        "size": 1641,
+        "sha256": "af029939a1e03bb9d0a5998909f1a17339fce5eeb8676e2322997eaa0e5232d3"
+      },
+      "parent_id": "module_3afc0895c6bbf0cf8777294fd7c3a51a6023cc78fd51bf2e29679553b63196c7",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_1c0d972ee49103af56fd608a77a28e1eb12f6908f263f0f183d46868fdcd8ea2",
+      "type": "FILE",
+      "properties": {
+        "path": ".github/ISSUE_TEMPLATE/config.yml",
+        "name": ".github/ISSUE_TEMPLATE/config.yml",
+        "kind": "yml",
+        "size": 530,
+        "sha256": "c726b196e08b8a233e102a6cb0544fcba807c720952d6ac7511456f50afc60b0"
+      },
+      "parent_id": "module_3afc0895c6bbf0cf8777294fd7c3a51a6023cc78fd51bf2e29679553b63196c7",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_c6b098646bf32c644234bec14c2675ea2a3d9c2dc2df450a25aa0e7ff02323cd",
+      "type": "FILE",
+      "properties": {
+        "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+        "name": ".github/ISSUE_TEMPLATE/feature_request.yml",
+        "kind": "yml",
+        "size": 1480,
+        "sha256": "426ef7f1f5eda4a2b437ee6d5155b6db8eaed5c8b3182f38d07046473f7d236d"
+      },
+      "parent_id": "module_3afc0895c6bbf0cf8777294fd7c3a51a6023cc78fd51bf2e29679553b63196c7",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_18813c86948efc57e661623d7ba48ff94325c9b5421ec9177f724922dd553a35",
+      "type": "FILE",
+      "properties": {
+        "path": ".github/PULL_REQUEST_TEMPLATE.md",
+        "name": ".github/PULL_REQUEST_TEMPLATE.md",
+        "kind": "md",
+        "size": 560,
+        "sha256": "3b4251325f74e0b7359661f98125d1a31bffd953425b5bff7e767e0ea9794afe",
+        "title": "Summary"
+      },
+      "parent_id": "module_bdcc6a2a85f645f62724fe8dafbf0581cb0c1d65f6a76cb2985a9172e31a473c",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_87ee5504a3e25ac558b343724c905f2f7949e8cec3d92b9c4300bb922afa164f",
+      "type": "MODULE",
+      "properties": {
+        "path": ".github/workflows",
+        "name": ".github/workflows",
+        "kind": "folder",
+        "size": 1442,
+        "sha256": "b54afec9abadddc38c2825e271aa5c9e2587a2505c20ca54f40a0375a0e7b3ba"
+      },
+      "parent_id": "module_bdcc6a2a85f645f62724fe8dafbf0581cb0c1d65f6a76cb2985a9172e31a473c",
+      "contains": [
+        "file_55f05888fd854d9962bdd4d8ccf23a07b610990f58174397b2586b58f8937428"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_55f05888fd854d9962bdd4d8ccf23a07b610990f58174397b2586b58f8937428",
+      "type": "FILE",
+      "properties": {
+        "path": ".github/workflows/check.yml",
+        "name": ".github/workflows/check.yml",
+        "kind": "yml",
+        "size": 1442,
+        "sha256": "3007985dbc38b287ae11b276ef37a992f96ecfe243ae2d4fce434a2996c857ad"
+      },
+      "parent_id": "module_87ee5504a3e25ac558b343724c905f2f7949e8cec3d92b9c4300bb922afa164f",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_bc37d034bad564583790a46f19d807abfe519c5671395fd494d8cce506c42947",
+      "type": "FILE",
+      "properties": {
+        "path": ".gitignore",
+        "name": ".gitignore",
+        "kind": "text",
+        "size": 85,
+        "sha256": "7b9aa6964650af13c74b172e1be7c462c753e4d7eab3b5b86353948f5b75ac60"
+      },
+      "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_a54ff182c7e8acf56acfd6e4b9c3ff41e2c41a31c9b211b2deb9df75d9a478f9",
+      "type": "FILE",
+      "properties": {
+        "path": "AGENTS.md",
+        "name": "AGENTS.md",
+        "kind": "md",
+        "size": 5106,
+        "sha256": "afc19a0cc669c47ea1fdc1c4e5d4e75bbe99cb1ec1607bfdf5b3aff2ef15af49",
+        "title": "TRUGS agent entry"
+      },
+      "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed",
+      "type": "FILE",
+      "properties": {
+        "path": "CHANGELOG.md",
+        "name": "CHANGELOG.md",
+        "kind": "md",
+        "size": 615,
+        "sha256": "ab1cf32126d15a1747568271f91bf891a98b3d274d9b7bb1faa0f2c440fdb3d3",
+        "title": "Changelog"
+      },
+      "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_eca12c0a30e25b4b46522ebf89465a03ba72a03f540796c979137931d8f92055",
+      "type": "FILE",
+      "properties": {
+        "path": "CONTRIBUTING.md",
+        "name": "CONTRIBUTING.md",
+        "kind": "md",
+        "size": 3566,
+        "sha256": "9a2c67c9b2f44573d7df516f5e74ab642f53a5a39616821c8701eb1a32a6948a",
+        "title": "Contributing to TRUGS Agent"
+      },
+      "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_c693279643b8cd5d248172d9c22cb7cf4ed163a3c98c8a3f69c2717edd3eacb7",
+      "type": "FILE",
+      "properties": {
+        "path": "LICENSE",
+        "name": "LICENSE",
+        "kind": "text",
+        "size": 11358,
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      },
+      "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_dfb14fbb9e7d095209ec4cfd621069437bf9c442ff9de9d4ce889781bd0fefcf",
+      "type": "FILE",
+      "properties": {
+        "path": "NOTICE",
+        "name": "NOTICE",
+        "kind": "text",
+        "size": 111,
+        "sha256": "f4121ca1e1ee5ab09ea448956178c9d1cdabf0d6c661f263466177a8b022d797"
+      },
+      "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_5721368413ed74d5dd5464d3f38074d371764425ee850e0d320bce2f11ed1ba8",
+      "type": "FILE",
+      "properties": {
+        "path": "PRIMER.md",
+        "name": "PRIMER.md",
+        "kind": "md",
+        "size": 10402,
+        "sha256": "7408c66671796fcfa174f983bedf3b01931742800922156a75b9bbcbc0a35ab5",
+        "title": "TRUGS primer \u2014 TRL and graph authoring"
+      },
+      "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+      "type": "FILE",
+      "properties": {
+        "path": "README.md",
+        "name": "README.md",
+        "kind": "md",
+        "size": 4078,
+        "sha256": "6902fabaf30a6ea5785b6f65bf8e197898a8cf6b934525f4526035f7d0e4a781",
+        "title": "TRUGS onboarding kit"
+      },
+      "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_f6ed156e4bf5c791680662464b94ea5d753f219ee816b385f67870e2c0d7d4c7",
+      "type": "FILE",
+      "properties": {
+        "path": "SECURITY.md",
+        "name": "SECURITY.md",
+        "kind": "md",
+        "size": 604,
+        "sha256": "566b89a5d1443a453e8c4dee749c55e5382043000d6e4124b5ff3f4ef56299d9",
+        "title": "Security Policy"
+      },
+      "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_1bbd174404efbce95f1af489ef93f4aa0f4d55718f24c3504682216afa7b7fb1",
+      "type": "MODULE",
+      "properties": {
+        "path": "eval",
+        "name": "eval",
+        "kind": "folder",
+        "size": 2480,
+        "sha256": "7f7c27a8122e903c75fe74c7bd3ca4f36c50a2e4fa2bbde4b472584e2d5d1f11"
+      },
+      "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "contains": [
+        "file_200b06e6451b0ae17aabf76d04d151b2b212a01c053dfa5570c110f0ca5165ac",
+        "file_d6d5722df1c3699cde87ed1589f2dd3c2d2ca5a8bec2f16d80568a8b2121b620"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_200b06e6451b0ae17aabf76d04d151b2b212a01c053dfa5570c110f0ca5165ac",
+      "type": "FILE",
+      "properties": {
+        "path": "eval/README.md",
+        "name": "eval/README.md",
+        "kind": "md",
+        "size": 571,
+        "sha256": "94c31a25c7985f3e8e92b5c071820b6245995974cf055f986a2f6ac5784dffbc",
+        "title": "Fixed tasks and general questions"
+      },
+      "parent_id": "module_1bbd174404efbce95f1af489ef93f4aa0f4d55718f24c3504682216afa7b7fb1",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_d6d5722df1c3699cde87ed1589f2dd3c2d2ca5a8bec2f16d80568a8b2121b620",
+      "type": "FILE",
+      "properties": {
+        "path": "eval/items.json",
+        "name": "eval/items.json",
+        "kind": "json",
+        "size": 1909,
+        "sha256": "73444ee9c797c8f144d7da38ec34990aafc3081bb32b8497cbc4a6e17b60dd2d"
+      },
+      "parent_id": "module_1bbd174404efbce95f1af489ef93f4aa0f4d55718f24c3504682216afa7b7fb1",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_c590b3c924c35c2f241746522284e4709df490d73a38aaa7d6de4ed1eac2f546",
+      "type": "MODULE",
+      "properties": {
+        "path": "examples",
+        "name": "examples",
+        "kind": "folder",
+        "size": 44459,
+        "sha256": "dfcf2d378dd7648a7820a843b9d3136f7929836651d330e363669faeae092c3d"
+      },
+      "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "contains": [
+        "file_49aaa2819e35a856818ecec8c9fa7e1c79ad028d3f44bd749736353cfb51bac9",
+        "module_ce0f0c1bc9f2e597b23f92129ee12387363dfaed9e8c96cee837832d5506add4",
+        "module_bfdff760e36a3077821fed188e9778d9477e98781457a7e8cb014197a3c2d290",
+        "module_85ffe8ff531fa03ad6a538b25dde292ed3bc1b7345313ac21cc9fc5a9bb23326",
+        "module_262aa3cf3fa3d5f77ed2227491ec5fceedba412762692d05b410dd2c66cc951a",
+        "module_f81735ed879586c0f86f9f364c767e7df08071fb7b9f6d07b4ccd0a249e03692",
+        "module_bcec5aa46785ce6b6c90549fcd68fe5b3831fb6c480227bc50ba3d2b91c6db24",
+        "module_c654e8b30807b7bd19984cf6228a82ca7b0e155acc085bbba94fa36e9321a5ed",
+        "module_f21fd5ddbaf20a5d008807d20f234bc5ba47bad8f18479ad574bda03a5a722a1"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_49aaa2819e35a856818ecec8c9fa7e1c79ad028d3f44bd749736353cfb51bac9",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/README.md",
+        "name": "examples/README.md",
+        "kind": "md",
+        "size": 517,
+        "sha256": "ceb5b8213d47e69aa9aaee2b5bb4d8db0732dcac487a32f6c74cc80d728d7e39",
+        "title": "Examples"
+      },
+      "parent_id": "module_c590b3c924c35c2f241746522284e4709df490d73a38aaa7d6de4ed1eac2f546",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_ce0f0c1bc9f2e597b23f92129ee12387363dfaed9e8c96cee837832d5506add4",
+      "type": "MODULE",
+      "properties": {
+        "path": "examples/calculator",
+        "name": "examples/calculator",
+        "kind": "folder",
+        "size": 2757,
+        "sha256": "1970302fb0b62fd8b037144892ebc73e2107e7257e7b8ebc0a96b76d9515c887"
+      },
+      "parent_id": "module_c590b3c924c35c2f241746522284e4709df490d73a38aaa7d6de4ed1eac2f546",
+      "contains": [
+        "file_6a1ce5ff88bf6d0d50baa2f39401cd9c11af774729b08db6e2581ac35acf0175",
+        "file_128ecb5aca842076c3a33c3ee175476b3f0b4c175bc5d8dab0737cc52b22a83f",
+        "file_bd44b4dbe4fc2bb7245b4dd0a4334c96673b0f4dfcb2c26c3bf109459ceac940",
+        "file_1f01afebd2adf5a62b785868a1b4d0a7bfc5d4563f848a767109d5e35f9da535"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_6a1ce5ff88bf6d0d50baa2f39401cd9c11af774729b08db6e2581ac35acf0175",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/calculator/README.md",
+        "name": "examples/calculator/README.md",
+        "kind": "md",
+        "size": 918,
+        "sha256": "b2a86d3e43bebcbb09023470372beec71b017487f2790ede22fbe8a908fa2c2f",
+        "title": "calculator"
+      },
+      "parent_id": "module_ce0f0c1bc9f2e597b23f92129ee12387363dfaed9e8c96cee837832d5506add4",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_128ecb5aca842076c3a33c3ee175476b3f0b4c175bc5d8dab0737cc52b22a83f",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/calculator/calculator.trl",
+        "name": "examples/calculator/calculator.trl",
+        "kind": "trl",
+        "size": 54,
+        "sha256": "98679c76f6453542bc8ffd7c9f8d02feea80a42164ddd79aede700202a8211db"
+      },
+      "parent_id": "module_ce0f0c1bc9f2e597b23f92129ee12387363dfaed9e8c96cee837832d5506add4",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_bd44b4dbe4fc2bb7245b4dd0a4334c96673b0f4dfcb2c26c3bf109459ceac940",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/calculator/calculator.trug.json",
+        "name": "examples/calculator/calculator.trug.json",
+        "kind": "json",
+        "size": 1633,
+        "sha256": "ed712209361751f0b4255727edc18212371069922c61c75d8dc9ec894e6d2d77"
+      },
+      "parent_id": "module_ce0f0c1bc9f2e597b23f92129ee12387363dfaed9e8c96cee837832d5506add4",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_1f01afebd2adf5a62b785868a1b4d0a7bfc5d4563f848a767109d5e35f9da535",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/calculator/check.sh",
+        "name": "examples/calculator/check.sh",
+        "kind": "sh",
+        "size": 152,
+        "sha256": "288147e427f8aca0a100e737b508b5a66fa3073bd1e78148b4bad3005f0b2659"
+      },
+      "parent_id": "module_ce0f0c1bc9f2e597b23f92129ee12387363dfaed9e8c96cee837832d5506add4",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_bfdff760e36a3077821fed188e9778d9477e98781457a7e8cb014197a3c2d290",
+      "type": "MODULE",
+      "properties": {
+        "path": "examples/hello",
+        "name": "examples/hello",
+        "kind": "folder",
+        "size": 1694,
+        "sha256": "25242290b4c32fd52775b0f84332d34aea743630d8bd54bae863dc9c1c66760b"
+      },
+      "parent_id": "module_c590b3c924c35c2f241746522284e4709df490d73a38aaa7d6de4ed1eac2f546",
+      "contains": [
+        "file_65f0bc7382bf322330cc570249dc8fa3295cd25fd894e32ec1e2082435773560",
+        "file_dffccc38e329cfaacf5b2c1b9fa7ee05648df4a5377e8f6ea435f9777ee98da7",
+        "file_bc09c42f78e26771b891589179170142330dbfc5c18c775a2593d3ee94649f1f",
+        "file_b3d974f58311c88cd5bf23e56188063c932d95348b08074bd0a8d24668fa7545"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_65f0bc7382bf322330cc570249dc8fa3295cd25fd894e32ec1e2082435773560",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/hello/README.md",
+        "name": "examples/hello/README.md",
+        "kind": "md",
+        "size": 345,
+        "sha256": "1b37f03b32cab24b29bcf6e1696fa589c9f4cd21e974a09f908c4e67fb558ff1",
+        "title": "hello"
+      },
+      "parent_id": "module_bfdff760e36a3077821fed188e9778d9477e98781457a7e8cb014197a3c2d290",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_dffccc38e329cfaacf5b2c1b9fa7ee05648df4a5377e8f6ea435f9777ee98da7",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/hello/check.sh",
+        "name": "examples/hello/check.sh",
+        "kind": "sh",
+        "size": 142,
+        "sha256": "ab95e9482cbbe65492aba9c720550b947f0a2bae456dd44258cb5f7259c91693"
+      },
+      "parent_id": "module_bfdff760e36a3077821fed188e9778d9477e98781457a7e8cb014197a3c2d290",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_bc09c42f78e26771b891589179170142330dbfc5c18c775a2593d3ee94649f1f",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/hello/hello.trl",
+        "name": "examples/hello/hello.trl",
+        "kind": "trl",
+        "size": 22,
+        "sha256": "c8b2189538b182f626760cec4d893ac81e32016117fd44a0f7d32cdf052ef8e1"
+      },
+      "parent_id": "module_bfdff760e36a3077821fed188e9778d9477e98781457a7e8cb014197a3c2d290",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_b3d974f58311c88cd5bf23e56188063c932d95348b08074bd0a8d24668fa7545",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/hello/hello.trug.json",
+        "name": "examples/hello/hello.trug.json",
+        "kind": "json",
+        "size": 1185,
+        "sha256": "64d5fcaf7616f4d86ef237578f64b8ec1b5b590af96903c4d39832342614b2bc"
+      },
+      "parent_id": "module_bfdff760e36a3077821fed188e9778d9477e98781457a7e8cb014197a3c2d290",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_85ffe8ff531fa03ad6a538b25dde292ed3bc1b7345313ac21cc9fc5a9bb23326",
+      "type": "MODULE",
+      "properties": {
+        "path": "examples/logic-graph",
+        "name": "examples/logic-graph",
+        "kind": "folder",
+        "size": 8609,
+        "sha256": "5d69ef1f5020386c06c0ef390242ce1ec3f15446bc91ea843f2ad6da47504a90"
+      },
+      "parent_id": "module_c590b3c924c35c2f241746522284e4709df490d73a38aaa7d6de4ed1eac2f546",
+      "contains": [
+        "file_f58540b16fdce631a336dbaecc76340c9d757bf645ea59f154abc62687b7396c",
+        "file_f62632984f1b803d10d4bcdd91ead67c2dc393ab56a2d9a098b76029af0bc449",
+        "file_43cba1c5a2df875643bfa9a0ea68f26b6c1b1a1ccccdf8d3509e35b6c831b7e0",
+        "file_07fbd198e07a39f0652fe45ef18e94be9a64cae970e318c8e1b4a105a683cf99"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_f58540b16fdce631a336dbaecc76340c9d757bf645ea59f154abc62687b7396c",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/logic-graph/README.md",
+        "name": "examples/logic-graph/README.md",
+        "kind": "md",
+        "size": 1409,
+        "sha256": "d58c3f90b3d2a1ae87b70bb414bab493711f84d03e2463ea20db53c8766d1456",
+        "title": "logic-graph"
+      },
+      "parent_id": "module_85ffe8ff531fa03ad6a538b25dde292ed3bc1b7345313ac21cc9fc5a9bb23326",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_f62632984f1b803d10d4bcdd91ead67c2dc393ab56a2d9a098b76029af0bc449",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/logic-graph/check.sh",
+        "name": "examples/logic-graph/check.sh",
+        "kind": "sh",
+        "size": 148,
+        "sha256": "341331a0ba469f12d2e3759b82eb6e7c7ab568affcd0d28e3972eb0499bdcfdf"
+      },
+      "parent_id": "module_85ffe8ff531fa03ad6a538b25dde292ed3bc1b7345313ac21cc9fc5a9bb23326",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_43cba1c5a2df875643bfa9a0ea68f26b6c1b1a1ccccdf8d3509e35b6c831b7e0",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/logic-graph/logic-graph.trl",
+        "name": "examples/logic-graph/logic-graph.trl",
+        "kind": "trl",
+        "size": 211,
+        "sha256": "ba09fa3287768d629ebd8cf0e4237d67e09312670ccd4fdfea9f35c8fe79bb04"
+      },
+      "parent_id": "module_85ffe8ff531fa03ad6a538b25dde292ed3bc1b7345313ac21cc9fc5a9bb23326",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_07fbd198e07a39f0652fe45ef18e94be9a64cae970e318c8e1b4a105a683cf99",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/logic-graph/logic-graph.trug.json",
+        "name": "examples/logic-graph/logic-graph.trug.json",
+        "kind": "json",
+        "size": 6841,
+        "sha256": "da03a41222767263977bbcb99182f8860a7ea51949d52aaf5acfbcc4f70210fe"
+      },
+      "parent_id": "module_85ffe8ff531fa03ad6a538b25dde292ed3bc1b7345313ac21cc9fc5a9bb23326",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_262aa3cf3fa3d5f77ed2227491ec5fceedba412762692d05b410dd2c66cc951a",
+      "type": "MODULE",
+      "properties": {
+        "path": "examples/map-a-folder",
+        "name": "examples/map-a-folder",
+        "kind": "folder",
+        "size": 3239,
+        "sha256": "428847c483626843baaee42ff6c482ce3628ef2ac672875f9aaff3ec77f9efee"
+      },
+      "parent_id": "module_c590b3c924c35c2f241746522284e4709df490d73a38aaa7d6de4ed1eac2f546",
+      "contains": [
+        "file_9c75a10d28881a692a599a4695f49ffdcb7ba43740094e915e6b1f5dea23a486",
+        "file_5325dd8b5c3d3853efa1aba1fd25d982d5614115dd1e41f2a1b71f1b47e1f957",
+        "file_f7c39a97d1ab139c7f9190f5fb730d642d731c88b7b1c91e15155c67cc8b3e08",
+        "file_f978a6e5535f35191ee67b7a38dff08eaa3a202488af7a1195caf4cf11ce6b4f",
+        "module_2a5bc671fd5fb3f0f2fba93f56d9f765712a5f16b7566d45e8eb3cd6ae579da5"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_9c75a10d28881a692a599a4695f49ffdcb7ba43740094e915e6b1f5dea23a486",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/map-a-folder/README.md",
+        "name": "examples/map-a-folder/README.md",
+        "kind": "md",
+        "size": 934,
+        "sha256": "66f5ebc7e01bc0317c3145640005a3e6e3cd5ccecf0511491ae98a6c47e6f005",
+        "title": "map-a-folder"
+      },
+      "parent_id": "module_262aa3cf3fa3d5f77ed2227491ec5fceedba412762692d05b410dd2c66cc951a",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_5325dd8b5c3d3853efa1aba1fd25d982d5614115dd1e41f2a1b71f1b47e1f957",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/map-a-folder/check.sh",
+        "name": "examples/map-a-folder/check.sh",
+        "kind": "sh",
+        "size": 149,
+        "sha256": "6b9b4166cd639287360c33479eb922fd59bb16999852181fa47baec30fb10eae"
+      },
+      "parent_id": "module_262aa3cf3fa3d5f77ed2227491ec5fceedba412762692d05b410dd2c66cc951a",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_f7c39a97d1ab139c7f9190f5fb730d642d731c88b7b1c91e15155c67cc8b3e08",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/map-a-folder/map-a-folder.trl",
+        "name": "examples/map-a-folder/map-a-folder.trl",
+        "kind": "trl",
+        "size": 56,
+        "sha256": "aef4e9bd0e671470c212e50fa248c728468b84ab75149724b9dfdb0467a3d166"
+      },
+      "parent_id": "module_262aa3cf3fa3d5f77ed2227491ec5fceedba412762692d05b410dd2c66cc951a",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_f978a6e5535f35191ee67b7a38dff08eaa3a202488af7a1195caf4cf11ce6b4f",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/map-a-folder/map-a-folder.trug.json",
+        "name": "examples/map-a-folder/map-a-folder.trug.json",
+        "kind": "json",
+        "size": 1995,
+        "sha256": "cbd68c06ec95c30e393aad5664fe7f435f58187aec0724644ca43c430668b598"
+      },
+      "parent_id": "module_262aa3cf3fa3d5f77ed2227491ec5fceedba412762692d05b410dd2c66cc951a",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_2a5bc671fd5fb3f0f2fba93f56d9f765712a5f16b7566d45e8eb3cd6ae579da5",
+      "type": "MODULE",
+      "properties": {
+        "path": "examples/map-a-folder/sample",
+        "name": "examples/map-a-folder/sample",
+        "kind": "folder",
+        "size": 105,
+        "sha256": "292de9b8fafce541fc28f1d9034d799e3abe60be64f8122826643d9673b9bf8e"
+      },
+      "parent_id": "module_262aa3cf3fa3d5f77ed2227491ec5fceedba412762692d05b410dd2c66cc951a",
+      "contains": [
+        "file_97e2a150a1f3116963ec00a04c295bf8ee907ea4ca5223a48e57441206ff609b",
+        "file_036a568b131843dcce63080db619916e3904880be8cf1790ffe3d1dd56afa875"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_97e2a150a1f3116963ec00a04c295bf8ee907ea4ca5223a48e57441206ff609b",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/map-a-folder/sample/README.md",
+        "name": "examples/map-a-folder/sample/README.md",
+        "kind": "md",
+        "size": 37,
+        "sha256": "5dc78450fa89d06f4dec9826a22b19fff39075cb0811ec5c94200344fb38ce3e",
+        "title": "Sample folder"
+      },
+      "parent_id": "module_2a5bc671fd5fb3f0f2fba93f56d9f765712a5f16b7566d45e8eb3cd6ae579da5",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_036a568b131843dcce63080db619916e3904880be8cf1790ffe3d1dd56afa875",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/map-a-folder/sample/helper.py",
+        "name": "examples/map-a-folder/sample/helper.py",
+        "kind": "py",
+        "size": 68,
+        "sha256": "ce38a8e179ce19abc06cc7fffbb91b836c6f0eb4a7db3d81adb936be76859b3d"
+      },
+      "parent_id": "module_2a5bc671fd5fb3f0f2fba93f56d9f765712a5f16b7566d45e8eb3cd6ae579da5",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_f81735ed879586c0f86f9f364c767e7df08071fb7b9f6d07b4ccd0a249e03692",
+      "type": "MODULE",
+      "properties": {
+        "path": "examples/refactor_a_program",
+        "name": "examples/refactor_a_program",
+        "kind": "folder",
+        "size": 6287,
+        "sha256": "b686cf502a4daca88a0994b4e6c030ba0546baf4786b2647fbd359b9c5d173fd"
+      },
+      "parent_id": "module_c590b3c924c35c2f241746522284e4709df490d73a38aaa7d6de4ed1eac2f546",
+      "contains": [
+        "file_9fdd0c764bf786932927b1cb1fea6328487f5fdbb6b1593068f37bb1d59c9230",
+        "file_6f7bb625b3db633780965c060cd812c48693e6fe462d727b71756ef6bf109e9c",
+        "file_706907b4809044c2927115982e5a1d6c9eb471d50ffd6283585702c4651b9ca9",
+        "file_061fb5bbfa66c69903395e73792a68227a0f13b3962d3f0726f4f889db2badda"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_9fdd0c764bf786932927b1cb1fea6328487f5fdbb6b1593068f37bb1d59c9230",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/refactor_a_program/README.md",
+        "name": "examples/refactor_a_program/README.md",
+        "kind": "md",
+        "size": 775,
+        "sha256": "beef4a8c8479bf7ad361b0eb933356997b727d10de233aea8778502ac672e792",
+        "title": "refactor_a_program"
+      },
+      "parent_id": "module_f81735ed879586c0f86f9f364c767e7df08071fb7b9f6d07b4ccd0a249e03692",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_6f7bb625b3db633780965c060cd812c48693e6fe462d727b71756ef6bf109e9c",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/refactor_a_program/check.sh",
+        "name": "examples/refactor_a_program/check.sh",
+        "kind": "sh",
+        "size": 155,
+        "sha256": "5c77c631da76b1baba7ab392fac8cb5fedf5bd627bf939af19a401aade9abb9a"
+      },
+      "parent_id": "module_f81735ed879586c0f86f9f364c767e7df08071fb7b9f6d07b4ccd0a249e03692",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_706907b4809044c2927115982e5a1d6c9eb471d50ffd6283585702c4651b9ca9",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/refactor_a_program/refactor_a_program.trl",
+        "name": "examples/refactor_a_program/refactor_a_program.trl",
+        "kind": "trl",
+        "size": 209,
+        "sha256": "b84bd7d1e66f9a84f7af13718f34637785376559765b5de471e102054a581ce8"
+      },
+      "parent_id": "module_f81735ed879586c0f86f9f364c767e7df08071fb7b9f6d07b4ccd0a249e03692",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_061fb5bbfa66c69903395e73792a68227a0f13b3962d3f0726f4f889db2badda",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/refactor_a_program/refactor_a_program.trug.json",
+        "name": "examples/refactor_a_program/refactor_a_program.trug.json",
+        "kind": "json",
+        "size": 5148,
+        "sha256": "eb4313fc53b2227ac19c7811f6f0caf5f03e01330b5711bf4c4d6f30f5ea47e3"
+      },
+      "parent_id": "module_f81735ed879586c0f86f9f364c767e7df08071fb7b9f6d07b4ccd0a249e03692",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_bcec5aa46785ce6b6c90549fcd68fe5b3831fb6c480227bc50ba3d2b91c6db24",
+      "type": "MODULE",
+      "properties": {
+        "path": "examples/skill_refactor_safely",
+        "name": "examples/skill_refactor_safely",
+        "kind": "folder",
+        "size": 4891,
+        "sha256": "3954181ec6dd62a96312f7d37f127285440f36cf08e14d1a1269ecbbfbff6349"
+      },
+      "parent_id": "module_c590b3c924c35c2f241746522284e4709df490d73a38aaa7d6de4ed1eac2f546",
+      "contains": [
+        "file_4bc73ef273cafb19acc0e83431d9fb571dc9b5ca0432192e1868b212b024400c",
+        "file_ff5c66d08424ef08bce43cf6752efb4c13798bd540650bab0829fb1f90d65974",
+        "file_7c1989557c7f813567cf20a8d049d26abbf4b658da404a08233e1cdb636f139f",
+        "file_9f951946646196aabd00018593c39a5b929441ca5d86ea4c5134a747e0342b9f"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_4bc73ef273cafb19acc0e83431d9fb571dc9b5ca0432192e1868b212b024400c",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/skill_refactor_safely/README.md",
+        "name": "examples/skill_refactor_safely/README.md",
+        "kind": "md",
+        "size": 667,
+        "sha256": "2e185031bfcc2692b529d6edd6c413bc5c89c18fc797a6c3f34e8daecbee33ca",
+        "title": "skill_refactor_safely"
+      },
+      "parent_id": "module_bcec5aa46785ce6b6c90549fcd68fe5b3831fb6c480227bc50ba3d2b91c6db24",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_ff5c66d08424ef08bce43cf6752efb4c13798bd540650bab0829fb1f90d65974",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/skill_refactor_safely/check.sh",
+        "name": "examples/skill_refactor_safely/check.sh",
+        "kind": "sh",
+        "size": 158,
+        "sha256": "5bab4b7ffb20bc28357ad4178fba28219dcdf69103dbb2e1c696c271b3db3a5c"
+      },
+      "parent_id": "module_bcec5aa46785ce6b6c90549fcd68fe5b3831fb6c480227bc50ba3d2b91c6db24",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_7c1989557c7f813567cf20a8d049d26abbf4b658da404a08233e1cdb636f139f",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/skill_refactor_safely/skill_refactor_safely.trl",
+        "name": "examples/skill_refactor_safely/skill_refactor_safely.trl",
+        "kind": "trl",
+        "size": 149,
+        "sha256": "4a84218eecc45f0428f60639feba3720e2252b093b8f33d778e09190661913b4"
+      },
+      "parent_id": "module_bcec5aa46785ce6b6c90549fcd68fe5b3831fb6c480227bc50ba3d2b91c6db24",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_9f951946646196aabd00018593c39a5b929441ca5d86ea4c5134a747e0342b9f",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/skill_refactor_safely/skill_refactor_safely.trug.json",
+        "name": "examples/skill_refactor_safely/skill_refactor_safely.trug.json",
+        "kind": "json",
+        "size": 3917,
+        "sha256": "77e180e14054d664cde736cc4885601a360cb9df86fab9420bcfe17ede902e5f"
+      },
+      "parent_id": "module_bcec5aa46785ce6b6c90549fcd68fe5b3831fb6c480227bc50ba3d2b91c6db24",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_c654e8b30807b7bd19984cf6228a82ca7b0e155acc085bbba94fa36e9321a5ed",
+      "type": "MODULE",
+      "properties": {
+        "path": "examples/skill_ship_safely",
+        "name": "examples/skill_ship_safely",
+        "kind": "folder",
+        "size": 5230,
+        "sha256": "81fcb96cbd37d32b881897f2ddf613abe5cbd2fa5111d18fc62f43c3455bb334"
+      },
+      "parent_id": "module_c590b3c924c35c2f241746522284e4709df490d73a38aaa7d6de4ed1eac2f546",
+      "contains": [
+        "file_834a47b239680547ae097df8e4b9c023799f277d10dfedc0562610e4d1dd571b",
+        "file_873cf723d77352e308fdd4fd4d2632d2d3ec12abb229e52463cacc31b934f8eb",
+        "file_d462328ef3de9e45544092942ed0604434575fb558d4aec861b1e0c6d3c550a2",
+        "file_6bdbfaba92bbf745fcf4950fb2956d526062c45e62c1de142fab8031df50ff78"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_834a47b239680547ae097df8e4b9c023799f277d10dfedc0562610e4d1dd571b",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/skill_ship_safely/README.md",
+        "name": "examples/skill_ship_safely/README.md",
+        "kind": "md",
+        "size": 615,
+        "sha256": "ab092ad6f9d40c0a538fd235d8c7319644502922a36b0152cedcae44b4dc0075",
+        "title": "skill_ship_safely"
+      },
+      "parent_id": "module_c654e8b30807b7bd19984cf6228a82ca7b0e155acc085bbba94fa36e9321a5ed",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_873cf723d77352e308fdd4fd4d2632d2d3ec12abb229e52463cacc31b934f8eb",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/skill_ship_safely/check.sh",
+        "name": "examples/skill_ship_safely/check.sh",
+        "kind": "sh",
+        "size": 154,
+        "sha256": "f133a672a89f432d39ed6e8f41e96159e3c63fca8da416dd90e5f88786124a34"
+      },
+      "parent_id": "module_c654e8b30807b7bd19984cf6228a82ca7b0e155acc085bbba94fa36e9321a5ed",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_d462328ef3de9e45544092942ed0604434575fb558d4aec861b1e0c6d3c550a2",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/skill_ship_safely/skill_ship_safely.trl",
+        "name": "examples/skill_ship_safely/skill_ship_safely.trl",
+        "kind": "trl",
+        "size": 170,
+        "sha256": "99219add1704d363121a1ba8740a1ecf324f625dd4f6d94f8417117fde61df8d"
+      },
+      "parent_id": "module_c654e8b30807b7bd19984cf6228a82ca7b0e155acc085bbba94fa36e9321a5ed",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_6bdbfaba92bbf745fcf4950fb2956d526062c45e62c1de142fab8031df50ff78",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/skill_ship_safely/skill_ship_safely.trug.json",
+        "name": "examples/skill_ship_safely/skill_ship_safely.trug.json",
+        "kind": "json",
+        "size": 4291,
+        "sha256": "67f357a005e22f57a2b0a67973755ef5faa37b3d6a6139f621eaa885c4643502"
+      },
+      "parent_id": "module_c654e8b30807b7bd19984cf6228a82ca7b0e155acc085bbba94fa36e9321a5ed",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_f21fd5ddbaf20a5d008807d20f234bc5ba47bad8f18479ad574bda03a5a722a1",
+      "type": "MODULE",
+      "properties": {
+        "path": "examples/todo-app",
+        "name": "examples/todo-app",
+        "kind": "folder",
+        "size": 11235,
+        "sha256": "82822784acb7eda659b7824ebfb7b0c00e88b0e0cc3909d4b363248ea200e839"
+      },
+      "parent_id": "module_c590b3c924c35c2f241746522284e4709df490d73a38aaa7d6de4ed1eac2f546",
+      "contains": [
+        "file_f35cca4e2cc3c4499b591b770158557c968246552b5c7793f2d0111f09020084",
+        "file_33950ff402e1a81f7ff978ef5fdea51cc8a8483bcd6231b31a130f635ae4e117",
+        "file_d492b2891d0e35a29bbe2c32449c23f86065b5e9ad75822b13ffe520d1f80434",
+        "file_5143901bff682a54eb1cf6ed560df1a6ad6af056c8d25f2c4d42d3ee30d13e92",
+        "file_fa8388b117b09421603037f3aa56e66f3dfde4da2f7f47d7625c12880742f2aa"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_f35cca4e2cc3c4499b591b770158557c968246552b5c7793f2d0111f09020084",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/todo-app/README.md",
+        "name": "examples/todo-app/README.md",
+        "kind": "md",
+        "size": 802,
+        "sha256": "ef6117e3e4e6ef5e69be7c7ac893bb172815744c150c3eb7c9e5d1d2393d7bf3",
+        "title": "todo-app"
+      },
+      "parent_id": "module_f21fd5ddbaf20a5d008807d20f234bc5ba47bad8f18479ad574bda03a5a722a1",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_33950ff402e1a81f7ff978ef5fdea51cc8a8483bcd6231b31a130f635ae4e117",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/todo-app/app.py",
+        "name": "examples/todo-app/app.py",
+        "kind": "py",
+        "size": 1713,
+        "sha256": "89e26753e8b8328d9584171a493eeacf34e46ed2416928870bc46746ea6d6a62"
+      },
+      "parent_id": "module_f21fd5ddbaf20a5d008807d20f234bc5ba47bad8f18479ad574bda03a5a722a1",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_d492b2891d0e35a29bbe2c32449c23f86065b5e9ad75822b13ffe520d1f80434",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/todo-app/check.sh",
+        "name": "examples/todo-app/check.sh",
+        "kind": "sh",
+        "size": 145,
+        "sha256": "0294cbbd46726847b22c80c89b2d5f3a05487c76d2e953f8b5b6ef459ff132db"
+      },
+      "parent_id": "module_f21fd5ddbaf20a5d008807d20f234bc5ba47bad8f18479ad574bda03a5a722a1",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_5143901bff682a54eb1cf6ed560df1a6ad6af056c8d25f2c4d42d3ee30d13e92",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/todo-app/todo-app.trl",
+        "name": "examples/todo-app/todo-app.trl",
+        "kind": "trl",
+        "size": 311,
+        "sha256": "95bde3fcde80906798462e0ac11ee0db5f4b858accc856718fc0a15be32aaf7c"
+      },
+      "parent_id": "module_f21fd5ddbaf20a5d008807d20f234bc5ba47bad8f18479ad574bda03a5a722a1",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_fa8388b117b09421603037f3aa56e66f3dfde4da2f7f47d7625c12880742f2aa",
+      "type": "FILE",
+      "properties": {
+        "path": "examples/todo-app/todo-app.trug.json",
+        "name": "examples/todo-app/todo-app.trug.json",
+        "kind": "json",
+        "size": 8264,
+        "sha256": "fe2e0621b6652cc1288f2acc69514b59cc24abd1844dcdf418f98d7b7d552ef8"
+      },
+      "parent_id": "module_f21fd5ddbaf20a5d008807d20f234bc5ba47bad8f18479ad574bda03a5a722a1",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_d068fe27bfc02d870f9c94740acdb503a893fc30922048a84f8215ea65771134",
+      "type": "FILE",
+      "properties": {
+        "path": "folder.trug.json",
+        "name": "folder.trug.json",
+        "kind": "missing",
+        "missing": true
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
+      "type": "MODULE",
+      "properties": {
+        "path": "installer",
+        "name": "installer",
+        "kind": "folder",
+        "size": 45840,
+        "sha256": "f08b33d23008aadf92fae68d65e5272ca436fde574815ecf8c9891a3c77cd14a"
+      },
+      "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "contains": [
+        "file_204120b5c0ac6fc09e16168cdef7f31bf57ca868006cc81a57df5e4c07fcd685",
+        "file_b77f013d7ace5b43eefe2cce3aa7d199758d0bb4c330d3b34aa685cddb9890dc",
+        "file_7c42c85554b1a1b436a986a2e67c24de5fb48e492b36e0bc3b71d1df0dc3891a",
+        "file_1944b8300f15ebc9cadf4227c7f9bbc0abcdac0b1dfad90bf0a564ffaf723b20",
+        "module_c297652765a469a7500e0b6f61839350a9cb5a2fadadb947d8eaa16788196787",
+        "module_dfbeef8ee1e99a2f38001ef66ef406eb58f9144884e60407df501361781e4d5e"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_204120b5c0ac6fc09e16168cdef7f31bf57ca868006cc81a57df5e4c07fcd685",
+      "type": "FILE",
+      "properties": {
+        "path": "installer/LICENSE",
+        "name": "installer/LICENSE",
+        "kind": "text",
+        "size": 11358,
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      },
+      "parent_id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_b77f013d7ace5b43eefe2cce3aa7d199758d0bb4c330d3b34aa685cddb9890dc",
+      "type": "FILE",
+      "properties": {
+        "path": "installer/NOTICE",
+        "name": "installer/NOTICE",
+        "kind": "text",
+        "size": 111,
+        "sha256": "f4121ca1e1ee5ab09ea448956178c9d1cdabf0d6c661f263466177a8b022d797"
+      },
+      "parent_id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_7c42c85554b1a1b436a986a2e67c24de5fb48e492b36e0bc3b71d1df0dc3891a",
+      "type": "FILE",
+      "properties": {
+        "path": "installer/pyproject.toml",
+        "name": "installer/pyproject.toml",
+        "kind": "toml",
+        "size": 647,
+        "sha256": "1cf191211e2dc125b723cfd57e74dcf0abbac69b2a23db31415d7d77c6c232aa"
+      },
+      "parent_id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_1944b8300f15ebc9cadf4227c7f9bbc0abcdac0b1dfad90bf0a564ffaf723b20",
+      "type": "FILE",
+      "properties": {
+        "path": "installer/pyproject.toml.in",
+        "name": "installer/pyproject.toml.in",
+        "kind": "in",
+        "size": 658,
+        "sha256": "ec8baa2c060c5bd65e71c15f2e5b5466f4701a151eb5040e7c63981c611492a2"
+      },
+      "parent_id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_c297652765a469a7500e0b6f61839350a9cb5a2fadadb947d8eaa16788196787",
+      "type": "MODULE",
+      "properties": {
+        "path": "installer/src",
+        "name": "installer/src",
+        "kind": "folder",
+        "size": 29413,
+        "sha256": "9b647a6abd0925fe24087f9fbb8064714a9a35a05f2b121a21bcedb8e69fd19f"
+      },
+      "parent_id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
+      "contains": [
+        "module_ece4fbe51cb7b2e4898aef7ca69a9fa55f7b5eb5d07b73c4550ad7e8dcf5146b"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_ece4fbe51cb7b2e4898aef7ca69a9fa55f7b5eb5d07b73c4550ad7e8dcf5146b",
+      "type": "MODULE",
+      "properties": {
+        "path": "installer/src/trugs_agent",
+        "name": "installer/src/trugs_agent",
+        "kind": "folder",
+        "size": 29413,
+        "sha256": "63dc3679e0986043ff8f4c809445bd52c4a01606f1c5fbb55838f675e5c3367f"
+      },
+      "parent_id": "module_c297652765a469a7500e0b6f61839350a9cb5a2fadadb947d8eaa16788196787",
+      "contains": [
+        "file_dd5103ab783009ba4864ba91d6f4109ce746cd9c16d5d6b0526b362e5cccfb4c",
+        "file_a100528c0f5fda1caec95f11313a1e67e5e87e1f488a1bc1332fceb904f7b897",
+        "module_62e08106c60d6ae4e6021e580c6a7740adeb23ee54e511d236fb7ffe9bffb6a9"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_dd5103ab783009ba4864ba91d6f4109ce746cd9c16d5d6b0526b362e5cccfb4c",
+      "type": "FILE",
+      "properties": {
+        "path": "installer/src/trugs_agent/__init__.py",
+        "name": "installer/src/trugs_agent/__init__.py",
+        "kind": "py",
+        "size": 57,
+        "sha256": "e3c8941d6da2de8cec8231600199273272704605892b61e3af6a423fb7c7d8be"
+      },
+      "parent_id": "module_ece4fbe51cb7b2e4898aef7ca69a9fa55f7b5eb5d07b73c4550ad7e8dcf5146b",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_a100528c0f5fda1caec95f11313a1e67e5e87e1f488a1bc1332fceb904f7b897",
+      "type": "FILE",
+      "properties": {
+        "path": "installer/src/trugs_agent/cli.py",
+        "name": "installer/src/trugs_agent/cli.py",
+        "kind": "py",
+        "size": 8530,
+        "sha256": "112ae9ec22f7881582097d0ceccdd161f6d5ac7b3b30b6da229bc485a4034f87"
+      },
+      "parent_id": "module_ece4fbe51cb7b2e4898aef7ca69a9fa55f7b5eb5d07b73c4550ad7e8dcf5146b",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_62e08106c60d6ae4e6021e580c6a7740adeb23ee54e511d236fb7ffe9bffb6a9",
+      "type": "MODULE",
+      "properties": {
+        "path": "installer/src/trugs_agent/payload",
+        "name": "installer/src/trugs_agent/payload",
+        "kind": "folder",
+        "size": 20826,
+        "sha256": "e0a70ee790ce75307eb3e231632a074994a6b95c4f15a5c8c0a2b6bca926ef22"
+      },
+      "parent_id": "module_ece4fbe51cb7b2e4898aef7ca69a9fa55f7b5eb5d07b73c4550ad7e8dcf5146b",
+      "contains": [
+        "module_124a34d02ea889d0984c65d7b764666a13079e00d0d68713e006cbab687b1f4d",
+        "module_f4108275088ee85de0e216afd2205aa336a753eb268426571089f9f6b2a41547",
+        "file_ce563c631df8dc02bf231878db6389678b639facd987ee412b24bd1cad5a09ea",
+        "file_75b49337f5ce09c2ae9f4ac0503e4d07ba3b3607cfb368de4b1ff0d5eac6fb7f"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_124a34d02ea889d0984c65d7b764666a13079e00d0d68713e006cbab687b1f4d",
+      "type": "MODULE",
+      "properties": {
+        "path": "installer/src/trugs_agent/payload/.claude-plugin",
+        "name": "installer/src/trugs_agent/payload/.claude-plugin",
+        "kind": "folder",
+        "size": 5451,
+        "sha256": "c40257977e88d91858efd8c023df74261ada7f1e73b9cae788d95c086b130acd"
+      },
+      "parent_id": "module_62e08106c60d6ae4e6021e580c6a7740adeb23ee54e511d236fb7ffe9bffb6a9",
+      "contains": [
+        "file_1fa71a9e4564f16076bacd674b7918ff73eae97ecb78d74fd045aa123d2d9253"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_1fa71a9e4564f16076bacd674b7918ff73eae97ecb78d74fd045aa123d2d9253",
+      "type": "FILE",
+      "properties": {
+        "path": "installer/src/trugs_agent/payload/.claude-plugin/plugin.json",
+        "name": "installer/src/trugs_agent/payload/.claude-plugin/plugin.json",
+        "kind": "json",
+        "size": 5451,
+        "sha256": "9aba3a448efa71b2a2c89f0522792ee6215c1febad2a499cc72902d54536ce40"
+      },
+      "parent_id": "module_124a34d02ea889d0984c65d7b764666a13079e00d0d68713e006cbab687b1f4d",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_f4108275088ee85de0e216afd2205aa336a753eb268426571089f9f6b2a41547",
+      "type": "MODULE",
+      "properties": {
+        "path": "installer/src/trugs_agent/payload/.cursor",
+        "name": "installer/src/trugs_agent/payload/.cursor",
+        "kind": "folder",
+        "size": 5163,
+        "sha256": "a03f7296cf42311992bb17321e06686dcb1560c99cd4a45b801efaa68d02b5c0"
+      },
+      "parent_id": "module_62e08106c60d6ae4e6021e580c6a7740adeb23ee54e511d236fb7ffe9bffb6a9",
+      "contains": [
+        "module_aa5f0e2218a0a4b129ae3e8ba3e9c465a11dafd0037c0f6d690fdc3861a60c6c"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_aa5f0e2218a0a4b129ae3e8ba3e9c465a11dafd0037c0f6d690fdc3861a60c6c",
+      "type": "MODULE",
+      "properties": {
+        "path": "installer/src/trugs_agent/payload/.cursor/rules",
+        "name": "installer/src/trugs_agent/payload/.cursor/rules",
+        "kind": "folder",
+        "size": 5163,
+        "sha256": "0e7be2fef91d6caf41be5ffedaa86e7b2b3a47ee7df3b0893ed30fb5d451be69"
+      },
+      "parent_id": "module_f4108275088ee85de0e216afd2205aa336a753eb268426571089f9f6b2a41547",
+      "contains": [
+        "file_97679745df47f5e3f032979f3288ca22d87821523c33de21cf9c3cd74f7d98a9"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_97679745df47f5e3f032979f3288ca22d87821523c33de21cf9c3cd74f7d98a9",
+      "type": "FILE",
+      "properties": {
+        "path": "installer/src/trugs_agent/payload/.cursor/rules/trugs-agent.mdc",
+        "name": "installer/src/trugs_agent/payload/.cursor/rules/trugs-agent.mdc",
+        "kind": "mdc",
+        "size": 5163,
+        "sha256": "da0dc0a6cfd8ae782773c6c3fbe87f16bf331e60a31f8897e1d4e7dbe74046d8"
+      },
+      "parent_id": "module_aa5f0e2218a0a4b129ae3e8ba3e9c465a11dafd0037c0f6d690fdc3861a60c6c",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_ce563c631df8dc02bf231878db6389678b639facd987ee412b24bd1cad5a09ea",
+      "type": "FILE",
+      "properties": {
+        "path": "installer/src/trugs_agent/payload/AGENTS.md",
+        "name": "installer/src/trugs_agent/payload/AGENTS.md",
+        "kind": "md",
+        "size": 5106,
+        "sha256": "afc19a0cc669c47ea1fdc1c4e5d4e75bbe99cb1ec1607bfdf5b3aff2ef15af49",
+        "title": "TRUGS agent entry"
+      },
+      "parent_id": "module_62e08106c60d6ae4e6021e580c6a7740adeb23ee54e511d236fb7ffe9bffb6a9",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_75b49337f5ce09c2ae9f4ac0503e4d07ba3b3607cfb368de4b1ff0d5eac6fb7f",
+      "type": "FILE",
+      "properties": {
+        "path": "installer/src/trugs_agent/payload/CLAUDE.md",
+        "name": "installer/src/trugs_agent/payload/CLAUDE.md",
+        "kind": "md",
+        "size": 5106,
+        "sha256": "afc19a0cc669c47ea1fdc1c4e5d4e75bbe99cb1ec1607bfdf5b3aff2ef15af49",
+        "title": "TRUGS agent entry"
+      },
+      "parent_id": "module_62e08106c60d6ae4e6021e580c6a7740adeb23ee54e511d236fb7ffe9bffb6a9",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_dfbeef8ee1e99a2f38001ef66ef406eb58f9144884e60407df501361781e4d5e",
+      "type": "MODULE",
+      "properties": {
+        "path": "installer/tests",
+        "name": "installer/tests",
+        "kind": "folder",
+        "size": 3653,
+        "sha256": "b615adf746cb743a030ac5cffa21204d17445a12e8d74d1dd17945d1cc5bf1ce"
+      },
+      "parent_id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
+      "contains": [
+        "file_c63fcda09c22296274ba575a7f32e7b0762af5b8ac829b82984f3a1f205eb1e3"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_c63fcda09c22296274ba575a7f32e7b0762af5b8ac829b82984f3a1f205eb1e3",
+      "type": "FILE",
+      "properties": {
+        "path": "installer/tests/test_installer.py",
+        "name": "installer/tests/test_installer.py",
+        "kind": "py",
+        "size": 3653,
+        "sha256": "1767c718c827a75e6b596b72289626d1b31f2c87c7bd089f2e429cc258d604ba"
+      },
+      "parent_id": "module_dfbeef8ee1e99a2f38001ef66ef406eb58f9144884e60407df501361781e4d5e",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_cbc8a597a67c465497550c4a4a7eebdb138442c06be06a78cc1ee8715658ff44",
+      "type": "MODULE",
+      "properties": {
+        "path": "kit",
+        "name": "kit",
+        "kind": "folder",
+        "size": 35188,
+        "sha256": "04de10022c38487262d5bf436649a8b0ab1e644bb334bc2eb39e206d6f6b969c"
+      },
+      "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "contains": [
+        "module_e8fd0b6706f7e39fea7fadd71eb1d842491a40a77cb824da8a50c59e9953350d",
+        "module_ccc98070770f6a0539f9e9e403e7f3420e50f5ce379d31119e986724e8ff5075",
+        "file_3c5c6da838e7d625e2c02c9c0be4961bdae72ecacc975313d99744fceeaa55b2",
+        "file_94776dad684250932019815e20e966adba9d21cb6cc6d2f69aa2b72f29bf4651",
+        "file_ba4e766225b52265618eaf19ba37aa9f791a67d739839f24b34ac196762a2f3a",
+        "module_bd89181494ae74dbb48fd7d9430b5c615af00ab98e955e82a02ff0b5cc447e1a",
+        "file_c1a4abac177787b7f3a0933a6e2af6f8f9076a6ed665c18c1ffaec02633fa95c"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_e8fd0b6706f7e39fea7fadd71eb1d842491a40a77cb824da8a50c59e9953350d",
+      "type": "MODULE",
+      "properties": {
+        "path": "kit/.claude-plugin",
+        "name": "kit/.claude-plugin",
+        "kind": "folder",
+        "size": 5451,
+        "sha256": "c40257977e88d91858efd8c023df74261ada7f1e73b9cae788d95c086b130acd"
+      },
+      "parent_id": "module_cbc8a597a67c465497550c4a4a7eebdb138442c06be06a78cc1ee8715658ff44",
+      "contains": [
+        "file_f1ea475324501307d372a8ec87639b3a5e6bce6ae5dca0a4ae1faf130c3373cf"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_f1ea475324501307d372a8ec87639b3a5e6bce6ae5dca0a4ae1faf130c3373cf",
+      "type": "FILE",
+      "properties": {
+        "path": "kit/.claude-plugin/plugin.json",
+        "name": "kit/.claude-plugin/plugin.json",
+        "kind": "json",
+        "size": 5451,
+        "sha256": "9aba3a448efa71b2a2c89f0522792ee6215c1febad2a499cc72902d54536ce40"
+      },
+      "parent_id": "module_e8fd0b6706f7e39fea7fadd71eb1d842491a40a77cb824da8a50c59e9953350d",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_ccc98070770f6a0539f9e9e403e7f3420e50f5ce379d31119e986724e8ff5075",
+      "type": "MODULE",
+      "properties": {
+        "path": "kit/.cursor",
+        "name": "kit/.cursor",
+        "kind": "folder",
+        "size": 5163,
+        "sha256": "a03f7296cf42311992bb17321e06686dcb1560c99cd4a45b801efaa68d02b5c0"
+      },
+      "parent_id": "module_cbc8a597a67c465497550c4a4a7eebdb138442c06be06a78cc1ee8715658ff44",
+      "contains": [
+        "module_bd5bc49da68e554eee110cdf47aefcdc1df2ed72acf01f086cbd81a530f6336a"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_bd5bc49da68e554eee110cdf47aefcdc1df2ed72acf01f086cbd81a530f6336a",
+      "type": "MODULE",
+      "properties": {
+        "path": "kit/.cursor/rules",
+        "name": "kit/.cursor/rules",
+        "kind": "folder",
+        "size": 5163,
+        "sha256": "0e7be2fef91d6caf41be5ffedaa86e7b2b3a47ee7df3b0893ed30fb5d451be69"
+      },
+      "parent_id": "module_ccc98070770f6a0539f9e9e403e7f3420e50f5ce379d31119e986724e8ff5075",
+      "contains": [
+        "file_46621bd37d18d04186260cca524de92278a9634e5caad7450588f7c463e9a315"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_46621bd37d18d04186260cca524de92278a9634e5caad7450588f7c463e9a315",
+      "type": "FILE",
+      "properties": {
+        "path": "kit/.cursor/rules/trugs-agent.mdc",
+        "name": "kit/.cursor/rules/trugs-agent.mdc",
+        "kind": "mdc",
+        "size": 5163,
+        "sha256": "da0dc0a6cfd8ae782773c6c3fbe87f16bf331e60a31f8897e1d4e7dbe74046d8"
+      },
+      "parent_id": "module_bd5bc49da68e554eee110cdf47aefcdc1df2ed72acf01f086cbd81a530f6336a",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_3c5c6da838e7d625e2c02c9c0be4961bdae72ecacc975313d99744fceeaa55b2",
+      "type": "FILE",
+      "properties": {
+        "path": "kit/AGENTS.md",
+        "name": "kit/AGENTS.md",
+        "kind": "md",
+        "size": 5106,
+        "sha256": "afc19a0cc669c47ea1fdc1c4e5d4e75bbe99cb1ec1607bfdf5b3aff2ef15af49",
+        "title": "TRUGS agent entry"
+      },
+      "parent_id": "module_cbc8a597a67c465497550c4a4a7eebdb138442c06be06a78cc1ee8715658ff44",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_94776dad684250932019815e20e966adba9d21cb6cc6d2f69aa2b72f29bf4651",
+      "type": "FILE",
+      "properties": {
+        "path": "kit/CLAUDE.md",
+        "name": "kit/CLAUDE.md",
+        "kind": "md",
+        "size": 5106,
+        "sha256": "afc19a0cc669c47ea1fdc1c4e5d4e75bbe99cb1ec1607bfdf5b3aff2ef15af49",
+        "title": "TRUGS agent entry"
+      },
+      "parent_id": "module_cbc8a597a67c465497550c4a4a7eebdb138442c06be06a78cc1ee8715658ff44",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_ba4e766225b52265618eaf19ba37aa9f791a67d739839f24b34ac196762a2f3a",
+      "type": "FILE",
+      "properties": {
+        "path": "kit/primer.md.in",
+        "name": "kit/primer.md.in",
+        "kind": "in",
+        "size": 7201,
+        "sha256": "64b1384d20b10479d314e647500f7f309627b70c58e5f2a43fedbeb9371f89cb"
+      },
+      "parent_id": "module_cbc8a597a67c465497550c4a4a7eebdb138442c06be06a78cc1ee8715658ff44",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_bd89181494ae74dbb48fd7d9430b5c615af00ab98e955e82a02ff0b5cc447e1a",
+      "type": "MODULE",
+      "properties": {
+        "path": "kit/skills",
+        "name": "kit/skills",
+        "kind": "folder",
+        "size": 5312,
+        "sha256": "adfea35fb4ad0fbf2f3173e1ecf1ff00f170304cea6453062b0654b7181a3bf8"
+      },
+      "parent_id": "module_cbc8a597a67c465497550c4a4a7eebdb138442c06be06a78cc1ee8715658ff44",
+      "contains": [
+        "file_90b31bb860b2a1af59602e631eb6644af8d4230a4d1d99bea2dbd32de6d1aa62",
+        "module_f7d48ffe797a6cb0e02029f67331c0fa6c6f40239e659e64735569e7e9d01c4b",
+        "module_ee5b581468ad7e8063db7b77ad1e4f6318ad6cbd701747a2dfaa411312a2704b",
+        "module_41a15affda7ff66687a1d98514728f6257db5341d59817913f7af45c13f7fecf",
+        "module_4a95f9749cf36a9382e8ec8ea03e9ab58e23c8559eeee6c8254b11648449b486",
+        "module_b02c63591ff2e9bd82728fb8a72177c59912d789839ad2136757fdac8ec3c618",
+        "module_43c6cadecfa7b1d36b31fb471d3b269d6cfdf80d352458207f2d1624780ff234"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_90b31bb860b2a1af59602e631eb6644af8d4230a4d1d99bea2dbd32de6d1aa62",
+      "type": "FILE",
+      "properties": {
+        "path": "kit/skills/README.md",
+        "name": "kit/skills/README.md",
+        "kind": "md",
+        "size": 398,
+        "sha256": "3a7897861b7b501d66b8580cd742991ff5de9088a2206147c42e54062ac2b1ef",
+        "title": "Skills"
+      },
+      "parent_id": "module_bd89181494ae74dbb48fd7d9430b5c615af00ab98e955e82a02ff0b5cc447e1a",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_f7d48ffe797a6cb0e02029f67331c0fa6c6f40239e659e64735569e7e9d01c4b",
+      "type": "MODULE",
+      "properties": {
+        "path": "kit/skills/compile-decompile",
+        "name": "kit/skills/compile-decompile",
+        "kind": "folder",
+        "size": 765,
+        "sha256": "bbd6cb362f36a12b61bbf2afa05293bd70e3a64f1e9f9b5a348fce246caf4784"
+      },
+      "parent_id": "module_bd89181494ae74dbb48fd7d9430b5c615af00ab98e955e82a02ff0b5cc447e1a",
+      "contains": [
+        "file_f0d213f9fcc4ad21195db8c1c8ac131f7d619f6b952bc230f07d609e2b15af05"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_f0d213f9fcc4ad21195db8c1c8ac131f7d619f6b952bc230f07d609e2b15af05",
+      "type": "FILE",
+      "properties": {
+        "path": "kit/skills/compile-decompile/SKILL.md",
+        "name": "kit/skills/compile-decompile/SKILL.md",
+        "kind": "md",
+        "size": 765,
+        "sha256": "dcedcc9fa013a429ad271257f1ed8caa7427cb9457b82a15b728fc03bafceb55",
+        "title": "name: compile-decompile description: Compile, validate, decompile, recompile and compare the graph structure."
+      },
+      "parent_id": "module_f7d48ffe797a6cb0e02029f67331c0fa6c6f40239e659e64735569e7e9d01c4b",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_ee5b581468ad7e8063db7b77ad1e4f6318ad6cbd701747a2dfaa411312a2704b",
+      "type": "MODULE",
+      "properties": {
+        "path": "kit/skills/fix-by-rule",
+        "name": "kit/skills/fix-by-rule",
+        "kind": "folder",
+        "size": 942,
+        "sha256": "7f74a8e7cfeb1aabe2da5233a25d877cb62918e136c7dca725e28345dbc48bf7"
+      },
+      "parent_id": "module_bd89181494ae74dbb48fd7d9430b5c615af00ab98e955e82a02ff0b5cc447e1a",
+      "contains": [
+        "file_58ab94a22562e662e62a10f9848f8d990d104f3f29e92280b6c430d27bf20970"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_58ab94a22562e662e62a10f9848f8d990d104f3f29e92280b6c430d27bf20970",
+      "type": "FILE",
+      "properties": {
+        "path": "kit/skills/fix-by-rule/SKILL.md",
+        "name": "kit/skills/fix-by-rule/SKILL.md",
+        "kind": "md",
+        "size": 942,
+        "sha256": "c4096174bb3e4970d4a5f8c95514465d3935a3487685ba8cccf608c931707a24",
+        "title": "name: fix-by-rule description: The CONSTRAINT_REQUIRES_ACTOR error means an obligation was placed on a non-Actor. Replace that subject with an Actor and validate again."
+      },
+      "parent_id": "module_ee5b581468ad7e8063db7b77ad1e4f6318ad6cbd701747a2dfaa411312a2704b",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_41a15affda7ff66687a1d98514728f6257db5341d59817913f7af45c13f7fecf",
+      "type": "MODULE",
+      "properties": {
+        "path": "kit/skills/map-a-folder",
+        "name": "kit/skills/map-a-folder",
+        "kind": "folder",
+        "size": 806,
+        "sha256": "4df9e00bc127202c1a4eee0a2a00435bdddec1e681fdb3492a186bbe5e61f777"
+      },
+      "parent_id": "module_bd89181494ae74dbb48fd7d9430b5c615af00ab98e955e82a02ff0b5cc447e1a",
+      "contains": [
+        "file_1e2cc4305601595e64ba89429a4c2d2675906a0faa7e649be98f1df72d5965a7"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_1e2cc4305601595e64ba89429a4c2d2675906a0faa7e649be98f1df72d5965a7",
+      "type": "FILE",
+      "properties": {
+        "path": "kit/skills/map-a-folder/SKILL.md",
+        "name": "kit/skills/map-a-folder/SKILL.md",
+        "kind": "md",
+        "size": 806,
+        "sha256": "f2a352261fcebf8dfb03e48a09bda95f4581b2994d840d0692ce6a333c317db6",
+        "title": "name: map-a-folder description: Read one generated index before every file. The map records observed links and imports."
+      },
+      "parent_id": "module_41a15affda7ff66687a1d98514728f6257db5341d59817913f7af45c13f7fecf",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_4a95f9749cf36a9382e8ec8ea03e9ab58e23c8559eeee6c8254b11648449b486",
+      "type": "MODULE",
+      "properties": {
+        "path": "kit/skills/run-calculator",
+        "name": "kit/skills/run-calculator",
+        "kind": "folder",
+        "size": 842,
+        "sha256": "f456b267e84c6576afb0cd83bbe760f9471b453bac67ad472ee3708ee841a169"
+      },
+      "parent_id": "module_bd89181494ae74dbb48fd7d9430b5c615af00ab98e955e82a02ff0b5cc447e1a",
+      "contains": [
+        "file_c8178ab71712fc5f25e1feec5f1095631b585fb9a6f9f0f8844cbe06332f8d9a"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_c8178ab71712fc5f25e1feec5f1095631b585fb9a6f9f0f8844cbe06332f8d9a",
+      "type": "FILE",
+      "properties": {
+        "path": "kit/skills/run-calculator/SKILL.md",
+        "name": "kit/skills/run-calculator/SKILL.md",
+        "kind": "md",
+        "size": 842,
+        "sha256": "e7e1284c046ad9b3cc154dd9951e61031081e3a317ca60176ddeb22d7043f75c",
+        "title": "name: run-calculator description: Follow the calculator README; its compute vocabulary uses its own compiler and offline vendored Rust build."
+      },
+      "parent_id": "module_4a95f9749cf36a9382e8ec8ea03e9ab58e23c8559eeee6c8254b11648449b486",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_b02c63591ff2e9bd82728fb8a72177c59912d789839ad2136757fdac8ec3c618",
+      "type": "MODULE",
+      "properties": {
+        "path": "kit/skills/validate",
+        "name": "kit/skills/validate",
+        "kind": "folder",
+        "size": 763,
+        "sha256": "fb18a284963cc5b816420de0765c785ea9056bbc8bdf61e4782e2944c2337486"
+      },
+      "parent_id": "module_bd89181494ae74dbb48fd7d9430b5c615af00ab98e955e82a02ff0b5cc447e1a",
+      "contains": [
+        "file_6a1a2e7f4999f3e43a825918e788bf87d33067d8b0dea34f97a49e70d3bad71c"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_6a1a2e7f4999f3e43a825918e788bf87d33067d8b0dea34f97a49e70d3bad71c",
+      "type": "FILE",
+      "properties": {
+        "path": "kit/skills/validate/SKILL.md",
+        "name": "kit/skills/validate/SKILL.md",
+        "kind": "md",
+        "size": 763,
+        "sha256": "2f9b78fd6d8fcb7d20209e727faf4c8292fed5d7490acb646d16c604f82fb2e3",
+        "title": "name: validate description: Read the rule and exit status; a schema-valid graph does not prove a program correct."
+      },
+      "parent_id": "module_b02c63591ff2e9bd82728fb8a72177c59912d789839ad2136757fdac8ec3c618",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_43c6cadecfa7b1d36b31fb471d3b269d6cfdf80d352458207f2d1624780ff234",
+      "type": "MODULE",
+      "properties": {
+        "path": "kit/skills/write-trl",
+        "name": "kit/skills/write-trl",
+        "kind": "folder",
+        "size": 796,
+        "sha256": "fed9f1296aff3160200da67c9d51bf815f70d0dc991a78551dfe5f4713f5adb9"
+      },
+      "parent_id": "module_bd89181494ae74dbb48fd7d9430b5c615af00ab98e955e82a02ff0b5cc447e1a",
+      "contains": [
+        "file_ac3e7eace68c4824134d9a122c676339360ed43dbf051b1a01648483d6a5d8c8"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_ac3e7eace68c4824134d9a122c676339360ed43dbf051b1a01648483d6a5d8c8",
+      "type": "FILE",
+      "properties": {
+        "path": "kit/skills/write-trl/SKILL.md",
+        "name": "kit/skills/write-trl/SKILL.md",
+        "kind": "md",
+        "size": 796,
+        "sha256": "34257d16eb6de4a429a4b8b2848231bbdc225e15e282bf56b69ffa9f014e125c",
+        "title": "name: write-trl description: Write an actor, modal and verb before naming the artifacts. Look up words in the installed language file."
+      },
+      "parent_id": "module_43c6cadecfa7b1d36b31fb471d3b269d6cfdf80d352458207f2d1624780ff234",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_c1a4abac177787b7f3a0933a6e2af6f8f9076a6ed665c18c1ffaec02633fa95c",
+      "type": "FILE",
+      "properties": {
+        "path": "kit/source.md",
+        "name": "kit/source.md",
+        "kind": "md",
+        "size": 1849,
+        "sha256": "4e0b60aab2b49df265b30942192a64521478151bcc95852299d04201a4631509",
+        "title": "TRUGS agent entry"
+      },
+      "parent_id": "module_cbc8a597a67c465497550c4a4a7eebdb138442c06be06a78cc1ee8715658ff44",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_60be9861750facbfad8758254a2f76c0cfe78d54459a3bc187d49b1401fcd8e8",
+      "type": "MODULE",
+      "properties": {
+        "path": "map",
+        "name": "map",
+        "kind": "folder",
+        "size": 21190,
+        "sha256": "588f4d3a27d489f2bc18c0009e0e0b02ef3a930b0d4eb4753c93d3a934600c9e"
+      },
+      "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "contains": [
+        "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+        "file_19ab8c583a0f0afa8751d1012e122224ea0226fd80ff1bf6cc28addef897f42e",
+        "file_14b503610576eb5b6679047710afa044d3f0fca93d29cd1b26d1ea3bb428e0af",
+        "file_7fbae7e2e3fc66a0dac925773e5804089632e93f763dbd87c70637ae92111326"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "type": "FILE",
+      "properties": {
+        "path": "map/README.md",
+        "name": "map/README.md",
+        "kind": "md",
+        "size": 3394,
+        "sha256": "e19cafafa4e49700d787d671cef91dac6c17e52228a0d20286b21d6eca1d1df2",
+        "title": "Published repository map"
+      },
+      "parent_id": "module_60be9861750facbfad8758254a2f76c0cfe78d54459a3bc187d49b1401fcd8e8",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_19ab8c583a0f0afa8751d1012e122224ea0226fd80ff1bf6cc28addef897f42e",
+      "type": "FILE",
+      "properties": {
+        "path": "map/published.trl",
+        "name": "map/published.trl",
+        "kind": "trl",
+        "size": 748,
+        "sha256": "bf61d1798c39bfa772e211f47132569e913ceec8face1843870bffe8def37b16"
+      },
+      "parent_id": "module_60be9861750facbfad8758254a2f76c0cfe78d54459a3bc187d49b1401fcd8e8",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_14b503610576eb5b6679047710afa044d3f0fca93d29cd1b26d1ea3bb428e0af",
+      "type": "FILE",
+      "properties": {
+        "path": "map/published.trug.json",
+        "name": "map/published.trug.json",
+        "kind": "json",
+        "size": 14136,
+        "sha256": "df0cb91cf3013e7001c2ecc1e2ed353215582d3402c281df9365c558a07f0c52"
+      },
+      "parent_id": "module_60be9861750facbfad8758254a2f76c0cfe78d54459a3bc187d49b1401fcd8e8",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_7fbae7e2e3fc66a0dac925773e5804089632e93f763dbd87c70637ae92111326",
+      "type": "FILE",
+      "properties": {
+        "path": "map/repositories.json",
+        "name": "map/repositories.json",
+        "kind": "json",
+        "size": 2912,
+        "sha256": "9c6f65a604429e3706a46f1dba231e19659582a262d7304778e82303a99e7171"
+      },
+      "parent_id": "module_60be9861750facbfad8758254a2f76c0cfe78d54459a3bc187d49b1401fcd8e8",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281",
+      "type": "MODULE",
+      "properties": {
+        "path": "tools",
+        "name": "tools",
+        "kind": "folder",
+        "size": 36657,
+        "sha256": "c7530710fe722af00350803fbb748f537087d37f1c57223b3ffcb8a0844a2168"
+      },
+      "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
+      "contains": [
+        "file_0f0f6507a09de39823db762fb96ea2b0da2eb4248bb01dd7fd4162653ea4a350",
+        "file_b92d97d257fdad31a2962a9c00c76a0b0f92a191f78e454f84b950c94d2e57e2",
+        "file_353feef84bf4d9fd47cba8f22387dfb5e858181cf6fc8a74c0b19c5905b405fc",
+        "file_319dba5edf5199db9dcf50a1fce21a0597fefa6a62564f67b1a96f9884e29eb1",
+        "file_5e6bfe368bdbb8ea62cabb129e1eccb4e24d00dd9a81556fc4012f5348be65f0"
+      ],
+      "metric_level": "BASE_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_0f0f6507a09de39823db762fb96ea2b0da2eb4248bb01dd7fd4162653ea4a350",
+      "type": "FILE",
+      "properties": {
+        "path": "tools/graph_equiv.py",
+        "name": "tools/graph_equiv.py",
+        "kind": "py",
+        "size": 5121,
+        "sha256": "8cfd562b0e3efaa3b26f633347862519226208290c21330c86e01a909154d8c9"
+      },
+      "parent_id": "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_b92d97d257fdad31a2962a9c00c76a0b0f92a191f78e454f84b950c94d2e57e2",
+      "type": "FILE",
+      "properties": {
+        "path": "tools/install_local.py",
+        "name": "tools/install_local.py",
+        "kind": "py",
+        "size": 1796,
+        "sha256": "eb1eb8d3abcad6320cf88ccd0eb250f1f828719d42d2e283326967ea402c3384"
+      },
+      "parent_id": "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_353feef84bf4d9fd47cba8f22387dfb5e858181cf6fc8a74c0b19c5905b405fc",
+      "type": "FILE",
+      "properties": {
+        "path": "tools/kit_check.py",
+        "name": "tools/kit_check.py",
+        "kind": "py",
+        "size": 6990,
+        "sha256": "98fd73065f222c73a4ac5d28020e351adcd2859c8f3c71b90cc2e0fcf07cf3a8"
+      },
+      "parent_id": "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_319dba5edf5199db9dcf50a1fce21a0597fefa6a62564f67b1a96f9884e29eb1",
+      "type": "FILE",
+      "properties": {
+        "path": "tools/kit_parts.py",
+        "name": "tools/kit_parts.py",
+        "kind": "py",
+        "size": 14376,
+        "sha256": "2156964fdc7140ebdfa5fcd3487183d772461a42f4a785de09ac71b6fac87e08"
+      },
+      "parent_id": "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_5e6bfe368bdbb8ea62cabb129e1eccb4e24d00dd9a81556fc4012f5348be65f0",
+      "type": "FILE",
+      "properties": {
+        "path": "tools/lesson.py",
+        "name": "tools/lesson.py",
+        "kind": "py",
+        "size": 8374,
+        "sha256": "00a0122231158edd4b4222b1757fe9919bf94ac5333cf28eb9d44fd063c9619b"
+      },
+      "parent_id": "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_1277f695774108141970c9a985af8f3ed329f7b182c2fce37b5e58b8d98f219e",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-ACCOUNTING-CALCULATOR"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_1407f5df4bb399a4ecccbe197c8d5f25cbbb69687d7d762801475c5216bffb09",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS/blob/main/TRUGS_LANGUAGE/SPEC_vocabulary.md"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_22038d34ff3b6182822bb7a13c323d6cbbc6d2d54288e87cf1f3e6817ef9de05",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-SITE"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_2ae17e6d6bccf1c07e9cfccb81b9272d77d12f20d539b232eb4b9d03d0734727",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS/blob/main/README.md"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_315801145b3df788393dde39f7989de15bd2168de8b940c31ad5d533ffe7cee8",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-WEB"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_38a5276c6f78472fbd79406fb454d07c99265cc154307df8bc0921f5d4cd51dc",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-VIEWER"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_3a93882e845aaa5d8c5243ed448e8689f6fb926a46fec26932b96efc3ffb8e4e",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS/tree/main/TRUGS_LANGUAGE"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_40d939f05ad6c24bbb477543b1cad2eac16bfa8d658b3612af08231c77ee56fb",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-TOOLS/blob/main/README.md"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_4499c23fc62f16311906938846208deab16132bce2a41ee6cb09170aa28e0a2c",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-AGENT/issues/new"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_4ba287af58cea593ac18a130d1ef3bb9076f23d634cabbe4c8198bd81c56f972",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-ACCOUNTING-CALCULATOR/blob/main/README.md"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_4eac375481fa62e51857e31a0e2ae3ea0c8f35aab6da3b64bc34405108f3b30e",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS/blob/main/TRUGS_LANGUAGE/SPEC_examples.md"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_5b61a36413771a98c3b15d86534da21ea706aa2c3c70846b835b4427925b552a",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-LAW"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_5c1c2c0de944de66fb31081a09377f26c91e3549da670ef7637aec15f6c84145",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-AGENT/blob/main/map/published.trl"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_622a45a7611ac02c14cbd475aa6098e77525e4732ddc19e3935df90e0428d932",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-STORE/blob/main/README.md"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_688368591cadf4435ad2be9b431feb671da99cedf97ded59e33a42aa7d207d68",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-AGENT/security/advisories/new"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_697ec7b7f0fbc574bf072b36a9cd5c85f522666a08c436fd65d3561f607f688c",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-AGENT/issues"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_6ed514701d18f564489505b7fccc96dd2b2d428fb09b6f8d35ef9ed51f423172",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-VIEWER/blob/main/README.md"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_6f1972f0c920c286389b30d30715095a07cf1fb7a5dc7cfd8e782f7dfd5ec053",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS/blob/main/TRUGS_LANGUAGE/SPEC_grammar.md"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_77a7aeb555860dc4299c9b4959cab4a2ca88f42720e25d93a47d310065b31148",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-WEB/blob/main/README.md"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_7a518c44c51acf94d0007a11d3d08c3438d77d9d61ebbbac01a99f68ff680ef2",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-AGENT/blob/main/AGENTS.md"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_7f13e93299a2a85911430418b58af7d9cf2aa3f881bb33dfca008ab32152faa9",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS/blob/main/TRUGS_LANGUAGE/language.trug.json"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_9665962153761d679c67ed91ce2e157f215471146f3622f56ac7655a6684b267",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-AGENT"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_b323be3c52c3ef40e62533c83c750f8cb8dfb972064dc185337254f6287db3e3",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-AGENT/discussions"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_b5d809ae0afc792f952916acfe2879f307506857b98aae13390d4b949e7df18c",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-AGENT/blob/main/PRIMER.md"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_b618e479737b21695cc0cf8f2e3b2a92be7cc6bc9a997186aa084e46a14c9c51",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-TRL"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_b9fd28e0e0b9c3e21f6605b406e4ebec5dcfb006a3050a2191ec9ac70ea1fc68",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_c1a4097061435a6790cedbc88d87883b7e9e56a37ab21a808cd832d1a9b32838",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-AGENT/tree/main/examples/logic-graph"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_d935fa1018153054964df5c73f716e7b4a93dfd207a569d248430c38fb773f5e",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-AGENT/blob/main/README.md"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_db09a593a1816af39baef8773b14c413017c95de7f820b3f182e623270d541c0",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-AGENT/tree/main/examples/map-a-folder"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_dfd1b2cfc70cdb50b9a71da8d91f70b16d5a473e46ee57f84dcffad20bb16a14",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-AGENT/labels/good%20first%20issue"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_e4cc225ee3b78f582210667929ec668956c97c8ece065a1fc5378d6eb7a77523",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-SITE/blob/main/README.md"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_e5d51b3d0c33ae219609929002154dadf90d4da65d1d8ee665d5cb80cbcde177",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-STORE"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_ed294d5daeef6ba2911da7415356c414f241ea52b72f2c125b44cb2fdf4722dc",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-TOOLS"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    }
+  ],
+  "edges": [
+    {
+      "from_id": "file_1e2cc4305601595e64ba89429a4c2d2675906a0faa7e649be98f1df72d5965a7",
+      "to_id": "file_9c75a10d28881a692a599a4695f49ffdcb7ba43740094e915e6b1f5dea23a486",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_200b06e6451b0ae17aabf76d04d151b2b212a01c053dfa5570c110f0ca5165ac",
+      "to_id": "file_d6d5722df1c3699cde87ed1589f2dd3c2d2ca5a8bec2f16d80568a8b2121b620",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_3c5c6da838e7d625e2c02c9c0be4961bdae72ecacc975313d99744fceeaa55b2",
+      "to_id": "resource_1277f695774108141970c9a985af8f3ed329f7b182c2fce37b5e58b8d98f219e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_3c5c6da838e7d625e2c02c9c0be4961bdae72ecacc975313d99744fceeaa55b2",
+      "to_id": "resource_315801145b3df788393dde39f7989de15bd2168de8b940c31ad5d533ffe7cee8",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_3c5c6da838e7d625e2c02c9c0be4961bdae72ecacc975313d99744fceeaa55b2",
+      "to_id": "resource_5c1c2c0de944de66fb31081a09377f26c91e3549da670ef7637aec15f6c84145",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_3c5c6da838e7d625e2c02c9c0be4961bdae72ecacc975313d99744fceeaa55b2",
+      "to_id": "resource_b5d809ae0afc792f952916acfe2879f307506857b98aae13390d4b949e7df18c",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_3c5c6da838e7d625e2c02c9c0be4961bdae72ecacc975313d99744fceeaa55b2",
+      "to_id": "resource_b9fd28e0e0b9c3e21f6605b406e4ebec5dcfb006a3050a2191ec9ac70ea1fc68",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_3c5c6da838e7d625e2c02c9c0be4961bdae72ecacc975313d99744fceeaa55b2",
+      "to_id": "resource_c1a4097061435a6790cedbc88d87883b7e9e56a37ab21a808cd832d1a9b32838",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_3c5c6da838e7d625e2c02c9c0be4961bdae72ecacc975313d99744fceeaa55b2",
+      "to_id": "resource_d935fa1018153054964df5c73f716e7b4a93dfd207a569d248430c38fb773f5e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_3c5c6da838e7d625e2c02c9c0be4961bdae72ecacc975313d99744fceeaa55b2",
+      "to_id": "resource_db09a593a1816af39baef8773b14c413017c95de7f820b3f182e623270d541c0",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_49aaa2819e35a856818ecec8c9fa7e1c79ad028d3f44bd749736353cfb51bac9",
+      "to_id": "file_4bc73ef273cafb19acc0e83431d9fb571dc9b5ca0432192e1868b212b024400c",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_49aaa2819e35a856818ecec8c9fa7e1c79ad028d3f44bd749736353cfb51bac9",
+      "to_id": "file_65f0bc7382bf322330cc570249dc8fa3295cd25fd894e32ec1e2082435773560",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_49aaa2819e35a856818ecec8c9fa7e1c79ad028d3f44bd749736353cfb51bac9",
+      "to_id": "file_6a1ce5ff88bf6d0d50baa2f39401cd9c11af774729b08db6e2581ac35acf0175",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_49aaa2819e35a856818ecec8c9fa7e1c79ad028d3f44bd749736353cfb51bac9",
+      "to_id": "file_834a47b239680547ae097df8e4b9c023799f277d10dfedc0562610e4d1dd571b",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_49aaa2819e35a856818ecec8c9fa7e1c79ad028d3f44bd749736353cfb51bac9",
+      "to_id": "file_9c75a10d28881a692a599a4695f49ffdcb7ba43740094e915e6b1f5dea23a486",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_49aaa2819e35a856818ecec8c9fa7e1c79ad028d3f44bd749736353cfb51bac9",
+      "to_id": "file_9fdd0c764bf786932927b1cb1fea6328487f5fdbb6b1593068f37bb1d59c9230",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_49aaa2819e35a856818ecec8c9fa7e1c79ad028d3f44bd749736353cfb51bac9",
+      "to_id": "file_f35cca4e2cc3c4499b591b770158557c968246552b5c7793f2d0111f09020084",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_49aaa2819e35a856818ecec8c9fa7e1c79ad028d3f44bd749736353cfb51bac9",
+      "to_id": "file_f58540b16fdce631a336dbaecc76340c9d757bf645ea59f154abc62687b7396c",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_5721368413ed74d5dd5464d3f38074d371764425ee850e0d320bce2f11ed1ba8",
+      "to_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_5721368413ed74d5dd5464d3f38074d371764425ee850e0d320bce2f11ed1ba8",
+      "to_id": "resource_1407f5df4bb399a4ecccbe197c8d5f25cbbb69687d7d762801475c5216bffb09",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_5721368413ed74d5dd5464d3f38074d371764425ee850e0d320bce2f11ed1ba8",
+      "to_id": "resource_3a93882e845aaa5d8c5243ed448e8689f6fb926a46fec26932b96efc3ffb8e4e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_5721368413ed74d5dd5464d3f38074d371764425ee850e0d320bce2f11ed1ba8",
+      "to_id": "resource_4eac375481fa62e51857e31a0e2ae3ea0c8f35aab6da3b64bc34405108f3b30e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_5721368413ed74d5dd5464d3f38074d371764425ee850e0d320bce2f11ed1ba8",
+      "to_id": "resource_6f1972f0c920c286389b30d30715095a07cf1fb7a5dc7cfd8e782f7dfd5ec053",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_5721368413ed74d5dd5464d3f38074d371764425ee850e0d320bce2f11ed1ba8",
+      "to_id": "resource_7f13e93299a2a85911430418b58af7d9cf2aa3f881bb33dfca008ab32152faa9",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_58ab94a22562e662e62a10f9848f8d990d104f3f29e92280b6c430d27bf20970",
+      "to_id": "file_65f0bc7382bf322330cc570249dc8fa3295cd25fd894e32ec1e2082435773560",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_6a1a2e7f4999f3e43a825918e788bf87d33067d8b0dea34f97a49e70d3bad71c",
+      "to_id": "file_65f0bc7382bf322330cc570249dc8fa3295cd25fd894e32ec1e2082435773560",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_6a1ce5ff88bf6d0d50baa2f39401cd9c11af774729b08db6e2581ac35acf0175",
+      "to_id": "resource_1277f695774108141970c9a985af8f3ed329f7b182c2fce37b5e58b8d98f219e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_75b49337f5ce09c2ae9f4ac0503e4d07ba3b3607cfb368de4b1ff0d5eac6fb7f",
+      "to_id": "resource_1277f695774108141970c9a985af8f3ed329f7b182c2fce37b5e58b8d98f219e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_75b49337f5ce09c2ae9f4ac0503e4d07ba3b3607cfb368de4b1ff0d5eac6fb7f",
+      "to_id": "resource_315801145b3df788393dde39f7989de15bd2168de8b940c31ad5d533ffe7cee8",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_75b49337f5ce09c2ae9f4ac0503e4d07ba3b3607cfb368de4b1ff0d5eac6fb7f",
+      "to_id": "resource_5c1c2c0de944de66fb31081a09377f26c91e3549da670ef7637aec15f6c84145",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_75b49337f5ce09c2ae9f4ac0503e4d07ba3b3607cfb368de4b1ff0d5eac6fb7f",
+      "to_id": "resource_b5d809ae0afc792f952916acfe2879f307506857b98aae13390d4b949e7df18c",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_75b49337f5ce09c2ae9f4ac0503e4d07ba3b3607cfb368de4b1ff0d5eac6fb7f",
+      "to_id": "resource_b9fd28e0e0b9c3e21f6605b406e4ebec5dcfb006a3050a2191ec9ac70ea1fc68",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_75b49337f5ce09c2ae9f4ac0503e4d07ba3b3607cfb368de4b1ff0d5eac6fb7f",
+      "to_id": "resource_c1a4097061435a6790cedbc88d87883b7e9e56a37ab21a808cd832d1a9b32838",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_75b49337f5ce09c2ae9f4ac0503e4d07ba3b3607cfb368de4b1ff0d5eac6fb7f",
+      "to_id": "resource_d935fa1018153054964df5c73f716e7b4a93dfd207a569d248430c38fb773f5e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_75b49337f5ce09c2ae9f4ac0503e4d07ba3b3607cfb368de4b1ff0d5eac6fb7f",
+      "to_id": "resource_db09a593a1816af39baef8773b14c413017c95de7f820b3f182e623270d541c0",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "file_14b503610576eb5b6679047710afa044d3f0fca93d29cd1b26d1ea3bb428e0af",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "file_19ab8c583a0f0afa8751d1012e122224ea0226fd80ff1bf6cc28addef897f42e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_1277f695774108141970c9a985af8f3ed329f7b182c2fce37b5e58b8d98f219e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_22038d34ff3b6182822bb7a13c323d6cbbc6d2d54288e87cf1f3e6817ef9de05",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_2ae17e6d6bccf1c07e9cfccb81b9272d77d12f20d539b232eb4b9d03d0734727",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_315801145b3df788393dde39f7989de15bd2168de8b940c31ad5d533ffe7cee8",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_38a5276c6f78472fbd79406fb454d07c99265cc154307df8bc0921f5d4cd51dc",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_40d939f05ad6c24bbb477543b1cad2eac16bfa8d658b3612af08231c77ee56fb",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_4ba287af58cea593ac18a130d1ef3bb9076f23d634cabbe4c8198bd81c56f972",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_5b61a36413771a98c3b15d86534da21ea706aa2c3c70846b835b4427925b552a",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_622a45a7611ac02c14cbd475aa6098e77525e4732ddc19e3935df90e0428d932",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_6ed514701d18f564489505b7fccc96dd2b2d428fb09b6f8d35ef9ed51f423172",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_77a7aeb555860dc4299c9b4959cab4a2ca88f42720e25d93a47d310065b31148",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_7a518c44c51acf94d0007a11d3d08c3438d77d9d61ebbbac01a99f68ff680ef2",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_9665962153761d679c67ed91ce2e157f215471146f3622f56ac7655a6684b267",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_b618e479737b21695cc0cf8f2e3b2a92be7cc6bc9a997186aa084e46a14c9c51",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_b9fd28e0e0b9c3e21f6605b406e4ebec5dcfb006a3050a2191ec9ac70ea1fc68",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_e4cc225ee3b78f582210667929ec668956c97c8ece065a1fc5378d6eb7a77523",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_e5d51b3d0c33ae219609929002154dadf90d4da65d1d8ee665d5cb80cbcde177",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_ed294d5daeef6ba2911da7415356c414f241ea52b72f2c125b44cb2fdf4722dc",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_90b31bb860b2a1af59602e631eb6644af8d4230a4d1d99bea2dbd32de6d1aa62",
+      "to_id": "file_1e2cc4305601595e64ba89429a4c2d2675906a0faa7e649be98f1df72d5965a7",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_90b31bb860b2a1af59602e631eb6644af8d4230a4d1d99bea2dbd32de6d1aa62",
+      "to_id": "file_58ab94a22562e662e62a10f9848f8d990d104f3f29e92280b6c430d27bf20970",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_90b31bb860b2a1af59602e631eb6644af8d4230a4d1d99bea2dbd32de6d1aa62",
+      "to_id": "file_6a1a2e7f4999f3e43a825918e788bf87d33067d8b0dea34f97a49e70d3bad71c",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_90b31bb860b2a1af59602e631eb6644af8d4230a4d1d99bea2dbd32de6d1aa62",
+      "to_id": "file_ac3e7eace68c4824134d9a122c676339360ed43dbf051b1a01648483d6a5d8c8",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_90b31bb860b2a1af59602e631eb6644af8d4230a4d1d99bea2dbd32de6d1aa62",
+      "to_id": "file_c8178ab71712fc5f25e1feec5f1095631b585fb9a6f9f0f8844cbe06332f8d9a",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_90b31bb860b2a1af59602e631eb6644af8d4230a4d1d99bea2dbd32de6d1aa62",
+      "to_id": "file_f0d213f9fcc4ad21195db8c1c8ac131f7d619f6b952bc230f07d609e2b15af05",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_94776dad684250932019815e20e966adba9d21cb6cc6d2f69aa2b72f29bf4651",
+      "to_id": "resource_1277f695774108141970c9a985af8f3ed329f7b182c2fce37b5e58b8d98f219e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_94776dad684250932019815e20e966adba9d21cb6cc6d2f69aa2b72f29bf4651",
+      "to_id": "resource_315801145b3df788393dde39f7989de15bd2168de8b940c31ad5d533ffe7cee8",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_94776dad684250932019815e20e966adba9d21cb6cc6d2f69aa2b72f29bf4651",
+      "to_id": "resource_5c1c2c0de944de66fb31081a09377f26c91e3549da670ef7637aec15f6c84145",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_94776dad684250932019815e20e966adba9d21cb6cc6d2f69aa2b72f29bf4651",
+      "to_id": "resource_b5d809ae0afc792f952916acfe2879f307506857b98aae13390d4b949e7df18c",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_94776dad684250932019815e20e966adba9d21cb6cc6d2f69aa2b72f29bf4651",
+      "to_id": "resource_b9fd28e0e0b9c3e21f6605b406e4ebec5dcfb006a3050a2191ec9ac70ea1fc68",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_94776dad684250932019815e20e966adba9d21cb6cc6d2f69aa2b72f29bf4651",
+      "to_id": "resource_c1a4097061435a6790cedbc88d87883b7e9e56a37ab21a808cd832d1a9b32838",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_94776dad684250932019815e20e966adba9d21cb6cc6d2f69aa2b72f29bf4651",
+      "to_id": "resource_d935fa1018153054964df5c73f716e7b4a93dfd207a569d248430c38fb773f5e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_94776dad684250932019815e20e966adba9d21cb6cc6d2f69aa2b72f29bf4651",
+      "to_id": "resource_db09a593a1816af39baef8773b14c413017c95de7f820b3f182e623270d541c0",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_97e2a150a1f3116963ec00a04c295bf8ee907ea4ca5223a48e57441206ff609b",
+      "to_id": "file_036a568b131843dcce63080db619916e3904880be8cf1790ffe3d1dd56afa875",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_9c75a10d28881a692a599a4695f49ffdcb7ba43740094e915e6b1f5dea23a486",
+      "to_id": "file_97e2a150a1f3116963ec00a04c295bf8ee907ea4ca5223a48e57441206ff609b",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_a54ff182c7e8acf56acfd6e4b9c3ff41e2c41a31c9b211b2deb9df75d9a478f9",
+      "to_id": "resource_1277f695774108141970c9a985af8f3ed329f7b182c2fce37b5e58b8d98f219e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_a54ff182c7e8acf56acfd6e4b9c3ff41e2c41a31c9b211b2deb9df75d9a478f9",
+      "to_id": "resource_315801145b3df788393dde39f7989de15bd2168de8b940c31ad5d533ffe7cee8",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_a54ff182c7e8acf56acfd6e4b9c3ff41e2c41a31c9b211b2deb9df75d9a478f9",
+      "to_id": "resource_5c1c2c0de944de66fb31081a09377f26c91e3549da670ef7637aec15f6c84145",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_a54ff182c7e8acf56acfd6e4b9c3ff41e2c41a31c9b211b2deb9df75d9a478f9",
+      "to_id": "resource_b5d809ae0afc792f952916acfe2879f307506857b98aae13390d4b949e7df18c",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_a54ff182c7e8acf56acfd6e4b9c3ff41e2c41a31c9b211b2deb9df75d9a478f9",
+      "to_id": "resource_b9fd28e0e0b9c3e21f6605b406e4ebec5dcfb006a3050a2191ec9ac70ea1fc68",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_a54ff182c7e8acf56acfd6e4b9c3ff41e2c41a31c9b211b2deb9df75d9a478f9",
+      "to_id": "resource_c1a4097061435a6790cedbc88d87883b7e9e56a37ab21a808cd832d1a9b32838",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_a54ff182c7e8acf56acfd6e4b9c3ff41e2c41a31c9b211b2deb9df75d9a478f9",
+      "to_id": "resource_d935fa1018153054964df5c73f716e7b4a93dfd207a569d248430c38fb773f5e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_a54ff182c7e8acf56acfd6e4b9c3ff41e2c41a31c9b211b2deb9df75d9a478f9",
+      "to_id": "resource_db09a593a1816af39baef8773b14c413017c95de7f820b3f182e623270d541c0",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_ac3e7eace68c4824134d9a122c676339360ed43dbf051b1a01648483d6a5d8c8",
+      "to_id": "file_65f0bc7382bf322330cc570249dc8fa3295cd25fd894e32ec1e2082435773560",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+      "to_id": "file_14b503610576eb5b6679047710afa044d3f0fca93d29cd1b26d1ea3bb428e0af",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+      "to_id": "file_19ab8c583a0f0afa8751d1012e122224ea0226fd80ff1bf6cc28addef897f42e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+      "to_id": "file_200b06e6451b0ae17aabf76d04d151b2b212a01c053dfa5570c110f0ca5165ac",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+      "to_id": "file_49aaa2819e35a856818ecec8c9fa7e1c79ad028d3f44bd749736353cfb51bac9",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+      "to_id": "file_5721368413ed74d5dd5464d3f38074d371764425ee850e0d320bce2f11ed1ba8",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+      "to_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+      "to_id": "file_90b31bb860b2a1af59602e631eb6644af8d4230a4d1d99bea2dbd32de6d1aa62",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+      "to_id": "file_c693279643b8cd5d248172d9c22cb7cf4ed163a3c98c8a3f69c2717edd3eacb7",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+      "to_id": "file_d068fe27bfc02d870f9c94740acdb503a893fc30922048a84f8215ea65771134",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+      "to_id": "file_dfb14fbb9e7d095209ec4cfd621069437bf9c442ff9de9d4ce889781bd0fefcf",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+      "to_id": "resource_b9fd28e0e0b9c3e21f6605b406e4ebec5dcfb006a3050a2191ec9ac70ea1fc68",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_c1a4abac177787b7f3a0933a6e2af6f8f9076a6ed665c18c1ffaec02633fa95c",
+      "to_id": "resource_1277f695774108141970c9a985af8f3ed329f7b182c2fce37b5e58b8d98f219e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_c1a4abac177787b7f3a0933a6e2af6f8f9076a6ed665c18c1ffaec02633fa95c",
+      "to_id": "resource_315801145b3df788393dde39f7989de15bd2168de8b940c31ad5d533ffe7cee8",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_c1a4abac177787b7f3a0933a6e2af6f8f9076a6ed665c18c1ffaec02633fa95c",
+      "to_id": "resource_5c1c2c0de944de66fb31081a09377f26c91e3549da670ef7637aec15f6c84145",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_c1a4abac177787b7f3a0933a6e2af6f8f9076a6ed665c18c1ffaec02633fa95c",
+      "to_id": "resource_b5d809ae0afc792f952916acfe2879f307506857b98aae13390d4b949e7df18c",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_c1a4abac177787b7f3a0933a6e2af6f8f9076a6ed665c18c1ffaec02633fa95c",
+      "to_id": "resource_b9fd28e0e0b9c3e21f6605b406e4ebec5dcfb006a3050a2191ec9ac70ea1fc68",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_c1a4abac177787b7f3a0933a6e2af6f8f9076a6ed665c18c1ffaec02633fa95c",
+      "to_id": "resource_c1a4097061435a6790cedbc88d87883b7e9e56a37ab21a808cd832d1a9b32838",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_c1a4abac177787b7f3a0933a6e2af6f8f9076a6ed665c18c1ffaec02633fa95c",
+      "to_id": "resource_d935fa1018153054964df5c73f716e7b4a93dfd207a569d248430c38fb773f5e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_c1a4abac177787b7f3a0933a6e2af6f8f9076a6ed665c18c1ffaec02633fa95c",
+      "to_id": "resource_db09a593a1816af39baef8773b14c413017c95de7f820b3f182e623270d541c0",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_c8178ab71712fc5f25e1feec5f1095631b585fb9a6f9f0f8844cbe06332f8d9a",
+      "to_id": "file_6a1ce5ff88bf6d0d50baa2f39401cd9c11af774729b08db6e2581ac35acf0175",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_ce563c631df8dc02bf231878db6389678b639facd987ee412b24bd1cad5a09ea",
+      "to_id": "resource_1277f695774108141970c9a985af8f3ed329f7b182c2fce37b5e58b8d98f219e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_ce563c631df8dc02bf231878db6389678b639facd987ee412b24bd1cad5a09ea",
+      "to_id": "resource_315801145b3df788393dde39f7989de15bd2168de8b940c31ad5d533ffe7cee8",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_ce563c631df8dc02bf231878db6389678b639facd987ee412b24bd1cad5a09ea",
+      "to_id": "resource_5c1c2c0de944de66fb31081a09377f26c91e3549da670ef7637aec15f6c84145",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_ce563c631df8dc02bf231878db6389678b639facd987ee412b24bd1cad5a09ea",
+      "to_id": "resource_b5d809ae0afc792f952916acfe2879f307506857b98aae13390d4b949e7df18c",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_ce563c631df8dc02bf231878db6389678b639facd987ee412b24bd1cad5a09ea",
+      "to_id": "resource_b9fd28e0e0b9c3e21f6605b406e4ebec5dcfb006a3050a2191ec9ac70ea1fc68",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_ce563c631df8dc02bf231878db6389678b639facd987ee412b24bd1cad5a09ea",
+      "to_id": "resource_c1a4097061435a6790cedbc88d87883b7e9e56a37ab21a808cd832d1a9b32838",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_ce563c631df8dc02bf231878db6389678b639facd987ee412b24bd1cad5a09ea",
+      "to_id": "resource_d935fa1018153054964df5c73f716e7b4a93dfd207a569d248430c38fb773f5e",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_ce563c631df8dc02bf231878db6389678b639facd987ee412b24bd1cad5a09ea",
+      "to_id": "resource_db09a593a1816af39baef8773b14c413017c95de7f820b3f182e623270d541c0",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_eca12c0a30e25b4b46522ebf89465a03ba72a03f540796c979137931d8f92055",
+      "to_id": "file_49aaa2819e35a856818ecec8c9fa7e1c79ad028d3f44bd749736353cfb51bac9",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_eca12c0a30e25b4b46522ebf89465a03ba72a03f540796c979137931d8f92055",
+      "to_id": "file_5721368413ed74d5dd5464d3f38074d371764425ee850e0d320bce2f11ed1ba8",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_eca12c0a30e25b4b46522ebf89465a03ba72a03f540796c979137931d8f92055",
+      "to_id": "file_c693279643b8cd5d248172d9c22cb7cf4ed163a3c98c8a3f69c2717edd3eacb7",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_eca12c0a30e25b4b46522ebf89465a03ba72a03f540796c979137931d8f92055",
+      "to_id": "resource_4499c23fc62f16311906938846208deab16132bce2a41ee6cb09170aa28e0a2c",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_eca12c0a30e25b4b46522ebf89465a03ba72a03f540796c979137931d8f92055",
+      "to_id": "resource_697ec7b7f0fbc574bf072b36a9cd5c85f522666a08c436fd65d3561f607f688c",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_eca12c0a30e25b4b46522ebf89465a03ba72a03f540796c979137931d8f92055",
+      "to_id": "resource_b323be3c52c3ef40e62533c83c750f8cb8dfb972064dc185337254f6287db3e3",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_eca12c0a30e25b4b46522ebf89465a03ba72a03f540796c979137931d8f92055",
+      "to_id": "resource_b9fd28e0e0b9c3e21f6605b406e4ebec5dcfb006a3050a2191ec9ac70ea1fc68",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_eca12c0a30e25b4b46522ebf89465a03ba72a03f540796c979137931d8f92055",
+      "to_id": "resource_dfd1b2cfc70cdb50b9a71da8d91f70b16d5a473e46ee57f84dcffad20bb16a14",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_f0d213f9fcc4ad21195db8c1c8ac131f7d619f6b952bc230f07d609e2b15af05",
+      "to_id": "file_65f0bc7382bf322330cc570249dc8fa3295cd25fd894e32ec1e2082435773560",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_f58540b16fdce631a336dbaecc76340c9d757bf645ea59f154abc62687b7396c",
+      "to_id": "file_9c75a10d28881a692a599a4695f49ffdcb7ba43740094e915e6b1f5dea23a486",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_f58540b16fdce631a336dbaecc76340c9d757bf645ea59f154abc62687b7396c",
+      "to_id": "file_f35cca4e2cc3c4499b591b770158557c968246552b5c7793f2d0111f09020084",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_f6ed156e4bf5c791680662464b94ea5d753f219ee816b385f67870e2c0d7d4c7",
+      "to_id": "resource_688368591cadf4435ad2be9b431feb671da99cedf97ded59e33a42aa7d207d68",
+      "relation": "REFERENCES"
+    }
+  ]
+}

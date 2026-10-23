@@ -1,0 +1,213 @@
+{
+  "name": "skill_ship_safely",
+  "version": "1.0.0",
+  "type": "PROJECT",
+  "dimension": "system",
+  "dimensions": {
+    "system": {
+      "description": "Compiled TRUG graph: skill_ship_safely"
+    }
+  },
+  "nodes": [
+    {
+      "id": "dev",
+      "type": "AGENT",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_AGENT",
+      "dimension": "system"
+    },
+    {
+      "id": "op-1",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "MERGE",
+        "verb_subcategory": "transform"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "resource-1",
+      "type": "RESOURCE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "main",
+      "type": "ENDPOINT",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_ENDPOINT",
+      "dimension": "system"
+    },
+    {
+      "id": "op-2",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "WRITE",
+        "verb_subcategory": "move"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "summary",
+      "type": "RECORD",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RECORD",
+      "dimension": "system"
+    },
+    {
+      "id": "op-3",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "POST",
+        "verb_subcategory": "move"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "data-1",
+      "type": "DATA",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_DATA",
+      "dimension": "system"
+    },
+    {
+      "id": "repository",
+      "type": "ENDPOINT",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_ENDPOINT",
+      "dimension": "system"
+    },
+    {
+      "id": "root",
+      "type": "PROJECT",
+      "properties": {},
+      "parent_id": null,
+      "contains": [
+        "dev",
+        "op-1",
+        "resource-1",
+        "main",
+        "op-2",
+        "summary",
+        "op-3",
+        "data-1",
+        "repository"
+      ],
+      "metric_level": "BASE_PROJECT",
+      "dimension": "system"
+    }
+  ],
+  "edges": [
+    {
+      "from_id": "dev",
+      "to_id": "op-1",
+      "relation": "SHALL_NOT",
+      "properties": {
+        "np_shape": {
+          "noun_type": "AGENT"
+        }
+      }
+    },
+    {
+      "from_id": "op-1",
+      "to_id": "resource-1",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RESOURCE",
+          "article": "ANY"
+        }
+      }
+    },
+    {
+      "from_id": "op-1",
+      "to_id": "main",
+      "relation": "TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "ENDPOINT"
+        }
+      }
+    },
+    {
+      "from_id": "dev",
+      "to_id": "op-2",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "AGENT"
+        }
+      }
+    },
+    {
+      "from_id": "op-2",
+      "to_id": "summary",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RECORD",
+          "article": "THE"
+        }
+      }
+    },
+    {
+      "from_id": "dev",
+      "to_id": "op-3",
+      "relation": "SHALL_NOT",
+      "properties": {
+        "np_shape": {
+          "noun_type": "AGENT"
+        }
+      }
+    },
+    {
+      "from_id": "op-3",
+      "to_id": "data-1",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "DATA",
+          "article": "ANY",
+          "access": "CONFIDENTIAL"
+        }
+      }
+    },
+    {
+      "from_id": "op-3",
+      "to_id": "repository",
+      "relation": "TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "ENDPOINT"
+        }
+      }
+    }
+  ],
+  "capabilities": {
+    "vocabularies": [
+      "core_v2.0.0"
+    ]
+  }
+}

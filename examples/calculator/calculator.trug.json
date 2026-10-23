@@ -1,0 +1,83 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "type": "PROJECT",
+  "dimension": "system",
+  "dimensions": {
+    "system": {
+      "description": "Compiled TRUG graph: calculator"
+    }
+  },
+  "nodes": [
+    {
+      "id": "reader",
+      "type": "AGENT",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_AGENT",
+      "dimension": "system"
+    },
+    {
+      "id": "op-1",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "READ",
+        "verb_subcategory": "move"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "calculator_instructions",
+      "type": "FILE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "root",
+      "type": "PROJECT",
+      "properties": {},
+      "parent_id": null,
+      "contains": [
+        "reader",
+        "op-1",
+        "calculator_instructions"
+      ],
+      "metric_level": "BASE_PROJECT",
+      "dimension": "system"
+    }
+  ],
+  "edges": [
+    {
+      "from_id": "reader",
+      "to_id": "op-1",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "AGENT"
+        }
+      }
+    },
+    {
+      "from_id": "op-1",
+      "to_id": "calculator_instructions",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "FILE"
+        }
+      }
+    }
+  ],
+  "capabilities": {
+    "vocabularies": [
+      "core_v2.0.0"
+    ]
+  }
+}

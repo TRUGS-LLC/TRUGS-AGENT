@@ -1,0 +1,103 @@
+{
+  "name": "map-a-folder",
+  "version": "1.0.0",
+  "type": "PROJECT",
+  "dimension": "system",
+  "dimensions": {
+    "system": {
+      "description": "Compiled TRUG graph: map-a-folder"
+    }
+  },
+  "nodes": [
+    {
+      "id": "mapper",
+      "type": "PROCESS",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_PROCESS",
+      "dimension": "system"
+    },
+    {
+      "id": "op-1",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "MAP",
+        "verb_subcategory": "transform"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "folder",
+      "type": "MODULE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_MODULE",
+      "dimension": "system"
+    },
+    {
+      "id": "index",
+      "type": "RECORD",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RECORD",
+      "dimension": "system"
+    },
+    {
+      "id": "root",
+      "type": "PROJECT",
+      "properties": {},
+      "parent_id": null,
+      "contains": [
+        "mapper",
+        "op-1",
+        "folder",
+        "index"
+      ],
+      "metric_level": "BASE_PROJECT",
+      "dimension": "system"
+    }
+  ],
+  "edges": [
+    {
+      "from_id": "mapper",
+      "to_id": "op-1",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "PROCESS"
+        }
+      }
+    },
+    {
+      "from_id": "op-1",
+      "to_id": "folder",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "MODULE"
+        }
+      }
+    },
+    {
+      "from_id": "op-1",
+      "to_id": "index",
+      "relation": "TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RECORD"
+        }
+      }
+    }
+  ],
+  "capabilities": {
+    "vocabularies": [
+      "core_v2.0.0"
+    ]
+  }
+}

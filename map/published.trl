@@ -1,0 +1,19 @@
+AGENT reader SHALL READ RESOURCE trugs SUBJECT_TO DATA live_specification.
+
+AGENT reader SHALL READ RESOURCE tools SUBJECT_TO DATA live_language_tools.
+
+AGENT reader SHALL READ RESOURCE store SUBJECT_TO DATA live_graph_storage.
+
+AGENT reader SHALL READ RESOURCE calculator SUBJECT_TO DATA live_compute.
+
+AGENT reader SHALL READ RESOURCE site SUBJECT_TO DATA live_specification_site.
+
+AGENT reader SHALL READ RESOURCE web SUBJECT_TO DATA candidate_describe.
+
+AGENT reader SHALL READ RESOURCE viewer SUBJECT_TO DATA demonstration.
+
+AGENT reader SHALL READ RESOURCE trl SUBJECT_TO DATA coming_language.
+
+AGENT reader SHALL READ RESOURCE law SUBJECT_TO DATA coming_law.
+
+AGENT reader SHALL READ RESOURCE agent_kit SUBJECT_TO DATA candidate_onboarding.

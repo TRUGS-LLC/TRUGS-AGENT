@@ -1,0 +1,252 @@
+{
+  "name": "refactor_a_program",
+  "version": "1.0.0",
+  "type": "PROJECT",
+  "dimension": "system",
+  "dimensions": {
+    "system": {
+      "description": "Compiled TRUG graph: refactor_a_program"
+    }
+  },
+  "nodes": [
+    {
+      "id": "refactorer",
+      "type": "PROCESS",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_PROCESS",
+      "dimension": "system"
+    },
+    {
+      "id": "op-1",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "READ",
+        "verb_subcategory": "move"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "legacy_module",
+      "type": "FILE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "op-2",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "DERIVE",
+        "verb_subcategory": "transform"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "get_due_invoices",
+      "type": "FUNCTION",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_FUNCTION",
+      "dimension": "system"
+    },
+    {
+      "id": "op-3",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "WRITE",
+        "verb_subcategory": "move"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "refactored_module",
+      "type": "FILE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "op-4",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "MAP",
+        "verb_subcategory": "transform"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "function-1",
+      "type": "FUNCTION",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_FUNCTION",
+      "dimension": "system"
+    },
+    {
+      "id": "test_suite",
+      "type": "DATA",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_DATA",
+      "dimension": "system"
+    },
+    {
+      "id": "root",
+      "type": "PROJECT",
+      "properties": {},
+      "parent_id": null,
+      "contains": [
+        "refactorer",
+        "op-1",
+        "legacy_module",
+        "op-2",
+        "get_due_invoices",
+        "op-3",
+        "refactored_module",
+        "op-4",
+        "function-1",
+        "test_suite"
+      ],
+      "metric_level": "BASE_PROJECT",
+      "dimension": "system"
+    }
+  ],
+  "edges": [
+    {
+      "from_id": "refactorer",
+      "to_id": "op-1",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "PROCESS"
+        }
+      }
+    },
+    {
+      "from_id": "op-1",
+      "to_id": "legacy_module",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "FILE"
+        }
+      }
+    },
+    {
+      "from_id": "refactorer",
+      "to_id": "op-2",
+      "relation": "EXECUTES",
+      "properties": {
+        "np_shape": {
+          "noun_type": "PROCESS"
+        }
+      }
+    },
+    {
+      "from_id": "op-2",
+      "to_id": "get_due_invoices",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "FUNCTION"
+        }
+      }
+    },
+    {
+      "from_id": "refactorer",
+      "to_id": "op-3",
+      "relation": "EXECUTES",
+      "properties": {
+        "np_shape": {
+          "noun_type": "PROCESS"
+        }
+      }
+    },
+    {
+      "from_id": "op-3",
+      "to_id": "op-2",
+      "relation": "ACTS_ON",
+      "properties": {
+        "pronoun": "RESULT"
+      }
+    },
+    {
+      "from_id": "op-3",
+      "to_id": "refactored_module",
+      "relation": "TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "FILE"
+        }
+      }
+    },
+    {
+      "from_id": "op-1",
+      "to_id": "op-2",
+      "relation": "THEN"
+    },
+    {
+      "from_id": "op-2",
+      "to_id": "op-3",
+      "relation": "THEN"
+    },
+    {
+      "from_id": "refactorer",
+      "to_id": "op-4",
+      "relation": "SHALL_NOT",
+      "properties": {
+        "np_shape": {
+          "noun_type": "PROCESS"
+        }
+      }
+    },
+    {
+      "from_id": "op-4",
+      "to_id": "function-1",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "FUNCTION",
+          "article": "ANY"
+        }
+      }
+    },
+    {
+      "from_id": "op-4",
+      "to_id": "test_suite",
+      "relation": "TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "DATA",
+          "state": "FAILED"
+        }
+      }
+    }
+  ],
+  "capabilities": {
+    "vocabularies": [
+      "core_v2.0.0"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+name: Kit checks
+on:
+  workflow_dispatch:
+    inputs:
+      bundle_run:
+        description: Run containing the prepared kit-inputs artifact
+        required: true
+      bundle_artifact:
+        description: Offline wheels and public repository checkouts
+        default: kit-inputs
+        required: true
+permissions:
+  actions: read
+  contents: read
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      TMPDIR: ${{ runner.temp }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.bundle_artifact }}
+          run-id: ${{ inputs.bundle_run }}
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/kit-inputs
+      - run: python -m pip install --no-index --find-links "${{ runner.temp }}/kit-inputs/wheelhouse" --no-build-isolation trugs-tools trugs-web build setuptools wheel pytest
+      - run: python -c "import shutil; shutil.copytree('installer', '${{ runner.temp }}/kit-installer')"
+      - run: python -m pip install --no-index --find-links "${{ runner.temp }}/kit-inputs/wheelhouse" --no-build-isolation "${{ runner.temp }}/kit-installer"
+      - run: python tools/kit_check.py --repositories "${{ runner.temp }}/kit-inputs/repositories"
+      - run: python -m pytest -p no:cacheprovider installer/tests

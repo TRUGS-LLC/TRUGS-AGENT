@@ -1,0 +1,4 @@
+PROCESS refactorer SHALL READ FILE legacy_module
+  THEN DERIVE FUNCTION get_due_invoices
+  THEN WRITE RESULT TO FILE refactored_module.
+PROCESS refactorer SHALL_NOT MAP ANY FUNCTION TO FAILED DATA test_suite.
