@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install this local candidate into the current Python environment, offline."""
+"""Install this checkout into the current Python environment, offline."""
 
 import shutil
 import sys

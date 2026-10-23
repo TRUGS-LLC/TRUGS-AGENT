@@ -16,8 +16,8 @@
         "path": ".",
         "name": ".",
         "kind": "folder",
-        "size": 242675,
-        "sha256": "893a78a594b306aeda9a6f143dda3c4a61a971da11b8e3e828d152653269e89f",
+        "size": 251327,
+        "sha256": "16e27d83709688c97610c186c64a7e29e4c0f2848532683b7c7d1baee3ffe5cc",
         "unread": [
           {
             "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -226,8 +226,8 @@
         "path": ".github",
         "name": ".github",
         "kind": "folder",
-        "size": 5713,
-        "sha256": "6845c6e74e1c041e1ac7e10705775ce42b8fa3bb9e2d1875ba9105e515ffd747"
+        "size": 8195,
+        "sha256": "ae81179fa3447bf6131179b92b077b1d2050f2de3fd245fd2877f584a0724b5a"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
@@ -325,8 +325,8 @@
         "path": ".github/workflows",
         "name": ".github/workflows",
         "kind": "folder",
-        "size": 1502,
-        "sha256": "b59e21a250e650247ffc923db5d01598b96b3798132e038ff8482df88ae06981"
+        "size": 3984,
+        "sha256": "9ba6f0d0bb33d0208a35b9583458a9154607db9bc841bd7ee62043110b26c0a5"
       },
       "parent_id": "module_bdcc6a2a85f645f62724fe8dafbf0581cb0c1d65f6a76cb2985a9172e31a473c",
       "contains": [
@@ -342,8 +342,8 @@
         "path": ".github/workflows/check.yml",
         "name": ".github/workflows/check.yml",
         "kind": "yml",
-        "size": 1502,
-        "sha256": "a46fec699538c61d7e28c76cf4ca77b9e68ec520905b3bd5e1160ce886fff1b2"
+        "size": 3984,
+        "sha256": "f5dfe66d569174a1fbb2ae5fd024344df8e8bd7f0c46d5777fa9085abaee8897"
       },
       "parent_id": "module_87ee5504a3e25ac558b343724c905f2f7949e8cec3d92b9c4300bb922afa164f",
       "contains": [],
@@ -388,8 +388,8 @@
         "path": "CHANGELOG.md",
         "name": "CHANGELOG.md",
         "kind": "md",
-        "size": 615,
-        "sha256": "ab1cf32126d15a1747568271f91bf891a98b3d274d9b7bb1faa0f2c440fdb3d3",
+        "size": 599,
+        "sha256": "19266072669140c82c4117e587aab02fe9f025af8ae1c5612e8c9ab270e6ae89",
         "title": "Changelog"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
@@ -404,8 +404,8 @@
         "path": "CONTRIBUTING.md",
         "name": "CONTRIBUTING.md",
         "kind": "md",
-        "size": 3566,
-        "sha256": "9a2c67c9b2f44573d7df516f5e74ab642f53a5a39616821c8701eb1a32a6948a",
+        "size": 5129,
+        "sha256": "a28586e2318ace1729644d95ba0cbc3e7e84d8ef7fa01476cc2c8ea8e7ae10f9",
         "title": "Contributing to TRUGS Agent"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
@@ -466,8 +466,8 @@
         "path": "README.md",
         "name": "README.md",
         "kind": "md",
-        "size": 4071,
-        "sha256": "88e09fc2b46d1f33fd1727797e075bc0f05721d8ac1e2e9b18869a3740bdfc44",
+        "size": 3752,
+        "sha256": "dff50f503b5cb71d694e79ca5ea95176ec4306c1267915df02f6b7042bf9c9d0",
         "title": "TRUGS onboarding kit"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
@@ -482,8 +482,8 @@
         "path": "SECURITY.md",
         "name": "SECURITY.md",
         "kind": "md",
-        "size": 604,
-        "sha256": "566b89a5d1443a453e8c4dee749c55e5382043000d6e4124b5ff3f4ef56299d9",
+        "size": 632,
+        "sha256": "95b94913dabeac2471ca80915f1b596b7ec5953b1059f65c242305869f7cf6d7",
         "title": "Security Policy"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
@@ -498,8 +498,8 @@
         "path": "eval",
         "name": "eval",
         "kind": "folder",
-        "size": 2480,
-        "sha256": "7f7c27a8122e903c75fe74c7bd3ca4f36c50a2e4fa2bbde4b472584e2d5d1f11"
+        "size": 2574,
+        "sha256": "a00634376c403106fbeea2793a283e22e22e8d2413e1bd181b44d90d38a50b5d"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
@@ -516,8 +516,8 @@
         "path": "eval/README.md",
         "name": "eval/README.md",
         "kind": "md",
-        "size": 571,
-        "sha256": "94c31a25c7985f3e8e92b5c071820b6245995974cf055f986a2f6ac5784dffbc",
+        "size": 665,
+        "sha256": "6c6cf4f68e55c1a1ac50d65feb44656c2e72ead4cfa9b653f70226de7fa533b9",
         "title": "Fixed tasks and general questions"
       },
       "parent_id": "module_1bbd174404efbce95f1af489ef93f4aa0f4d55718f24c3504682216afa7b7fb1",
@@ -547,8 +547,8 @@
         "path": "examples",
         "name": "examples",
         "kind": "folder",
-        "size": 44902,
-        "sha256": "26aa8a0138a12750b53681f971536bd57d29093a037bcb1c6136aba280e0715e"
+        "size": 44907,
+        "sha256": "3b5ac2dc7409feab512cafadf3f82ee0a271a29a1dbd53b6642dc61be7a95b53"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
@@ -831,8 +831,8 @@
         "path": "examples/map-a-folder",
         "name": "examples/map-a-folder",
         "kind": "folder",
-        "size": 3239,
-        "sha256": "428847c483626843baaee42ff6c482ce3628ef2ac672875f9aaff3ec77f9efee"
+        "size": 3244,
+        "sha256": "db41f90a7f4ba8b19b87b82fb5b7848a32fe4faec52f8235cf6cd54df5bc0c09"
       },
       "parent_id": "module_c590b3c924c35c2f241746522284e4709df490d73a38aaa7d6de4ed1eac2f546",
       "contains": [
@@ -852,8 +852,8 @@
         "path": "examples/map-a-folder/README.md",
         "name": "examples/map-a-folder/README.md",
         "kind": "md",
-        "size": 934,
-        "sha256": "66f5ebc7e01bc0317c3145640005a3e6e3cd5ccecf0511491ae98a6c47e6f005",
+        "size": 939,
+        "sha256": "de2f16098c210fcc3f6a6ebad622922c177ffea63af64134cbb1d6a9eabecece",
         "title": "map-a-folder"
       },
       "parent_id": "module_262aa3cf3fa3d5f77ed2227491ec5fceedba412762692d05b410dd2c66cc951a",
@@ -1316,8 +1316,8 @@
         "path": "installer",
         "name": "installer",
         "kind": "folder",
-        "size": 58063,
-        "sha256": "e1cc5e642a34463505acb382bb6282440a6c5353720b5af68846992bf4dcff8e"
+        "size": 60226,
+        "sha256": "6ce7f554c4725ef87c90bad2c27963c1d288ad4caae7900209c8440f37ee6352"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
@@ -1613,8 +1613,8 @@
         "path": "installer/tests",
         "name": "installer/tests",
         "kind": "folder",
-        "size": 15615,
-        "sha256": "da91ab0c35d48f01c7cdcf2811b83e8458e0dbb625ce72b975634379c71ecfe3"
+        "size": 17778,
+        "sha256": "28cb9d23e9575ae8f14957a4e224f334c3f386114fc7748e2f7b0241db3cd7be"
       },
       "parent_id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
       "contains": [
@@ -1632,8 +1632,8 @@
         "path": "installer/tests/conftest.py",
         "name": "installer/tests/conftest.py",
         "kind": "py",
-        "size": 455,
-        "sha256": "91454166ab549533acedb849d64f0bfd1c76f8b82eabbeb815732430af7fde44"
+        "size": 747,
+        "sha256": "17533fd24cea59c5faebc8fd9d7f7a724f7cb34a38221a0ec2d539b057449099"
       },
       "parent_id": "module_dfbeef8ee1e99a2f38001ef66ef406eb58f9144884e60407df501361781e4d5e",
       "contains": [],
@@ -1662,8 +1662,8 @@
         "path": "installer/tests/test_markdown_commands.py",
         "name": "installer/tests/test_markdown_commands.py",
         "kind": "py",
-        "size": 11507,
-        "sha256": "5b2441246001df80b7fb624ee4eedb7040b7c72b9a3cb4aa35d8555557a49dc8"
+        "size": 13378,
+        "sha256": "af05d99b7026de5cbb8d59a8acfc48874f04b92d82c84f2401c9c84ac8c5f80d"
       },
       "parent_id": "module_dfbeef8ee1e99a2f38001ef66ef406eb58f9144884e60407df501361781e4d5e",
       "contains": [],
@@ -2081,8 +2081,8 @@
         "path": "map",
         "name": "map",
         "kind": "folder",
-        "size": 21190,
-        "sha256": "588f4d3a27d489f2bc18c0009e0e0b02ef3a930b0d4eb4753c93d3a934600c9e"
+        "size": 21156,
+        "sha256": "65bf5adea13134cc5093a2230bb0bbbdd23cd8f02b2cc6481de2868d9bc8d484"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
@@ -2101,8 +2101,8 @@
         "path": "map/README.md",
         "name": "map/README.md",
         "kind": "md",
-        "size": 3394,
-        "sha256": "e19cafafa4e49700d787d671cef91dac6c17e52228a0d20286b21d6eca1d1df2",
+        "size": 3396,
+        "sha256": "4e93c0336c2cf45758630201c18472b62a4c9016d2bb55ab257008b08383af52",
         "title": "Published repository map"
       },
       "parent_id": "module_60be9861750facbfad8758254a2f76c0cfe78d54459a3bc187d49b1401fcd8e8",
@@ -2117,8 +2117,8 @@
         "path": "map/published.trl",
         "name": "map/published.trl",
         "kind": "trl",
-        "size": 748,
-        "sha256": "bf61d1798c39bfa772e211f47132569e913ceec8face1843870bffe8def37b16"
+        "size": 738,
+        "sha256": "f4561cf50cfd89ce02f00ff941f4a9d0dc561e09c53e61a63eafcce9958d368e"
       },
       "parent_id": "module_60be9861750facbfad8758254a2f76c0cfe78d54459a3bc187d49b1401fcd8e8",
       "contains": [],
@@ -2132,8 +2132,8 @@
         "path": "map/published.trug.json",
         "name": "map/published.trug.json",
         "kind": "json",
-        "size": 14136,
-        "sha256": "df0cb91cf3013e7001c2ecc1e2ed353215582d3402c281df9365c558a07f0c52"
+        "size": 14106,
+        "sha256": "7bf3e777b42858266addc3c6f244a8c4ffa6716703d8dc11c5546c528aef9412"
       },
       "parent_id": "module_60be9861750facbfad8758254a2f76c0cfe78d54459a3bc187d49b1401fcd8e8",
       "contains": [],
@@ -2147,8 +2147,8 @@
         "path": "map/repositories.json",
         "name": "map/repositories.json",
         "kind": "json",
-        "size": 2912,
-        "sha256": "9c6f65a604429e3706a46f1dba231e19659582a262d7304778e82303a99e7171"
+        "size": 2916,
+        "sha256": "846d2698ff3cb2a73cc203de986b2e915e14cb0b7dbd2ee2bbc6eff1601ae8cc"
       },
       "parent_id": "module_60be9861750facbfad8758254a2f76c0cfe78d54459a3bc187d49b1401fcd8e8",
       "contains": [],
@@ -2162,8 +2162,8 @@
         "path": "tools",
         "name": "tools",
         "kind": "folder",
-        "size": 38778,
-        "sha256": "20b2f25e8a2fd762a6e565abf75ff892944fe9d6d0ed2c7ebd13888d69647e68"
+        "size": 41464,
+        "sha256": "79b487c361e552be84e257fa79cee7dc02ac4aa63877d8a8f73a0cc740ce1057"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
@@ -2198,8 +2198,8 @@
         "path": "tools/install_local.py",
         "name": "tools/install_local.py",
         "kind": "py",
-        "size": 1872,
-        "sha256": "e8e2b51e065888d1ce421cdcd8c4e90847712c668898b615afaedafce807b7ce"
+        "size": 1865,
+        "sha256": "1ceb4fc8d2bb492201cab7692dbf36b8a7e4bc58d08fc9051b889945274fd970"
       },
       "parent_id": "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281",
       "contains": [],
@@ -2213,8 +2213,8 @@
         "path": "tools/kit_check.py",
         "name": "tools/kit_check.py",
         "kind": "py",
-        "size": 6478,
-        "sha256": "cd0a8aa9db949d98b4b2093aa4cef2d73e32edaf20da3801302f6ea54341fe94"
+        "size": 6803,
+        "sha256": "7d79fb51e7e00a5f814ccc11813db65fb2275cbf7407a25769ba5b6ae01f231d"
       },
       "parent_id": "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281",
       "contains": [],
@@ -2228,8 +2228,8 @@
         "path": "tools/kit_parts.py",
         "name": "tools/kit_parts.py",
         "kind": "py",
-        "size": 16429,
-        "sha256": "40238485c24013365a3f0850e84012f84e28b23e99e2ec8e4cb268c2ee1b5029"
+        "size": 18797,
+        "sha256": "4a10499fcc43d4f13e84714fb0ea4eaa58e836406ca40047561dd963bd70df6c"
       },
       "parent_id": "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281",
       "contains": [],
@@ -3069,6 +3069,11 @@
     {
       "from_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
       "to_id": "file_dfb14fbb9e7d095209ec4cfd621069437bf9c442ff9de9d4ce889781bd0fefcf",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+      "to_id": "file_eca12c0a30e25b4b46522ebf89465a03ba72a03f540796c979137931d8f92055",
       "relation": "REFERENCES"
     },
     {

@@ -24,19 +24,16 @@ for depth. The calculator has its own compute vocabulary and compiler.
 
 ## Install
 
-This checkout contains the unreleased trugs-agent 2.0.0 installer. The existing
-index releases are older; do not use them to install this kit. From this checkout,
-with the build tools and runtime dependencies already installed from an
-offline wheel bundle, install the local candidate into your current Python
-environment. The helper builds in temporary storage and installs that wheel;
-it does not place instructions in the checkout.
+Install the language tools, describe tool and onboarding installer from the Python
+package index into your current Python environment:
 
 ```sh
-python tools/install_local.py
+python -m pip install --quiet "trugs-tools>=2.4.0,<3" trugs-web==2.1.0 trugs-agent==2.0.0
 ```
-<!-- expect: {"status": 0, "stdout": "PASS: local trugs-agent 2.0.0 installed\n"} -->
+<!-- expect: {"status": 0, "stdout": ""} -->
 
-Expected stdout: `PASS: local trugs-agent 2.0.0 installed`; exit status 0.
+Expected stdout: empty; exit status 0. Contributors can also
+[install from a checkout](CONTRIBUTING.md).
 
 After installing the CLI, use its install subcommand in your own project. It lists
 every destination before writing. Existing files require a terminal and an explicit
@@ -90,10 +87,9 @@ the installed tools version changes.
 
 ## What is unpublished
 
-This kit's 2.0.0 package and trugs-web 2.1.0 are local candidates. This text does
-not assert that trugs.ai/onboard is served. TRUGS-VIEWER is a demonstration, not
-in active development. TRUGS-TRL, TRUGS-LAW and the Govern runner are coming,
-with no date. The [fixed tasks](eval/README.md) are for a later clean-machine run.
+This text does not assert that trugs.ai/onboard is served. TRUGS-VIEWER is a
+demonstration, not in active development. TRUGS-TRL, TRUGS-LAW and the Govern runner are coming,
+with no date. The [fixed tasks](eval/README.md) support clean-machine evaluation.
 
 ## Scope and licence
 

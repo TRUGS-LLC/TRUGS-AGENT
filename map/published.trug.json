@@ -195,7 +195,7 @@
       "dimension": "system"
     },
     {
-      "id": "candidate_describe",
+      "id": "live_describe",
       "type": "DATA",
       "properties": {},
       "parent_id": "root",
@@ -319,7 +319,7 @@
       "dimension": "system"
     },
     {
-      "id": "candidate_onboarding",
+      "id": "live_onboarding",
       "type": "DATA",
       "properties": {},
       "parent_id": "root",
@@ -351,7 +351,7 @@
         "live_specification_site",
         "op-6",
         "web",
-        "candidate_describe",
+        "live_describe",
         "op-7",
         "viewer",
         "demonstration",
@@ -363,7 +363,7 @@
         "coming_law",
         "op-10",
         "agent_kit",
-        "candidate_onboarding"
+        "live_onboarding"
       ],
       "metric_level": "BASE_PROJECT",
       "dimension": "system"
@@ -542,7 +542,7 @@
     },
     {
       "from_id": "op-6",
-      "to_id": "candidate_describe",
+      "to_id": "live_describe",
       "relation": "SUBJECT_TO",
       "properties": {
         "np_shape": {
@@ -662,7 +662,7 @@
     },
     {
       "from_id": "op-10",
-      "to_id": "candidate_onboarding",
+      "to_id": "live_onboarding",
       "relation": "SUBJECT_TO",
       "properties": {
         "np_shape": {

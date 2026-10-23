@@ -78,12 +78,40 @@ Use `python tools/kit_check.py --repositories PATH_TO_SOURCES --generate` after 
 lessons, then `python tools/kit_check.py --repositories PATH_TO_SOURCES` and the installer tests. Folder indices
 come from trugs-web map. Generation never edits a hand-maintained graph.
 
-The manual workflow consumes a prepared kit-inputs artifact from a named run.
-Its wheelhouse must include the unreleased web wheel and all build/test wheels;
-its repositories directory must retain the public checkouts' git metadata at the
-revisions in map/repositories.json. Rust and cargo must be available on the runner.
-After this input preparation, the check and installation commands work offline.
-The workflow installs the local candidate before checking the stated CLI commands.
+The workflow runs on every push and pull request. It installs trugs-tools 2.4.0
+and trugs-web 2.1.0 from the Python package index and checks out the public
+repositories at the revisions in map/repositories.json. It prepares a wheelhouse
+from the index before running the checks offline. No private checkout is needed.
 
-The index includes hidden directories. Its input is a copy of the candidate
+The manual workflow consumes a prepared kit-inputs artifact from a named run.
+Its wheelhouse must include trugs-web 2.1.0, the runtime dependencies and all
+build/test wheels; its repositories directory must retain the public checkouts'
+git metadata at the revisions in map/repositories.json. Rust and cargo must be
+available on the runner. Both workflow jobs check a temporary copy, so building
+or installing the package leaves the source checkout clean.
+
+Run the checker on a temporary copy of the tree, with `--repositories` pointing
+to those checkouts and `--wheelhouse` pointing to the prepared wheelhouse. The
+checker defaults to a wheelhouse beside the active virtual environment if that
+option is omitted. It builds trugs-agent 2.0.0 from a scratch copy under its
+temporary directory, then executes each documented command verbatim in a fresh
+virtual environment. For stated index installs, pip is configured with no index,
+only the prepared wheelhouse and that freshly built wheel, and no build isolation.
+Any trugs-agent wheel in the input bundle is excluded in favour of the fresh build.
+Their stdout and exit status are compared with the expectations beside the commands.
+Pass the same `--wheelhouse` to the installer tests. No network is used during
+kit_check or the installer tests.
+
+To install from a checkout with build tools and runtime dependencies already
+available, the helper builds in temporary storage and installs the wheel into the
+current Python environment; it does not place instructions in the checkout:
+
+```sh
+python tools/install_local.py
+```
+<!-- expect: {"status": 0, "stdout": "PASS: local trugs-agent 2.0.0 installed\n"} -->
+
+Expected stdout: `PASS: local trugs-agent 2.0.0 installed`; exit status 0.
+
+The index includes hidden directories. Its input is a copy of the tree
 without folder.trug.json; the output is written outside that copy.

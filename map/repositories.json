@@ -22,7 +22,7 @@
     "resource": "store",
     "group": "live_graph_storage",
     "role": "Say support; graph storage backends",
-    "revision": "08c4bdec",
+    "revision": "f363268b",
     "installation": "Python package trugs-store 2.2.0.",
     "instructions": "README.md"
   },
@@ -47,10 +47,10 @@
   {
     "repository": "TRUGS-WEB",
     "resource": "web",
-    "group": "candidate_describe",
+    "group": "live_describe",
     "role": "Describe; folder and web graphs",
-    "revision": "d7db95df080155af59b506b11740d33afa4f9c93",
-    "installation": "Install the prepared trugs-web 2.1.0 wheel; this version is unreleased. Local folder mapping is offline.",
+    "revision": "9b6cd1f60e1deaa03073f89c78f1f6d5ae277e28",
+    "installation": "Install trugs-web 2.1.0 from the Python package index. Local folder mapping is offline.",
     "instructions": "README.md"
   },
   {
@@ -58,8 +58,8 @@
     "resource": "viewer",
     "group": "demonstration",
     "role": "Describe; a demonstration, not in active development",
-    "revision": "60117feb",
-    "installation": "Browser demonstration; no kit installation route.",
+    "revision": "c27e39fe",
+    "installation": "Open https://trugs-llc.github.io/TRUGS-VIEWER/ in a browser; no package installation.",
     "instructions": "README.md"
   },
   {
@@ -83,10 +83,10 @@
   {
     "repository": "TRUGS-AGENT",
     "resource": "agent_kit",
-    "group": "candidate_onboarding",
+    "group": "live_onboarding",
     "role": "Say support; onboarding kit",
     "revision": null,
-    "installation": "Build this checkout locally; trugs-agent 2.0.0 is unreleased.",
+    "installation": "Install trugs-agent 2.0.0 from the Python package index.",
     "instructions": "AGENTS.md"
   }
 ]

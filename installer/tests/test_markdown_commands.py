@@ -13,7 +13,7 @@ import pytest
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "tools"))
 from kit_check import blocks  # noqa: E402
-from kit_parts import commands  # noqa: E402
+from kit_parts import command_environment, commands  # noqa: E402
 
 CONTAINERS = (
     "{fence}trl\t\n{body}\n{fence}\n",
@@ -289,7 +289,7 @@ def test_missing_or_invalid_container_expectation_fails(tmp_path, monkeypatch, t
 @pytest.mark.parametrize("fence", ("```", "~~~"))
 @pytest.mark.parametrize("fault", ("stdout", "status"))
 def test_full_kit_entry_rejects_container_command_result(
-    tmp_path, prepared_repositories, container, fence, fault
+    tmp_path, prepared_repositories, prepared_wheelhouse, container, fence, fault
 ):
     tree = tmp_path / "kit"
     shutil.copytree(ROOT, tree, ignore=shutil.ignore_patterns(".git"))
@@ -320,6 +320,8 @@ def test_full_kit_entry_rejects_container_command_result(
         str(tree / "tools/kit_check.py"),
         "--repositories",
         str(prepared_repositories),
+        "--wheelhouse",
+        str(prepared_wheelhouse),
     ]
     # Regenerate normally first, so stale-index rejection cannot mask the fault.
     for extra in (["--generate"], []):
@@ -331,5 +333,57 @@ def test_full_kit_entry_rejects_container_command_result(
             f"command differs at kit/skills/compile-decompile/SKILL.md:{body_line}"
             in result.stderr
         )
-        assert "first stated at README.md:65" in result.stderr
+        readme = (tree / "README.md").read_text()
+        first_line = readme[: readme.index(command)].count("\n") + 1
+        assert f"first stated at README.md:{first_line}" in result.stderr
         assert "PASS: kit_check" not in result.stdout
+
+
+def test_printed_index_install_uses_local_wheels_only(tmp_path, prepared_wheelhouse):
+    scratch = tmp_path / "scratch with spaces"
+    scratch.mkdir()
+    bundle = tmp_path / "input wheels"
+    bundle.mkdir()
+    for wheel in prepared_wheelhouse.glob("*.whl"):
+        if not wheel.name.lower().startswith("trugs_agent-"):
+            (bundle / wheel.name).symlink_to(wheel)
+    # This same-version input must never replace the newly built kit wheel.
+    (bundle / "trugs_agent-2.0.0-py3-none-any.whl").write_bytes(b"stale input")
+    env = command_environment(ROOT, scratch, bundle)
+    command = next(
+        body for kind, body in blocks((ROOT / "README.md").read_text()) if kind == "sh"
+    )
+    result = subprocess.run(
+        ["bash", "-c", command],
+        env=env,
+        cwd=scratch,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert result.stdout == ""
+    result = subprocess.run(
+        [str(scratch / "command-venv/bin/trugs-agent"), "--version"],
+        env=env,
+        text=True,
+        capture_output=True,
+        check=True,
+    )
+    assert result.stdout == "trugs-agent 2.0.0\n"
+    result = subprocess.run(
+        [
+            str(scratch / "command-venv/bin/python"),
+            "-m",
+            "pip",
+            "install",
+            "trugs-agent==0.0.0",
+        ],
+        env=env,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert result.returncode != 0
+    assert "No matching distribution found" in result.stderr
+    assert "Retrying" not in result.stderr

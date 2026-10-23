@@ -151,6 +151,13 @@ def examples(root, scratch, write):
 
 def maps(root, scratch, write, repositories=None):
     source = root / "map/published.trl"
+    records = json.loads((root / "map/repositories.json").read_text())
+    sentences = [
+        f"AGENT reader SHALL READ RESOURCE {row['resource']} SUBJECT_TO DATA {row['group']}."
+        for row in records
+    ]
+    if write:
+        source.write_text("\n\n".join(sentences) + "\n")
     expected = run(["trug", "trl", "compile", str(source)])
     graph = root / "map/published.trug.json"
     if write:
@@ -162,25 +169,23 @@ def maps(root, scratch, write, repositories=None):
     returned = scratch / "published-back.trug.json"
     returned.write_text(run(["trug", "trl", "compile", "-"], data=canonical))
     run([sys.executable, str(root / "tools/graph_equiv.py"), str(graph), str(returned)])
-    records = json.loads((root / "map/repositories.json").read_text())
     required = {
         "TRUGS": ("37bb78c7", "live_specification"),
         "TRUGS-TOOLS": ("a0a4218f", "live_language_tools"),
-        "TRUGS-STORE": ("08c4bdec", "live_graph_storage"),
+        "TRUGS-STORE": ("f363268b", "live_graph_storage"),
         "TRUGS-ACCOUNTING-CALCULATOR": ("b806f115", "live_compute"),
         "TRUGS-SITE": ("d2de19cb", "live_specification_site"),
-        "TRUGS-WEB": ("d7db95df080155af59b506b11740d33afa4f9c93", "candidate_describe"),
-        "TRUGS-VIEWER": ("60117feb", "demonstration"),
+        "TRUGS-WEB": ("9b6cd1f60e1deaa03073f89c78f1f6d5ae277e28", "live_describe"),
+        "TRUGS-VIEWER": ("c27e39fe", "demonstration"),
         "TRUGS-TRL": (None, "coming_language"),
         "TRUGS-LAW": (None, "coming_law"),
-        "TRUGS-AGENT": (None, "candidate_onboarding"),
+        "TRUGS-AGENT": (None, "live_onboarding"),
     }
     if len(records) != len(required) or {r["repository"] for r in records} != set(
         required
     ):
         raise ValueError("repository map membership differs")
     readme = (root / "map/README.md").read_text()
-    sentences = []
     for row in records:
         repo = row["repository"]
         if (row["revision"], row["group"]) != required[repo]:
@@ -197,12 +202,14 @@ def maps(root, scratch, write, repositories=None):
             and row["role"] != "Describe; a demonstration, not in active development"
         ):
             raise ValueError("viewer status differs")
+        if (
+            repo == "TRUGS-VIEWER"
+            and "https://trugs-llc.github.io/TRUGS-VIEWER/" not in row["installation"]
+        ):
+            raise ValueError("viewer address differs")
         for value in (row["resource"], row["group"], row["role"], row["installation"]):
             if value not in readme:
                 raise ValueError("map README binding differs: " + repo)
-        sentences.append(
-            f"AGENT reader SHALL READ RESOURCE {row['resource']} SUBJECT_TO DATA {row['group']}."
-        )
         if repositories and repo not in (
             "TRUGS-WEB",
             "TRUGS-VIEWER",
@@ -240,7 +247,70 @@ def maps(root, scratch, write, repositories=None):
         )
 
 
-def commands(root, scratch, repositories=None, calculator_source=None):
+def command_environment(root, scratch, wheelhouse):
+    """Resolve printed index installs using local wheels and a scratch-built kit."""
+    import venv
+
+    wheelhouse = Path(wheelhouse or Path(sys.prefix).parent / "wheelhouse").resolve()
+    if not wheelhouse.is_dir():
+        raise ValueError("command check needs a prepared --wheelhouse")
+    source = scratch / "command-installer"
+    shutil.copytree(root / "installer", source)
+    wheels = scratch / "command-wheels"
+    run(
+        [
+            sys.executable,
+            "-m",
+            "build",
+            "--no-isolation",
+            "--wheel",
+            "--outdir",
+            str(wheels),
+            str(source),
+        ]
+    )
+    # Only the wheel just built may satisfy trugs-agent, even if an input bundle
+    # also contains an older wheel with that same version.
+    for wheel in wheelhouse.glob("*.whl"):
+        if not wheel.name.lower().startswith("trugs_agent-"):
+            (wheels / wheel.name).symlink_to(wheel)
+    environment = scratch / "command-venv"
+    venv.EnvBuilder(with_pip=True).create(environment)
+    env = os.environ.copy()
+    env.update(
+        PATH=str(environment / "bin") + os.pathsep + env.get("PATH", ""),
+        PIP_NO_INDEX="1",
+        PIP_FIND_LINKS=wheels.as_uri(),
+        PIP_NO_BUILD_ISOLATION="1",
+        PIP_DISABLE_PIP_VERSION_CHECK="1",
+        PIP_NO_CACHE_DIR="1",
+        PIP_CONFIG_FILE=os.devnull,
+    )
+    result = subprocess.run(
+        [
+            str(environment / "bin/python"),
+            "-m",
+            "pip",
+            "install",
+            "--quiet",
+            "--no-build-isolation",
+            "build",
+            "setuptools",
+            "wheel",
+        ],
+        env=env,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode:
+        raise ValueError(
+            "offline command tools failed: " + result.stdout + result.stderr
+        )
+    return env
+
+
+def commands(root, scratch, repositories=None, calculator_source=None, wheelhouse=None):
     candidates = [root / "README.md", root / "PRIMER.md"]
     candidates += sorted((root / "kit/skills").rglob("*.md"))
     candidates += sorted((root / "examples").rglob("*.md"))
@@ -254,7 +324,11 @@ def commands(root, scratch, repositories=None, calculator_source=None):
     seen = {}
     checked_examples = set()
     # These are declared lesson inputs, not substitutions for the printed command.
-    env = os.environ.copy()
+    env = (
+        command_environment(root, scratch, wheelhouse)
+        if (root / "installer/pyproject.toml").is_file()
+        else os.environ.copy()
+    )
     env["repositories"] = str(Path(repositories).resolve()) if repositories else ""
     env["calculator_source"] = (
         str(Path(calculator_source).resolve()) if calculator_source else ""

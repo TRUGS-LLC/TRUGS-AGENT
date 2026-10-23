@@ -157,6 +157,12 @@ def main():
         help="optional prepared calculator source copy",
     )
     parser.add_argument(
+        "--wheelhouse",
+        type=Path,
+        default=Path(sys.prefix).parent / "wheelhouse",
+        help="offline wheels (default: wheelhouse beside the active environment)",
+    )
+    parser.add_argument(
         "--generate",
         action="store_true",
         help="regenerate forms, lesson graphs and the repository index",
@@ -176,7 +182,13 @@ def main():
             maps(ROOT, scratch, args.generate, args.repositories)
             eval_sources(ROOT, scratch, args.repositories)
             hygiene(ROOT)
-            commands(ROOT, scratch, args.repositories, args.calculator_source)
+            commands(
+                ROOT,
+                scratch,
+                args.repositories,
+                args.calculator_source,
+                args.wheelhouse,
+            )
         print("PASS: kit_check")
     except (ValueError, OSError, KeyError, TypeError) as exc:
         print(f"FAIL: {exc}", file=sys.stderr)
