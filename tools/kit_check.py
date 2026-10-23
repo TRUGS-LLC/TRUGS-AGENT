@@ -13,6 +13,8 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "installer/src"))
+from trugs_agent.markdown import blocks  # noqa: E402
 
 
 def run(args, *, cwd=ROOT, data=None):
@@ -22,30 +24,6 @@ def run(args, *, cwd=ROOT, data=None):
             f"{args[0]} failed ({result.returncode}): {result.stdout}{result.stderr}"
         )
     return result.stdout
-
-
-def blocks(text):
-    """CommonMark fences: matching character and a closer at least as long."""
-    opened = None
-    kind = ""
-    body = []
-    for line in text.splitlines():
-        match = re.match(r"^ {0,3}(`{3,}|~{3,})(.*)$", line)
-        if opened:
-            if (
-                match
-                and match[1][0] == opened[0]
-                and len(match[1]) >= len(opened)
-                and not match[2].strip()
-            ):
-                yield kind, "\n".join(body) + "\n"
-                opened, body = None, []
-            else:
-                body.append(line)
-        elif match:
-            opened, kind = match[1], match[2].strip().split(" ")[0]
-    if opened:
-        raise ValueError("unclosed fenced block")
 
 
 def language():

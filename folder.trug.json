@@ -16,8 +16,8 @@
         "path": ".",
         "name": ".",
         "kind": "folder",
-        "size": 227392,
-        "sha256": "159586d42b09f775de7f801b82df09c46462ab4e97895f8b76e6808d7a67b5cb",
+        "size": 236209,
+        "sha256": "47178c4a5a3db7a9bb6ee227c33f2938b0044c036a8e2db4f8b8dc0f18a3f874",
         "unread": [
           {
             "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -466,8 +466,8 @@
         "path": "README.md",
         "name": "README.md",
         "kind": "md",
-        "size": 4078,
-        "sha256": "6902fabaf30a6ea5785b6f65bf8e197898a8cf6b934525f4526035f7d0e4a781",
+        "size": 4071,
+        "sha256": "88e09fc2b46d1f33fd1727797e075bc0f05721d8ac1e2e9b18869a3740bdfc44",
         "title": "TRUGS onboarding kit"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
@@ -547,8 +547,8 @@
         "path": "examples",
         "name": "examples",
         "kind": "folder",
-        "size": 44459,
-        "sha256": "dfcf2d378dd7648a7820a843b9d3136f7929836651d330e363669faeae092c3d"
+        "size": 44902,
+        "sha256": "26aa8a0138a12750b53681f971536bd57d29093a037bcb1c6136aba280e0715e"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
@@ -588,8 +588,8 @@
         "path": "examples/calculator",
         "name": "examples/calculator",
         "kind": "folder",
-        "size": 2757,
-        "sha256": "1970302fb0b62fd8b037144892ebc73e2107e7257e7b8ebc0a96b76d9515c887"
+        "size": 3200,
+        "sha256": "4361cadadf24f00b51ffdbe4af024445490d9ebef3aa45d44693c780608b9968"
       },
       "parent_id": "module_c590b3c924c35c2f241746522284e4709df490d73a38aaa7d6de4ed1eac2f546",
       "contains": [
@@ -608,8 +608,8 @@
         "path": "examples/calculator/README.md",
         "name": "examples/calculator/README.md",
         "kind": "md",
-        "size": 918,
-        "sha256": "b2a86d3e43bebcbb09023470372beec71b017487f2790ede22fbe8a908fa2c2f",
+        "size": 1361,
+        "sha256": "ce98b74b0ea2ae9fef582610782e1d8d97e4411e9e20c6a81d99bb3349f67c73",
         "title": "calculator"
       },
       "parent_id": "module_ce0f0c1bc9f2e597b23f92129ee12387363dfaed9e8c96cee837832d5506add4",
@@ -1316,8 +1316,8 @@
         "path": "installer",
         "name": "installer",
         "kind": "folder",
-        "size": 45840,
-        "sha256": "f08b33d23008aadf92fae68d65e5272ca436fde574815ecf8c9891a3c77cd14a"
+        "size": 53087,
+        "sha256": "f5bbda2367748349767e1e63dd6bf747feb50d7a546f212dd5324051d80e42d2"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
@@ -1368,8 +1368,8 @@
         "path": "installer/pyproject.toml",
         "name": "installer/pyproject.toml",
         "kind": "toml",
-        "size": 647,
-        "sha256": "1cf191211e2dc125b723cfd57e74dcf0abbac69b2a23db31415d7d77c6c232aa"
+        "size": 673,
+        "sha256": "6ca793d9bb6b37533916237c6f2fca980bdb4257b678d198e4b2e0e9e3654bb0"
       },
       "parent_id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
       "contains": [],
@@ -1383,8 +1383,8 @@
         "path": "installer/pyproject.toml.in",
         "name": "installer/pyproject.toml.in",
         "kind": "in",
-        "size": 658,
-        "sha256": "ec8baa2c060c5bd65e71c15f2e5b5466f4701a151eb5040e7c63981c611492a2"
+        "size": 684,
+        "sha256": "f75706249a7c3200f0a6f2583464ce3114861b3c2c27e41473f089eee64cb573"
       },
       "parent_id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
       "contains": [],
@@ -1398,8 +1398,8 @@
         "path": "installer/src",
         "name": "installer/src",
         "kind": "folder",
-        "size": 29413,
-        "sha256": "9b647a6abd0925fe24087f9fbb8064714a9a35a05f2b121a21bcedb8e69fd19f"
+        "size": 29491,
+        "sha256": "c79cb3f977f3cc046283bbf3938b0998852ed1d52f0ef1e64759978aa72d5fc8"
       },
       "parent_id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
       "contains": [
@@ -1415,13 +1415,14 @@
         "path": "installer/src/trugs_agent",
         "name": "installer/src/trugs_agent",
         "kind": "folder",
-        "size": 29413,
-        "sha256": "63dc3679e0986043ff8f4c809445bd52c4a01606f1c5fbb55838f675e5c3367f"
+        "size": 29491,
+        "sha256": "d7120050b54c029df9bbc4bee21ac0956a16b84d033b6dd56b511861612b3c11"
       },
       "parent_id": "module_c297652765a469a7500e0b6f61839350a9cb5a2fadadb947d8eaa16788196787",
       "contains": [
         "file_dd5103ab783009ba4864ba91d6f4109ce746cd9c16d5d6b0526b362e5cccfb4c",
         "file_a100528c0f5fda1caec95f11313a1e67e5e87e1f488a1bc1332fceb904f7b897",
+        "file_2734af7a12aa4b56d7a04d627e38587b1ebf7c5044a7c07247b61c6dcc1a9ce9",
         "module_62e08106c60d6ae4e6021e580c6a7740adeb23ee54e511d236fb7ffe9bffb6a9"
       ],
       "metric_level": "BASE_MODULE",
@@ -1449,8 +1450,23 @@
         "path": "installer/src/trugs_agent/cli.py",
         "name": "installer/src/trugs_agent/cli.py",
         "kind": "py",
-        "size": 8530,
-        "sha256": "112ae9ec22f7881582097d0ceccdd161f6d5ac7b3b30b6da229bc485a4034f87"
+        "size": 7952,
+        "sha256": "e4578e4c393117028a03c3235c96f5733fc8958323d758eeb76ca5bbc57390e1"
+      },
+      "parent_id": "module_ece4fbe51cb7b2e4898aef7ca69a9fa55f7b5eb5d07b73c4550ad7e8dcf5146b",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "file_2734af7a12aa4b56d7a04d627e38587b1ebf7c5044a7c07247b61c6dcc1a9ce9",
+      "type": "FILE",
+      "properties": {
+        "path": "installer/src/trugs_agent/markdown.py",
+        "name": "installer/src/trugs_agent/markdown.py",
+        "kind": "py",
+        "size": 656,
+        "sha256": "38c24ff8c9280d5b855141d819e4ac3cbad0515d8a3381e6163d5232b684eb61"
       },
       "parent_id": "module_ece4fbe51cb7b2e4898aef7ca69a9fa55f7b5eb5d07b73c4550ad7e8dcf5146b",
       "contains": [],
@@ -1597,12 +1613,13 @@
         "path": "installer/tests",
         "name": "installer/tests",
         "kind": "folder",
-        "size": 3653,
-        "sha256": "b615adf746cb743a030ac5cffa21204d17445a12e8d74d1dd17945d1cc5bf1ce"
+        "size": 10770,
+        "sha256": "baa48e4a6dcecadc731463806dd3254c9e383c61e2746d4ed4b6fa2595f808b1"
       },
       "parent_id": "module_9c0d294c05fc1d88d698034609bb81c0c69196327594e4c69d2915c80fd9850c",
       "contains": [
-        "file_c63fcda09c22296274ba575a7f32e7b0762af5b8ac829b82984f3a1f205eb1e3"
+        "file_c63fcda09c22296274ba575a7f32e7b0762af5b8ac829b82984f3a1f205eb1e3",
+        "file_548039e10ba43fa1fdfe1a922139f17b6d157ac60a27ab0ff0aac18db952d55b"
       ],
       "metric_level": "BASE_MODULE",
       "dimension": "system"
@@ -1623,14 +1640,29 @@
       "dimension": "system"
     },
     {
+      "id": "file_548039e10ba43fa1fdfe1a922139f17b6d157ac60a27ab0ff0aac18db952d55b",
+      "type": "FILE",
+      "properties": {
+        "path": "installer/tests/test_markdown_commands.py",
+        "name": "installer/tests/test_markdown_commands.py",
+        "kind": "py",
+        "size": 7117,
+        "sha256": "b378b59a1bcc0737cd8f7df1e21cb31c40fd671e980f16149acee58359a4dfb4"
+      },
+      "parent_id": "module_dfbeef8ee1e99a2f38001ef66ef406eb58f9144884e60407df501361781e4d5e",
+      "contains": [],
+      "metric_level": "BASE_FILE",
+      "dimension": "system"
+    },
+    {
       "id": "module_cbc8a597a67c465497550c4a4a7eebdb138442c06be06a78cc1ee8715658ff44",
       "type": "MODULE",
       "properties": {
         "path": "kit",
         "name": "kit",
         "kind": "folder",
-        "size": 35188,
-        "sha256": "04de10022c38487262d5bf436649a8b0ab1e644bb334bc2eb39e206d6f6b969c"
+        "size": 35631,
+        "sha256": "20f910b08f41133976070da21889c29906fe36e0f28ff4a60d6cfdccde988ede"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
@@ -1780,8 +1812,8 @@
         "path": "kit/skills",
         "name": "kit/skills",
         "kind": "folder",
-        "size": 5312,
-        "sha256": "adfea35fb4ad0fbf2f3173e1ecf1ff00f170304cea6453062b0654b7181a3bf8"
+        "size": 5755,
+        "sha256": "290853843cc9d8d6fcdd99d006c415e8a0a0b122557e69eea4f6767ee80eaa3d"
       },
       "parent_id": "module_cbc8a597a67c465497550c4a4a7eebdb138442c06be06a78cc1ee8715658ff44",
       "contains": [
@@ -1918,8 +1950,8 @@
         "path": "kit/skills/run-calculator",
         "name": "kit/skills/run-calculator",
         "kind": "folder",
-        "size": 842,
-        "sha256": "f456b267e84c6576afb0cd83bbe760f9471b453bac67ad472ee3708ee841a169"
+        "size": 1285,
+        "sha256": "8e1f8fb6174dc987d3fdf600444b9013b0cff9a64395f8f1808cd6871f3c1dc8"
       },
       "parent_id": "module_bd89181494ae74dbb48fd7d9430b5c615af00ab98e955e82a02ff0b5cc447e1a",
       "contains": [
@@ -1935,8 +1967,8 @@
         "path": "kit/skills/run-calculator/SKILL.md",
         "name": "kit/skills/run-calculator/SKILL.md",
         "kind": "md",
-        "size": 842,
-        "sha256": "e7e1284c046ad9b3cc154dd9951e61031081e3a317ca60176ddeb22d7043f75c",
+        "size": 1285,
+        "sha256": "0aa063846047a842336aa59f66385c5b05d80039c953c1d1df53312c3e41a91b",
         "title": "name: run-calculator description: Follow the calculator README; its compute vocabulary uses its own compiler and offline vendored Rust build."
       },
       "parent_id": "module_4a95f9749cf36a9382e8ec8ea03e9ab58e23c8559eeee6c8254b11648449b486",
@@ -2114,8 +2146,8 @@
         "path": "tools",
         "name": "tools",
         "kind": "folder",
-        "size": 36657,
-        "sha256": "c7530710fe722af00350803fbb748f537087d37f1c57223b3ffcb8a0844a2168"
+        "size": 37348,
+        "sha256": "5c203d6ed61e49ea36cb936b9826bd4606de192c878dcbb9b97449ccac92d5dd"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
@@ -2150,8 +2182,8 @@
         "path": "tools/install_local.py",
         "name": "tools/install_local.py",
         "kind": "py",
-        "size": 1796,
-        "sha256": "eb1eb8d3abcad6320cf88ccd0eb250f1f828719d42d2e283326967ea402c3384"
+        "size": 1872,
+        "sha256": "e8e2b51e065888d1ce421cdcd8c4e90847712c668898b615afaedafce807b7ce"
       },
       "parent_id": "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281",
       "contains": [],
@@ -2165,8 +2197,8 @@
         "path": "tools/kit_check.py",
         "name": "tools/kit_check.py",
         "kind": "py",
-        "size": 6990,
-        "sha256": "98fd73065f222c73a4ac5d28020e351adcd2859c8f3c71b90cc2e0fcf07cf3a8"
+        "size": 6347,
+        "sha256": "80e0d922a7f99a0bdcf876bb284ca9412891fd43e7a971a2cf23f00a4e764d92"
       },
       "parent_id": "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281",
       "contains": [],
@@ -2180,8 +2212,8 @@
         "path": "tools/kit_parts.py",
         "name": "tools/kit_parts.py",
         "kind": "py",
-        "size": 14376,
-        "sha256": "2156964fdc7140ebdfa5fcd3487183d772461a42f4a785de09ac71b6fac87e08"
+        "size": 15130,
+        "sha256": "272b8d02ecbf761f3e96c296a5c771f761ae38cf5b4fe8be52bd251830d75531"
       },
       "parent_id": "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281",
       "contains": [],
@@ -2195,8 +2227,8 @@
         "path": "tools/lesson.py",
         "name": "tools/lesson.py",
         "kind": "py",
-        "size": 8374,
-        "sha256": "00a0122231158edd4b4222b1757fe9919bf94ac5333cf28eb9d44fd063c9619b"
+        "size": 8878,
+        "sha256": "b4f79ee52586e6af94f72a69a362dea2a053dadd54ddd07a5d3f34b370ccad5c"
       },
       "parent_id": "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281",
       "contains": [],
@@ -2922,6 +2954,11 @@
       "from_id": "file_9c75a10d28881a692a599a4695f49ffdcb7ba43740094e915e6b1f5dea23a486",
       "to_id": "file_97e2a150a1f3116963ec00a04c295bf8ee907ea4ca5223a48e57441206ff609b",
       "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_a100528c0f5fda1caec95f11313a1e67e5e87e1f488a1bc1332fceb904f7b897",
+      "to_id": "file_2734af7a12aa4b56d7a04d627e38587b1ebf7c5044a7c07247b61c6dcc1a9ce9",
+      "relation": "DEPENDS_ON"
     },
     {
       "from_id": "file_a54ff182c7e8acf56acfd6e4b9c3ff41e2c41a31c9b211b2deb9df75d9a478f9",

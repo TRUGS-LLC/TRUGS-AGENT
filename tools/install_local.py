@@ -13,14 +13,15 @@ from packaging.requirements import Requirement
 
 
 def main():
-    (requirement,) = tomllib.loads((ROOT / "installer/pyproject.toml").read_text())[
+    requirements = tomllib.loads((ROOT / "installer/pyproject.toml").read_text())[
         "project"
     ]["dependencies"]
-    tools = Requirement(requirement)
-    if version(tools.name) not in tools.specifier:
-        raise ValueError(
-            "install the required language tools from your offline wheel bundle first"
-        )
+    for requirement in requirements:
+        dependency = Requirement(requirement)
+        if version(dependency.name) not in dependency.specifier:
+            raise ValueError(
+                "install the required runtime dependencies from your offline wheel bundle first"
+            )
     with tempfile.TemporaryDirectory(prefix="kit-install-") as directory:
         temp = Path(directory)
         source = temp / "installer"

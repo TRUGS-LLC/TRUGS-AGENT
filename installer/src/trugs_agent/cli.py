@@ -6,13 +6,14 @@ import argparse
 import importlib.resources
 import json
 import os
-import re
 import stat
 import subprocess
 import sys
 import tempfile
 from contextlib import contextmanager
 from pathlib import Path
+
+from .markdown import blocks
 
 FILES = (
     "AGENTS.md",
@@ -90,27 +91,9 @@ def read_placed(root, name):
 
 
 def fenced(text):
-    opened = None
-    kind = ""
-    body = []
-    for line in text.splitlines():
-        match = re.match(r"^ {0,3}(`{3,}|~{3,})(.*)$", line)
-        if opened:
-            if (
-                match
-                and match[1][0] == opened[0]
-                and len(match[1]) >= len(opened)
-                and not match[2].strip()
-            ):
-                if kind == "trl":
-                    yield "\n".join(body) + "\n"
-                opened, body = None, []
-            else:
-                body.append(line)
-        elif match:
-            opened, kind = match[1], match[2].strip().split(" ")[0]
-    if opened:
-        raise ValueError("unclosed instruction fence")
+    for kind, body in blocks(text):
+        if kind == "trl":
+            yield body
 
 
 def checked_trl(text, temp):

@@ -9,7 +9,7 @@ description = "TRUGS onboarding instructions and project installer"
 requires-python = ">=3.11"
 license = "Apache-2.0"
 license-files = ["LICENSE", "NOTICE"]
-dependencies = ["trugs-tools>=2.4.0,<3"]
+dependencies = ["trugs-tools>=2.4.0,<3", "markdown-it-py>=4.2,<5"]
 authors = [{name = "TRUGS LLC"}]
 
 [project.scripts]

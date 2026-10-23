@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import re
+import shlex
 import shutil
 import subprocess
 import sys
@@ -242,41 +244,59 @@ def commands(root, scratch, repositories=None, calculator_source=None):
     candidates += sorted((root / "kit/skills").rglob("*.md"))
     candidates += sorted((root / "examples").rglob("*.md"))
     count = 0
-    seen = set()
+    seen = {}
+    checked_examples = set()
+    # These are declared lesson inputs, not substitutions for the printed command.
+    env = os.environ.copy()
+    env["repositories"] = str(Path(repositories).resolve()) if repositories else ""
+    env["calculator_source"] = (
+        str(Path(calculator_source).resolve()) if calculator_source else ""
+    )
     pattern = re.compile(r"```sh\n(.*?)\n```\n<!-- expect: (.*?) -->", re.S)
     for path in candidates:
         text = path.read_text()
-        entries = pattern.findall(text)
+        entries = list(pattern.finditer(text))
         if len(entries) != len(re.findall(r"^```sh$", text, re.M)):
             raise ValueError(
                 "command lacks expected result: " + str(path.relative_to(root))
             )
-        for command, expected in entries:
+        for entry in entries:
+            command, expected = entry.groups()
             expected = json.loads(expected)
-            # Prepared repositories are an explicit input to the calculator lesson.
-            args = ["bash", "-c", command]
-            if "examples/calculator/check.sh" in command and repositories:
-                args = [
-                    "bash",
-                    "examples/calculator/check.sh",
-                    "--repositories",
-                    str(repositories),
-                ]
-            if "examples/calculator/check.sh" in command and calculator_source:
-                args += ["--calculator-source", str(calculator_source)]
+            line = text.count("\n", 0, entry.start(1)) + 1
+            location = f"{path.relative_to(root)}:{line}"
             if command not in seen:
-                result = subprocess.run(args, cwd=root, text=True, capture_output=True)
-                if (
-                    result.returncode != expected["status"]
-                    or result.stdout != expected["stdout"]
-                ):
-                    raise ValueError(
-                        f"command differs: {command}\n{result.stdout}{result.stderr}"
-                    )
-                seen.add(command)
+                result = subprocess.run(
+                    ["bash", "-c", command],
+                    cwd=root,
+                    env=env,
+                    text=True,
+                    capture_output=True,
+                )
+                seen[command] = result, location
+            result, first_location = seen[command]
+            # Execution may be shared; every occurrence still owes a comparison.
+            if (
+                result.returncode != expected["status"]
+                or result.stdout != expected["stdout"]
+            ):
+                repeated = (
+                    f"; contradictory expectations, first stated at {first_location}"
+                    if first_location != location
+                    else ""
+                )
+                raise ValueError(
+                    f"command differs at {location}{repeated}: {command}\n"
+                    f"expected: {expected!r}\n"
+                    f"actual status: {result.returncode}, stdout: {result.stdout!r}\n"
+                    f"{result.stderr}"
+                )
+            words = shlex.split(command)
+            if len(words) >= 2 and words[0] == "bash":
+                checked_examples.add(words[1])
             count += 1
     for script in (root / "examples").glob("*/check.sh"):
-        if f"bash {script.relative_to(root).as_posix()}" not in seen:
+        if script.relative_to(root).as_posix() not in checked_examples:
             raise ValueError("unchecked example: " + script.parent.name)
     run([sys.executable, str(root / "tools/lesson.py"), "install"])
     print(f"PASS: command_check ({count} stated commands, {len(seen)} distinct)")

@@ -26,7 +26,7 @@ for depth. The calculator has its own compute vocabulary and compiler.
 
 This checkout contains the unreleased trugs-agent 2.0.0 installer. The existing
 index releases are older; do not use them to install this kit. From this checkout,
-with the build tools and the required language tools already installed from an
+with the build tools and runtime dependencies already installed from an
 offline wheel bundle, install the local candidate into your current Python
 environment. The helper builds in temporary storage and installs that wheel;
 it does not place instructions in the checkout.

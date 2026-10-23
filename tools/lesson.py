@@ -9,6 +9,7 @@ import runpy
 import shutil
 import subprocess
 import sys
+import sysconfig
 import tempfile
 import venv
 from pathlib import Path
@@ -108,6 +109,18 @@ def install_lesson(temp):
     environment = temp / "venv"
     venv.EnvBuilder(with_pip=True, system_site_packages=True).create(environment)
     python = environment / "bin/python"
+    # Share the prepared interpreter's runtime dependencies even when it is a
+    # virtual environment (system_site_packages alone only shares its base).
+    purelib = Path(
+        run(
+            [
+                str(python),
+                "-c",
+                "import sysconfig; print(sysconfig.get_path('purelib'))",
+            ]
+        ).strip()
+    )
+    (purelib / "prepared-runtime.pth").write_text(sysconfig.get_path("purelib") + "\n")
     run(
         [
             str(python),
@@ -117,6 +130,7 @@ def install_lesson(temp):
             "--no-index",
             "--no-build-isolation",
             "--no-deps",
+            "--ignore-installed",
             str(wheel),
         ]
     )

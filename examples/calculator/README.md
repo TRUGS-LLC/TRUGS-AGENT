@@ -13,8 +13,13 @@ builds in temporary storage and matches the README's six agreed invoice cases.
 AGENT reader SHALL READ FILE calculator_instructions.
 ```
 
+The shell variable `repositories` names the absolute path to the prepared public
+repository directory. The optional shell variable `calculator_source` names a
+prepared calculator source copy; when unset, the checkout in `repositories` is used.
+Set `repositories` to your offline bundle's repository directory before running:
+
 ```sh
-bash examples/calculator/check.sh
+bash examples/calculator/check.sh --repositories "$repositories" --calculator-source "${calculator_source:-$repositories/TRUGS-ACCOUNTING-CALCULATOR}"
 ```
 <!-- expect: {"status": 0, "stdout": "PASS: calculator\n"} -->
 
