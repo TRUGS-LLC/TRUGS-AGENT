@@ -1,0 +1,92 @@
+[
+  {
+    "id": "four-types",
+    "kind": "question",
+    "prompt": "Name the four types of TRUGS.",
+    "answer": [
+      "Describe",
+      "Say",
+      "Compute",
+      "Govern"
+    ],
+    "source": {
+      "kind": "trugs_readme",
+      "locator": "https://github.com/TRUGS-LLC/TRUGS/blob/37bb78c7/README.md",
+      "evidence": [
+        "### Describe",
+        "### Say",
+        "### Compute",
+        "### Govern"
+      ]
+    }
+  },
+  {
+    "id": "compile",
+    "kind": "task",
+    "prompt": "Compile the hello sentence into a graph, then recover a sentence.",
+    "answer": [
+      "Compile / decompile / validate TRL <-> TRUG"
+    ],
+    "source": {
+      "kind": "help",
+      "command": [
+        "trug",
+        "--help"
+      ],
+      "evidence": [
+        "validate",
+        "Compile / decompile / validate TRL"
+      ]
+    }
+  },
+  {
+    "id": "modal",
+    "kind": "question",
+    "prompt": "Which installed word expresses an obligation?",
+    "answer": "SHALL",
+    "source": {
+      "kind": "language",
+      "word": "SHALL",
+      "evidence": {
+        "word": "SHALL",
+        "speech": "verb",
+        "subcategory": "obligate"
+      }
+    }
+  },
+  {
+    "id": "folder",
+    "kind": "task",
+    "prompt": "Describe a local folder without fetching web sources.",
+    "answer": [
+      "folder to describe",
+      "use a path outside the mapped folder"
+    ],
+    "source": {
+      "kind": "help",
+      "command": [
+        "trugs-web",
+        "map",
+        "--help"
+      ],
+      "evidence": [
+        "folder to describe",
+        "use a path outside the mapped folder"
+      ]
+    }
+  },
+  {
+    "id": "language",
+    "kind": "question",
+    "prompt": "Which word names the validation operation?",
+    "answer": "VALIDATE",
+    "source": {
+      "kind": "language",
+      "word": "VALIDATE",
+      "evidence": {
+        "word": "VALIDATE",
+        "speech": "verb"
+      }
+    }
+  }
+]

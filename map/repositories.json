@@ -1,0 +1,92 @@
+[
+  {
+    "repository": "TRUGS",
+    "resource": "trugs",
+    "group": "live_specification",
+    "role": "Say; specification and four-type overview",
+    "revision": "37bb78c7",
+    "installation": "Read the repository directly; the specification needs no installation.",
+    "instructions": "README.md"
+  },
+  {
+    "repository": "TRUGS-TOOLS",
+    "resource": "tools",
+    "group": "live_language_tools",
+    "role": "Say; core language CLI",
+    "revision": "a0a4218f",
+    "installation": "Python package trugs-tools 2.4.0 provides trug.",
+    "instructions": "README.md"
+  },
+  {
+    "repository": "TRUGS-STORE",
+    "resource": "store",
+    "group": "live_graph_storage",
+    "role": "Say support; graph storage backends",
+    "revision": "f363268b",
+    "installation": "Python package trugs-store 2.2.0.",
+    "instructions": "README.md"
+  },
+  {
+    "repository": "TRUGS-ACCOUNTING-CALCULATOR",
+    "resource": "calculator",
+    "group": "live_compute",
+    "role": "Compute; accounting calculator",
+    "revision": "b806f115",
+    "installation": "Build with the repository README and a Rust toolchain; crates are vendored.",
+    "instructions": "README.md"
+  },
+  {
+    "repository": "TRUGS-SITE",
+    "resource": "site",
+    "group": "live_specification_site",
+    "role": "Describe support; static specification website",
+    "revision": "d2de19cb",
+    "installation": "Read index.html; no build step or package installation.",
+    "instructions": "README.md"
+  },
+  {
+    "repository": "TRUGS-WEB",
+    "resource": "web",
+    "group": "live_describe",
+    "role": "Describe; folder and web graphs",
+    "revision": "9b6cd1f60e1deaa03073f89c78f1f6d5ae277e28",
+    "installation": "Install trugs-web 2.1.0 from the Python package index. Local folder mapping is offline.",
+    "instructions": "README.md"
+  },
+  {
+    "repository": "TRUGS-VIEWER",
+    "resource": "viewer",
+    "group": "demonstration",
+    "role": "Describe; a demonstration, not in active development",
+    "revision": "c27e39fe",
+    "installation": "Open https://trugs-llc.github.io/TRUGS-VIEWER/ in a browser; no package installation.",
+    "instructions": "README.md"
+  },
+  {
+    "repository": "TRUGS-TRL",
+    "resource": "trl",
+    "group": "coming_language",
+    "role": "Say; coming, with no date",
+    "revision": null,
+    "installation": "Coming; no installation route yet.",
+    "instructions": null
+  },
+  {
+    "repository": "TRUGS-LAW",
+    "resource": "law",
+    "group": "coming_law",
+    "role": "Say; coming, with no date",
+    "revision": null,
+    "installation": "Coming; no installation route yet.",
+    "instructions": null
+  },
+  {
+    "repository": "TRUGS-AGENT",
+    "resource": "agent_kit",
+    "group": "live_onboarding",
+    "role": "Say support; onboarding kit",
+    "revision": null,
+    "installation": "Install trugs-agent 2.0.0 from the Python package index.",
+    "instructions": "AGENTS.md"
+  }
+]

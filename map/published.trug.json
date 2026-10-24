@@ -1,0 +1,679 @@
+{
+  "name": "published",
+  "version": "1.0.0",
+  "type": "PROJECT",
+  "dimension": "system",
+  "dimensions": {
+    "system": {
+      "description": "Compiled TRUG graph: published"
+    }
+  },
+  "nodes": [
+    {
+      "id": "reader",
+      "type": "AGENT",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_AGENT",
+      "dimension": "system"
+    },
+    {
+      "id": "op-1",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "READ",
+        "verb_subcategory": "move"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "trugs",
+      "type": "RESOURCE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "live_specification",
+      "type": "DATA",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_DATA",
+      "dimension": "system"
+    },
+    {
+      "id": "op-2",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "READ",
+        "verb_subcategory": "move",
+        "preceded_by_blank_line": true
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "tools",
+      "type": "RESOURCE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "live_language_tools",
+      "type": "DATA",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_DATA",
+      "dimension": "system"
+    },
+    {
+      "id": "op-3",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "READ",
+        "verb_subcategory": "move",
+        "preceded_by_blank_line": true
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "store",
+      "type": "RESOURCE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "live_graph_storage",
+      "type": "DATA",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_DATA",
+      "dimension": "system"
+    },
+    {
+      "id": "op-4",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "READ",
+        "verb_subcategory": "move",
+        "preceded_by_blank_line": true
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "calculator",
+      "type": "RESOURCE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "live_compute",
+      "type": "DATA",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_DATA",
+      "dimension": "system"
+    },
+    {
+      "id": "op-5",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "READ",
+        "verb_subcategory": "move",
+        "preceded_by_blank_line": true
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "site",
+      "type": "RESOURCE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "live_specification_site",
+      "type": "DATA",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_DATA",
+      "dimension": "system"
+    },
+    {
+      "id": "op-6",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "READ",
+        "verb_subcategory": "move",
+        "preceded_by_blank_line": true
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "web",
+      "type": "RESOURCE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "live_describe",
+      "type": "DATA",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_DATA",
+      "dimension": "system"
+    },
+    {
+      "id": "op-7",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "READ",
+        "verb_subcategory": "move",
+        "preceded_by_blank_line": true
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "viewer",
+      "type": "RESOURCE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "demonstration",
+      "type": "DATA",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_DATA",
+      "dimension": "system"
+    },
+    {
+      "id": "op-8",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "READ",
+        "verb_subcategory": "move",
+        "preceded_by_blank_line": true
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "trl",
+      "type": "RESOURCE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "coming_language",
+      "type": "DATA",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_DATA",
+      "dimension": "system"
+    },
+    {
+      "id": "op-9",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "READ",
+        "verb_subcategory": "move",
+        "preceded_by_blank_line": true
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "law",
+      "type": "RESOURCE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "coming_law",
+      "type": "DATA",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_DATA",
+      "dimension": "system"
+    },
+    {
+      "id": "op-10",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "READ",
+        "verb_subcategory": "move",
+        "preceded_by_blank_line": true
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "agent_kit",
+      "type": "RESOURCE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "live_onboarding",
+      "type": "DATA",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_DATA",
+      "dimension": "system"
+    },
+    {
+      "id": "root",
+      "type": "PROJECT",
+      "properties": {},
+      "parent_id": null,
+      "contains": [
+        "reader",
+        "op-1",
+        "trugs",
+        "live_specification",
+        "op-2",
+        "tools",
+        "live_language_tools",
+        "op-3",
+        "store",
+        "live_graph_storage",
+        "op-4",
+        "calculator",
+        "live_compute",
+        "op-5",
+        "site",
+        "live_specification_site",
+        "op-6",
+        "web",
+        "live_describe",
+        "op-7",
+        "viewer",
+        "demonstration",
+        "op-8",
+        "trl",
+        "coming_language",
+        "op-9",
+        "law",
+        "coming_law",
+        "op-10",
+        "agent_kit",
+        "live_onboarding"
+      ],
+      "metric_level": "BASE_PROJECT",
+      "dimension": "system"
+    }
+  ],
+  "edges": [
+    {
+      "from_id": "reader",
+      "to_id": "op-1",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "AGENT"
+        }
+      }
+    },
+    {
+      "from_id": "op-1",
+      "to_id": "trugs",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RESOURCE"
+        }
+      }
+    },
+    {
+      "from_id": "op-1",
+      "to_id": "live_specification",
+      "relation": "SUBJECT_TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "DATA"
+        }
+      }
+    },
+    {
+      "from_id": "reader",
+      "to_id": "op-2",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "AGENT"
+        }
+      }
+    },
+    {
+      "from_id": "op-2",
+      "to_id": "tools",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RESOURCE"
+        }
+      }
+    },
+    {
+      "from_id": "op-2",
+      "to_id": "live_language_tools",
+      "relation": "SUBJECT_TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "DATA"
+        }
+      }
+    },
+    {
+      "from_id": "reader",
+      "to_id": "op-3",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "AGENT"
+        }
+      }
+    },
+    {
+      "from_id": "op-3",
+      "to_id": "store",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RESOURCE"
+        }
+      }
+    },
+    {
+      "from_id": "op-3",
+      "to_id": "live_graph_storage",
+      "relation": "SUBJECT_TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "DATA"
+        }
+      }
+    },
+    {
+      "from_id": "reader",
+      "to_id": "op-4",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "AGENT"
+        }
+      }
+    },
+    {
+      "from_id": "op-4",
+      "to_id": "calculator",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RESOURCE"
+        }
+      }
+    },
+    {
+      "from_id": "op-4",
+      "to_id": "live_compute",
+      "relation": "SUBJECT_TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "DATA"
+        }
+      }
+    },
+    {
+      "from_id": "reader",
+      "to_id": "op-5",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "AGENT"
+        }
+      }
+    },
+    {
+      "from_id": "op-5",
+      "to_id": "site",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RESOURCE"
+        }
+      }
+    },
+    {
+      "from_id": "op-5",
+      "to_id": "live_specification_site",
+      "relation": "SUBJECT_TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "DATA"
+        }
+      }
+    },
+    {
+      "from_id": "reader",
+      "to_id": "op-6",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "AGENT"
+        }
+      }
+    },
+    {
+      "from_id": "op-6",
+      "to_id": "web",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RESOURCE"
+        }
+      }
+    },
+    {
+      "from_id": "op-6",
+      "to_id": "live_describe",
+      "relation": "SUBJECT_TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "DATA"
+        }
+      }
+    },
+    {
+      "from_id": "reader",
+      "to_id": "op-7",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "AGENT"
+        }
+      }
+    },
+    {
+      "from_id": "op-7",
+      "to_id": "viewer",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RESOURCE"
+        }
+      }
+    },
+    {
+      "from_id": "op-7",
+      "to_id": "demonstration",
+      "relation": "SUBJECT_TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "DATA"
+        }
+      }
+    },
+    {
+      "from_id": "reader",
+      "to_id": "op-8",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "AGENT"
+        }
+      }
+    },
+    {
+      "from_id": "op-8",
+      "to_id": "trl",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RESOURCE"
+        }
+      }
+    },
+    {
+      "from_id": "op-8",
+      "to_id": "coming_language",
+      "relation": "SUBJECT_TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "DATA"
+        }
+      }
+    },
+    {
+      "from_id": "reader",
+      "to_id": "op-9",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "AGENT"
+        }
+      }
+    },
+    {
+      "from_id": "op-9",
+      "to_id": "law",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RESOURCE"
+        }
+      }
+    },
+    {
+      "from_id": "op-9",
+      "to_id": "coming_law",
+      "relation": "SUBJECT_TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "DATA"
+        }
+      }
+    },
+    {
+      "from_id": "reader",
+      "to_id": "op-10",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "AGENT"
+        }
+      }
+    },
+    {
+      "from_id": "op-10",
+      "to_id": "agent_kit",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RESOURCE"
+        }
+      }
+    },
+    {
+      "from_id": "op-10",
+      "to_id": "live_onboarding",
+      "relation": "SUBJECT_TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "DATA"
+        }
+      }
+    }
+  ],
+  "capabilities": {
+    "vocabularies": [
+      "core_v2.0.0"
+    ]
+  }
+}

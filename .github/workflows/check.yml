@@ -1,0 +1,87 @@
+name: Kit checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      bundle_run:
+        description: Run containing the prepared kit-inputs artifact
+        required: true
+      bundle_artifact:
+        description: Offline wheels and public repository checkouts
+        default: kit-inputs
+        required: true
+permissions:
+  contents: read
+jobs:
+  public:
+    if: github.event_name != 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - run: echo "TMPDIR=$RUNNER_TEMP" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare index packages and offline wheels
+        run: |
+          python -m pip install 'trugs-tools==2.4.0' 'trugs-web==2.1.0' 'markdown-it-py>=4.2,<5' build setuptools wheel pytest
+          python -m pip download --only-binary=:all: --dest '${{ runner.temp }}/kit-inputs/wheelhouse' 'trugs-tools==2.4.0' 'trugs-web==2.1.0' 'markdown-it-py>=4.2,<5' build setuptools wheel pytest
+      - name: Prepare public sources at map revisions
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+          destination = Path('${{ runner.temp }}/kit-inputs/repositories')
+          destination.mkdir(parents=True)
+          for row in json.loads(Path('map/repositories.json').read_text()):
+              if row['revision'] is None:
+                  continue
+              repository = row['repository']
+              checkout = destination / repository
+              subprocess.run(['git', 'clone', '--no-checkout',
+                              f'https://github.com/TRUGS-LLC/{repository}.git',
+                              str(checkout)], check=True)
+              subprocess.run(['git', '-C', str(checkout), 'checkout', '--detach',
+                              row['revision']], check=True)
+          PY
+      - name: Check a temporary copy offline
+        run: |
+          python -c "import shutil; shutil.copytree('.', '${{ runner.temp }}/kit-source', ignore=shutil.ignore_patterns('.git'))"
+          cd '${{ runner.temp }}/kit-source'
+          python tools/kit_check.py --repositories '${{ runner.temp }}/kit-inputs/repositories' --wheelhouse '${{ runner.temp }}/kit-inputs/wheelhouse'
+          python -m pytest -p no:cacheprovider installer/tests --repositories '${{ runner.temp }}/kit-inputs/repositories' --wheelhouse '${{ runner.temp }}/kit-inputs/wheelhouse'
+  offline:
+    if: github.event_name == 'workflow_dispatch'
+    permissions:
+      actions: read
+      contents: read
+    runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - run: echo "TMPDIR=$RUNNER_TEMP" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.bundle_artifact }}
+          run-id: ${{ inputs.bundle_run }}
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/kit-inputs
+      - run: python -m pip install --no-index --find-links '${{ runner.temp }}/kit-inputs/wheelhouse' --no-build-isolation trugs-tools==2.4.0 trugs-web==2.1.0 'markdown-it-py>=4.2,<5' build setuptools wheel pytest
+      - name: Check a temporary copy offline
+        run: |
+          python -c "import shutil; shutil.copytree('.', '${{ runner.temp }}/kit-source', ignore=shutil.ignore_patterns('.git'))"
+          cd '${{ runner.temp }}/kit-source'
+          python tools/kit_check.py --repositories '${{ runner.temp }}/kit-inputs/repositories' --wheelhouse '${{ runner.temp }}/kit-inputs/wheelhouse'
+          python -m pytest -p no:cacheprovider installer/tests --repositories '${{ runner.temp }}/kit-inputs/repositories' --wheelhouse '${{ runner.temp }}/kit-inputs/wheelhouse'

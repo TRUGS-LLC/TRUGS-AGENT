@@ -1,0 +1,408 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "type": "PROJECT",
+  "dimension": "system",
+  "dimensions": {
+    "system": {
+      "description": "Compiled TRUG graph: todo-app"
+    }
+  },
+  "nodes": [
+    {
+      "id": "create_todo",
+      "type": "FUNCTION",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_FUNCTION",
+      "dimension": "system"
+    },
+    {
+      "id": "op-1",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "VALIDATE",
+        "verb_subcategory": "obligate"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "input",
+      "type": "RECORD",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RECORD",
+      "dimension": "system"
+    },
+    {
+      "id": "op-2",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "WRITE",
+        "verb_subcategory": "move"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "record-1",
+      "type": "RECORD",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RECORD",
+      "dimension": "system"
+    },
+    {
+      "id": "todos",
+      "type": "DATA",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_DATA",
+      "dimension": "system"
+    },
+    {
+      "id": "op-3",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "WRITE",
+        "verb_subcategory": "move"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "record-2",
+      "type": "RECORD",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RECORD",
+      "dimension": "system"
+    },
+    {
+      "id": "list_todos",
+      "type": "FUNCTION",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_FUNCTION",
+      "dimension": "system"
+    },
+    {
+      "id": "op-4",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "READ",
+        "verb_subcategory": "move"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "record-3",
+      "type": "RECORD",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RECORD",
+      "dimension": "system"
+    },
+    {
+      "id": "op-5",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "FILTER",
+        "verb_subcategory": "transform"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "complete_todo",
+      "type": "FUNCTION",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_FUNCTION",
+      "dimension": "system"
+    },
+    {
+      "id": "op-6",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "MATCH",
+        "verb_subcategory": "control"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "todo",
+      "type": "RECORD",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RECORD",
+      "dimension": "system"
+    },
+    {
+      "id": "op-7",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "WRITE",
+        "verb_subcategory": "move"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "record-4",
+      "type": "RECORD",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RECORD",
+      "dimension": "system"
+    },
+    {
+      "id": "root",
+      "type": "PROJECT",
+      "properties": {},
+      "parent_id": null,
+      "contains": [
+        "create_todo",
+        "op-1",
+        "input",
+        "op-2",
+        "record-1",
+        "todos",
+        "op-3",
+        "record-2",
+        "list_todos",
+        "op-4",
+        "record-3",
+        "op-5",
+        "complete_todo",
+        "op-6",
+        "todo",
+        "op-7",
+        "record-4"
+      ],
+      "metric_level": "BASE_PROJECT",
+      "dimension": "system"
+    }
+  ],
+  "edges": [
+    {
+      "from_id": "create_todo",
+      "to_id": "op-1",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "FUNCTION"
+        }
+      }
+    },
+    {
+      "from_id": "op-1",
+      "to_id": "input",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RECORD"
+        }
+      }
+    },
+    {
+      "from_id": "create_todo",
+      "to_id": "op-2",
+      "relation": "EXECUTES",
+      "properties": {
+        "np_shape": {
+          "noun_type": "FUNCTION"
+        }
+      }
+    },
+    {
+      "from_id": "op-2",
+      "to_id": "record-1",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RECORD",
+          "state": "VALID"
+        }
+      }
+    },
+    {
+      "from_id": "op-2",
+      "to_id": "todos",
+      "relation": "TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "DATA"
+        }
+      }
+    },
+    {
+      "from_id": "op-1",
+      "to_id": "op-2",
+      "relation": "THEN"
+    },
+    {
+      "from_id": "create_todo",
+      "to_id": "op-3",
+      "relation": "SHALL_NOT",
+      "properties": {
+        "np_shape": {
+          "noun_type": "FUNCTION"
+        }
+      }
+    },
+    {
+      "from_id": "op-3",
+      "to_id": "record-2",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RECORD",
+          "state": "INVALID"
+        }
+      }
+    },
+    {
+      "from_id": "list_todos",
+      "to_id": "op-4",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "FUNCTION"
+        }
+      }
+    },
+    {
+      "from_id": "op-4",
+      "to_id": "record-3",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RECORD",
+          "article": "ALL"
+        }
+      }
+    },
+    {
+      "from_id": "op-4",
+      "to_id": "todos",
+      "relation": "FROM",
+      "properties": {
+        "np_shape": {
+          "noun_type": "DATA"
+        }
+      }
+    },
+    {
+      "from_id": "list_todos",
+      "to_id": "op-5",
+      "relation": "EXECUTES",
+      "properties": {
+        "np_shape": {
+          "noun_type": "FUNCTION"
+        }
+      }
+    },
+    {
+      "from_id": "op-5",
+      "to_id": "op-4",
+      "relation": "ACTS_ON",
+      "properties": {
+        "pronoun": "RESULT"
+      }
+    },
+    {
+      "from_id": "op-4",
+      "to_id": "op-5",
+      "relation": "THEN"
+    },
+    {
+      "from_id": "complete_todo",
+      "to_id": "op-6",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "FUNCTION"
+        }
+      }
+    },
+    {
+      "from_id": "op-6",
+      "to_id": "todo",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RECORD"
+        }
+      }
+    },
+    {
+      "from_id": "complete_todo",
+      "to_id": "op-7",
+      "relation": "EXECUTES",
+      "properties": {
+        "np_shape": {
+          "noun_type": "FUNCTION"
+        }
+      }
+    },
+    {
+      "from_id": "op-7",
+      "to_id": "record-4",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RECORD",
+          "state": "VALID"
+        }
+      }
+    },
+    {
+      "from_id": "op-7",
+      "to_id": "todos",
+      "relation": "TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "DATA"
+        }
+      }
+    },
+    {
+      "from_id": "op-6",
+      "to_id": "op-7",
+      "relation": "THEN"
+    }
+  ],
+  "capabilities": {
+    "vocabularies": [
+      "core_v2.0.0"
+    ]
+  }
+}

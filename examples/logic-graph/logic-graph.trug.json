@@ -1,0 +1,344 @@
+{
+  "name": "logic-graph",
+  "version": "1.0.0",
+  "type": "PROJECT",
+  "dimension": "system",
+  "dimensions": {
+    "system": {
+      "description": "Compiled TRUG graph: logic-graph"
+    }
+  },
+  "nodes": [
+    {
+      "id": "handler",
+      "type": "SERVICE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_SERVICE",
+      "dimension": "system"
+    },
+    {
+      "id": "op-1",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "AUTHENTICATE",
+        "verb_subcategory": "move"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "user",
+      "type": "PARTY",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_PARTY",
+      "dimension": "system"
+    },
+    {
+      "id": "op-2",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "READ",
+        "verb_subcategory": "move"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "account",
+      "type": "DATA",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_DATA",
+      "dimension": "system"
+    },
+    {
+      "id": "op-3",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "WRITE",
+        "verb_subcategory": "move"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "output",
+      "type": "ENDPOINT",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_ENDPOINT",
+      "dimension": "system"
+    },
+    {
+      "id": "librarian",
+      "type": "PROCESS",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_PROCESS",
+      "dimension": "system"
+    },
+    {
+      "id": "op-4",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "READ",
+        "verb_subcategory": "move"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "request",
+      "type": "FILE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "op-5",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "MATCH",
+        "verb_subcategory": "control"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "book",
+      "type": "RECORD",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_RECORD",
+      "dimension": "system"
+    },
+    {
+      "id": "op-6",
+      "type": "TRANSFORM",
+      "properties": {
+        "operation": "WRITE",
+        "verb_subcategory": "move"
+      },
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_TRANSFORM",
+      "dimension": "system"
+    },
+    {
+      "id": "receipt",
+      "type": "FILE",
+      "properties": {},
+      "parent_id": "root",
+      "contains": [],
+      "metric_level": "DECI_FILE",
+      "dimension": "system"
+    },
+    {
+      "id": "root",
+      "type": "PROJECT",
+      "properties": {},
+      "parent_id": null,
+      "contains": [
+        "handler",
+        "op-1",
+        "user",
+        "op-2",
+        "account",
+        "op-3",
+        "output",
+        "librarian",
+        "op-4",
+        "request",
+        "op-5",
+        "book",
+        "op-6",
+        "receipt"
+      ],
+      "metric_level": "BASE_PROJECT",
+      "dimension": "system"
+    }
+  ],
+  "edges": [
+    {
+      "from_id": "handler",
+      "to_id": "op-1",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "SERVICE"
+        }
+      }
+    },
+    {
+      "from_id": "op-1",
+      "to_id": "user",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "PARTY"
+        }
+      }
+    },
+    {
+      "from_id": "handler",
+      "to_id": "op-2",
+      "relation": "EXECUTES",
+      "properties": {
+        "np_shape": {
+          "noun_type": "SERVICE"
+        }
+      }
+    },
+    {
+      "from_id": "op-2",
+      "to_id": "account",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "DATA"
+        }
+      }
+    },
+    {
+      "from_id": "handler",
+      "to_id": "op-3",
+      "relation": "EXECUTES",
+      "properties": {
+        "np_shape": {
+          "noun_type": "SERVICE"
+        }
+      }
+    },
+    {
+      "from_id": "op-3",
+      "to_id": "op-2",
+      "relation": "ACTS_ON",
+      "properties": {
+        "pronoun": "RESULT"
+      }
+    },
+    {
+      "from_id": "op-3",
+      "to_id": "output",
+      "relation": "TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "ENDPOINT"
+        }
+      }
+    },
+    {
+      "from_id": "op-1",
+      "to_id": "op-2",
+      "relation": "THEN"
+    },
+    {
+      "from_id": "op-2",
+      "to_id": "op-3",
+      "relation": "THEN"
+    },
+    {
+      "from_id": "librarian",
+      "to_id": "op-4",
+      "relation": "SHALL",
+      "properties": {
+        "np_shape": {
+          "noun_type": "PROCESS"
+        }
+      }
+    },
+    {
+      "from_id": "op-4",
+      "to_id": "request",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "FILE"
+        }
+      }
+    },
+    {
+      "from_id": "librarian",
+      "to_id": "op-5",
+      "relation": "EXECUTES",
+      "properties": {
+        "np_shape": {
+          "noun_type": "PROCESS"
+        }
+      }
+    },
+    {
+      "from_id": "op-5",
+      "to_id": "book",
+      "relation": "ACTS_ON",
+      "properties": {
+        "np_shape": {
+          "noun_type": "RECORD"
+        }
+      }
+    },
+    {
+      "from_id": "librarian",
+      "to_id": "op-6",
+      "relation": "EXECUTES",
+      "properties": {
+        "np_shape": {
+          "noun_type": "PROCESS"
+        }
+      }
+    },
+    {
+      "from_id": "op-6",
+      "to_id": "op-5",
+      "relation": "ACTS_ON",
+      "properties": {
+        "pronoun": "RESULT"
+      }
+    },
+    {
+      "from_id": "op-6",
+      "to_id": "receipt",
+      "relation": "TO",
+      "properties": {
+        "np_shape": {
+          "noun_type": "FILE"
+        }
+      }
+    },
+    {
+      "from_id": "op-4",
+      "to_id": "op-5",
+      "relation": "THEN"
+    },
+    {
+      "from_id": "op-5",
+      "to_id": "op-6",
+      "relation": "THEN"
+    }
+  ],
+  "capabilities": {
+    "vocabularies": [
+      "core_v2.0.0"
+    ]
+  }
+}
