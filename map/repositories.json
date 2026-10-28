@@ -3,7 +3,7 @@
     "repository": "TRUGS",
     "resource": "trugs",
     "group": "live_specification",
-    "role": "Say; specification and four-type overview",
+    "role": "Instruct; specification and four-type overview",
     "revision": "37bb78c7",
     "installation": "Read the repository directly; the specification needs no installation.",
     "instructions": "README.md"
@@ -12,7 +12,7 @@
     "repository": "TRUGS-TOOLS",
     "resource": "tools",
     "group": "live_language_tools",
-    "role": "Say; core language CLI",
+    "role": "Instruct; core language CLI",
     "revision": "a0a4218f",
     "installation": "Python package trugs-tools 2.4.0 provides trug.",
     "instructions": "README.md"
@@ -21,7 +21,7 @@
     "repository": "TRUGS-STORE",
     "resource": "store",
     "group": "live_graph_storage",
-    "role": "Say support; graph storage backends",
+    "role": "Instruct support; graph storage backends",
     "revision": "f363268b",
     "installation": "Python package trugs-store 2.2.0.",
     "instructions": "README.md"
@@ -66,7 +66,7 @@
     "repository": "TRUGS-TRL",
     "resource": "trl",
     "group": "coming_language",
-    "role": "Say; coming, with no date",
+    "role": "Instruct; coming, with no date",
     "revision": null,
     "installation": "Coming; no installation route yet.",
     "instructions": null
@@ -75,7 +75,7 @@
     "repository": "TRUGS-LAW",
     "resource": "law",
     "group": "coming_law",
-    "role": "Say; coming, with no date",
+    "role": "Instruct; coming, with no date",
     "revision": null,
     "installation": "Coming; no installation route yet.",
     "instructions": null
@@ -84,7 +84,7 @@
     "repository": "TRUGS-AGENT",
     "resource": "agent_kit",
     "group": "live_onboarding",
-    "role": "Say support; onboarding kit",
+    "role": "Instruct support; onboarding kit",
     "revision": null,
     "installation": "Install trugs-agent 2.0.0 from the Python package index.",
     "instructions": "AGENTS.md"
