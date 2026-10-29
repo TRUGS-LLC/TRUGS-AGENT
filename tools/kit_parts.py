@@ -194,7 +194,7 @@ def maps(root, scratch, write, repositories=None):
             raise ValueError("missing repository binding: " + repo)
         if repo in ("TRUGS-TRL", "TRUGS-LAW") and (
             row["instructions"] is not None
-            or row["role"] != "Say; coming, with no date"
+            or row["role"] != "Instruct; coming, with no date"
         ):
             raise ValueError("coming repository binding differs")
         if (

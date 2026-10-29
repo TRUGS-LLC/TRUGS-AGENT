@@ -16,8 +16,8 @@
         "path": ".",
         "name": ".",
         "kind": "folder",
-        "size": 252144,
-        "sha256": "d2d9042c505fb48c10a0671d4451617c449d878689eaa7f255ea57b6250135cb",
+        "size": 252270,
+        "sha256": "d2cd1e22caff0c1538889aa3b23acbf461c5e1ce2fade9cce88a12ca16e4321a",
         "unread": [
           {
             "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -466,8 +466,8 @@
         "path": "README.md",
         "name": "README.md",
         "kind": "md",
-        "size": 3752,
-        "sha256": "dff50f503b5cb71d694e79ca5ea95176ec4306c1267915df02f6b7042bf9c9d0",
+        "size": 3813,
+        "sha256": "68e0e51052cc8cc0a4e604ed7f0b9c5ff8386cb4319716c9166bc7804b9da9e1",
         "title": "TRUGS onboarding kit"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
@@ -2098,8 +2098,8 @@
         "path": "map",
         "name": "map",
         "kind": "folder",
-        "size": 21156,
-        "sha256": "65bf5adea13134cc5093a2230bb0bbbdd23cd8f02b2cc6481de2868d9bc8d484"
+        "size": 21216,
+        "sha256": "e505815007b75c5ad3a1d5e193626fa670c979303dd61f006d09fa56bcc30fa9"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
@@ -2118,8 +2118,8 @@
         "path": "map/README.md",
         "name": "map/README.md",
         "kind": "md",
-        "size": 3396,
-        "sha256": "4e93c0336c2cf45758630201c18472b62a4c9016d2bb55ab257008b08383af52",
+        "size": 3426,
+        "sha256": "f5f0dbf85263dd8dccf3c374f09215ffe21f74aaddd8a8e78b6b979284f50333",
         "title": "Published repository map"
       },
       "parent_id": "module_60be9861750facbfad8758254a2f76c0cfe78d54459a3bc187d49b1401fcd8e8",
@@ -2164,8 +2164,8 @@
         "path": "map/repositories.json",
         "name": "map/repositories.json",
         "kind": "json",
-        "size": 2916,
-        "sha256": "846d2698ff3cb2a73cc203de986b2e915e14cb0b7dbd2ee2bbc6eff1601ae8cc"
+        "size": 2946,
+        "sha256": "1ab77ddb9cc2759b4190d8076dae906ad454c08d84b8d144a41d4b4a1e1eb09f"
       },
       "parent_id": "module_60be9861750facbfad8758254a2f76c0cfe78d54459a3bc187d49b1401fcd8e8",
       "contains": [],
@@ -2179,8 +2179,8 @@
         "path": "tools",
         "name": "tools",
         "kind": "folder",
-        "size": 41464,
-        "sha256": "79b487c361e552be84e257fa79cee7dc02ac4aa63877d8a8f73a0cc740ce1057"
+        "size": 41469,
+        "sha256": "4d1fe102c4ffab179345f327177d7ec3d06d5ce1f1ccf5d07c7f5f933b30177d"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
@@ -2245,8 +2245,8 @@
         "path": "tools/kit_parts.py",
         "name": "tools/kit_parts.py",
         "kind": "py",
-        "size": 18797,
-        "sha256": "4a10499fcc43d4f13e84714fb0ea4eaa58e836406ca40047561dd963bd70df6c"
+        "size": 18802,
+        "sha256": "28abc69368e030d918e7c8757032cb6913de039d1c4df37f944b765ade5bb956"
       },
       "parent_id": "module_f9d35d43770d39092a663e665e82ae1d84a9e0da3d0d10c407acada6a40cd281",
       "contains": [],
