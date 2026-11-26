@@ -18,9 +18,10 @@ that an agent or a program obeys the instruction.
 ## Four types
 
 **Describe** maps sources into graphs. **Instruct** states what must be done as sentences that compile to graphs.
-**Compute** represents calculations as graphs. **Govern** uses graphs to govern
-work; its runner is coming. Read the [specification](https://github.com/TRUGS-LLC/TRUGS)
-for depth. The calculator has its own compute vocabulary and compiler.
+**Compute** represents calculations as graphs. **Govern** uses graphs to govern work; its runner,
+[TRUGS-RUNNER](https://github.com/TRUGS-LLC/TRUGS-RUNNER), offers and records actions against a fixed graph. Read
+the [specification](https://github.com/TRUGS-LLC/TRUGS) for depth. The calculator has its own compute vocabulary
+and compiler.
 
 ## Install
 
@@ -88,8 +89,10 @@ the installed tools version changes.
 ## What is published and what is coming
 
 This kit's onboarding page is served at https://trugs.ai/onboard/. TRUGS-VIEWER is a
-demonstration, not in active development. TRUGS-TRL, TRUGS-LAW and the Govern runner are coming,
-with no date. The [fixed tasks](eval/README.md) support clean-machine evaluation.
+demonstration, not in active development. The Govern runner is public as
+[TRUGS-RUNNER](https://github.com/TRUGS-LLC/TRUGS-RUNNER), and trugs-runner 0.1.0 is on the
+[Python package index](https://pypi.org/project/trugs-runner/). TRUGS-TRL and TRUGS-LAW are
+coming, with no date. The [fixed tasks](eval/README.md) support clean-machine evaluation.
 
 ## Scope and licence
 

@@ -20,6 +20,8 @@ The map points to each repository; it does not copy its instructions.
 
 The revisions identify the sources for the published packages and repositories.
 Install the language tools in the entry's stated range; the map records the 2.4.0
-source used to check this kit. The viewer opens generated graphs in a browser.
-For a repository with no separate agent instructions, its own README is the entry.
-The Govern runner is coming, with no repository or date promised here.
+source used to check this kit. The viewer opens generated graphs in a browser. For
+a repository with no separate agent instructions, its own README is the entry. The
+Govern runner is [TRUGS-RUNNER](https://github.com/TRUGS-LLC/TRUGS-RUNNER), which
+offers and records actions against a fixed graph; trugs-runner 0.1.0 is on the
+[Python package index](https://pypi.org/project/trugs-runner/).
