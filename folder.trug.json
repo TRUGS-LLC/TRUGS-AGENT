@@ -16,8 +16,8 @@
         "path": ".",
         "name": ".",
         "kind": "folder",
-        "size": 252270,
-        "sha256": "d2cd1e22caff0c1538889aa3b23acbf461c5e1ce2fade9cce88a12ca16e4321a",
+        "size": 252695,
+        "sha256": "02b4ae7bba4409c35b4f3ce4082edd8439ad747b019dcdab32fc87a15e7dfd30",
         "unread": [
           {
             "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -466,8 +466,8 @@
         "path": "README.md",
         "name": "README.md",
         "kind": "md",
-        "size": 3813,
-        "sha256": "68e0e51052cc8cc0a4e604ed7f0b9c5ff8386cb4319716c9166bc7804b9da9e1",
+        "size": 4080,
+        "sha256": "caeb450924a63ccf31a1821af081b64a7d69c13f446c934428d4f91b95ce37aa",
         "title": "TRUGS onboarding kit"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
@@ -2098,8 +2098,8 @@
         "path": "map",
         "name": "map",
         "kind": "folder",
-        "size": 21216,
-        "sha256": "e505815007b75c5ad3a1d5e193626fa670c979303dd61f006d09fa56bcc30fa9"
+        "size": 21374,
+        "sha256": "214529eb4aa4f81449a3646494056d7c5156485931afe82132ba14978a48a330"
       },
       "parent_id": "module_cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "contains": [
@@ -2118,8 +2118,8 @@
         "path": "map/README.md",
         "name": "map/README.md",
         "kind": "md",
-        "size": 3426,
-        "sha256": "f5f0dbf85263dd8dccf3c374f09215ffe21f74aaddd8a8e78b6b979284f50333",
+        "size": 3584,
+        "sha256": "61b7dac90bade33b9f105178ae0a90045c9d37c698d718f84d79b96b2da4ec37",
         "title": "Published repository map"
       },
       "parent_id": "module_60be9861750facbfad8758254a2f76c0cfe78d54459a3bc187d49b1401fcd8e8",
@@ -2390,6 +2390,17 @@
       "dimension": "system"
     },
     {
+      "id": "resource_530b1a99939a3ea825ccc9c700c4a5c70d14ecc134e9bb54a0cadc101d3370a9",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://github.com/TRUGS-LLC/TRUGS-RUNNER"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
       "id": "resource_5b61a36413771a98c3b15d86534da21ea706aa2c3c70846b835b4427925b552a",
       "type": "RESOURCE",
       "properties": {
@@ -2548,6 +2559,17 @@
       "type": "RESOURCE",
       "properties": {
         "address": "https://github.com/TRUGS-LLC/TRUGS"
+      },
+      "parent_id": null,
+      "contains": [],
+      "metric_level": "BASE_RESOURCE",
+      "dimension": "system"
+    },
+    {
+      "id": "resource_bb48e1a09d832eca0101bdca4d6ca7f8645292498abde1e88a089ceef44462fa",
+      "type": "RESOURCE",
+      "properties": {
+        "address": "https://pypi.org/project/trugs-runner/"
       },
       "parent_id": null,
       "contains": [],
@@ -2855,6 +2877,11 @@
     },
     {
       "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_530b1a99939a3ea825ccc9c700c4a5c70d14ecc134e9bb54a0cadc101d3370a9",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
       "to_id": "resource_5b61a36413771a98c3b15d86534da21ea706aa2c3c70846b835b4427925b552a",
       "relation": "REFERENCES"
     },
@@ -2891,6 +2918,11 @@
     {
       "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
       "to_id": "resource_b9fd28e0e0b9c3e21f6605b406e4ebec5dcfb006a3050a2191ec9ac70ea1fc68",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_8eaf7b66fd4e793f0cd316368ace068b044a4e73647fe9c140d4e59319cb2194",
+      "to_id": "resource_bb48e1a09d832eca0101bdca4d6ca7f8645292498abde1e88a089ceef44462fa",
       "relation": "REFERENCES"
     },
     {
@@ -3095,7 +3127,17 @@
     },
     {
       "from_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+      "to_id": "resource_530b1a99939a3ea825ccc9c700c4a5c70d14ecc134e9bb54a0cadc101d3370a9",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
       "to_id": "resource_b9fd28e0e0b9c3e21f6605b406e4ebec5dcfb006a3050a2191ec9ac70ea1fc68",
+      "relation": "REFERENCES"
+    },
+    {
+      "from_id": "file_b335630551682c19a781afebcf4d07bf978fb1f8ac04c6bf87428ed5106870f5",
+      "to_id": "resource_bb48e1a09d832eca0101bdca4d6ca7f8645292498abde1e88a089ceef44462fa",
       "relation": "REFERENCES"
     },
     {
